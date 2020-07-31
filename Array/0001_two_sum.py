@@ -1,11 +1,10 @@
 class Solution:
-    def twoSum(self, nums, target):
+    def twoSum(self, nums: list, target: int) -> list:
         count = {}
         for i in range(len(nums)):
-            if nums[i] in count.keys():
+            if nums[i] in count:
                 return [count[nums[i]], i]
             count[target - nums[i]] = i
-        return []
 
 
 def test_two_sum():
