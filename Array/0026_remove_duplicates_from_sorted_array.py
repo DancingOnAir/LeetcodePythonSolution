@@ -1,9 +1,9 @@
 class Solution:
     def removeDuplicates(self, nums: list) -> int:
         res = 1
-        for i in range(len(nums) - 1):
-            if nums[i] != nums[i + 1]:
-                nums[res] = nums[i + 1]
+        for i in range(1, len(nums)):
+            if nums[res - 1] != nums[i]:
+                nums[res] = nums[i]
                 res += 1
         return res
 
