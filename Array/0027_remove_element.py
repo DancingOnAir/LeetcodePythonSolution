@@ -1,9 +1,21 @@
 class Solution:
+    # exception
     def removeElement(self, nums: list, val: int) -> int:
+        while True:
+            try:
+                nums.remove(val)
+            except ValueError:
+                break
+
+        return len(nums)
+
+    # list comprehension
+    def removeElement1(self, nums: list, val: int) -> int:
         nums[:] = [i for i in nums if i != val]
         return len(nums)
 
-    def removeElement1(self, nums: list, val: int) -> int:
+    # enumerate
+    def removeElement2(self, nums: list, val: int) -> int:
         res = 0
         for i, v in enumerate(nums):
             if v != val:
@@ -12,7 +24,7 @@ class Solution:
         nums = nums[: res]
         return res
 
-    def removeElement2(self, nums: list, val: int) -> int:
+    def removeElement3(self, nums: list, val: int) -> int:
         res = 0
         for i in range(len(nums)):
             if nums[i] != val:
