@@ -1,7 +1,13 @@
+import numpy as np
+
+
 class Solution:
     def findMedianSortedArrays(self, nums1: list, nums2: list) -> float:
+        return np.median(sorted(nums1 + nums2))
+
+    def findMedianSortedArrays1(self, nums1: list, nums2: list) -> float:
         nums = nums1 + nums2
-        nums = sorted(nums)
+        nums.sort()
 
         n = len(nums)
         if n & 1:
