@@ -47,9 +47,10 @@ class Solution:
         nums.sort()
 
         n = len(nums)
+        i = n // 2
         if n & 1:
-            return nums[n // 2]
-        return (nums[n // 2 - 1] + nums[n // 2]) * 0.5
+            return nums[i]
+        return (nums[i - 1] + nums[i]) * 0.5
 
 
 def test_find_median_sorted_arrays():
