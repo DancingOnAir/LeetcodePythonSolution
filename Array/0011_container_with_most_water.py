@@ -1,13 +1,17 @@
 class Solution:
     # max_area = max(min(height1, height2) * (x2 - x1))
     def maxArea(self, height: list) -> int:
-        n = len(height)
-
+        left, right = 0, len(height) - 1
         res = 0
-        for i, h1 in enumerate(height):
-            for j, h2 in enumerate(height[i + 1:], start=i + 1):
-                res = max(res, min(h1, h2) * (j - i))
 
+        while left < right:
+            if height[left] < height[right]:
+                area = height[left] * (right - left)
+                left += 1
+            else:
+                area = height[right] * (right - left)
+                right -= 1
+            res = max(res, area)
         return res
 
 
