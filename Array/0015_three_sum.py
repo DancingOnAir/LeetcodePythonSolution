@@ -1,8 +1,33 @@
 from typing import List
+import bisect
 
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        d = {}
+        for i in nums:
+            d[i] = d.get(i, 0) + 1
+        nums = sorted(d)
+
+        res = []
+        for i, v in enumerate(nums):
+            if not v:
+                if d[v] > 2:
+                    res.append([0, 0, 0])
+            elif d[v] > 1 and -2 * v in d:
+                res.append([v, v, -2 * v])
+
+            if v < 0:
+                rest = -v
+                left = bisect.bisect_left(nums, rest - nums[-1], i + 1)
+                right = bisect.bisect_right(nums, rest // 2, left)
+                for j in nums[left: right]:
+                    k = rest - j
+                    if k in d and k != j:
+                        res.append([v, k, j])
+        return res
+
+    def threeSum1(self, nums: List[int]) -> List[List[int]]:
         nums = sorted(nums)
 
         res = []
