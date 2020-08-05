@@ -5,20 +5,24 @@ import sys
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums = sorted(nums)
-        d = {}
+        res = sum(nums[:3])
         for i in range(len(nums) - 2):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+
             left, right = i + 1, len(nums) - 1
             while left < right:
-                temp = nums[i] + nums[left] + nums[right] - target
-                if temp > 0:
-                    right -= 1
-                elif temp < 0:
+                cur_sum = nums[i] + nums[left] + nums[right]
+                if cur_sum == target:
+                    return cur_sum
+                elif abs(cur_sum - target) < abs(res - target):
+                    res = cur_sum
+
+                if cur_sum < target:
                     left += 1
                 else:
-                    return temp + target
-
-                d[abs(temp)] = temp + target
-        return d[min(d)]
+                    right -= 1
+        return res
 
 
 def test_three_sum_closest():
