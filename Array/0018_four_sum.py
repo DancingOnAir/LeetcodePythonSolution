@@ -9,10 +9,15 @@ class Solution:
         res = []
 
         for i in range(n - 3):
+            if target < nums[i] * 4 or target > nums[-1] * 4:
+                break
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
 
             for j in range(i + 1, n - 2):
+                if target - nums[i] < nums[j] * 3 or target - nums[i] > nums[-1] * 3:
+                    break
+
                 rest = target - nums[i] - nums[j]
                 left, right = j + 1, n - 1
 
