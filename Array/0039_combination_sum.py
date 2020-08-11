@@ -2,23 +2,23 @@ from typing import List
 
 
 class Solution:
-    # def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-    #     res = []
-    #     candidates.sort()
-    #
-    #     def dfs(target, path, idx):
-    #         if not target:
-    #             res.append(path[:])
-    #             return
-    #
-    #         for i, val in enumerate(candidates[idx:]):
-    #             if target >= val:
-    #                 dfs(target - val, path + [val], idx + i)
-    #             else:
-    #                 break
-    #
-    #     dfs(target, [], 0)
-    #     return res
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        res = []
+        candidates.sort()
+
+        def dfs(target, path, idx):
+            if not target:
+                res.append(path[:])
+                return
+
+            for i, val in enumerate(candidates[idx:]):
+                if target >= val:
+                    dfs(target - val, path + [val], idx + i)
+                else:
+                    break
+
+        dfs(target, [], 0)
+        return res
 
 
     def backtrack(self, candidates: List[int], target: int, res: List[List[int]], temp: List[int], depth: int, sum: int) -> None:
