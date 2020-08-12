@@ -20,7 +20,6 @@ class Solution:
         dfs(target, [], 0)
         return res
 
-
     def backtrack(self, candidates: List[int], target: int, res: List[List[int]], temp: List[int], depth: int, sum: int) -> None:
         if depth >= len(candidates):
             return
@@ -53,9 +52,9 @@ class Solution:
 def test_combination_sum():
     solution = Solution()
 
-    candidates1 = [2, 3, 6, 7]
-    target1 = 7
-    print(solution.combinationSum(candidates1, target1))
+    # candidates1 = [2, 3, 6, 7]
+    # target1 = 7
+    # print(solution.combinationSum(candidates1, target1))
 
     candidates2 = [2, 3, 5]
     target2 = 8
