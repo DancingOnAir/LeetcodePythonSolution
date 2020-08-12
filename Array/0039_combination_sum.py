@@ -6,6 +6,24 @@ class Solution:
         res = []
         candidates.sort()
 
+        def helper(candidates, target, path):
+            if not target:
+                res.append(path[:])
+                return
+
+            for i, val in enumerate(candidates):
+                if target < val:
+                    break
+
+                helper(candidates[i:], target - val, path + [val])
+
+        helper(candidates, target, [])
+        return res
+
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        res = []
+        candidates.sort()
+
         def dfs(target, path, idx):
             if not target:
                 res.append(path[:])
