@@ -2,8 +2,20 @@ from typing import List
 
 
 class Solution:
-    # two pointer
+    # math calculates area
     def trap(self, height: List[int]) -> int:
+        if len(height) < 3:
+            return 0
+
+        left_max, right_max, res = 0, 0, 0
+        for i in range(len(height)):
+            left_max = max(left_max, height[i])
+            right_max = max(right_max, height[-1 - i])
+            res += left_max + right_max - height[i]
+        return res - left_max * len(height)
+
+    # two pointer
+    def trap1(self, height: List[int]) -> int:
         if len(height) < 3:
             return 0
 
@@ -23,7 +35,7 @@ class Solution:
         return res
 
     # brute force but TLE
-    def trap1(self, height: List[int]) -> int:
+    def trap2(self, height: List[int]) -> int:
         if len(height) < 3:
             return 0
 
