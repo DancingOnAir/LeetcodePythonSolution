@@ -2,8 +2,29 @@ from typing import List
 
 
 class Solution:
-    # math calculates area
+    # stack
     def trap(self, height: List[int]) -> int:
+        if len(height) < 3:
+            return 0
+
+        idx, res = 0, 0
+        stack = []
+        while idx < len(height):
+            while stack and height[idx] > height[stack[-1]]:
+                top = stack.pop()
+                if not len(stack):
+                    break
+                h = min(height[stack[-1]], height[idx]) - height[top]
+                dist = idx - stack[-1] - 1
+
+                res += dist * h
+
+            stack.append(idx)
+            idx += 1
+        return res
+
+    # math calculates area
+    def trap1(self, height: List[int]) -> int:
         if len(height) < 3:
             return 0
 
@@ -15,7 +36,7 @@ class Solution:
         return res - left_max * len(height)
 
     # two pointer
-    def trap1(self, height: List[int]) -> int:
+    def trap2(self, height: List[int]) -> int:
         if len(height) < 3:
             return 0
 
@@ -35,7 +56,7 @@ class Solution:
         return res
 
     # brute force but TLE
-    def trap2(self, height: List[int]) -> int:
+    def trap3(self, height: List[int]) -> int:
         if len(height) < 3:
             return 0
 
