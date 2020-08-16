@@ -2,17 +2,29 @@ from typing import List
 
 
 class Solution:
+    # transpose first then reverse
     def rotate(self, matrix: List[List[int]]) -> None:
+        if not matrix:
+            return
+
+        for row in range(len(matrix)):
+            for col in range(row + 1, len(matrix)):
+                matrix[row][col], matrix[col][row] = matrix[col][row], matrix[row][col]
+
+        for i, row in enumerate(matrix):
+            matrix[i].reverse()
+
+    # reverse first, then transpose
+    def rotate1(self, matrix: List[List[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
         """
         if not matrix:
             return
-        n = len(matrix)
-        matrix.reverse()
 
-        for row in range(n):
-            for col in range(row + 1, n):
+        matrix.reverse()
+        for row in range(len(matrix)):
+            for col in range(row + 1, len(matrix)):
                 matrix[row][col], matrix[col][row] = matrix[col][row], matrix[row][col]
 
 
