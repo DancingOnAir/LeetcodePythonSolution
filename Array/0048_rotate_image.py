@@ -2,8 +2,17 @@ from typing import List
 
 
 class Solution:
-    # transpose first then reverse
+    # zip
     def rotate(self, matrix: List[List[int]]) -> None:
+        if not matrix:
+            return
+
+        transposed = zip(*matrix)
+        for i, row in enumerate(transposed):
+            matrix[i] = reversed(row)
+
+    # transpose first then reverse
+    def rotate2(self, matrix: List[List[int]]) -> None:
         if not matrix:
             return
 
