@@ -2,8 +2,11 @@ from typing import List
 
 
 class Solution:
-    # zip
     def rotate(self, matrix: List[List[int]]) -> None:
+        matrix[:] = [r[::-1] for r in zip(*matrix)]
+
+    # zip
+    def rotate3(self, matrix: List[List[int]]) -> None:
         if not matrix:
             return
 
@@ -32,6 +35,7 @@ class Solution:
             return
 
         matrix.reverse()
+        print(matrix)
         for row in range(len(matrix)):
             for col in range(row + 1, len(matrix)):
                 matrix[row][col], matrix[col][row] = matrix[col][row], matrix[row][col]
