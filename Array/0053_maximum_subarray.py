@@ -6,6 +6,17 @@ class Solution:
         if not nums:
             return 0
 
+        res, local_max = float('-inf'), float('-inf')
+        for num in nums:
+            local_max = max(num, local_max + num)
+            res = max(res, local_max)
+
+        return res
+
+    def maxSubArray2(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+
         res = nums[0]
         for i in range(1, len(nums)):
             if nums[i - 1] > 0:
