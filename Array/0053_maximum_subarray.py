@@ -6,6 +6,18 @@ class Solution:
         if not nums:
             return 0
 
+        res = nums[0]
+        for i in range(1, len(nums)):
+            if nums[i - 1] > 0:
+                nums[i] += nums[i - 1]
+
+            res = max(res, nums[i])
+        return res
+
+    def maxSubArray1(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+
         res, sub_array_sum = float('-inf'), 0
         for i, val in enumerate(nums):
             sub_array_sum += val
