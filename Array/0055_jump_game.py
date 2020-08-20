@@ -1,8 +1,14 @@
 from typing import List
+from functools import reduce
 
 
 class Solution:
+    # reduce
     def canJump(self, nums: List[int]) -> bool:
+        return reduce(lambda m, i_val: max(m, i_val[0] + i_val[1]) * (i_val[0] <= m), enumerate(nums, 1), 1) > 0
+
+    # go forwarding
+    def canJump1(self, nums: List[int]) -> bool:
         max_right = 0
         for i, val in enumerate(nums):
             if i > max_right:
