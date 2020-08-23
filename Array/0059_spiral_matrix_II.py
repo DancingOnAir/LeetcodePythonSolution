@@ -2,8 +2,17 @@ from typing import List
 
 
 class Solution:
-    # walk the spiral
+    # build it inside-out
     def generateMatrix(self, n: int) -> List[List[int]]:
+        res, lo = [], n * n + 1
+        while lo > 1:
+            lo, hi = lo - len(res), lo
+            res = [list(range(lo, hi))] + [*zip(*res[::-1])]
+
+        return res
+
+    # walk the spiral
+    def generateMatrix2(self, n: int) -> List[List[int]]:
         res = [[0] * n for _ in range(n)]
         i, j, di, dj = 0, 0, 0, 1
         for k in range(n * n):
