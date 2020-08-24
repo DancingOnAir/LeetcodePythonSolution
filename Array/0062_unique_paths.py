@@ -1,8 +1,14 @@
 from typing import List
+import math
 
 
 class Solution:
+    # math solution
     def uniquePaths(self, m: int, n: int) -> int:
+        return math.factorial(m + n - 2) // math.factorial(m - 1) // math.factorial(n - 1)
+
+    # 1d dp
+    def uniquePaths2(self, m: int, n: int) -> int:
         dp = [1] * m
         for _ in range(1, n):
             for j in range(1, m):
@@ -10,6 +16,7 @@ class Solution:
 
         return dp[m - 1]
 
+    # 2d dp
     def uniquePaths1(self, m: int, n: int) -> int:
         dp = [[0] * (m + 1) for _ in range(n + 1)]
         for i in range(1, n + 1):
