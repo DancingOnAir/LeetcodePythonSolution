@@ -30,7 +30,7 @@ class Solution:
                 else:
                     dp[i][j] = dp[i][j - 1] + dp[i - 1][j]
 
-        return dp[m - 1][n - 1]
+        return dp[-1][-1]
 
     # 1d dp
     def uniquePathsWithObstacles1(self, obstacleGrid: List[List[int]]) -> int:
