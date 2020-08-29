@@ -1,8 +1,20 @@
 from typing import List
-
+import bisect
 
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        if not matrix:
+            return 0
+
+        i = bisect.bisect(matrix, [target])
+        if i < len(matrix) and matrix[i][0] == target:
+            return True
+
+        row = matrix[i - 1]
+        j = bisect.bisect_left(row, target)
+        return j < len(row) and row[j] == target
+
+    def searchMatrix2(self, matrix: List[List[int]], target: int) -> bool:
         m = len(matrix)
         if not m:
             return 0
