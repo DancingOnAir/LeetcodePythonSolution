@@ -11,6 +11,28 @@ class Solution:
         if not n:
             return 0
 
+        left, right = 0, m * n - 1
+        while left <= right:
+            mid = left + (right - left) // 2
+            temp = matrix[mid // n][mid % n]
+            if temp == target:
+                return True
+            elif temp < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return False
+
+    def searchMatrix1(self, matrix: List[List[int]], target: int) -> bool:
+        m = len(matrix)
+        if not m:
+            return 0
+
+        n = len(matrix[0])
+        if not n:
+            return 0
+
         for i in range(m):
             if matrix[i][0] <= target <= matrix[i][-1] and target in matrix[i]:
                 return True
