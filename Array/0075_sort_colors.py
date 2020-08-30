@@ -2,7 +2,8 @@ from typing import List
 
 
 class Solution:
-    def sortColors(self, nums: List[int]) -> None:
+    # one pass solution
+    def sortColors1(self, nums: List[int]) -> None:
         left, cur, right = 0, 0, len(nums) - 1
         while cur <= right:
             if nums[cur] == 0:
@@ -15,11 +16,23 @@ class Solution:
             else:
                 cur += 1
 
-    def sortColors1(self, nums: List[int]) -> None:
+    # count sort
+    def sortColors(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
-        nums.sort()
+        count_red = count_white = count_blue = 0
+        for i, val in enumerate(nums):
+            if val == 0:
+                count_red += 1
+            elif val == 1:
+                count_white += 1
+            else:
+                count_blue += 1
+
+        nums[:count_red] = [0] * count_red
+        nums[count_red:count_red + count_white] = [1] * count_white
+        nums[count_red + count_white:] = [2] * count_blue
 
 
 def test_sort_colors():
@@ -29,6 +42,9 @@ def test_sort_colors():
     solution.sortColors(nums1)
     print(nums1)
 
+    nums2 = [0]
+    solution.sortColors(nums2)
+    print(nums2)
 
 if __name__ == '__main__':
     test_sort_colors()
