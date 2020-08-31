@@ -46,5 +46,6 @@ def test_sort_colors():
     solution.sortColors(nums2)
     print(nums2)
 
+
 if __name__ == '__main__':
     test_sort_colors()
