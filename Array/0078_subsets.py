@@ -3,6 +3,12 @@ from typing import List
 
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
+        res = [[]]
+        for num in nums:
+            res += [i + [num] for i in res]
+        return res
+
+    def subsets1(self, nums: List[int]) -> List[List[int]]:
         if not nums:
             return []
 
