@@ -3,7 +3,13 @@ from itertools import combinations
 
 
 class Solution:
+    # bit mask solution
     def subsets(self, nums: List[int]) -> List[List[int]]:
+        return [[nums[i] for i in range(len(nums)) if mask >> i & 1]
+                for mask in range(2 ** len(nums))]
+
+    # itertool lib solution
+    def subsets3(self, nums: List[int]) -> List[List[int]]:
         return [list(s) for n in range(len(nums) + 1) for s in combinations(nums, n)]
 
     def subsets2(self, nums: List[int]) -> List[List[int]]:
