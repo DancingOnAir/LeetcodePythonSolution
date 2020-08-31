@@ -1,8 +1,12 @@
 from typing import List
+from itertools import combinations
 
 
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
+        return [list(s) for n in range(len(nums) + 1) for s in combinations(nums, n)]
+
+    def subsets2(self, nums: List[int]) -> List[List[int]]:
         res = [[]]
         for num in nums:
             res += [i + [num] for i in res]
