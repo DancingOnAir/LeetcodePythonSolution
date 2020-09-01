@@ -6,28 +6,27 @@ class Solution:
         m = len(board)
         if not m:
             return False
-
         n = len(board[0])
-        marked = [[False] * n for _ in range(m)]
 
-        def helper(x, y, idx, marked):
-            if idx == len(word):
-                return True
-
-            if x < 0 or x >= m or y < 0 or y >= n or board[x][y] != word[idx] or marked[x][y]:
+        def backtrack(i, j, idx):
+            char = board[i][j]
+            if char != word[idx]:
                 return False
 
-            marked[x][y] = True
-            if helper(x, y - 1, idx + 1, marked) or \
-                    helper(x, y + 1, idx + 1, marked) or \
-                    helper(x - 1, y, idx + 1, marked) or \
-                    helper(x + 1, y, idx + 1, marked):
+            if idx == len(word) - 1:
                 return True
-            marked[x][y] = False
+
+            board[i][j] = ''
+            for x, y in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+                if 0 <= i + x < m and 0 <= j + y < n and backtrack(i + x, j + y, idx + 1):
+                    return True
+
+            board[i][j] = char
+            return False
 
         for i in range(m):
             for j in range(n):
-                if helper(i, j, 0, marked):
+                if backtrack(i, j, 0):
                     return True
 
         return False
