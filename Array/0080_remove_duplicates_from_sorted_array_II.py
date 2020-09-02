@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
+        i = 0
+        for n in nums:
+            if i < 2 or n > nums[i - 2]:
+                nums[i] = n
+                i += 1
+        return i
+
+    def removeDuplicates1(self, nums: List[int]) -> int:
         count = 1
         for i in range(len(nums) - 2, -1, -1):
             if nums[i] == nums[i + 1]:
