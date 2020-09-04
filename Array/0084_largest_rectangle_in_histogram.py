@@ -15,6 +15,7 @@ class Solution:
                 w = i - stk[-1] - 1
                 res = max(res, w * h)
             stk.append(i)
+        heights.pop()
 
         return res
 
