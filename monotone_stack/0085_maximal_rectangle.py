@@ -23,7 +23,7 @@ class Solution:
         for i in range(len(matrix)):
             for j in range(len(matrix[0])):
                 dp[j] = dp[j] + 1 if matrix[i][j] == "1" else 0
-                res = max(res, self.get_largest_rectangle_area(dp))
+            res = max(res, self.get_largest_rectangle_area(dp))
         return res
 
 
@@ -36,6 +36,9 @@ def test_maximal_rectangle():
                ["1", "0", "0", "1", "0"]]
     print(solution.maximalRectangle(matrix1))
 
+    matrix2 = [["0", "1"],
+               ["1", "0"]]
+    print(solution.maximalRectangle(matrix2))
 
 if __name__ == '__main__':
     test_maximal_rectangle()
