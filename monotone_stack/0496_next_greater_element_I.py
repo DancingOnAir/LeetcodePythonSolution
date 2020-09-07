@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        greater, stk = {}, []
+        for num in nums2:
+            while stk and stk[-1] < num:
+                greater[stk.pop()] = num
+            stk.append(num)
+        return [greater[num] if num in greater else -1 for num in nums1]
+
+    def nextGreaterElement1(self, nums1: List[int], nums2: List[int]) -> List[int]:
         if not nums1 or not nums2:
             return []
 
