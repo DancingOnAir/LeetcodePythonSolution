@@ -7,20 +7,16 @@ class Solution:
         if len(height) < 3:
             return 0
 
-        idx, res = 0, 0
-        stack = []
-        while idx < len(height):
-            while stack and height[idx] > height[stack[-1]]:
-                top = stack.pop()
-                if not len(stack):
-                    break
-                h = min(height[stack[-1]], height[idx]) - height[top]
-                dist = idx - stack[-1] - 1
-
-                res += dist * h
-
-            stack.append(idx)
-            idx += 1
+        stk = []
+        res = 0
+        for i in range(len(height)):
+            while stk and height[stk[-1]] < height[i]:
+                tmp = height[stk.pop()]
+                if stk:
+                    h = min(height[stk[-1]], height[i]) - tmp
+                    w = i - stk[-1] - 1
+                    res += w * h
+            stk.append(i)
         return res
 
     # math calculates area
