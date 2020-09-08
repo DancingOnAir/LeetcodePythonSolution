@@ -3,6 +3,22 @@ from typing import List
 
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
+        stk = []
+        n = len(num)
+
+        for i in range(n):
+            while k and stk and stk[-1] > num[i]:
+                stk.pop()
+                k -= 1
+            stk.append(num[i])
+
+        while k:
+            stk.pop()
+            k -= 1
+
+        return ''.join(stk).lstrip('0') or '0'
+
+    def removeKdigits1(self, num: str, k: int) -> str:
         nums = [int(i) for i in num]
         stk = []
         for num in nums:
@@ -11,7 +27,7 @@ class Solution:
                 k -= 1
             stk.append(num)
 
-        while k and stk:
+        while k:
             stk.pop()
             k -= 1
 
