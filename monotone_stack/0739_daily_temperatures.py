@@ -3,6 +3,17 @@ from typing import List
 
 class Solution:
     def dailyTemperatures(self, T: List[int]) -> List[int]:
+        res = [0] * len(T)
+        stk = []
+
+        for i in range(len(T)):
+            while stk and T[i] > T[stk[-1]]:
+                cur = stk.pop()
+                res[cur] = i - cur
+            stk.append(i)
+        return res
+
+    def dailyTemperatures1(self, T: List[int]) -> List[int]:
         stk = []
         res = []
         for i in range(len(T) - 1, -1, -1):
