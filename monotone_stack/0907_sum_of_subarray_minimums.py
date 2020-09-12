@@ -3,6 +3,19 @@ from typing import List
 
 class Solution:
     def sumSubarrayMins(self, A: List[int]) -> int:
+        A = [0] + A + [0]
+        stk = []
+        res = 0
+        for i in range(len(A)):
+            while stk and A[i] < A[stk[-1]]:
+                cur = stk.pop()
+                left = stk[-1]
+                right = i
+                res += A[cur] * (right - cur) * (cur - left)
+            stk.append(i)
+        return res % (10 ** 9 + 7)
+
+    def sumSubarrayMins2(self, A: List[int]) -> int:
         res, n, mod = 0, len(A), 10 ** 9 + 7
         left, right, s1, s2 = [0] * n, [0] * n, [], []
 
