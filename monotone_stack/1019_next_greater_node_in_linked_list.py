@@ -10,6 +10,18 @@ class ListNode:
 
 class Solution:
     def nextLargerNodes(self, head: ListNode) -> List[int]:
+        res, stk = [], []
+        while head:
+            while stk and stk[-1][1] < head.val:
+                res[stk.pop()[0]] = head.val
+
+            stk.append([len(res), head.val])
+            res.append(0)
+            head = head.next
+
+        return res
+
+    def nextLargerNodes1(self, head: ListNode) -> List[int]:
         nums = []
         cur = head
         while cur:
