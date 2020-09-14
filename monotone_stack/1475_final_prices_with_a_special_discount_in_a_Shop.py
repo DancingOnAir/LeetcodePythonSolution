@@ -3,14 +3,13 @@ from typing import List
 
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
-        res, stk = prices[:], []
+        stk = []
 
-        for i in range(len(prices)):
-            while stk and prices[stk[-1]] >= prices[i]:
-                cur = stk.pop()
-                res[cur] = prices[cur] - prices[i]
+        for i, num in enumerate(prices):
+            while stk and prices[stk[-1]] >= num:
+                prices[stk.pop()] -= num
             stk.append(i)
-        return res
+        return prices
 
 
 def test_final_prices():
