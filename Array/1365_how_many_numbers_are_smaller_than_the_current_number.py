@@ -4,6 +4,18 @@ import bisect
 
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        bucket = [0] * 101
+        for num in nums:
+            bucket[num] += 1
+
+        prev = 0
+        for i, val in enumerate(bucket):
+            if val:
+                bucket[i] = prev
+                prev += val
+        return [bucket[i] for i in nums]
+
+    def smallerNumbersThanCurrent3(self, nums: List[int]) -> List[int]:
         indices = {}
         for i, val in enumerate(sorted(nums)):
             indices.setdefault(val, i)
