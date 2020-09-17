@@ -3,6 +3,13 @@ from typing import List
 
 class Solution:
     def rankTeams(self, votes: List[str]) -> str:
+        count = {x: [0] * len(votes[0]) + [x] for x in votes[0]}
+        for vote in votes:
+            for i, val in enumerate(vote):
+                count[val][i] -= 1
+        return ''.join(sorted(votes[0], key=count.get))
+
+    def rankTeams1(self, votes: List[str]) -> str:
         if len(votes) == 1:
             return votes[0]
 
