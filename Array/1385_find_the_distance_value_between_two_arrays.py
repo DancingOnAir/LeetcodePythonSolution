@@ -3,6 +3,23 @@ from typing import List
 
 class Solution:
     def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
+        arr2.sort()
+
+        def is_valid(num):
+            left, right = 0, len(arr2)
+            while left < right:
+                mid = (left + right) // 2
+                if abs(arr2[mid] - num) <= d:
+                    return False
+                elif arr2[mid] > num:
+                    right = mid
+                else:
+                    left = mid + 1
+            return True
+
+        return sum(is_valid(x) for x in arr1)
+
+    def findTheDistanceValue2(self, arr1: List[int], arr2: List[int], d: int) -> int:
         return sum(all(abs(a - b) > d for b in arr2) for a in arr1)
 
     def findTheDistanceValue1(self, arr1: List[int], arr2: List[int], d: int) -> int:
