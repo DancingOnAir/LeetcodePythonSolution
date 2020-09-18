@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
+        return sum(all(abs(a - b) > d for b in arr2) for a in arr1)
+
+    def findTheDistanceValue1(self, arr1: List[int], arr2: List[int], d: int) -> int:
         res = len(arr1)
         for i in range(len(arr1)):
             for j in range(len(arr2)):
