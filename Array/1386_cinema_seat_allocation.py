@@ -11,11 +11,11 @@ class Solution:
         res = 2 * n
         for k in matrix:
             cnt = 0
-            if 2 not in matrix[k] and 3 not in matrix[k] and 4 not in matrix[k] and 5 not in matrix[k]:
+            if all(seat not in matrix[k] for seat in [2, 3, 4, 5]):
                 cnt += 1
-            if 6 not in matrix[k] and 7 not in matrix[k] and 8 not in matrix[k] and 9 not in matrix[k]:
+            if all(seat not in matrix[k] for seat in [6, 7, 8, 9]):
                 cnt += 1
-            if 4 not in matrix[k] and 5 not in matrix[k] and 6 not in matrix[k] and 7 not in matrix[k] and cnt == 0:
+            if all(seat not in matrix[k] for seat in [4, 5, 6, 7]) and cnt == 0:
                 cnt += 1
             res += (cnt - 2)
 
