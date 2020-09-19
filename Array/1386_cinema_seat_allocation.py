@@ -1,38 +1,23 @@
 from typing import List
+import collections
 
 
 class Solution:
     def maxNumberOfFamilies(self, n: int, reservedSeats: List[List[int]]) -> int:
-        reservedSeats.sort()
-        matrix = {}
+        matrix = collections.defaultdict(list)
         for i in range(len(reservedSeats)):
-            k = reservedSeats[i][0]
-            if k in matrix:
-                matrix[k].append(reservedSeats[i][1])
-            else:
-                matrix[k] = [reservedSeats[i][1]]
+            matrix[reservedSeats[i][0]].append(reservedSeats[i][1])
 
         res = 2 * n
-        for k, v in matrix.items():
-            left_group = mid_group = right_group = True
-            if 2 in v or 3 in v:
-                left_group = False
-
-            if 4 in v or 5 in v:
-                left_group = False
-                mid_group = False
-
-            if 6 in v or 7 in v:
-                mid_group = False
-                right_group = False
-
-            if 8 in v or 9 in v:
-                right_group = False
-
-            if left_group or right_group:
-                mid_group = False
-
-            res -= 2 - (left_group + mid_group + right_group)
+        for k in matrix:
+            cnt = 0
+            if 2 not in matrix[k] and 3 not in matrix[k] and 4 not in matrix[k] and 5 not in matrix[k]:
+                cnt += 1
+            if 6 not in matrix[k] and 7 not in matrix[k] and 8 not in matrix[k] and 9 not in matrix[k]:
+                cnt += 1
+            if 4 not in matrix[k] and 5 not in matrix[k] and 6 not in matrix[k] and 7 not in matrix[k] and cnt == 0:
+                cnt += 1
+            res += (cnt - 2)
 
         return res
 
