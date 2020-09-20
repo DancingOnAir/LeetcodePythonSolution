@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def numTimesAllBlue(self, light: List[int]) -> int:
+        sum_i = sum_val = res = 0
+        for i, val in enumerate(light, 1):
+            sum_i += i
+            sum_val += val
+            res += sum_i == sum_val
+        return res
+
+    def numTimesAllBlue1(self, light: List[int]) -> int:
         right = res = 0
         for i, val in enumerate(light, 1):
             right = max(right, val)
