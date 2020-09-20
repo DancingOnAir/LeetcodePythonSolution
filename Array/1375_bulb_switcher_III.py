@@ -1,9 +1,13 @@
 from typing import List
-from itertools import accumulate
+from itertools import accumulate, count
+from operator import eq
 
 
 class Solution:
     def numTimesAllBlue(self, light: List[int]) -> int:
+        return sum(map(eq, accumulate(light, max), count(1)))
+
+    def numTimesAllBlue3(self, light: List[int]) -> int:
         return sum(i == m for i, m in enumerate(accumulate(light, max), 1))
 
     def numTimesAllBlue2(self, light: List[int]) -> int:
