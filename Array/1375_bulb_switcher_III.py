@@ -1,8 +1,12 @@
 from typing import List
+from itertools import accumulate
 
 
 class Solution:
     def numTimesAllBlue(self, light: List[int]) -> int:
+        return sum(i == m for i, m in enumerate(accumulate(light, max), 1))
+
+    def numTimesAllBlue2(self, light: List[int]) -> int:
         sum_i = sum_val = res = 0
         for i, val in enumerate(light, 1):
             sum_i += i
