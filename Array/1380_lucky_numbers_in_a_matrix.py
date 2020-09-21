@@ -2,7 +2,11 @@ from typing import List
 
 
 class Solution:
+    # here, & means union set not logic 'and'
     def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
+        return list({min(row) for row in matrix} & {max(col) for col in zip(*matrix)})
+
+    def luckyNumbers1(self, matrix: List[List[int]]) -> List[int]:
         res = []
         transposed = zip(*matrix)
         for i, row in enumerate(transposed):
