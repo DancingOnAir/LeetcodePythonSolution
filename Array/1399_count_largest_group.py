@@ -1,8 +1,18 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def countLargestGroup(self, n: int) -> int:
+        d = defaultdict(int)
+        for i in range(1, n + 1):
+            t = sum(map(int, str(i)))
+            d[t] += 1
+        m = max(d.values())
+
+        return sum(1 for i in d.values() if i >= m)
+
+    def countLargestGroup1(self, n: int) -> int:
         def calculateDigits(num):
             res = 0
             while num:
