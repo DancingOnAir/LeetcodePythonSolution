@@ -5,6 +5,15 @@ class Solution:
     def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
         res = []
         for i in range(len(nums)):
+            if index[i] == len(res):
+                res.append(nums[i])
+            else:
+                res = res[:index[i]] + [nums[i]] + res[index[i]:]
+        return res
+
+    def createTargetArray2(self, nums: List[int], index: List[int]) -> List[int]:
+        res = []
+        for i in range(len(nums)):
             res.insert(index[i], nums[i])
         return res
 
