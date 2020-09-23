@@ -3,6 +3,12 @@ from typing import List
 
 class Solution:
     def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
+        res = []
+        for i in range(len(nums)):
+            res.insert(index[i], nums[i])
+        return res
+
+    def createTargetArray1(self, nums: List[int], index: List[int]) -> List[int]:
         for i, val in enumerate(index):
             for j in range(len(index[:i])):
                 if val <= index[j]:
