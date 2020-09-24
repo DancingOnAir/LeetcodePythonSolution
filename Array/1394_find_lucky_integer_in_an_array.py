@@ -1,9 +1,12 @@
 from typing import List
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
+        return max([k for k, v in Counter(arr).items() if k == v] + [-1])
+
+    def findLucky1(self, arr: List[int]) -> int:
         counts = defaultdict(int)
         res = -1
         for a in arr:
