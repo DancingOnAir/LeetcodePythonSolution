@@ -1,8 +1,12 @@
 from typing import List
+from itertools import accumulate
 
 
 class Solution:
     def minStartValue(self, nums: List[int]) -> int:
+        return max(1, max(1 - pre_sum for pre_sum in accumulate(nums)))
+
+    def minStartValue1(self, nums: List[int]) -> int:
         pre_sum, res = 0, 1
         for i, val in enumerate(nums):
             pre_sum += val
