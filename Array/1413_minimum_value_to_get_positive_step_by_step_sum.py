@@ -3,11 +3,11 @@ from typing import List
 
 class Solution:
     def minStartValue(self, nums: List[int]) -> int:
-        s, res = 0, float('inf')
+        pre_sum, res = 0, 1
         for i, val in enumerate(nums):
-            s += val
-            res = min(res, s)
-        return 1 if res > 0 else -res + 1
+            pre_sum += val
+            res = max(res, 1 - pre_sum)
+        return res
 
 
 def test_min_start_value():
