@@ -4,6 +4,18 @@ from typing import List
 class Solution:
     def processQueries(self, queries: List[int], m: int) -> List[int]:
         res = []
+        z = [i for i in range(1, m + 1)]
+
+        for val in queries:
+            i = z.index(val)
+            res.append(i)
+
+            z.insert(0, z.pop(i))
+
+        return res
+
+    def processQueries1(self, queries: List[int], m: int) -> List[int]:
+        res = []
         for i, val in enumerate(queries):
             pos = val - 1
             greater = []
