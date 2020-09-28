@@ -40,5 +40,6 @@ def test_maximal_rectangle():
                ["1", "0"]]
     print(solution.maximalRectangle(matrix2))
 
+
 if __name__ == '__main__':
     test_maximal_rectangle()
