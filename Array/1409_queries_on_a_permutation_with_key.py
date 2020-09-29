@@ -2,8 +2,51 @@ from typing import List
 from sortedcontainers import SortedList
 
 
+class Fenwick:
+    def __init__(self, n):
+        sz = 1
+        while sz <= n:
+            sz *= 2
+        self.size = sz
+        self.data = [0] * sz
+
+    def sum(self, i):
+        res = 0
+        while i > 0:
+            res += self.data[i]
+            i -= i & (-i)
+        return res
+
+    def update(self, i, val):
+        while i < self.size:
+            self.data[i] += val
+            i += i & (-i)
+
+
 class Solution:
     def processQueries(self, queries: List[int], m: int) -> List[int]:
+        fenwick = Fenwick(2 * m)
+        vimap = {}
+        for i in range(1, m + 1):
+            fenwick.update(i + m, 1)
+            vimap[i] = i + m
+        cur = m
+
+        res = []
+        for q in queries:
+            i = vimap.pop(q)
+            rank = fenwick.sum(i - 1)
+            res.append(rank)
+
+            vimap[q] = cur
+            fenwick.update(i, -1)
+            fenwick.update(cur, 1)
+            cur -= 1
+
+        return res
+
+    # sorted list
+    def processQueries3(self, queries: List[int], m: int) -> List[int]:
         vpos = {i+1: i for i in range(m)}
         poses = SortedList(range(m))
 
@@ -20,6 +63,7 @@ class Solution:
 
         return res
 
+    # insert
     def processQueries2(self, queries: List[int], m: int) -> List[int]:
         res = []
         z = [i for i in range(1, m + 1)]
