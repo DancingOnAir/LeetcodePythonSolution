@@ -1,8 +1,26 @@
 from typing import List
+from sortedcontainers import SortedList
 
 
 class Solution:
     def processQueries(self, queries: List[int], m: int) -> List[int]:
+        vpos = {i+1: i for i in range(m)}
+        poses = SortedList(range(m))
+
+        res = []
+        front = -1
+        for v in queries:
+            pos = vpos[v]
+            res.append(poses.index(pos))
+
+            vpos[v] = front
+            poses.remove(pos)
+            poses.add(front)
+            front -= 1
+
+        return res
+
+    def processQueries2(self, queries: List[int], m: int) -> List[int]:
         res = []
         z = [i for i in range(1, m + 1)]
 
