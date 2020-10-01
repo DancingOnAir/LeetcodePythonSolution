@@ -7,6 +7,26 @@ class Solution:
         if k >= n:
             return sum(cardPoints)
 
+        res, left, count, total = float('inf'), 0, 0, 0
+        for right in range(n):
+            total += cardPoints[right]
+            count += 1
+
+            if count > n - k:
+                total -= cardPoints[left]
+                left += 1
+                count -= 1
+
+            if count == n - k:
+                res = min(res, total)
+
+        return sum(cardPoints) - res
+
+    def maxScore1(self, cardPoints: List[int], k: int) -> int:
+        n = len(cardPoints)
+        if k >= n:
+            return sum(cardPoints)
+
         new_card_points = cardPoints[-k:] + cardPoints[:k]
         res = 0
         left, count, total = 0, 0, 0
