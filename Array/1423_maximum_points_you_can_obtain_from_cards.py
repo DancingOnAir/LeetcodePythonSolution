@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def maxScore(self, cardPoints: List[int], k: int) -> int:
+        res = cur = sum(cardPoints[:k])
+        for i in range(k-1, -1, -1):
+            cur = cur - cardPoints[i] + cardPoints[i - k]
+            res = max(res, cur)
+
+        return res
+
+    def maxScore2(self, cardPoints: List[int], k: int) -> int:
         n = len(cardPoints)
         if k >= n:
             return sum(cardPoints)
