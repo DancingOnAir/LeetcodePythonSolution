@@ -3,6 +3,16 @@ from typing import List
 
 class Solution:
     def findDiagonalOrder(self, nums: List[List[int]]) -> List[int]:
+        res = []
+        for i, r in enumerate(nums):
+            for j, c in enumerate(r):
+                if len(res) <= i + j:
+                    res.append([])
+
+                res[i + j].append(c)
+        return [i for r in res for i in reversed(r)]
+
+    def findDiagonalOrder2(self, nums: List[List[int]]) -> List[int]:
         count = []
         for i in range(len(nums)):
             for j in range(len(nums[i])):
