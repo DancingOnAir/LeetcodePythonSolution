@@ -3,6 +3,19 @@ from typing import List
 
 class Solution:
     def findDiagonalOrder(self, nums: List[List[int]]) -> List[int]:
+        count = []
+        for i in range(len(nums)):
+            for j in range(len(nums[i])):
+                count.append((i + j, j, i))
+
+        count.sort()
+        res = []
+        for c in count:
+            res.append(nums[c[2]][c[1]])
+        return res
+
+    # brute force, TLE
+    def findDiagonalOrder1(self, nums: List[List[int]]) -> List[int]:
         row = len(nums)
         if row == 1:
             return nums[0]
