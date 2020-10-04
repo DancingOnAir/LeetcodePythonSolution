@@ -3,6 +3,17 @@ from typing import List
 
 class Solution:
     def kLengthApart(self, nums: List[int], k: int) -> bool:
+        count = k
+        for num in nums:
+            if not num:
+                count += 1
+            elif count < k:
+                return False
+            else:
+                count = 0
+        return True
+
+    def kLengthApart1(self, nums: List[int], k: int) -> bool:
         if not k:
             return True
 
@@ -20,7 +31,7 @@ def test_k_length_apart():
 
     nums1 = [1, 0, 0, 0, 1, 0, 0, 1]
     k1 = 2
-    # print(solution.kLengthApart(nums1, k1))
+    print(solution.kLengthApart(nums1, k1))
 
     nums2 = [1, 0, 0, 1, 0, 1]
     k2 = 2
