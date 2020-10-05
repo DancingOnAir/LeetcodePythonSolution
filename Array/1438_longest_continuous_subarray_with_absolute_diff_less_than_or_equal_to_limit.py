@@ -16,6 +16,29 @@ class Solution:
             max_deque.append(val)
             min_deque.append(val)
 
+            while max_deque[0] - min_deque[0] > limit:
+                if max_deque[0] == nums[left]:
+                    max_deque.popleft()
+                if min_deque[0] == nums[left]:
+                    min_deque.popleft()
+                left += 1
+            res = max(res, right - left + 1)
+
+        return res
+
+    def longestSubarray1(self, nums: List[int], limit: int) -> int:
+        max_deque = deque()
+        min_deque = deque()
+
+        left = 0
+        for right, val in enumerate(nums):
+            while max_deque and val > max_deque[-1]:
+                max_deque.pop()
+            while min_deque and val < min_deque[-1]:
+                min_deque.pop()
+            max_deque.append(val)
+            min_deque.append(val)
+
             if max_deque[0] - min_deque[0] > limit:
                 if max_deque[0] == nums[left]:
                     max_deque.popleft()
@@ -30,13 +53,13 @@ class Solution:
 def test_longest_subarray():
     solution = Solution()
 
-    # nums1 = [8, 2, 4, 7]
-    # limit1 = 4
-    # print(solution.longestSubarray(nums1, limit1))
-    #
-    # nums2 = [10, 1, 2, 4, 7, 2]
-    # limit2 = 5
-    # print(solution.longestSubarray(nums2, limit2))
+    nums1 = [8, 2, 4, 7]
+    limit1 = 4
+    print(solution.longestSubarray(nums1, limit1))
+
+    nums2 = [10, 1, 2, 4, 7, 2]
+    limit2 = 5
+    print(solution.longestSubarray(nums2, limit2))
 
     nums3 = [4, 2, 2, 2, 4, 4, 2, 2]
     limit3 = 0
