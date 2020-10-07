@@ -4,6 +4,9 @@ from collections import Counter
 
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+        return Counter(target) == Counter(arr)
+
+    def canBeEqual1(self, target: List[int], arr: List[int]) -> bool:
         return sorted(target) == sorted(arr)
 
 
