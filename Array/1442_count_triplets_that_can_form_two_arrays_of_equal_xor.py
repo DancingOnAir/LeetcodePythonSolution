@@ -2,12 +2,22 @@ from typing import List
 
 
 class Solution:
+    def countTriplets(self, arr: List[int]) -> int:
+        res = 0
+        for i in range(len(arr) - 1):
+            accu = arr[i]
+            for k in range(i + 1, len(arr)):
+                accu ^= arr[k]
+                if not accu:
+                    res += k - i
+        return res
+
     # Assume a == b, thus
     # a ^ a = b ^ a, thus
     # 0 = b ^ a, thus
     # arr[i] ^ arr[i + 1] ^ ... ^ arr[j - 1] ^ arr[j] ^ arr[j + 1] ^ ... ^ arr[k] = 0
     # prefix[k + 1] = prefix[i]
-    def countTriplets(self, arr: List[int]) -> int:
+    def countTriplets1(self, arr: List[int]) -> int:
         pre_sum = [0]
         for a in arr:
             pre_sum.append(a ^ pre_sum[-1])
