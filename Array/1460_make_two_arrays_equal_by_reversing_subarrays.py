@@ -1,11 +1,10 @@
 from typing import List
+from collections import Counter
 
 
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
-        target.sort()
-        arr.sort()
-        return target == arr
+        return sorted(target) == sorted(arr)
 
 
 def test_can_be_equal():
