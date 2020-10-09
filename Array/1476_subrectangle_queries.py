@@ -2,6 +2,21 @@ from typing import List
 import numpy as np
 
 
+class SubrectangleQueries:
+    def __init__(self, rectangle: List[List[int]]):
+        self._rectangle = rectangle
+        self._updates = []
+
+    def updateSubrectangle(self, row1: int, col1: int, row2: int, col2: int, newValue: int) -> None:
+        self._updates.append([row1, col1, row2, col2, newValue])
+
+    def getValue(self, row: int, col: int) -> int:
+        for i in range(len(self._updates))[::-1]:
+            if self._updates[i][0] <= row <= self._updates[i][2] and self._updates[i][1] <= col <= self._updates[i][3]:
+                return self._updates[i][4]
+        return self._rectangle[row][col]
+
+
 class SubrectangleQueries1:
     def __init__(self, rectangle: List[List[int]]):
         self._rectangle = rectangle
@@ -14,7 +29,7 @@ class SubrectangleQueries1:
         return self._rectangle[row][col]
 
 
-class SubrectangleQueries:
+class SubrectangleQueries2:
     def __init__(self, rectangle: List[List[int]]):
         self._rectangle = np.array(rectangle, dtype='int64')
 
