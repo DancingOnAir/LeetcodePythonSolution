@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def shuffle(self, nums: List[int], n: int) -> List[int]:
+        return [num for tup in zip(nums[:n], nums[n:]) for num in tup]
+
+    def shuffle1(self, nums: List[int], n: int) -> List[int]:
         res = [0] * 2 * n
         for i, val in enumerate(nums):
             if i < n:
