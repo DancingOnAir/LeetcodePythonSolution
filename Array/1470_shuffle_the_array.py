@@ -3,6 +3,12 @@ from typing import List
 
 class Solution:
     def shuffle(self, nums: List[int], n: int) -> List[int]:
+        res = []
+        for i in range(n):
+            res += [nums[i], nums[i + n]]
+        return res
+
+    def shuffle2(self, nums: List[int], n: int) -> List[int]:
         return [num for tup in zip(nums[:n], nums[n:]) for num in tup]
 
     def shuffle1(self, nums: List[int], n: int) -> List[int]:
