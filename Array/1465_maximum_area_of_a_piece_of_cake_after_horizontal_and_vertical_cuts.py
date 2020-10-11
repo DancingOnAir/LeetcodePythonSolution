@@ -3,6 +3,13 @@ from typing import List
 
 class Solution:
     def maxArea(self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]) -> int:
+        horizontalCuts.sort()
+        verticalCuts.sort()
+        horizontalCuts, verticalCuts = [0] + horizontalCuts + [h], [0] + verticalCuts + [w]
+        return (max(horizontalCuts[i+1] - horizontalCuts[i] for i in range(len(horizontalCuts) - 1)) *
+                max(verticalCuts[i+1] - verticalCuts[i] for i in range(len(verticalCuts) - 1))) % (10**9 + 7)
+
+    def maxArea1(self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]) -> int:
         def get_max_length(length: int, cuts: List[int]) -> int:
             cuts.sort()
             max_length = max(cuts[0], length - cuts[-1])
