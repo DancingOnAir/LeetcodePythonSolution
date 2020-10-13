@@ -6,6 +6,19 @@ class Solution:
         n = len(arr)
         arr.sort()
         median = arr[(n - 1) // 2]
+        left, right = 0, n - 1
+        while n + left - right <= k:
+            if arr[right] - median >= median - arr[left]:
+                right -= 1
+            else:
+                left += 1
+
+        return arr[:left] + arr[right+1:]
+
+    def getStrongest1(self, arr: List[int], k: int) -> List[int]:
+        n = len(arr)
+        arr.sort()
+        median = arr[(n - 1) // 2]
 
         res = []
         left, right = 0, n - 1
