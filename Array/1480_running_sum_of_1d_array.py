@@ -6,9 +6,13 @@ class Solution:
         if len(nums) == 1:
             return nums
 
-        for i, val in enumerate(nums):
-            if i:
-                nums[i] = nums[i - 1] + val
+        # for i, val in enumerate(nums):
+        #     if i:
+        #         nums[i] = nums[i - 1] + val
+        # return nums
+
+        for i in range(1, len(nums)):
+            nums[i] += nums[i - 1]
         return nums
 
 
