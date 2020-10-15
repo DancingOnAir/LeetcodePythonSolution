@@ -2,7 +2,22 @@ from typing import List
 
 
 class Solution:
+    # sliding window
     def longestSubarray(self, nums: List[int]) -> int:
+        left, count, res = 0, 0, 0
+        for right in range(len(nums)):
+            if not nums[right]:
+                count += 1
+
+            while left < right and count > 1:
+                if not nums[left]:
+                    count -= 1
+                left += 1
+            res = max(res, right - left)
+        return res
+
+    # prefix sum & suffix sum
+    def longestSubarray2(self, nums: List[int]) -> int:
         n = len(nums)
         pre, suf = [nums[0]] + [0] * (n - 1), [0] * (n - 1) + [nums[-1]]
 
@@ -22,6 +37,7 @@ class Solution:
 
         return res
 
+    # optimized prefix & suffix sum
     def longestSubarray1(self, nums: List[int]) -> int:
         # a is the len of subarray which contains a one, b is the length of subarray which only contains ones
         a, b = 0, 0
