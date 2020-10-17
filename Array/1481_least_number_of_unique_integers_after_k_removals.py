@@ -1,9 +1,19 @@
 from typing import List
-from collections import defaultdict
+from collections import defaultdict, Counter
+import heapq
 
 
 class Solution:
+    # hash map + priority queue
     def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
+        hp = [(val, key) for key, val in Counter(arr).items()]
+        heapq.heapify(hp)
+        while k > 0:
+            k -= heapq.heappop(hp)[0]
+
+        return len(hp) + (k < 0)
+
+    def findLeastNumOfUniqueInts1(self, arr: List[int], k: int) -> int:
         dd = defaultdict(int)
         for a in arr:
             dd[a] += 1
