@@ -4,8 +4,20 @@ import heapq
 
 
 class Solution:
-    # hash map + priority queue
+    # hash map + tree map
     def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
+        c = Counter(arr)
+        cnt, remaining = Counter(c.values()), len(c)
+        for key in sorted(cnt):
+            if k >= key * cnt[key]:
+                k -= key * cnt[key]
+                remaining -= cnt.pop(key)
+            else:
+                return remaining - k // key
+        return remaining
+
+    # hash map + priority queue
+    def findLeastNumOfUniqueInts2(self, arr: List[int], k: int) -> int:
         hp = [(val, key) for key, val in Counter(arr).items()]
         heapq.heapify(hp)
         while k > 0:
