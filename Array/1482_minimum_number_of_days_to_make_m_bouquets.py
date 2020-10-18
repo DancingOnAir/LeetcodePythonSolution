@@ -1,33 +1,32 @@
 from typing import List
-from collections import Counter
 
 
 class Solution:
-    def validate(self, bloomDay: List[int], m: int, k: int, day: int):
-        count = 0
-        for i in range(len(bloomDay)):
-            if bloomDay[i] > day:
-                m -= count // k
-                count = 0
-            else:
-                count += 1
-        m -= count // k
-        return m == 0
-
+    # binary search
+    # ref: https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/discuss/769703/Python-Clear-explanation-Powerful-Ultimate-Binary-Search-Template.-Solved-many-problems.
     def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
-        n = len(bloomDay)
-        total = m * k
-        if total > n:
+        def validate(days):
+            bonquets, flowers = 0, 0
+            for bloom in bloomDay:
+                if bloom > days:
+                    flowers = 0
+                else:
+                    bonquets += (flowers + 1) // k
+                    flowers = (flowers + 1) % k
+            return bonquets >= m
+
+        if m * k > len(bloomDay):
             return -1
 
-        hash_map = Counter(bloomDay)
-        for key in sorted(hash_map):
-            total -= hash_map[key]
-            if total <= 0:
-                if k == 1 or self.validate(bloomDay, m, k, key):
-                    return key
+        left, right = 1, max(bloomDay)
+        while left < right:
+            mid = left + (right - left) // 2
+            if validate(mid):
+                right = mid
+            else:
+                left = mid + 1
 
-        return -1
+        return left
 
 
 def test_min_days():
