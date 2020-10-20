@@ -1,4 +1,6 @@
 from typing import List
+import cProfile
+import pstats
 
 
 class Solution:
@@ -42,4 +44,12 @@ def test_xor_operation():
 
 
 if __name__ == '__main__':
-    test_xor_operation()
+    # test_xor_operation()
+    profiler = cProfile.Profile()
+    profiler.runcall(test_xor_operation)
+
+    stats = pstats.Stats(profiler)
+    stats.strip_dirs()
+    stats.sort_stats('cumulative')
+    stats.print_stats()
+    stats.print_callers()
