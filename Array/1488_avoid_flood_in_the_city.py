@@ -1,10 +1,37 @@
 from typing import List
 from collections import defaultdict
 from bisect import bisect_left
+import heapq
 
 
 class Solution:
     def avoidFlood(self, rains: List[int]) -> List[int]:
+        dd = defaultdict(list)
+        for i, val in enumerate(rains):
+            dd[val].append(i)
+
+        res = [-1] * len(rains)
+        full = set()
+        closest = []
+        for i, lake in enumerate(rains):
+            if not lake:
+                if closest:
+                    res[i] = rains[heapq.heappop(closest)]
+                    full.remove(res[i])
+                else:
+                    res[i] = 1
+            else:
+                if lake in full:
+                    return []
+
+                full.add(lake)
+                dd[lake].pop(0)
+                if dd[lake]:
+                    heapq.heappush(closest, dd[lake][0])
+
+        return res
+
+    def avoidFlood1(self, rains: List[int]) -> List[int]:
         res = []
         dd = defaultdict(list)
 
