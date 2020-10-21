@@ -2,10 +2,22 @@ from typing import List
 
 
 class Solution:
+    # brute force
     def rangeSum(self, nums: List[int], n: int, left: int, right: int) -> int:
-        res = 0
-        sorted(nums)
+        MODULO = 10 ** 9 + 7
+        sums = list()
 
+        for i in range(n):
+            total = 0
+            for j in range(i, n):
+                total += nums[j]
+                sums.append(total)
+
+        sums.sort()
+        res = sum(sums[left - 1: right]) % MODULO
+        return res
+
+    def rangeSum1(self, nums: List[int], n: int, left: int, right: int) -> int:
         presum = [0]
         for num in nums:
             presum.append(presum[-1] + num)
