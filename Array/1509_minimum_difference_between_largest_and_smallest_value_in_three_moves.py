@@ -3,7 +3,13 @@ from collections import OrderedDict, Counter
 
 
 class Solution:
+    # quick sort, 4 kinds of combinations
     def minDifference(self, nums: List[int]) -> int:
+        nums.sort()
+        return min(b - a for a, b in zip(nums[:4], nums[-4:]))
+
+    # failed thinking
+    def minDifference1(self, nums: List[int]) -> int:
         if len(nums) < 5:
             return 0
 
@@ -22,29 +28,32 @@ class Solution:
             if count[sorted_keys[left]] > action_times and count[sorted_keys[right]] > action_times:
                 return sorted_keys[right] - sorted_keys[left]
             elif count[sorted_keys[left]] > action_times:
-                right -= 1
                 action_times -= count[sorted_keys[right]]
+                right -= 1
             elif count[sorted_keys[right]] > action_times:
-                left += 1
                 action_times -= count[sorted_keys[left]]
+                left += 1
             else:
+                next_left, next_right = left + 1, right - 1
+                while count[sorted_keys[left]] != count[sorted_keys[right]]:
+                    pass
                 if sorted_keys[left + 1] - sorted_keys[left] >= sorted_keys[right] - sorted_keys[right - 1]:
-                    left += 1
                     action_times -= count[sorted_keys[left]]
+                    left += 1
                 else:
-                    right -= 1
                     action_times -= count[sorted_keys[right]]
+                    right -= 1
         return 0
 
 
 def test_min_difference():
     solution = Solution()
 
-    # nums1 = [5, 3, 2, 4]
-    # print(solution.minDifference(nums1))
-    #
-    # nums2 = [1, 5, 0, 10, 14]
-    # print(solution.minDifference(nums2))
+    nums1 = [5, 3, 2, 4]
+    print(solution.minDifference(nums1))
+
+    nums2 = [1, 5, 0, 10, 14]
+    print(solution.minDifference(nums2))
 
     nums3 = [6, 6, 0, 1, 1, 4, 6]
     print(solution.minDifference(nums3))
