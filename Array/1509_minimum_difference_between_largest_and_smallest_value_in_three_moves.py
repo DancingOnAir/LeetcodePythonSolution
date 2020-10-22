@@ -1,10 +1,15 @@
 from typing import List
 from collections import OrderedDict, Counter
+import heapq
 
 
 class Solution:
-    # quick sort, 4 kinds of combinations
+    # partial sort
     def minDifference(self, nums: List[int]) -> int:
+        return min(a - b for a, b in zip(heapq.nlargest(4, nums), heapq.nsmallest(4, nums)[::-1]))
+
+    # quick sort, 4 kinds of combinations
+    def minDifference2(self, nums: List[int]) -> int:
         nums.sort()
         return min(b - a for a, b in zip(nums[:4], nums[-4:]))
 
