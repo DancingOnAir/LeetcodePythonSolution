@@ -3,16 +3,37 @@ from collections import defaultdict
 
 
 class Solution:
+    # The math behind it
+    # x+y mod k =0
+    # so, y = -x mod k, finding the compliment residue
     def canArrange(self, arr: List[int], k: int) -> bool:
-        reminders = defaultdict(int)
+        remainder = defaultdict(int)
         for a in arr:
-            reminders[a % k] += 1
+            remainder[a % k] += 1
+        # for x in remainder.keys():
+        #     comp = -x % k
+            # if remainder[x] != remainder[comp]:
+            #     return False
+        for x in range(k):
+            comp = -x % k
+            while remainder[x] > 0:
+                remainder[x] -= 1
+                remainder[comp] -= 1
+                if remainder[comp] < 0:
+                    return False
 
-        for key in sorted(reminders):
-            if not key and (reminders[key] & 1):
+        return True
+
+    def canArrange1(self, arr: List[int], k: int) -> bool:
+        remainder = defaultdict(int)
+        for a in arr:
+            remainder[a % k] += 1
+
+        for key in sorted(remainder):
+            if not key and (remainder[key] & 1):
                 return False
 
-            if key and reminders[key] != reminders[k - key]:
+            if key and remainder[key] != remainder[k - key]:
                 return False
 
         return True
