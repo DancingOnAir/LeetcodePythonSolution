@@ -3,10 +3,19 @@ from typing import List
 
 class Solution:
     def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+        min_val = min(arr)
+        gap = (max(arr) - min_val) / (len(arr) - 1)
+        if not gap:
+            return True
+
+        s = set(num - min_val for num in arr)
+        return len(s) == len(arr) and all(diff % gap == 0 for diff in s)
+
+    def canMakeArithmeticProgression1(self, arr: List[int]) -> bool:
         arr.sort()
-        d = arr[1] - arr[0]
+        gap = arr[1] - arr[0]
         for i in range(2, len(arr)):
-            if d != arr[i] - arr[i - 1]:
+            if gap != arr[i] - arr[i - 1]:
                 return False
         return True
 
