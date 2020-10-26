@@ -4,6 +4,22 @@ from typing import List
 class Solution:
     def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
         min_val = min(arr)
+        diff = max(arr) - min_val
+        n = len(arr)
+
+        if diff % (n - 1):
+            return False
+
+        diff //= (n - 1)
+        s = set(a for a in arr)
+        for _ in range(n):
+            if min_val not in s:
+                return False
+            min_val += diff
+        return True
+
+    def canMakeArithmeticProgression2(self, arr: List[int]) -> bool:
+        min_val = min(arr)
         gap = (max(arr) - min_val) / (len(arr) - 1)
         if not gap:
             return True
