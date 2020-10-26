@@ -1,11 +1,24 @@
 from typing import List
 from collections import deque
+import heapq
 
 
 class Solution:
+    def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
+        q = []
+        res = float('-inf')
+
+        for x, y in points:
+            while q and x - q[0][1] > k:
+                heapq.heappop(q)
+            if q:
+                res = max(res, x + y - q[0][0])
+            heapq.heappush(q, (x - y, x))
+        return res
+
     # sliding window
     # max(y1 + y2 + |x2 - x1|) = max(y2 + x2) + max(y1 - x1) = max(x2 + y2) - min(x1 - y1)
-    def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
+    def findMaxValueOfEquation1(self, points: List[List[int]], k: int) -> int:
         res = float('-inf')
         q = deque([points[0]])
         for right in range(1, len(points)):
