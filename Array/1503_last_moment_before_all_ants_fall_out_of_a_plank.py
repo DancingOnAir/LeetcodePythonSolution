@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def getLastMoment(self, n: int, left: List[int], right: List[int]) -> int:
+        return max(max(left or [0]), n - min(right or [n]))
+
+    def getLastMoment1(self, n: int, left: List[int], right: List[int]) -> int:
         left.sort()
         right.sort()
 
