@@ -3,10 +3,18 @@ from itertools import accumulate
 
 
 class Solution:
+    # oddCount + oddCount * (arr.length - oddCount)
     def numOfSubarrays(self, arr: List[int]) -> int:
+        odd = total = 0
+        for a in arr:
+            total += a
+            odd += total & 1
+        return (odd + (len(arr) - odd) * odd) % (10 ** 9 + 7)
+
+    def numOfSubarrays2(self, arr: List[int]) -> int:
         pre_sum = list(accumulate(arr))
         res, count = 0, 0
-        num_of_even_sum, num_of_odd_sum = 0, 0
+        num_of_even_sum = num_of_odd_sum = 0
         for s in pre_sum:
             if s & 1:
                 res += 1
