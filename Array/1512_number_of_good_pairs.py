@@ -4,6 +4,9 @@ from collections import Counter
 
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
+        return sum(k * (k - 1) // 2 for k in Counter(nums).values())
+
+    def numIdenticalPairs1(self, nums: List[int]) -> int:
         count = Counter(nums)
         res = 0
         for key in count:
