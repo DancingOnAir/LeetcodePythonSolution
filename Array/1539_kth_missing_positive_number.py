@@ -4,6 +4,18 @@ from bisect import bisect_left
 
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
+        cur = bisect_left(arr, k)
+        if cur < len(arr) and arr[cur] == k:
+            cur += 1
+        pre = 0
+        while cur != pre:
+            k += cur - pre
+            pre, cur = cur, bisect_left(arr, k)
+            if cur < len(arr) and arr[cur] == k:
+                cur += 1
+        return k
+
+    def findKthPositive1(self, arr: List[int], k: int) -> int:
         if k < arr[0]:
             return k
         elif k >= arr[-1]:
@@ -16,6 +28,7 @@ class Solution:
                 return k
         return k
 
+
 def test_find_Kth_positive():
     solution = Solution()
 
@@ -26,6 +39,10 @@ def test_find_Kth_positive():
     arr2 = [1, 2, 3, 4]
     k2 = 2
     print(solution.findKthPositive(arr2, k2))
+
+    arr3 = [1, 2]
+    k3 = 1
+    print(solution.findKthPositive(arr3, k3))
 
 
 if __name__ == '__main__':
