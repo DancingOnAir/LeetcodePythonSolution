@@ -3,6 +3,15 @@ from typing import List
 
 class Solution:
     def countGoodTriplets(self, arr: List[int], a: int, b: int, c: int) -> int:
+        res, n = 0, len(arr)
+        for i in range(n):
+            for k in range(i + 2, n):
+                if abs(arr[i] - arr[k]) > c:
+                    continue
+                res += sum(abs(arr[i] - arr[j]) <= a and abs(arr[j] - arr[k]) <= b for j in range(i + 1, k))
+        return res
+
+    def countGoodTriplets1(self, arr: List[int], a: int, b: int, c: int) -> int:
         res = 0
 
         n = len(arr)
