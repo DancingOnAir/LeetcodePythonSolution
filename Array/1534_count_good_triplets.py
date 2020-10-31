@@ -1,8 +1,31 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def countGoodTriplets(self, arr: List[int], a: int, b: int, c: int) -> int:
+        da = defaultdict(set)
+        db = defaultdict(set)
+        dc = defaultdict(set)
+
+        for i in range(len(arr) - 1):
+            for j in range(i + 1, len(arr)):
+                dis = abs(arr[i] - arr[j])
+                if dis <= a:
+                    da[i].add(j)
+                if dis <= b:
+                    db[i].add(j)
+                if dis <= c:
+                    dc[i].add(j)
+        res = 0
+        for i in range(len(arr) - 2):
+            for j in da[i]:
+                for k in db[j]:
+                    if k in dc[i]:
+                        res += 1
+        return res
+
+    def countGoodTriplets2(self, arr: List[int], a: int, b: int, c: int) -> int:
         res, n = 0, len(arr)
         for i in range(n):
             for k in range(i + 2, n):
