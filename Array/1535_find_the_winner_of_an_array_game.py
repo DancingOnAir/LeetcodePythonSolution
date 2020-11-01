@@ -3,20 +3,16 @@ from typing import List
 
 class Solution:
     def getWinner(self, arr: List[int], k: int) -> int:
-        n = len(arr)
-        if k >= n:
+        if k >= len(arr):
             return max(arr)
 
         res = arr[0]
         count = 0
-        for i in range(1, n):
-
-            if res >= arr[i]:
-                count += 1
-            else:
-                count = 1
+        for i in range(1, len(arr)):
+            if res < arr[i]:
+                count = 0
                 res = arr[i]
-
+            count += 1
             if count == k:
                 return res
 
