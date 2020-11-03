@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
+        return sum(row[i] for j, row in enumerate(mat) for i in {j, len(mat) - 1 - j})
+
+    def diagonalSum1(self, mat: List[List[int]]) -> int:
         n = len(mat)
         res = 0
         for i in range(n):
