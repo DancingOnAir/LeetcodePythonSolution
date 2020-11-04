@@ -28,7 +28,6 @@ class Solution:
         return res
 
 
-
 def test_find_length_of_shortest_subarray():
     solution = Solution()
 
