@@ -1,8 +1,26 @@
 from typing import List
+from collections import deque
 
 
 class Solution:
+    # Robin Fingerprints
     def containsPattern(self, arr: List[int], m: int, k: int) -> bool:
+        base, rolling = 101, 0
+        window = deque()
+
+        for i, val in enumerate(arr):
+            rolling = rolling * base + val
+            head = window.popleft() if i >= m else (rolling, 0)
+            if i >= m:
+                rolling -= arr[i - m] * base ** m
+                if head[0] == rolling and head[1] == k - 1:
+                    return True
+
+            window.append((rolling, head[1] + 1 if head[0] == rolling else 1))
+
+        return False
+
+    def containsPattern1(self, arr: List[int], m: int, k: int) -> bool:
         n = len(arr)
         if n < m * k:
             return False
