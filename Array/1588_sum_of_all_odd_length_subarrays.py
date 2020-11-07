@@ -2,7 +2,15 @@ from typing import List
 
 
 class Solution:
+    # In total, there are(i + 1) * (n - i) subarrays, that contains A[i]. And there are((i + 1) * (n - i) + 1) / 2
+    # subarrays with odd length, that contains A[i]. A[i] will be counted((i + 1) * (n - i) + 1) / 2 times.
     def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+        res, n = 0, len(arr)
+        for i, val in enumerate(arr):
+            res += ((i + 1) * (n - i) + 1) // 2 * val
+        return res
+
+    def sumOddLengthSubarrays2(self, arr: List[int]) -> int:
         n = len(arr)
         res = 0
         for l in range(1, n + 1, 2):
