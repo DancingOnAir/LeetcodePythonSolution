@@ -1,8 +1,27 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def minSubarray(self, nums: List[int], p: int) -> int:
+        total_remainder = sum(nums) % p
+        if not total_remainder:
+            return 0
+
+        last = {0: -1}
+        cur = 0
+        res = n = len(nums)
+        for i, val in enumerate(nums):
+            cur = (cur + val) % p
+            last[cur] = i
+
+            if (cur - total_remainder) % p in last:
+                res = min(res, i - last[(cur - total_remainder) % p])
+
+        return res if res < n else -1
+
+    # brute force method, but TLE
+    def minSubarray1(self, nums: List[int], p: int) -> int:
         total = sum(nums)
         if not total % p:
             return 0
