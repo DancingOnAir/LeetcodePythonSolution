@@ -4,6 +4,21 @@ from typing import List
 class Solution:
     def numSpecial(self, mat: List[List[int]]) -> int:
         res = 0
+        transposed = list(zip(*mat))
+        for row in mat:
+            if sum(row) == 1:
+                j = row.index(1)
+                if sum(transposed[j]) == 1:
+                    res += 1
+
+        # for i in range(len(mat)):
+        #     for j in range(len(mat[i])):
+        #         if mat[i][j] == 1 and sum(mat[i]) == 1 and sum(transposed[j]) == 1:
+        #             res += 1
+        return res
+
+    def numSpecial1(self, mat: List[List[int]]) -> int:
+        res = 0
 
         transposed = list(zip(*mat))
         for i in range(len(mat)):
