@@ -3,6 +3,20 @@ from typing import List
 
 class Solution:
     def unhappyFriends(self, n: int, preferences: List[List[int]], pairs: List[List[int]]) -> int:
+        d = dict()
+        for x, y in pairs:
+            d[x] = preferences[x][: preferences[x].index(y)]
+            d[y] = preferences[y][: preferences[y].index(x)]
+
+        res = 0
+        for k in d:
+            for x in d[k]:
+                if k in d[x]:
+                    res += 1
+                    break
+        return res
+
+    def unhappyFriends1(self, n: int, preferences: List[List[int]], pairs: List[List[int]]) -> int:
         def isUnhappyFriend(pair: List[int]) -> bool:
             for friend in preferences[p[0]][:preferences[p[0]].index(p[1])]:
                 if p[0] in preferences[friend][:preferences[friend].index(relationships[friend])]:
