@@ -4,6 +4,10 @@ from collections import Counter
 
 class Solution:
     def frequencySort(self, nums: List[int]) -> List[int]:
+        count = Counter(nums)
+        return sorted(nums, key=lambda x: (count[x], -x))
+
+    def frequencySort1(self, nums: List[int]) -> List[int]:
         res = list()
         for k, v in sorted(dict(Counter(nums)).items(), key=lambda x: (x[1], -x[0])):
             res += [k] * v
