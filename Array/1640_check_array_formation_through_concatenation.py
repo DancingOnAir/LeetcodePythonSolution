@@ -3,6 +3,10 @@ from typing import List
 
 class Solution:
     def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
+        mp = {x[0]: x for x in pieces}
+        return sum((mp.get(a, []) for a in arr), []) == arr
+
+    def canFormArray1(self, arr: List[int], pieces: List[List[int]]) -> bool:
         d = dict()
 
         for p in pieces:
