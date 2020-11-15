@@ -3,6 +3,21 @@ from typing import List
 
 class Solution:
     def getMaximumGenerated(self, n: int) -> int:
+        if not n:
+            return 0
+        if n == 1:
+            return 1
+
+        arr = [0, 1]
+        for x in range(2, n + 1):
+            i, mod = divmod(x, 2)
+            if not mod:
+                arr.append(arr[i])
+            else:
+                arr.append(arr[i] + arr[i + 1])
+        return max(arr)
+
+    def getMaximumGenerated2(self, n: int) -> int:
         arr = [0] * (n + 1)
         for i in range(1, n + 1):
             if i == 1:
