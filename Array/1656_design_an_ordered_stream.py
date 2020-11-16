@@ -3,9 +3,24 @@ from typing import List
 
 class OrderedStream:
     def __init__(self, n: int):
+        self.ptr = 0
+        self.arr = [[]] * (n + 1)
+
+    def insert(self, id: int, value: str) -> List[str]:
+        self.arr[id - 1] = value
+        if self.ptr != id - 1:
+            return []
+
+        res = []
+        while self.arr[self.ptr]:
+            res.append(self.arr[self.ptr])
+            self.ptr += 1
+        return res
+
+class OrderedStream1:
+    def __init__(self, n: int):
         self.ptr = 1
         self.mp = dict()
-        pass
 
     def insert(self, id: int, value: str) -> List[str]:
         self.mp[id] = [value] + self.mp.get(id + 1, [])
