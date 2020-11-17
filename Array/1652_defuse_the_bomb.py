@@ -3,6 +3,19 @@ from typing import List
 
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
+        if k < 0:
+            return self.decrypt(code[::-1], -k)[::-1]
+
+        n = len(code)
+        prefix = code * 2
+        for i in range(1, n * 2):
+            prefix[i] += prefix[i - 1]
+
+        for i in range(n):
+            code[i] = prefix[i + k] - prefix[i]
+        return code
+
+    def decrypt1(self, code: List[int], k: int) -> List[int]:
         if not k:
             return [0] * len(code)
 
