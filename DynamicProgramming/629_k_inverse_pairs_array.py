@@ -6,19 +6,15 @@ class Solution:
     # f(0, k) = 0
     # f(n, 0) = 1
     def kInversePairs(self, n: int, k: int) -> int:
-        dp = [[0] * (k + 1)] * (n + 1)
+        dp = [[0] * (k + 1) for _ in range(n + 1)]
         MOD = 10 ** 9 + 7
-
+        dp[0][0] = 1
         for i in range(1, n + 1):
-            for j in range(0, k + 1):
-                if j > i * (i - 1) // 2:
-                    break
-
-                if j == 0:
-                    dp[i][j] = 1
-                else:
-                    val = (dp[i - 1][j] + MOD - (dp[i - 1][j - i] if (j - i) >= 0 else 0)) % MOD
-                    dp[i][j] = (dp[i][j - 1] + val) % MOD
+            dp[i][0] = 1
+            for j in range(1, k + 1):
+                dp[i][j] = (dp[i][j - 1] + dp[i - 1][j]) % MOD
+                if j - i >= 0:
+                    dp[i][j] = (dp[i][j] - dp[i - 1][j - i] + MOD) % MOD
 
         return dp[n][k]
 
@@ -28,6 +24,7 @@ def test_k_inverse_pairs():
 
     assert solution.kInversePairs(3, 0) == 1, "wrong result"
     assert solution.kInversePairs(3, 1) == 2, "wrong result"
+    assert solution.kInversePairs(3, 3) == 1, "wrong result"
 
 
 if __name__ == '__main__':
