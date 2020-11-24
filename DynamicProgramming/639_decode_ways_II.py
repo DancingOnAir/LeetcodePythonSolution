@@ -2,9 +2,28 @@ from typing import List
 
 
 class Solution:
+    # https://leetcode.com/problems/decode-ways-ii/discuss/105274/Python-Straightforward-with-Explanation
+    def numDecodings(self, s: str) -> int:
+        MOD = 10 ** 9 + 7
+        # e0表示单独1位数字的可能性；
+        # e1表示2位数字中十位数为1时，个位数的可能性；
+        # e2表示2位数字中十位数为2时，个位数的可能性。
+        e0, e1, e2 = 1, 0, 0
+        for c in s:
+            if c == '*':
+                f0 = 9 * e0 + 9 * e1 + 6 * e2
+                f1 = e0
+                f2 = e0
+            else:
+                f0 = (c > '0') * e0 + e1 + (c < '7') * e2
+                f1 = (c == '1') * e0
+                f2 = (c == '2') * e0
+            e0, e1, e2 = f0 % MOD, f1, f2
+        return e0
+
     # https://leetcode.com/problems/decode-ways-ii/discuss/105258/Java-O(N)-by-General-Solution-for-all-DP-problems
     # dp[i] --> number of all possible decode ways of substring s(0 : i-1).
-    def numDecodings(self, s: str) -> int:
+    def numDecodings1(self, s: str) -> int:
         if s[0] == '0':
             return 0
 
