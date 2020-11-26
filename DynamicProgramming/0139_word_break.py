@@ -2,18 +2,25 @@ from typing import List
 
 
 class Solution:
-    # dp[i + s1] = dp[i] & (s1 in wordDict)
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         if not len(s) or not len(wordDict):
             return False
 
         dp = [True] + [False] * len(s)
+        max_len = max([len(x) for x in wordDict])
+        min_len = min([len(x) for x in wordDict])
 
-        for i in range(1, len(s) + 1):
-            for j in range(0, i)[::-1]:
-                dp[i] = dp[j] and (True if s[j: i] in wordDict else False)
-                if dp[i]:
+        for i in range(0, len(s) + 1):
+            # for j in range(0, i)[::-1]:
+            #     dp[i] = dp[j] and (True if s[j: i] in wordDict else False)
+            #     if dp[i]:
+            #         break
+            for j in range(min_len, max_len + 1):
+                if i + j > len(s):
                     break
+
+                if dp[i] and (s[i: i + j] in wordDict):
+                    dp[i + j] = True
         return dp[len(s)]
 
 
