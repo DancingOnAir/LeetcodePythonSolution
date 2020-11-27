@@ -3,6 +3,12 @@ from typing import List
 
 class Solution:
     def reverseStr(self, s: str, k: int) -> str:
+        s = [s[i:i+k] for i in range(0, len(s), k)]
+        for i in range(0, len(s), 2):
+            s[i] = s[i][::-1]
+        return ''.join(s)
+
+    def reverseStr1(self, s: str, k: int) -> str:
         res = ''
         for i in range(len(s))[::2*k]:
             if i + k <= len(s):
