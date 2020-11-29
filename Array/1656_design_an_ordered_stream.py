@@ -17,6 +17,7 @@ class OrderedStream:
             self.ptr += 1
         return res
 
+
 class OrderedStream1:
     def __init__(self, n: int):
         self.ptr = 1
