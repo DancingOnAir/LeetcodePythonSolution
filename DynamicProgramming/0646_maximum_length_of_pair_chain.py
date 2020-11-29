@@ -8,10 +8,11 @@ class Solution:
             return n
 
         pairs.sort()
-        dp = [1] + [0] * (n - 1)
+        dp = [1] * n
         for i in range(1, n):
             for j in range(i):
-                dp[i] = max(dp[i], dp[j] + (pairs[j][1] < pairs[i][0]))
+                if pairs[j][1] < pairs[i][0] and dp[i] <= dp[j]:
+                    dp[i] = dp[j] + 1
         return dp[n - 1]
 
 
