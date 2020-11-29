@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def findLongestChain(self, pairs: List[List[int]]) -> int:
+        res, last = 0, float('-inf')
+        for s, e in sorted(pairs, key=lambda x: x[1]):
+            if s > last:
+                res += 1
+                last = e
+        return res
+
+    def findLongestChain(self, pairs: List[List[int]]) -> int:
         n = len(pairs)
         if n < 2:
             return n
