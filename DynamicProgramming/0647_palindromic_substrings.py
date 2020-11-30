@@ -2,10 +2,12 @@ from typing import List
 
 
 class Solution:
+    def countSubstrings(self, s: str) -> int:
+        return sum(s[i:j] == s[i:j][::-1] for j in range(len(s) + 1) for i in range(j))
 
     # Let N = len(S). There are 2N-1 possible centers for the palindrome:
     # we could have a center at S[0], between S[0] and S[1], at S[1], between S[1] and S[2], at S[2], etc.
-    def countSubstrings(self, s: str) -> int:
+    def countSubstrings2(self, s: str) -> int:
         res, n = 0, len(s)
         for center in range(2 * n - 1):
             left = center // 2
