@@ -2,16 +2,22 @@ from typing import List
 
 
 class Solution:
-    # def isPalindrom(self, left, right, s):
-    #     while left < right:
-    #         if s[left] != s[right]:
-    #             return False
-    #         left += 1
-    #         right -= 1
-    #
-    #     return True
 
+    # Let N = len(S). There are 2N-1 possible centers for the palindrome:
+    # we could have a center at S[0], between S[0] and S[1], at S[1], between S[1] and S[2], at S[2], etc.
     def countSubstrings(self, s: str) -> int:
+        res, n = 0, len(s)
+        for center in range(2 * n - 1):
+            left = center // 2
+            right = left + center % 2
+            while left >= 0 and right < n and s[left] == s[right]:
+                res += 1
+                left -= 1
+                right += 1
+
+        return res
+
+    def countSubstrings1(self, s: str) -> int:
         res, n = 0, len(s)
         dp = [[0] * n for _ in range(n)]
 
