@@ -1,0 +1,34 @@
+from typing import List
+
+
+class Solution:
+    def minSteps(self, n: int) -> int:
+        if n < 2:
+            return 0
+
+        num = n
+        factors = list()
+        for i in range(2, int(num ** (1/2)) + 1):
+            for j in range(2, num):
+                if not num % j:
+                    factors.append(j)
+                    num //= j
+                    break
+
+        if not len(factors):
+            return n
+        else:
+            return sum(factors + [num])
+
+
+def test_min_steps():
+    solution = Solution()
+
+    assert solution.minSteps(3) == 3, "wrong result"
+    assert solution.minSteps(5) == 5, "wrong result"
+    assert solution.minSteps(15) == 8, "wrong result"
+    assert solution.minSteps(24) == 9, "wrong result"
+
+
+if __name__ == '__main__':
+    test_min_steps()
