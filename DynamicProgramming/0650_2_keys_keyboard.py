@@ -3,6 +3,13 @@ from typing import List
 
 class Solution:
     def minSteps(self, n: int) -> int:
+        for i in range(2, int(n ** 1/2) + 1):
+            if not n % i:
+                return self.minSteps(n // i) + i
+        return 0 if n == 1 else n
+
+    # not elegant prime factorization solution
+    def minSteps1(self, n: int) -> int:
         if n < 2:
             return 0
 
