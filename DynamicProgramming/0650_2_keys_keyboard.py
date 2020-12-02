@@ -1,4 +1,5 @@
 from typing import List
+from functools import lru_cache
 
 
 class Solution:
@@ -14,6 +15,7 @@ class Solution:
         return dp[n]
 
     # prime factorization solution
+    @lru_cache(None)
     def minSteps(self, n: int) -> int:
         for i in range(2, int(n ** 1/2) + 1):
             if not n % i:
