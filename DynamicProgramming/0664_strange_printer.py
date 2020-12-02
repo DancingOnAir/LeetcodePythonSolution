@@ -11,10 +11,9 @@ class Solution:
         for l in range(1, n):
             for i in range(n):
                 if i + l < n:
-                    temp = min(dp[i][i+l-1], dp[i+1][i+l])
-                    if s[i] != s[i+l]:
-                        temp += 1
-                    dp[i][i+l] = min(dp[i][i+l-1] + (s[i+l-1] != s[i+l]), dp[i+1][i+l] + (s[i] != s[i+1]), temp)
+                    dp[i][i+l] = min(dp[i][i+k] + dp[i+k+1][i+l] for k in range(0, l))
+                    if s[i] == s[i+l]:
+                        dp[i][i+l] -= 1
 
         return dp[0][n-1]
 
