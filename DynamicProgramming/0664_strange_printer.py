@@ -3,10 +3,11 @@ from typing import List
 
 class Solution:
     def strangePrinter(self, s: str) -> int:
-        n = len(s)
-        if n < 2:
-            return n
+        if not s:
+            return 0
 
+        s = ''.join(a for a, b in zip(s, '#'+s) if a != b)
+        n = len(s)
         dp = [[1] * n for _ in range(n)]
         for l in range(1, n):
             for i in range(n):
