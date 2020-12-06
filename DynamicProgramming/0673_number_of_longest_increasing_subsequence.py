@@ -9,18 +9,22 @@ class Solution:
         if n < 2:
             return n
 
-        stk = list()
-        dp = [0] * n
-        for i in range(n):
-            while stk and stk[-1] >= nums[i]:
-                stk.pop()
+        dp1, dp2 = [1] * n, [1] * n
+        max_len, res = 1, 1
+        for i in range(1, n):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    if dp1[j] + 1 > dp1[i]:
+                        dp1[i] = dp1[j] + 1
+                        dp2[i] = dp2[j]
+                    elif dp1[j] + 1 == dp1[i]:
+                        dp2[i] += dp2[j]
 
-            stk.append(nums[i])
-            dp[i] = len(stk)
-        print(dp)
-        res = 1
-        for k, v in Counter(dp).items():
-            res *= v
+            if dp1[i] > max_len:
+                max_len = dp1[i]
+                res = dp2[i]
+            elif dp1[i] == max_len:
+                res += dp2[i]
         return res
 
 
