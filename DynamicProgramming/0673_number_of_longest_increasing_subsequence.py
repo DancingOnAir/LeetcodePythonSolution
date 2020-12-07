@@ -3,7 +3,7 @@ from collections import Counter
 
 
 class Solution:
-    #
+    # double dp
     def findNumberOfLIS(self, nums: List[int]) -> int:
         n = len(nums)
         if n < 2:
