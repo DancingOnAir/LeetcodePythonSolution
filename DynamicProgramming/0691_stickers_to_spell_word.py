@@ -20,7 +20,6 @@ class Solution:
     def minStickers(self, stickers: List[str], target: str) -> int:
         self.memo = {}
         stickers = [Counter(s) for s in stickers if set(s) & set(target)]
-        # print(stickers)
 
         def dfs(str):
             if not str:
@@ -30,14 +29,12 @@ class Solution:
                 return self.memo[str]
 
             cnt, res = Counter(str), float('inf')
-            # print('cnt {0}'.format(cnt))
             for c in stickers:
-                if c[target[0]] == 0:
+                if str[0] not in c:
                     continue
-                # print('cnt - c {0}'.format(cnt - c))
                 nxt = dfs(''.join([i * j for (i, j) in (cnt - c).items()]))
                 if nxt != -1:
-                    res = min(res, 1 + nxt)
+                    res = min(res, nxt + 1)
             self.memo[str] = -1 if res == float('inf') else res
             return self.memo[str]
         return dfs(target)
