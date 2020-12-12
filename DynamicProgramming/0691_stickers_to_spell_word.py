@@ -3,21 +3,7 @@ from collections import Counter
 
 
 class Solution:
-    # def minStickers(self, stickers: 'List[str]', target: 'str') -> 'int':
-    #     stickers, self.map = [Counter(s) for s in stickers if set(s) & set(target)], {}
-    #     def dfs(target):
-    #         if not target: return 0
-    #         if target in self.map: return self.map[target]
-    #         cnt, res = Counter(target), float('inf')
-    #         for c in stickers: # traverse the stickers to get new target
-    #             if c[target[0]] == 0: continue # we can make sure the 1st letter will be removed to reduce the time complexity
-    #             nxt = dfs(''.join([s * t for (s, t) in (cnt - c).items()]))
-    #             if nxt != -1: res = min(res, 1 + nxt)
-    #         self.map[target] = -1 if res == float('inf') else res
-    #         return self.map[target]
-    #     return dfs(target)
-
-    def minStickers(self, stickers: List[str], target: str) -> int:
+    def minStickers2(self, stickers: List[str], target: str) -> int:
         self.memo = {}
         stickers = [Counter(s) for s in stickers if set(s) & set(target)]
 
@@ -39,27 +25,25 @@ class Solution:
             return self.memo[str]
         return dfs(target)
 
-    def minStickers1(self, stickers: List[str], target: str) -> int:
-        # n = len(target)
-        # m = 1 << n
-        #
-        # dp = [0x3f3f3f3f] * m
-        # dp[0] = 0
-        # for i in range(m):
-        #     if dp[i] == -1:
-        #         continue
-        #
-        #     for sticker in stickers:
-        #         now = i
-        #         for c in sticker:
-        #             for r in range(n):
-        #                 if target[r] == c and ~((now >> r) & 1):
-        #                     now |= 1 << r
-        #                     break
-        #         dp[now] = min(dp[now], dp[i] + 1)
-        #
-        # return dp[m - 1]
-        pass
+    def minStickers(self, stickers: List[str], target: str) -> int:
+        n = len(target)
+        m = 1 << n
+
+        dp = [0x3f3f3f3f] * m
+        dp[0] = 0
+        for i in range(m):
+            if dp[i] == 0x3f3f3f3f:
+                continue
+
+            for sticker in stickers:
+                cur = i
+                for c in sticker:
+                    for r in range(n):
+                        if target[r] == c and not ((cur >> r) & 1):
+                            cur |= 1 << r
+                            break
+                dp[cur] = min(dp[cur], dp[i] + 1)
+        return -1 if dp[m - 1] == 0x3f3f3f3f else dp[m - 1]
 
 
 def test_min_stickers():
