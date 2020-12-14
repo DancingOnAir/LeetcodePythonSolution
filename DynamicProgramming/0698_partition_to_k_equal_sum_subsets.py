@@ -1,9 +1,30 @@
 from typing import List
-from collections import Counter
 
 
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+        target, remainder = divmod(sum(nums), k)
+        if remainder:
+            return False
+
+        if 1 == k:
+            return True
+
+        n = len(nums)
+        m = 1 << n
+        dp = [0] + [-1] * (m - 1)
+        for mask in range(m):
+            if dp[mask] == -1:
+                continue
+
+            for i in range(n):
+                if not (mask & (1 << i)) and dp[mask] + nums[i] <= target:
+                    dp[mask + (1 << i)] = (dp[mask] + nums[i]) % target
+
+        return dp[m - 1] == 0
+
+    # backtracking
+    def canPartitionKSubsets1(self, nums: List[int], k: int) -> bool:
         if k == 1:
             return True
 
