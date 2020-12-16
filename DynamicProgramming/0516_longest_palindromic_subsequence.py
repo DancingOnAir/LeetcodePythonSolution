@@ -2,7 +2,26 @@ from typing import List
 
 
 class Solution:
+    # 1d dp
     def longestPalindromeSubseq(self, s: str) -> int:
+        n = len(s)
+        if n < 2:
+            return n
+
+        dp = [0] * (n - 1) + [1]
+        for i in range(n)[::-1]:
+            new_dp = dp[:]
+            new_dp[i] = 1
+            for j in range(i+1, n):
+                if s[i] == s[j]:
+                    new_dp[j] = dp[j - 1] + 2
+                else:
+                    new_dp[j] = max(dp[j], new_dp[j - 1])
+            dp = new_dp
+        return dp[-1]
+
+    # 2d dp
+    def longestPalindromeSubseq1(self, s: str) -> int:
         n = len(s)
         if n < 2:
             return n
