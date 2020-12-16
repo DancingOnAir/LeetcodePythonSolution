@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # top to down dp
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
         target, remainder = divmod(sum(nums), k)
         if remainder or max(nums) > target:
@@ -18,6 +19,7 @@ class Solution:
 
         return search(0, target * k)
 
+    # down to top dp
     def canPartitionKSubsets2(self, nums: List[int], k: int) -> bool:
         target, remainder = divmod(sum(nums), k)
         if remainder:
