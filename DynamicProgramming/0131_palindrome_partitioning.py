@@ -4,10 +4,17 @@ from typing import List
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
         n = len(s)
-        res = list()
-        
 
-        return res
+        dp = [[] for _ in range(n+1)]
+        for i in range(n):
+            for j in range(i + 1)[::-1]:
+                if s[j:i+1] == s[j:i+1][::-1]:
+                    if not dp[j]:
+                        dp[i+1].append([s[j:i + 1]])
+                    else:
+                        for k in dp[j]:
+                            dp[i+1].append(k + [s[j:i + 1]])
+        return dp[n]
 
 
 def test_partition():
