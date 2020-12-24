@@ -1,8 +1,20 @@
 from typing import List
+from collections import Counter
 
 
 class Solution:
     def deleteAndEarn(self, nums: List[int]) -> int:
+        points = Counter(nums)
+        j, prev, curr = -1, 0, 0
+        for i in sorted(points.keys()):
+            if i - j > 1:
+                prev, curr = curr, curr + points[i] * i
+            else:
+                prev, curr = curr, max(curr, prev + points[i] * i)
+            j = i
+        return curr
+
+    def deleteAndEarn1(self, nums: List[int]) -> int:
         values = [0] * 10001
         for num in nums:
             values[num] += num
@@ -21,11 +33,11 @@ class Solution:
 def test_delete_and_earn():
     solution = Solution()
 
-    # nums1 = [3, 4, 2]
-    # assert solution.deleteAndEarn(nums1) == 6, 'wrong result'
-    #
-    # nums2 = [2, 2, 3, 3, 3, 4]
-    # assert solution.deleteAndEarn(nums2) == 9, 'wrong result'
+    nums1 = [3, 4, 2]
+    assert solution.deleteAndEarn(nums1) == 6, 'wrong result'
+
+    nums2 = [2, 2, 3, 3, 3, 4]
+    assert solution.deleteAndEarn(nums2) == 9, 'wrong result'
 
     nums3 = [8, 7, 3, 8, 1, 4, 10, 10, 10, 2]
     assert solution.deleteAndEarn(nums3) == 52, 'wrong result'
