@@ -3,43 +3,19 @@ from typing import List
 
 class Solution:
     def deleteAndEarn(self, nums: List[int]) -> int:
-        n = len(nums)
-        dp = [0] * (n + 1)
-        memo = dict()
-        for i in range(n):
-            if nums[i] not in memo:
-                memo[nums[i]] = 1
-                if nums[i] + 1 not in memo and nums[i] - 1 not in memo:
-                    dp[i+1] = dp[i] + nums[i]
-                    continue
-            else:
-                memo[nums[i]] += 1
+        values = [0] * 10001
+        for num in nums:
+            values[num] += num
 
-            nxt = nums[i] + 1
-            total1, total2 = 0, 0
-            while nxt in memo:
-                if (nxt - nums[i]) & 0b1:
-                    total1 += memo[nxt] * nxt
-                else:
-                    total2 += memo[nxt] * nxt
-                nxt += 1
+        take, skip = 0, 0
+        for i in range(10001):
+            take_i = skip + values[i]
+            skip_i = max(take, skip)
 
-            pre = nums[i] - 1
-            total3, total4 = 0, 0
-            while pre in memo:
-                if (nums[i] - pre) & 0b1:
-                    total3 += memo[pre] * pre
-                else:
-                    total4 += memo[pre] * pre
-                pre -= 1
+            take = take_i
+            skip = skip_i
 
-            if total2 + total4 + memo[nums[i]] * nums[i] <= total1 + total3:
-                dp[i+1] = dp[i]
-            elif total2 + total4 + (memo[nums[i]] - 1) * nums[i] < total1 + total3:
-                dp[i+1] = dp[i] + total2 + total4 + memo[nums[i]] * nums[i] - total1 - total3
-            else:
-                dp[i+1] = dp[i] + nums[i]
-        return dp[n]
+        return max(take, skip)
 
 
 def test_delete_and_earn():
