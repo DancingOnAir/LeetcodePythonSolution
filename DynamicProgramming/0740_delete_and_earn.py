@@ -3,6 +3,22 @@ from collections import Counter
 
 
 class Solution:
+    def deleteAndEarn(self, nums: List[int]) -> int:
+        buckets = [0] * 10001
+        max_num = 0
+        for num in nums:
+            max_num = max(max_num, num)
+            buckets[num] += num
+
+        if max_num < 1:
+            return 0
+
+        dp = [0] * (max_num + 1)
+        dp[1] = buckets[1]
+        for i in range(2, max_num + 1):
+            dp[i] = max(dp[i - 1], dp[i - 2] + buckets[i])
+        return dp[max_num]
+
     def deleteAndEarn3(self, nums: List[int]) -> int:
         points, prev, curr = Counter(nums), 0, 0
         for val in range(10001):
