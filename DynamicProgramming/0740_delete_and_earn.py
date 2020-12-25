@@ -3,7 +3,13 @@ from collections import Counter
 
 
 class Solution:
-    def deleteAndEarn(self, nums: List[int]) -> int:
+    def deleteAndEarn3(self, nums: List[int]) -> int:
+        points, prev, curr = Counter(nums), 0, 0
+        for val in range(10001):
+            prev, curr = curr, max(prev + points[val] * val, curr)
+        return curr
+
+    def deleteAndEarn2(self, nums: List[int]) -> int:
         points = Counter(nums)
         j, prev, curr = -1, 0, 0
         for i in sorted(points.keys()):
