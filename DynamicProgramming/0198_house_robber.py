@@ -7,6 +7,16 @@ class Solution:
         if not n:
             return 0
 
+        prev1, prev2 = 0, 0
+        for num in nums:
+            prev1, prev2 = max(prev2 + num, prev1), prev1
+        return prev1
+
+    def rob1(self, nums: List[int]) -> int:
+        n = len(nums)
+        if not n:
+            return 0
+
         dp = [0] * (n + 1)
         dp[1] = nums[0]
         for i in range(2, n+1):
