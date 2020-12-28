@@ -2,6 +2,32 @@ from typing import List
 
 
 class Solution:
+    def cherryPickup(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        dp = [[[-1] * n for _ in range(n)] for _ in range(n)]
+        dp[0][0][0] = grid[0][0]
+
+        for i in range(n):
+            for j in range(n):
+                for k in range(min(i + j + 1, n)):
+                    if not i and not j and not k:
+                        continue
+                    if i + j - k < 0 or i + j - k >= n or grid[i][j] == -1 or grid[k][i + j - k] == -1:
+                        continue
+
+                    a = dp[i - 1][j][k] if i > 0 else -1
+                    b = dp[i - 1][j][k - 1] if i > 0 else -1
+                    c = dp[i][j - 1][k] if j > 0 else -1
+                    d = dp[i][j - 1][k - 1] if j > 0 else -1
+
+                    dp[i][j][k] = max(a, b, c, d)
+                    if dp[i][j][k] != -1:
+                        if i == k:
+                            dp[i][j][k] += grid[i][j]
+                        else:
+                            dp[i][j][k] += grid[i][j] + grid[k][i + j - k]
+        return 0 if dp[-1][-1][-1] == -1 else dp[-1][-1][-1]
+
     def __init__(self):
         self.path = list()
 
@@ -44,7 +70,8 @@ class Solution:
         self.path.append([n - 1, n - 1])
         return dp[-1][-1]
 
-    def cherryPickup(self, grid: List[List[int]]) -> int:
+    # 错误解法，第一次遍历最大值+第二次被影响过的最大值 != 最优解
+    def cherryPickup1(self, grid: List[List[int]]) -> int:
         first = self.max_path_sum(grid)
         if not first:
             return 0
