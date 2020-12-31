@@ -1,7 +1,33 @@
 from typing import List
+from bisect import bisect_right
 
 
 class Solution:
+    def orderOfLargestPlusSign(self, N: int, mines: List[List[int]]) -> int:
+        rows = [[-1, N] for _ in range(N)]
+        cols = [[-1, N] for _ in range(N)]
+
+        for r, c in mines:
+            rows[r].append(c)
+            cols[c].append(r)
+
+        for i in range(N):
+            rows[i].sort()
+            cols[i].sort()
+
+        res = 0
+        for r in range(N):
+            for i in range(len(rows[r]) - 1):
+                left = rows[r][i]
+                right = rows[r][i + 1]
+                for c in range(left + res + 1, right - res):
+                    idx = bisect_right(cols[c], r) - 1
+                    up = cols[c][idx]
+                    down = cols[c][idx + 1]
+                    res = max(res, min(c - left, right - c, r - up, down - r))
+
+        return res
+
     def orderOfLargestPlusSign(self, N: int, mines: List[List[int]]) -> int:
         dp = [[N] * N for _ in range(N)]
 
