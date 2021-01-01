@@ -3,18 +3,16 @@ from typing import List
 
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
-        dp = [-1] * K
-        memo = list()
-        for f in flights:
-            if src == f[0] and dst == f[1]:
-                dp[0] = f[2]
-                memo.append([f[0], f[1]])
-        if not K:
-            return dp[0]
+        # dp[i][j] means distance to reach j using at most i edges from src
+        dp = [[float('inf')] * n for _ in range(K + 2)]
+        for i in range(K + 2):
+            dp[i][src] = 0
+        for i in range(1, K + 2):
+            for f in flights:
+                if dp[i - 1][f[0]] != float('inf'):
+                    dp[i][f[1]] = min(dp[i][f[1]], dp[i - 1][f[0]] + f[2])
 
-        for k in range(1, K+1):
-            for i in range(n):
-                if i not in memo[-1]
+        return dp[K + 1][dst] if dp[K + 1][dst] != float('inf') else -1
 
 
 def test_find_cheapest_price():
