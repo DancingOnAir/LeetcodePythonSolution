@@ -1,8 +1,32 @@
 from typing import List
+from collections import deque
 
 
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
+        if n < 1 or not flights or K < 0:
+            return -1
+
+        graph = [[] for _ in range(n)]
+        for s, d, price in flights:
+            graph[s].append((d, price))
+        seen = [float('inf')] * n
+        q = deque([(src, -1, 0)])
+        while q:
+            node, stops, cost = q.popleft()
+            if node == dst or stops == K:
+                continue
+
+            for nei, price in graph[node]:
+                if cost + price >= seen[nei]:
+                    continue
+
+                seen[nei] = cost + price
+                q.append((nei, stops + 1, cost + price))
+
+        return seen[dst] if seen[dst] != float('inf') else -1
+
+    def findCheapestPrice1(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
         # dp[i][j] means distance to reach j using at most i edges from src
         dp = [[float('inf')] * n for _ in range(K + 2)]
         for i in range(K + 2):
