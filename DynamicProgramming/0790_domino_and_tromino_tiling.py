@@ -2,7 +2,24 @@ from typing import List
 
 
 class Solution:
+    # https://leetcode.com/problems/domino-and-tromino-tiling/discuss/116581/Detail-and-explanation-of-O(n)-solution-why-dpn2*dn-1%2Bdpn-3
     def numTilings(self, N: int) -> int:
+        MOD = 10 ** 9 + 7
+        dp = [0] * 1001
+        dp[0] = 1
+        dp[1] = 1
+        dp[2] = 2
+
+        if N < 3:
+            return dp[N]
+
+        for i in range(3, N+1):
+            dp[i] = (2 * dp[i - 1] + dp[i - 3]) % MOD
+
+        return dp[N]
+
+
+    def numTilings1(self, N: int) -> int:
         if N == 1:
             return 1
         MOD = 10 ** 9 + 7
