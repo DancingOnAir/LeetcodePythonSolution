@@ -1,6 +1,12 @@
 class Solution:
-    #
     def champagneTower(self, poured: int, query_row: int, query_glass: int) -> float:
+        dp = [poured] + [0] * query_row
+        for r in range(1, query_row + 1):
+            for c in range(r, -1, -1):
+                dp[c] = max(dp[c] - 1, 0) / 2.0 + max(dp[c - 1] - 1, 0) / 2.0
+        return min(1, dp[query_glass])
+
+    def champagneTower1(self, poured: int, query_row: int, query_glass: int) -> float:
         if not poured:
             return 0
 
