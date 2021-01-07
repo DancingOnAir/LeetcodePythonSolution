@@ -2,27 +2,27 @@ from typing import List
 
 
 class Solution:
-    # def minSwap(self, A: List[int], B: List[int]) -> int:
-    #     n = len(A)
-    #     if n < 2:
-    #         return 0
-    #
-    #     swap, not_swap = 1, 0
-    #
-    #     for i in range(1, n):
-    #         not_swap_temp, swap_temp = n, n
-    #         if A[i - 1] < A[i] and B[i - 1] < B[i]:
-    #             swap_temp = swap + 1
-    #             not_swap_temp = not_swap
-    #
-    #         if A[i - 1] < B[i] and B[i - 1] < A[i]:
-    #             swap_temp = min(swap_temp, not_swap + 1)
-    #             not_swap_temp = min(not_swap_temp, swap)
-    #
-    #         swap, not_swap = swap_temp, not_swap_temp
-    #     return min(swap, not_swap)
-
     def minSwap(self, A: List[int], B: List[int]) -> int:
+        n = len(A)
+        if n < 2:
+            return 0
+
+        swap, not_swap = 1, 0
+
+        for i in range(1, n):
+            not_swap_temp, swap_temp = n, n
+            if A[i - 1] < A[i] and B[i - 1] < B[i]:
+                swap_temp = swap + 1
+                not_swap_temp = not_swap
+
+            if A[i - 1] < B[i] and B[i - 1] < A[i]:
+                swap_temp = min(swap_temp, not_swap + 1)
+                not_swap_temp = min(not_swap_temp, swap)
+
+            swap, not_swap = swap_temp, not_swap_temp
+        return min(swap, not_swap)
+
+    def minSwap1(self, A: List[int], B: List[int]) -> int:
         n = len(A)
         if n < 2:
             return 0
