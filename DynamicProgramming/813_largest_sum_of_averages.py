@@ -3,6 +3,23 @@ from typing import List
 
 class Solution:
     def largestSumOfAverages(self, A: List[int], K: int) -> float:
+        pre_sum = [0]
+        for a in A:
+            pre_sum.append(pre_sum[-1] + a)
+
+        def average(i, j):
+            return (pre_sum[j] - pre_sum[i]) / (j - i)
+
+        n = len(A)
+        dp = [average(i, n) for i in range(n)]
+
+        for k in range(K - 1):
+            for i in range(n):
+                for j in range(i + 1, n):
+                    dp[i] = max(dp[i], dp[j] + average(i, j))
+        return dp[0]
+
+    def largestSumOfAverages1(self, A: List[int], K: int) -> float:
         n = len(A)
         if K == 1:
             return sum(A) / n
