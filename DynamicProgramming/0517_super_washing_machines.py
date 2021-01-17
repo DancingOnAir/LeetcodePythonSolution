@@ -3,6 +3,16 @@ from typing import List
 
 class Solution:
     def findMinMoves(self, machines: List[int]) -> int:
+        total, n = sum(machines), len(machines)
+        if total % n:
+            return -1
+        avg, res, pre_sum = total // n, 0, 0
+        for m in machines:
+            pre_sum += m - avg
+            res = max(res, abs(pre_sum), m - avg)
+        return res
+
+    def findMinMoves1(self, machines: List[int]) -> int:
         s = sum(machines)
         n = len(machines)
         q, r = divmod(s, n)
@@ -19,7 +29,8 @@ class Solution:
 
 def test_find_min_moves():
     solution = Solution()
-    # assert solution.findMinMoves([1, 0, 5]) == 3, 'wrong result'
+
+    assert solution.findMinMoves([1, 0, 5]) == 3, 'wrong result'
     assert solution.findMinMoves([0, 3, 0]) == 2, 'wrong result'
     assert solution.findMinMoves([0, 2, 0]) == -1, 'wrong result'
 
