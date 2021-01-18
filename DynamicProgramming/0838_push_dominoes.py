@@ -2,7 +2,39 @@ from typing import List
 
 
 class Solution:
+    # calculate left & right forces
     def pushDominoes(self, dominoes: str) -> str:
+        n = len(dominoes)
+        if not n:
+            return ''
+        elif n == 1:
+            return dominoes
+
+        forces = [0] * n
+        f = 0
+        # right forces
+        for i in range(n):
+            if dominoes[i] == 'R':
+                f = n
+            elif dominoes[i] == 'L':
+                f = 0
+            else:
+                f = max(f - 1, 0)
+            forces[i] += f
+        f = 0
+        # left forces
+        for i in range(n - 1, -1, -1):
+            if dominoes[i] == 'L':
+                f = n
+            elif dominoes[i] == 'R':
+                f = 0
+            else:
+                f = max(f - 1, 0)
+            forces[i] -= f
+
+        return ''.join('.' if f == 0 else 'R' if f > 0 else 'L' for f in forces)
+
+    def pushDominoes1(self, dominoes: str) -> str:
         if not dominoes:
             return ''
 
