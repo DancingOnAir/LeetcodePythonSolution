@@ -2,8 +2,30 @@ from typing import List
 
 
 class Solution:
-    # calculate left & right forces
     def pushDominoes(self, dominoes: str) -> str:
+        dominoes = 'L' + dominoes + 'R'
+        res = ''
+        i = 0
+        for j in range(1, len(dominoes)):
+            if dominoes[j] == '.':
+                continue
+
+            if i:
+                res += dominoes[i]
+
+            mid = j - i - 1
+            if dominoes[i] == dominoes[j]:
+                res += dominoes[i] * mid
+            elif dominoes[i] == 'L' and dominoes[j] == 'R':
+                res += '.' * mid
+            else:
+                res += 'R' * (mid // 2) + '.' * (mid % 2) + 'L' * (mid // 2)
+            i = j
+
+        return res
+
+    # calculate left & right forces
+    def pushDominoes2(self, dominoes: str) -> str:
         n = len(dominoes)
         if not n:
             return ''
