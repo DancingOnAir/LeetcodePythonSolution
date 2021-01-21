@@ -1,14 +1,34 @@
 from bisect import bisect_left
-from collections import OrderedDict
+from collections import deque
 
 
 class Solution:
+    # simple dfs solution
+    def racecar(self, target: int) -> int:
+        # initialize as 0 moves, 0 position, +1 velocity
+        q = deque([(0, 0, 1)])
+        res = float('inf')
+        while q:
+            # (m) moves, (p) position, (v) velocity
+            m, p, v = q.popleft()
+            if p == target:
+                res = min(res, m)
+
+            if m >= res:
+                continue
+
+            q.append((m + 1, p + v, 2 * v))
+            if (p + v > target and v > 0) or (p + v < target and v < 0):
+                q.append((m + 1, p, -1 * v // abs(v)))
+        return res
+
+
     def __init__(self):
         self.memo = {0: 0}
 
     # bottom-up dp
     # https://leetcode.com/problems/race-car/discuss/227415/Figures-to-make-the-DP-solution-more-straightforward
-    def racecar(self, target: int) -> int:
+    def racecar3(self, target: int) -> int:
         dp = [0] + [0x3f3f3f3f] * target
         for i in range(1, target+1):
             m, j = 1, 1
