@@ -3,8 +3,29 @@ from collections import deque, defaultdict
 
 
 class Solution:
-    # bfs
+    # dp
     def shortestPathLength(self, graph: List[List[int]]) -> int:
+        n = len(graph)
+        dist = [[float('inf')] * n for _ in range(1 << n)]
+        for i in range(n):
+            dist[1 << i][i] = 0
+
+        for cover in range(1 << n):
+            repeat = True
+
+            while repeat:
+                repeat = False
+                for head, d in enumerate(dist[cover]):
+                    for neighbor in graph[head]:
+                        cover2 = cover | (1 << neighbor)
+                        if d + 1 < dist[cover2][neighbor]:
+                            dist[cover2][neighbor] = d + 1
+                            if cover == cover2:
+                                repeat = True
+        return min(dist[2 ** n - 1])
+
+    # bfs
+    def shortestPathLength1(self, graph: List[List[int]]) -> int:
         n = len(graph)
         q = deque((1 << x, x) for x in range(n))
         dist = defaultdict(lambda: n*n)
