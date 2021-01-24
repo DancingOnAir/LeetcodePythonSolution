@@ -1,9 +1,28 @@
 from typing import List
+from collections import deque, defaultdict
 
 
 class Solution:
+    # bfs
     def shortestPathLength(self, graph: List[List[int]]) -> int:
-        pass
+        n = len(graph)
+        q = deque((1 << x, x) for x in range(n))
+        dist = defaultdict(lambda: n*n)
+
+        for x in range(n):
+            dist[1 << x, x] = 0
+
+        while q:
+            cover, head = q.popleft()
+            d = dist[cover, head]
+            if cover == 2 ** n - 1:
+                return d
+
+            for child in graph[head]:
+                cover2 = cover | (1 << child)
+                if d + 1 < dist[cover2, child]:
+                    dist[cover2, child] = d + 1
+                    q.append((cover2, child))
 
 
 def test_shortest_path_length():
