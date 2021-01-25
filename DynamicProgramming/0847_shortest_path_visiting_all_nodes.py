@@ -3,8 +3,36 @@ from collections import deque, defaultdict
 
 
 class Solution:
-    # dp
     def shortestPathLength(self, graph: List[List[int]]) -> int:
+        n = len(graph)
+        new_g = [set() for _ in range(n)]
+        for i in range(n):
+            for j in graph[i]:
+                new_g[i].add(j)
+                new_g[j].add(i)
+        graph = new_g
+
+        dp = [[float('inf')] * n for _ in range(1 << n)]
+
+        q = deque()
+        for i in range(n):
+            # dp[state][node], the distance between the ith node with itself equals 0
+            dp[1 << i][i] = 0
+            q.append((i, 1 << i))
+
+        while q:
+            node, state = q.popleft()
+            for neighbour in graph[node]:
+                new_state = state | (1 << neighbour)
+
+                if dp[new_state][neighbour] == float('inf'):
+                    dp[new_state][neighbour] = dp[state][node] + 1
+                    q.append((neighbour, new_state))
+
+        return min(dp[-1])
+
+    # dp
+    def shortestPathLength2(self, graph: List[List[int]]) -> int:
         n = len(graph)
         dist = [[float('inf')] * n for _ in range(1 << n)]
         for i in range(n):
