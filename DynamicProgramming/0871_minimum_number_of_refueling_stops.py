@@ -6,7 +6,7 @@ import heapq
 class Solution:
     def minRefuelStops(self, target: int, startFuel: int, stations: List[List[int]]) -> int:
         pq = list()
-        stations.append([target, float('inf')])
+        stations.append([target, 0])
 
         pre = 0
         res = 0
