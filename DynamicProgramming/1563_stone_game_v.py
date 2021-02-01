@@ -3,6 +3,7 @@ from functools import lru_cache
 
 
 class Solution:
+    # dp solution but TLE
     def stoneGameV(self, stoneValue: List[int]) -> int:
         n = len(stoneValue)
         if 1 == n:
@@ -17,14 +18,25 @@ class Solution:
             if left == right:
                 return 0
 
+            if all(stoneValue[k] == stoneValue[right] for k in range(left, right)):
+                cnt = 0
+                len = right - left + 1
+                while len > 1:
+                    len //= 2
+                    cnt += len
+                return cnt * stoneValue[right]
+
             res = 0
             for i in range(left, right):
                 left_sum = pre_sum[i + 1] - pre_sum[left]
                 right_sum = pre_sum[right + 1] - pre_sum[i + 1]
-                if left_sum <= right_sum:
-                    res = max(res, dp(left, i) + left_sum)
-                elif left_sum >= right_sum:
-                    res = max(res, dp(i + 1, right) + right_sum)
+                if left_sum < right_sum:
+                    tmp = dp(left, i) + left_sum
+                elif left_sum > right_sum:
+                    tmp = dp(i + 1, right) + right_sum
+                else:
+                    tmp = max(dp(left, i) + left_sum, dp(i + 1, right) + right_sum)
+                res = max(res, tmp)
             return res
 
         return dp(0, n - 1)
