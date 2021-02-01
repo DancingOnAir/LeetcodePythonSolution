@@ -1,8 +1,39 @@
 from typing import List
+from functools import lru_cache
 
 
 class Solution:
     def stoneGameV(self, stoneValue: List[int]) -> int:
+        n = len(stoneValue)
+        if 1 == n:
+            return 0
+
+        pre_sum = [0] * (n + 1)
+        for i, val in enumerate(stoneValue):
+            pre_sum[i + 1] = val + pre_sum[i]
+
+        @lru_cache(None)
+        def dp(left, right):
+            if left == right:
+                return 0
+
+            res = 0
+            for i in range(left, right):
+                left_sum = pre_sum[i + 1] - pre_sum[left]
+                right_sum = pre_sum[right + 1] - pre_sum[i + 1]
+                if left_sum <= right_sum:
+                    res = max(res, dp(left, i) + left_sum)
+                elif left_sum >= right_sum:
+                    res = max(res, dp(i + 1, right) + right_sum)
+            return res
+
+        return dp(0, n - 1)
+
+    # dfs but failed
+    # thoughts, how to choose the subarray,
+    # eg. left sum equals right sum, both are 9
+    #     [3, 3, 3] and [1, 4, 4] or [3, 3, 3] and [5, 4] or [3, 3, 3] and [2, 2, 2, 3]
+    def stoneGameV1(self, stoneValue: List[int]) -> int:
         n = len(stoneValue)
         if 1 == n:
             return 0
@@ -29,7 +60,7 @@ class Solution:
                         cur_right = right
                     else:
                         total = left_sum
-                        if
+
             return helper(cur_left, cur_right, res + total)
 
         pre_sum = [0]
