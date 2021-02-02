@@ -23,7 +23,6 @@ class Solution:
 
         return dp[0][-1] > 0
 
-
     # https://leetcode.com/problems/stone-game/discuss/154610/DP-or-Just-return-true
     # Alex is first to pick pile.
     # piles.length is even, and this lead to an interesting fact:
