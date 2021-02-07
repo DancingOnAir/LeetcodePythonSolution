@@ -2,9 +2,21 @@ from typing import List
 
 
 class Solution:
-    # dp[i][j][k] represents the total schemes of 0-i-1 crimes, j memebers and at least k profit.
-    # dp[i][j] represents total schemes of minimum profit is i and needs j members.
+    # dp[i][j] means the count of schemes with i profit and j members.
     def profitableSchemes(self, n: int, minProfit: int, group: List[int], profit: List[int]) -> int:
+        MOD = 10 ** 9 + 7
+        dp = [[0] * (n + 1) for _ in range(minProfit + 1)]
+        dp[0][0] = 1
+
+        for g, p in zip(group, profit):
+            for i in range(minProfit, -1, -1):
+                for j in range(n - g, -1, -1):
+                    dp[min(i + p, minProfit)][j + g] += dp[i][j]
+
+        return sum(dp[-1]) % MOD
+
+    # dp[i][j][k] represents the total schemes of 0-i-1 crimes, j memebers and at least k profit.
+    def profitableSchemes1(self, n: int, minProfit: int, group: List[int], profit: List[int]) -> int:
         MOD = 10 ** 9 + 7
         l = len(group)
 
@@ -22,22 +34,6 @@ class Solution:
 
                     dp[i][j][k] %= MOD
         return dp[l][n][minProfit]
-
-        # dp = [[0] * (n + 1) for _ in range(minProfit + 1)]
-        # dp[0][0] = 1
-        #
-        # for g, p in zip(group, profit):
-        #     cur_dp = [row[:] for row in dp]
-        #
-        #     for i in range(minProfit + 1):
-        #         cur_p = min(i + p, minProfit)
-        #         for j in range(n - g + 1):
-        #             cur_g = g + j
-        #             cur_dp[cur_p][cur_g] += dp[i][j]
-        #             cur_dp[cur_p][cur_g] %= MOD
-        #     dp = cur_dp
-        #
-        # return sum(dp[-1]) % MOD
 
 
 def test_profitable_schemes():
