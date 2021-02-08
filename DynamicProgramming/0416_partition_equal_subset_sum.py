@@ -1,8 +1,22 @@
 from typing import List
-from itertools import accumulate
 
 
 class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        target, n = sum(nums), len(nums)
+        if target & 1:
+            return False
+
+        target >>= 1
+        dp = [True] + [False] * target
+        for x in nums:
+            dp = [dp[i] or (i >= x and dp[i - x]) for i in range(target + 1)]
+            if dp[target]:
+                return True
+
+        return False
+
+    # brute force dict
     def canPartition(self, nums: List[int]) -> bool:
         if sum(nums) & 1 == 0:
             mid = sum(nums) >> 1
