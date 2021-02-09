@@ -1,9 +1,21 @@
 from typing import List
+from collections import Counter
 
 
 class Solution:
-    # dp[i][j] = max length of the subset which is composed with i 0s and j 1s
     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        counter = [(c['0'], c['1']) for c in map(Counter, strs)]
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+
+        for c0, c1 in counter:
+            for i in range(m, c0 - 1, -1):
+                for j in range(n, c1 - 1, -1):
+                    dp[i][j] = max(dp[i][j], dp[i - c0][j - c1] + 1)
+
+        return dp[m][n]
+
+    # dp[i][j] = max length of the subset which is composed with i 0s and j 1s
+    def findMaxForm1(self, strs: List[str], m: int, n: int) -> int:
         dp = [[0] * (n + 1) for _ in range(m + 1)]
 
         for s in strs:
