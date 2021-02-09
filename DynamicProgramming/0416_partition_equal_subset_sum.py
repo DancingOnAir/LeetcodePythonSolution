@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # dp
     def canPartition(self, nums: List[int]) -> bool:
         target, n = sum(nums), len(nums)
         if target & 1:
