@@ -3,8 +3,20 @@ from collections import Counter
 
 
 class Solution:
-    # dp[i][j] = max weight from first i stones, capacity is j,
+    # dp[i] = max weight when capacity is i
     def lastStoneWeightII(self, stones: List[int]) -> int:
+        n = len(stones)
+        total = sum(stones)
+        capacity = total >> 1
+
+        dp = [0] * (capacity + 1)
+        for i in range(n):
+            for j in range(capacity, stones[i] - 1, -1):
+                dp[j] = max(dp[j], dp[j - stones[i]] + stones[i])
+        return total - 2 * dp[-1]
+
+    # dp[i][j] = max weight from first i stones, capacity is j,
+    def lastStoneWeightII1(self, stones: List[int]) -> int:
         n = len(stones)
         if 1 == n:
             return stones[0]
