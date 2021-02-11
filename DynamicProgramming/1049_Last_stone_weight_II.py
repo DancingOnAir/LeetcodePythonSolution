@@ -1,10 +1,13 @@
 from typing import List
-from collections import Counter
 
 
 class Solution:
+    # dp, different value which is achievable
     def lastStoneWeightII(self, stones: List[int]) -> int:
-        pass
+        dp = {0}
+        for s in stones:
+            dp = {x + s for x in dp} | {x - s for x in dp}
+        return min(abs(x) for x in dp)
 
     # dp, loop for all possible sum
     def lastStoneWeightII3(self, stones: List[int]) -> int:
