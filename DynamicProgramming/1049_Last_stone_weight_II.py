@@ -3,8 +3,19 @@ from collections import Counter
 
 
 class Solution:
-    # dp[i] = max weight when capacity is i
     def lastStoneWeightII(self, stones: List[int]) -> int:
+        pass
+
+    # dp, loop for all possible sum
+    def lastStoneWeightII3(self, stones: List[int]) -> int:
+        dp = {0}
+        total = sum(stones)
+        for s in stones:
+            dp |= {s + x for x in dp}
+        return min(abs(total - x * 2) for x in dp)
+
+    # 0-1 knapsack problem dp[i] = max weight when capacity is i
+    def lastStoneWeightII2(self, stones: List[int]) -> int:
         n = len(stones)
         total = sum(stones)
         capacity = total >> 1
@@ -15,7 +26,7 @@ class Solution:
                 dp[j] = max(dp[j], dp[j - stones[i]] + stones[i])
         return total - 2 * dp[-1]
 
-    # dp[i][j] = max weight from first i stones, capacity is j,
+    # 0-1 knapsack problem, dp[i][j] = max weight from first i stones, capacity is j,
     def lastStoneWeightII1(self, stones: List[int]) -> int:
         n = len(stones)
         if 1 == n:
