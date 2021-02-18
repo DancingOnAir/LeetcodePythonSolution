@@ -1,6 +1,23 @@
 class Solution:
-    # dp[M][K] means given K eggs and M moves, what is the maximum number of floor we can achieve.
+    # dp[K] means given K eggs, what is the maximum number of floor we can achieve.
+    # time complexity is O(KlogN)
     def superEggDrop(self, K: int, N: int) -> int:
+        dp = [0] * (K + 1)
+        res = 0
+        for m in range(N + 1):
+            if dp[K] < N:
+                res += 1
+            else:
+                break
+
+            for k in range(K, 0, -1):
+                dp[k] += dp[k - 1] + 1
+
+        return res
+
+    # dp[M][K] means given K eggs and M moves, what is the maximum number of floor we can achieve.
+    # time complexity is O(NK)
+    def superEggDrop2(self, K: int, N: int) -> int:
         dp = [[0] * (K + 1) for _ in range(N + 1)]
         for m in range(1, N + 1):
             for k in range(1, K + 1):
@@ -26,7 +43,7 @@ class Solution:
 
 def test_super_egg_drop():
     solution = Solution()
-    assert solution.superEggDrop(1, 2) == 2, 'wrong result'
+    # assert solution.superEggDrop(1, 2) == 2, 'wrong result'
     assert solution.superEggDrop(2, 6) == 3, 'wrong result'
     assert solution.superEggDrop(3, 14) == 4, 'wrong result'
     assert solution.superEggDrop(4, 5000)
