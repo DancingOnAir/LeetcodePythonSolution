@@ -1,4 +1,5 @@
 from typing import List
+from functools import lru_cache
 from bisect import bisect_right, bisect_left
 
 
@@ -11,6 +12,7 @@ class Solution:
         N = list(map(int, str(n)))
         D = list(map(int, digits))
 
+        @lru_cache(None)
         def dp(idx, prefix, bigger):
             if idx == len(N):
                 return not bigger
