@@ -2,6 +2,21 @@ from functools import lru_cache
 
 
 class Solution:
+    # pythonic math solution
+    def findIntegers(self, num: int) -> int:
+        x, y = 1, 2
+        num += 1
+        res = 0
+
+        while num:
+            if num & 1 and num & 2:
+                res = 0
+            res += x * (num & 1)
+            num >>= 1
+
+            x, y = y, x + y
+        return res
+
     # Why can I use fibonacci numbers?
     # a(n) = the number of valid integers less than 2^n
     # a(5) = the number of valid integers less than 0b100000, aka 0bXXXXX.
@@ -12,7 +27,7 @@ class Solution:
     # Since we have checked the consecutive 1s in the loop, and the biggest number of the range must be just
     # smaller than n by 1, count+1 includes the n must be itself and has no consecutive.
     # If n has consecutive 1, count must be returned by if (pre_bit) return ans; in the loop.
-    def findIntegers(self, num: int) -> int:
+    def findIntegers2(self, num: int) -> int:
         f = [1, 2] + [0] * 30
         for i in range(2, 32):
             f[i] = f[i - 1] + f[i - 2]
