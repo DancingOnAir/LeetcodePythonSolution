@@ -2,6 +2,20 @@ class Solution:
     def countNumbersWithUniqueDigits(self, n: int) -> int:
         if not n:
             return 1
+        if 1 == n:
+            return 10
+        # 从最高位到最低位的可选数字个数，最高位不能为0，只能1-9，次高位可以选0-9
+        choices = [9, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        res, product = 1, 1
+        for i in range(min(n, 10)):
+            product *= choices[i]
+            res += product
+        return res
+
+    # digit dp
+    def countNumbersWithUniqueDigits1(self, n: int) -> int:
+        if not n:
+            return 1
         N = [1] + [0] * n
 
         def dp(idx, prefix, bigger, repeated, digits):
@@ -18,6 +32,7 @@ class Solution:
                 # check current digit whether exists in digits.
                 if (digits >> i) & 1:
                     _repeated = True
+                # 这里控制是否符合条件：1.没有重复的数位。2.不符合大于并且已经是最低位。
                 if not _repeated and not (idx == len(N) - 1 and _bigger):
                     res += 1
 
@@ -30,6 +45,7 @@ class Solution:
 
 def test_count_numbers_with_unique_digits():
     solution = Solution()
+    assert solution.countNumbersWithUniqueDigits(1) == 10, 'wrong result'
     assert solution.countNumbersWithUniqueDigits(2) == 91, 'wrong result'
 
 
