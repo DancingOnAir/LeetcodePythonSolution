@@ -2,8 +2,22 @@ from functools import lru_cache
 
 
 class Solution:
-    # brute force
+    # dp
+    # if digit in [3, 4, 7], then dp[i] = -1
+    # if it's in [0, 1, 8], dp[i] = 0
+    # if it's in [2, 5, 6, 9], dp[i] = 1
     def rotatedDigits(self, N: int) -> int:
+        dp = [0, 0, 1, -1, -1, 1, 1, -1, 0, 1] + [0] * (N - 9)
+        for i in range(1, N+1):
+            if dp[i // 10] == -1 or dp[i % 10] == -1:
+                dp[i] = -1
+            elif dp[i // 10] == 1 and dp[i % 10] == 1:
+                dp[i] = 1
+        # 不能dp.count(1), 如果N < 9，需要截取
+        return dp[:N + 1].count(1)
+
+    # brute force
+    def rotatedDigits2(self, N: int) -> int:
         res = 0
         for i in range(1, N+1):
             s = str(i)
