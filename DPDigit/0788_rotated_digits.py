@@ -2,7 +2,17 @@ from functools import lru_cache
 
 
 class Solution:
+    # brute force
     def rotatedDigits(self, N: int) -> int:
+        res = 0
+        for i in range(1, N+1):
+            s = str(i)
+
+            res += (all(d not in '347' for d in s) and any(d in '2569' for d in s))
+        return res
+
+    # digit dp
+    def rotatedDigits1(self, N: int) -> int:
         N = list(map(int, str(N)))
         non_rotatings = [0, 1, 8]
         rotatings = [2, 5, 6, 9]
