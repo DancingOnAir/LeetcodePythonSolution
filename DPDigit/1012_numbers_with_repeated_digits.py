@@ -9,7 +9,8 @@ class Solution:
         def dp(idx, prefix, bigger, repeat, digits):
             if idx == len(N):
                 return 0
-
+            if repeat and not bigger and not prefix:
+                return 10 + 10 * dp(idx + 1, False, False, True, digits)
             res = 0
             for i in range(1 if not idx else 0, 10):
                 _prefix = prefix and i == N[idx]
