@@ -4,6 +4,9 @@ from collections import Counter
 
 class Solution:
     def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
+        return sum((ruleKey, ruleValue) in (('type', t), ('color', c), ('name', n)) for t, c, n in items)
+
+    def countMatches1(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
         transpose_items = list(zip(*items))
         rule_keys = {'type': 0, 'color': 1, 'name': 2}
         counter = Counter(transpose_items[rule_keys[ruleKey]])
