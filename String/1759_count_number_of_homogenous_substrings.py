@@ -1,5 +1,17 @@
+from itertools import groupby
+
+
 class Solution:
+    # https://stackoverflow.com/questions/773/how-do-i-use-itertools-groupby
+    # itertools.groupby
     def countHomogenous(self, s: str) -> int:
+        res = 0
+        for c, s in groupby(s):
+            n = len(list(s))
+            res += n * (n + 1) // 2
+        return res % (10 ** 9 + 7)
+
+    def countHomogenous1(self, s: str) -> int:
         n = 1
         res = 0
         for i in range(1, len(s)):
