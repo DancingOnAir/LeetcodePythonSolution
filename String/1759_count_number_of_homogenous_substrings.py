@@ -4,6 +4,8 @@ from itertools import groupby
 class Solution:
     # https://stackoverflow.com/questions/773/how-do-i-use-itertools-groupby
     # itertools.groupby
+    # [k for k, g in groupby('AAAABBBCCDAABBB')] --> A B C D A B
+    # [list(g) for k, g in groupby('AAAABBBCCD')] --> AAAA BBB CC D
     def countHomogenous2(self, s: str) -> int:
         res = 0
         for c, s in groupby(s):
