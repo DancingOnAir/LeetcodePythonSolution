@@ -1,5 +1,19 @@
 class Solution:
+    # divide and conquer
     def longestNiceSubstring(self, s: str) -> str:
+        if len(s) < 2:
+            return ''
+
+        ss = set(s)
+        for i, val in enumerate(s):
+            if val.swapcase() not in ss:
+                s0 = self.longestNiceSubstring(s[:i])
+                s1 = self.longestNiceSubstring(s[i+1:])
+                return max(s0, s1, key=len)
+        return s
+
+    # pythonic brute force
+    def longestNiceSubstring2(self, s: str) -> str:
         if len(s) < 2:
             return ''
         res = ''
