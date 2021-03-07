@@ -4,7 +4,19 @@ from collections import Counter
 
 
 class Solution:
+    # Counter + memo
     def beautySum(self, s: str) -> int:
+        res = 0
+        for i in range(len(s)):
+            c = Counter()
+            for j in range(i, len(s)):
+                c[s[j]] += 1
+                res += max(c.values()) - min(c.values())
+
+        return res
+
+    # frequency table
+    def beautySum2(self, s: str) -> int:
         res = 0
         for i in range(len(s)):
             freq = [0] * 26
