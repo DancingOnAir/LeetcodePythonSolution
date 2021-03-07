@@ -5,6 +5,17 @@ from collections import Counter
 
 class Solution:
     def beautySum(self, s: str) -> int:
+        res = 0
+        for i in range(len(s)):
+            freq = [0] * 26
+            for j in range(i, len(s)):
+                freq[ord(s[j]) - 97] += 1
+                res += max(freq) - min(x for x in freq if x)
+
+        return res
+
+    # brute force by Counter, but TlE
+    def beautySum1(self, s: str) -> int:
         n = len(s)
         if n < 2:
             return 0
