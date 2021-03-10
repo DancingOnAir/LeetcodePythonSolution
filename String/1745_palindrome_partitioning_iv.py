@@ -1,6 +1,17 @@
 class Solution:
-    # dp
     def checkPartitioning(self, s: str) -> bool:
+        def helper(sub_s, k):
+            if k == 1:
+                return sub_s == sub_s[::-1]
+
+            for i in range(1, len(s) - 1):
+                if sub_s[:i] == sub_s[:i][::-1] and helper(sub_s[i:], k - 1):
+                    return True
+
+        return helper(s, 3)
+
+    # dp
+    def checkPartitioning2(self, s: str) -> bool:
         n = len(s)
         dp = [[False] * n for _ in range(n)]
 
