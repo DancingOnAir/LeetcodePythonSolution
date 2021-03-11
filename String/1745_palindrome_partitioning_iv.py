@@ -1,4 +1,5 @@
 class Solution:
+    # recursive
     def checkPartitioning(self, s: str) -> bool:
         def helper(sub_s, k):
             if k == 1:
