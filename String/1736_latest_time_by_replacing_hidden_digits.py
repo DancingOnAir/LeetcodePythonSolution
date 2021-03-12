@@ -1,5 +1,16 @@
+from re import match
+
+
 class Solution:
     def maximumTime(self, time: str) -> str:
+        for h in range(24)[::-1]:
+            for m in range(60)[::-1]:
+                t = f'{h:02}:{m:02}'
+
+                if match(time.replace('?', '.'), t):
+                    return t
+
+    def maximumTime1(self, time: str) -> str:
         res = ''
         i, n = 0, len(time)
 
