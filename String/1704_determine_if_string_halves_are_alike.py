@@ -1,5 +1,19 @@
 class Solution:
     def halvesAreAlike(self, s: str) -> bool:
+        vowels = set('aeiouAEIOU')
+        i, j = 0, len(s) - 1
+        cnt = 0
+        while i < j:
+            if s[i] in vowels:
+                cnt += 1
+            if s[j] in vowels:
+                cnt -= 1
+
+            i += 1
+            j -= 1
+        return True if not cnt else False
+
+    def halvesAreAlike1(self, s: str) -> bool:
         vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
         mid = len(s) // 2
         count1 = sum(1 for i in s[:mid] if i in vowels)
