@@ -11,7 +11,7 @@ class Solution:
 
             i += 1
             j -= 1
-        return True if not cnt else False
+        return cnt == 0
 
     def halvesAreAlike1(self, s: str) -> bool:
         vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']

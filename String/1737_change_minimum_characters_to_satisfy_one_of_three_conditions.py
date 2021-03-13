@@ -23,27 +23,6 @@ class Solution:
             res = min(res, l2 - c2[i] + c1[i])
 
         return res
-        # # condition 1 a less than b
-        # def get_num_c1_less_than_c2(s1, s2):
-        #     c1, c2 = Counter(s1), Counter(s2)
-        #
-        #     sorted_c2 = sorted(c2)
-        #     min_key_c2 = sorted_c2[0]
-        #
-        #     sorted_c1 = sorted(c1)
-        #     max_key_c1 = sorted_c1[-1]
-        #
-        #     return min(len(s1) - sum(val for k, val in c1.items() if k < min_key_c2),
-        #                len(s2) - sum(val for k, val in c2.items() if k > max_key_c1))
-        #
-        # num_condition_1 = get_num_c1_less_than_c2(a, b)
-        # num_condition_2 = get_num_c1_less_than_c2(b, a)
-        #
-        # c = Counter(a) + Counter(b)
-        # most_common = sorted(c.values())[-1]
-        # num_condition_3 = len(a) + len(b) - most_common
-        #
-        # return min(num_condition_1, num_condition_2, num_condition_3)
 
 
 def test_min_characters():
