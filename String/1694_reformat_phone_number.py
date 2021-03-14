@@ -1,5 +1,12 @@
+import re
+
+
 class Solution:
+    # regex
     def reformatNumber(self, number: str) -> str:
+        return re.sub('(...?(?=..))', r'\1-', re.sub('\D', '', number))
+
+    def reformatNumber1(self, number: str) -> str:
         def helper(digits, k):
             if len(digits) == 3:
                 return digits
