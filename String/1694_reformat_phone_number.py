@@ -2,8 +2,29 @@ import re
 
 
 class Solution:
-    # regex
     def reformatNumber(self, number: str) -> str:
+        res = []
+        number = number.replace('-', '').replace(' ', '')
+
+        i, n = 0, len(number)
+        while i < n:
+            if i + 4 == n:
+                res.append(number[i: i + 2])
+                i += 2
+            elif i + 3 <= n:
+                res.append(number[i: i + 3])
+                i += 3
+            else:
+                res.append(number[i: i + 2])
+                i += 2
+        if len(res) > 2:
+            return '-'.join(res)
+
+        return res[0]
+
+    # regex
+    # https://leetcode.com/problems/reformat-phone-number/discuss/979806/1-liner-Python-Java-C%2B%2B
+    def reformatNumber2(self, number: str) -> str:
         return re.sub('(...?(?=..))', r'\1-', re.sub('\D', '', number))
 
     def reformatNumber1(self, number: str) -> str:
