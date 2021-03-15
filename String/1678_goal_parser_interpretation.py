@@ -1,4 +1,5 @@
 class Solution:
+    # python list join
     def interpret(self, command: str) -> str:
         res, i = [], 0
 
@@ -16,6 +17,7 @@ class Solution:
 
         return ''.join(res)
 
+    # string replace
     def interpret1(self, command: str) -> str:
         return command.replace('()', 'o').replace('(al)', 'al')
 
