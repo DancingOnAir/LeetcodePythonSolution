@@ -1,6 +1,17 @@
 class Solution:
-    # python list join
+    # robust dictionary solution
     def interpret(self, command: str) -> str:
+        d = {'G': 'G', '()': 'o', '(al)': 'al'}
+        res, tmp = '', ''
+        for c in command:
+            tmp += c
+            if tmp in d:
+                res += d[tmp]
+                tmp = ''
+        return res
+
+    # python list join
+    def interpret2(self, command: str) -> str:
         res, i = [], 0
 
         while i < len(command):
