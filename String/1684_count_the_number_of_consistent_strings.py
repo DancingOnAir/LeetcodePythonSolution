@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+        return sum(all(c in allowed for c in w) for w in words)
+
+    def countConsistentStrings1(self, allowed: str, words: List[str]) -> int:
         s = set(allowed)
 
         res = len(words)
