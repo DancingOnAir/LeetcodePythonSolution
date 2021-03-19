@@ -1,5 +1,11 @@
 class Solution:
     def maxRepeating(self, sequence: str, word: str) -> int:
+        res = 1
+        while word * res in sequence:
+            res += 1
+        return res - 1
+
+    def maxRepeating1(self, sequence: str, word: str) -> int:
         l1, l2 = len(sequence), len(word)
         if l1 < l2:
             return 0
