@@ -1,6 +1,19 @@
 class Solution:
-    # dp
+    # stack
     def minimumDeletions(self, s: str) -> int:
+        res = 0
+        stk = []
+        for c in s:
+            if stk and stk[-1] == 'b' and c == 'a':
+                stk.pop()
+                res += 1
+            else:
+                stk.append(c)
+
+        return res
+
+    # dp
+    def minimumDeletions3(self, s: str) -> int:
         cnt_b = 0
         dp = [0]
         for c in s:
