@@ -1,5 +1,9 @@
 class Solution:
     def maxLengthBetweenEqualCharacters(self, s: str) -> int:
+        indices = dict().setdefault
+        return max(i - indices(c, i+1) for i, c in enumerate(s))
+
+    def maxLengthBetweenEqualCharacters1(self, s: str) -> int:
         memo = dict()
         res = -1
         for i, val in enumerate(s):
