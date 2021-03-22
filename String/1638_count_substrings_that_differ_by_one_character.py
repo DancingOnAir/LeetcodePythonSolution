@@ -1,5 +1,27 @@
 class Solution:
+    # dp
     def countSubstrings(self, s: str, t: str) -> int:
+        l1, l2 = len(s), len(t)
+        # same_dp[i][j]: The same subStr count at i of s and j of t
+        same_dp = [[0] * (l2 + 1) for _ in range(l1 + 1)]
+        # diff_dp[i][j]: The 1 char diff subStr count at i of s and j of t
+        diff_dp = [[0] * (l2 + 1) for _ in range(l1 + 1)]
+
+        for i in range(l1):
+            for j in range(l2):
+                same_dp[i + 1][j + 1] = same_dp[i][j] + 1 if s[i] == t[j] else 0
+
+        for i in range(l1):
+            for j in range(l2):
+                diff_dp[i + 1][j + 1] = diff_dp[i][j] if s[i] == t[j] else same_dp[i][j] + 1
+
+        res = 0
+        for i in range(l1 + 1):
+            res += sum(diff_dp[i])
+        return res
+
+    # brute force
+    def countSubstrings1(self, s: str, t: str) -> int:
         l1, l2 = len(s), len(t)
         res = 0
 
