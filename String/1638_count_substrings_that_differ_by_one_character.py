@@ -1,6 +1,23 @@
 class Solution:
-    # dp
+    # process all pair of mismatched characters s[i] and t[j].
+    # Starting from the mismatch, we count matching characters to the left l and to the right r.
+    # The total number of substrings will be l * r.
     def countSubstrings(self, s: str, t: str) -> int:
+        res = 0
+        for i in range(len(s)):
+            for j in range(len(t)):
+                if s[i] != t[j]:
+                    l, r = 1, 1
+                    while min(i - l, j - l) >= 0 and s[i - l] == t[j - l]:
+                        l += 1
+                    while i + r < len(s) and j + r < len(t) and s[i + r] == t[j + r]:
+                        r += 1
+                    res += l * r
+
+        return res
+
+    # dp
+    def countSubstrings2(self, s: str, t: str) -> int:
         l1, l2 = len(s), len(t)
         # same_dp[i][j]: The same subStr count at i of s and j of t
         same_dp = [[0] * (l2 + 1) for _ in range(l1 + 1)]
