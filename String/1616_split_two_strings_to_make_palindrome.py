@@ -1,6 +1,28 @@
 class Solution:
-    # 相遇问题
     def checkPalindromeFormation(self, a: str, b: str) -> bool:
+        def helper(s1, s2):
+            n = len(s1)
+            flag = True
+            for i in range(n // 2):
+                if flag:
+                    if s1[i] != s2[n - 1 - i]:
+                        flag = False
+                if not flag:
+                    if s1[i] != s1[n - 1 - i]:
+                        return False
+            return True
+
+        if helper(a, b) or helper(b, a):
+            return True
+
+        ra, rb = a[::-1], b[::-1]
+        if helper(ra, rb) or helper(rb, ra):
+            return True
+
+        return False
+
+    # 相遇问题
+    def checkPalindromeFormation1(self, a: str, b: str) -> bool:
         n = len(a)
         if n == 1:
             return True
