@@ -1,17 +1,23 @@
 class Solution:
+    # 相遇问题
     def checkPalindromeFormation(self, a: str, b: str) -> bool:
         n = len(a)
         if n == 1:
             return True
 
-        for i in range(n + 1):
-            s1 = a[:i] + b[i:]
-            s2 = b[:i] + a[i:]
+        i, j = 0, n - 1
+        while i < j and a[i] == b[j]:
+            i += 1
+            j -= 1
+        s1, s2 = a[i: j + 1], b[i: j + 1]
 
-            if s1 == s1[::-1] or s2 == s2[::-1]:
-                return True
+        i, j = 0, n - 1
+        while i < j and b[i] == a[j]:
+            i += 1
+            j -= 1
+        s3, s4 = b[i: j + 1], a[i : j + 1]
 
-        return False
+        return any(s == s[::-1] for s in (s1, s2, s3, s4))
 
 
 def test_check_palindrome_formation():
