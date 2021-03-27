@@ -1,8 +1,27 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def alertNames(self, keyName: List[str], keyTime: List[str]) -> List[str]:
+        name_time_dict = defaultdict(list)
+        for name, hour_minute in zip(keyName, keyTime):
+            hour, minute = map(int, hour_minute.split(':'))
+            time = hour * 60 + minute
+            name_time_dict[name].append(time)
+
+        res = list()
+        for name, time_list in name_time_dict.items():
+            time_list.sort()
+            for i, time in enumerate(time_list):
+                if i > 1 and time - time_list[i - 2] <= 60:
+                    res.append(name)
+                    break
+
+        return sorted(res)
+
+
+    def alertNames1(self, keyName: List[str], keyTime: List[str]) -> List[str]:
         d = dict()
         for name, time in zip(keyName, keyTime):
             if name not in d:
