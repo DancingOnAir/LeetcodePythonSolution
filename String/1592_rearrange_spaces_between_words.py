@@ -1,9 +1,6 @@
-from collections import Counter
-
-
 class Solution:
     def reorderSpaces(self, text: str) -> str:
-        space_count = Counter(text)[' ']
+        space_count = text.count(' ')
         words = str.split(text)
         n = len(words)
 
