@@ -2,6 +2,7 @@ from collections import Counter, deque
 
 
 class Solution:
+    # https://leetcode.com/problems/check-if-string-is-transformable-with-substring-sort-operations/discuss/843917/C%2B%2BJavaPython-O(n)
     def isTransformable(self, s: str, t: str) -> bool:
         pos = {i: deque() for i in range(10)}
         for i, c in enumerate(s):
