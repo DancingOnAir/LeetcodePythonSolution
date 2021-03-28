@@ -3,6 +3,11 @@ from collections import Counter
 
 class Solution:
     def numDifferentIntegers(self, word: str) -> int:
+        s = ''.join(c if c.isdigit() else ' ' for c in word)
+        return len(Counter(map(int, s.split())))
+
+
+    def numDifferentIntegers1(self, word: str) -> int:
         replaced_str = ''
         for c in word:
             if c.isdigit():
