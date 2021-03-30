@@ -3,6 +3,17 @@ from typing import List
 
 class Solution:
     def evaluate(self, s: str, knowledge: List[List[str]]) -> str:
+        d = {k: v for k, v in knowledge}
+        t = s.split('(')
+        res = t[0]
+
+        for i in range(1, len(t)):
+            a, b = t[i].split(')')
+            res += d.get(a, '?') + b
+
+        return res
+
+    def evaluate1(self, s: str, knowledge: List[List[str]]) -> str:
         n = len(s)
         if n < 2:
             return s
