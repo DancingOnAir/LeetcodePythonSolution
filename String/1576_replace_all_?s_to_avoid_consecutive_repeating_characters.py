@@ -1,5 +1,13 @@
 class Solution:
     def modifyString(self, s: str) -> str:
+        res, pre = '', '?'
+        for i, c in enumerate(s):
+            nxt = s[i + 1] if i + 1 < len(s) else '?'
+            pre = c if c != '?' else {'a', 'b', 'c'}.difference({pre, nxt}).pop()
+            res += pre
+        return res
+
+    def modifyString3(self, s: str) -> str:
         n = len(s)
         if 1 == n:
             return 'a'
