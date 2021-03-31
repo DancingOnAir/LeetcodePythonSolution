@@ -1,6 +1,20 @@
 class Solution:
     def modifyString(self, s: str) -> str:
         n = len(s)
+        if 1 == n:
+            return 'a'
+
+        s = list(s)
+        for i, val in enumerate(s):
+            if val == '?':
+                for c in 'abc':
+                    if (i == 0 or s[i - 1] != c) and (i + 1 == n or s[i + 1] != c):
+                        s[i] = c
+                        break
+        return ''.join(s)
+
+    def modifyString2(self, s: str) -> str:
+        n = len(s)
         res = ''
         for i, val in enumerate(s):
             if val == '?':
