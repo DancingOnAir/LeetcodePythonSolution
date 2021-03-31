@@ -1,5 +1,25 @@
 class Solution:
     def modifyString(self, s: str) -> str:
+        n = len(s)
+        res = ''
+        for i, val in enumerate(s):
+            if val == '?':
+                for j in range(97, 123):
+                    # for cpp
+                    # if i - 1 >= 0 and s[i - 1] == chr(j):
+                    # for python
+                    if i - 1 >= 0 and res[-1] == chr(j):
+                        continue
+                    if i + 1 < n and s[i + 1] == chr(j):
+                        continue
+
+                    res += chr(j)
+                    break
+            else:
+                res += val
+        return res
+
+    def modifyString1(self, s: str) -> str:
         res = ''
         pre, cur = -1, 0
         while cur < len(s):
