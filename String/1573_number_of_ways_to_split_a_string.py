@@ -1,6 +1,16 @@
 class Solution:
     def numWays(self, s: str) -> int:
         MOD = 10 ** 9 + 7
+        one_idxs = [i for i, val in enumerate(s) if val == '1']
+        n = len(one_idxs)
+        if n % 3:
+            return 0
+        if not n:
+            return (len(s) - 1) * (len(s) - 2) // 2
+        return (one_idxs[n // 3] - one_idxs[n // 3 - 1]) * (one_idxs[n * 2 // 3] - one_idxs[n * 2 // 3 - 1]) % MOD
+
+    def numWays1(self, s: str) -> int:
+        MOD = 10 ** 9 + 7
         n = len(s)
         if n < 3:
             return 0
