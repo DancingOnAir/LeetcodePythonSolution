@@ -2,7 +2,28 @@ from collections import Counter
 
 
 class Solution:
+    # https://leetcode.com/problems/find-longest-awesome-substring/discuss/785213/Example-Input-%223242415%22-Explanation-with-BitMask
     def longestAwesome(self, s: str) -> int:
+        n = len(s)
+        if n < 2:
+            return s
+
+        res, mask = 0, 0
+        # here, 2^10 = 1024 coz only the string contains digits 0-9.
+        memo = [-1] + [n] * 1023
+        for i in range(n):
+            mask ^= 1 << int(s[i])
+            res = max(res, i - memo[mask])
+
+            for j in range(10):
+                check_mask = mask ^ (1 << j)
+                res = max(res, i - memo[check_mask])
+            memo[mask] = min(memo[mask], i)
+
+        return res
+
+    # TLE
+    def longestAwesome1(self, s: str) -> int:
         n = len(s)
         if n < 2:
             return n
