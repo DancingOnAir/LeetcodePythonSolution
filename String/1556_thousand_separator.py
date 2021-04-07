@@ -1,15 +1,15 @@
 class Solution:
-    # def thousandSeparator(self, n: int) -> str:
-    #     n = str(n)
-    #     q, r = divmod(len(n), 3)
-    #
-    #     if not r:
-    #         res = n[:3]
-    #     else:
-    #         res = n[:r]
-    #     for i in range(1 if not r else 0, q):
-    #         res += '.' + n[r + 3 * i: r + 3 * i + 3]
-    #     return res
+    def thousandSeparator(self, n: int) -> str:
+        n = str(n)
+        q, r = divmod(len(n), 3)
+
+        if not r:
+            res = n[:3]
+        else:
+            res = n[:r]
+        for i in range(1 if not r else 0, q):
+            res += '.' + n[r + 3 * i: r + 3 * i + 3]
+        return res
 
     def thousandSeparator1(self, n: int) -> str:
         res = list()
