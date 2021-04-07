@@ -3,6 +3,12 @@ from itertools import groupby
 
 class Solution:
     def minFlips(self, target: str) -> int:
+        res = 2 * target.count('10')
+        if target[-1] == '1':
+            res += 1
+        return res
+
+    def minFlips2(self, target: str) -> int:
         return len(list(groupby('0' + target))) - 1
 
     def minFlips1(self, target: str) -> int:
