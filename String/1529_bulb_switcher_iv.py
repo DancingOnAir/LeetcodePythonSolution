@@ -2,8 +2,8 @@ from itertools import groupby
 
 
 class Solution:
-    # def minFlips(self, target: str) -> int:
-    #     return len(list(groupby('0' + target))) - 1
+    def minFlips(self, target: str) -> int:
+        return len(list(groupby('0' + target))) - 1
 
     def minFlips1(self, target: str) -> int:
         res = flip = 0
