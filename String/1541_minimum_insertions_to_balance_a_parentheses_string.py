@@ -1,5 +1,24 @@
 class Solution:
     def minInsertions(self, s: str) -> int:
+        s = s.replace('))', '}')
+        left_bracket_count = count = 0
+
+        for c in s:
+            if c == '(':
+                left_bracket_count += 1
+            else:
+                if c == ')':
+                    count += 1
+
+                if left_bracket_count:
+                    left_bracket_count -= 1
+                else:
+                    count += 1
+
+        return count + left_bracket_count * 2
+
+    # https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/discuss/780199/JavaC%2B%2BPython-Straight-Forward-One-Pass
+    def minInsertions2(self, s: str) -> int:
         res = right = 0
 
         for c in s:
