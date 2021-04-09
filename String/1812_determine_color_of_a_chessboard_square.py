@@ -1,5 +1,8 @@
 class Solution:
     def squareIsWhite(self, coordinates: str) -> bool:
+        return (ord(coordinates[0]) + int(coordinates[1])) & 1
+
+    def squareIsWhite1(self, coordinates: str) -> bool:
         return (ord(coordinates[0]) & 1) ^ (int(coordinates[1]) & 1)
 
 
