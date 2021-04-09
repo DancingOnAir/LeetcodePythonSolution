@@ -1,5 +1,23 @@
 class Solution:
     def minInsertions(self, s: str) -> int:
+        res = right = 0
+
+        for c in s:
+            if c == '(':
+                if right % 2:
+                    res += 1
+                    right -= 1
+
+                right += 2
+            elif c == ')':
+                right -= 1
+                if right < 0:
+                    res += 1
+                    right += 2
+
+        return res + right
+
+    def minInsertions1(self, s: str) -> int:
         stk = list()
         i = 0
         res = 0
