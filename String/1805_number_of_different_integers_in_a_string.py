@@ -6,7 +6,6 @@ class Solution:
         s = ''.join(c if c.isdigit() else ' ' for c in word)
         return len(Counter(map(int, s.split())))
 
-
     def numDifferentIntegers1(self, word: str) -> int:
         replaced_str = ''
         for c in word:
