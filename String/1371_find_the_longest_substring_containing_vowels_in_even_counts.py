@@ -27,8 +27,8 @@ class Solution:
 
 def test_find_the_longest_substring():
     solution = Solution()
-    # assert solution.findTheLongestSubstring('eleetminicoworoep') == 13, 'wrong result'
-    # assert solution.findTheLongestSubstring('leetcodeisgreat') == 5, 'wrong result'
+    assert solution.findTheLongestSubstring('eleetminicoworoep') == 13, 'wrong result'
+    assert solution.findTheLongestSubstring('leetcodeisgreat') == 5, 'wrong result'
     assert solution.findTheLongestSubstring('bcbcbc') == 6, 'wrong result'
 
 

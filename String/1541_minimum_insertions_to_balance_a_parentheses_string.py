@@ -64,8 +64,8 @@ class Solution:
 
 def test_min_insertions():
     solution = Solution()
-    # assert solution.minInsertions('(()))') == 1, 'wrong result'
-    # assert solution.minInsertions('())') == 0, 'wrong result'
+    assert solution.minInsertions('(()))') == 1, 'wrong result'
+    assert solution.minInsertions('())') == 0, 'wrong result'
     assert solution.minInsertions('))())(') == 3, 'wrong result'
     assert solution.minInsertions('((((((') == 12, 'wrong result'
     assert solution.minInsertions(')))))))') == 5, 'wrong result'
