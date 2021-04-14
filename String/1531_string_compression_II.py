@@ -1,29 +1,27 @@
 from itertools import groupby
+from functools import lru_cache
+
 
 
 class Solution:
     def getLengthOfOptimalCompression(self, s: str, k: int) -> int:
-        memo = sorted([len(list(g)) for _, g in groupby(s)])
-        print(memo)
+        # start: start index of string, last: previous char,
+        # last_count: num of consecutive previous char, chance: num of left k
+        @lru_cache(None)
+        def counter(start, last, last_count, chance):
+            if chance < 0:
+                return float('inf')
+            if start == len(s):
+                return 0
 
-        res = 0
-        for i in memo:
-            if k > 0:
-                if k >= i:
-                    k -= i
-                    continue
-                else:
-                    i -= k
-                    k = 0
-
-            if i < 2:
-                res += 1
-            elif i < 9:
-                res += 2
+            if s[start] == last:
+                incre = 1 if last_count in [1, 9, 99] else 0
+                return incre + counter(start + 1, last, last_count + 1, chance)
             else:
-                res += 3
-
-        return res
+                keep_cur_char = 1 + counter(start + 1, s[start], 1, chance)
+                delete_cur_char = counter(start + 1, last, last_count, chance - 1)
+                return min(keep_cur_char, delete_cur_char)
+        return counter(0, '', 0, k)
 
 
 def test_get_length_of_optimal_compression():
