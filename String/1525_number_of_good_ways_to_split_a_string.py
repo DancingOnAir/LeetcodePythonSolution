@@ -3,6 +3,22 @@ from collections import defaultdict, Counter
 
 class Solution:
     def numSplits(self, s: str) -> int:
+        c1 = Counter()
+        c2 = Counter(s)
+        res = 0
+
+        for c in s:
+            c1[c] += 1
+            c2[c] -= 1
+
+            if not c2[c]:
+                del c2[c]
+
+            if len(c1) == len(c2):
+                res += 1
+        return res
+
+    def numSplits1(self, s: str) -> int:
         def helper(c):
             return sum(1 if i > 0 else 0 for i in c)
 
