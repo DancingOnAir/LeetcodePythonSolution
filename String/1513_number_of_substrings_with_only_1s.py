@@ -3,6 +3,13 @@ from itertools import groupby
 
 class Solution:
     def numSub(self, s: str) -> int:
+        res = 0
+        for ones in s.split('0'):
+            n = len(ones)
+            res += n * (n + 1) // 2
+        return res
+
+    def numSub2(self, s: str) -> int:
         res, cnt = 0, 0
 
         for i, c in enumerate(s):
