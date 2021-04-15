@@ -3,6 +3,19 @@ from itertools import groupby
 
 class Solution:
     def numSub(self, s: str) -> int:
+        res, cnt = 0, 0
+
+        for i, c in enumerate(s):
+            if c == '1':
+                if i and s[i - 1] == c:
+                    cnt += 1
+                else:
+                    cnt = 1
+
+                res += cnt
+        return res % (10 ** 9 + 7)
+
+    def numSub1(self, s: str) -> int:
         res = 0
 
         for k, g in groupby(s):
