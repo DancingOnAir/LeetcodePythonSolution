@@ -1,8 +1,21 @@
-from collections import defaultdict, Counter
+from collections import Counter
 
 
 class Solution:
     def numSplits(self, s: str) -> int:
+        cur, total = set(), Counter(s)
+        res, cnt = 0, len(total)
+
+        for i, c in enumerate(s):
+            cur.add(c)
+            total[c] -= 1
+
+            cnt -= not total[c]
+            res += len(cur) == cnt
+
+        return res
+
+    def numSplits2(self, s: str) -> int:
         c1 = Counter()
         c2 = Counter(s)
         res = 0
