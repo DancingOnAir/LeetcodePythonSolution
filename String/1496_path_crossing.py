@@ -2,7 +2,21 @@ from operator import add
 
 
 class Solution:
+    # math the coordinate is represented by a complex number x + yj
     def isPathCrossing(self, path: str) -> bool:
+        dir = {'N': 1j, 'S': -1j, 'E': 1, 'W': -1}
+        cur = 0
+        memo = {0}
+
+        for c in path:
+            cur += dir[c]
+            if cur in memo:
+                return True
+            memo.add(cur)
+        return False
+
+
+    def isPathCrossing2(self, path: str) -> bool:
         cur = (0, 0)
         dir = {'N': (0, 1), 'S': (0, -1), 'E': (1, 0), 'W': (-1, 0)}
         memo = {cur}
