@@ -1,5 +1,20 @@
+from operator import add
+
+
 class Solution:
     def isPathCrossing(self, path: str) -> bool:
+        cur = (0, 0)
+        dir = {'N': (0, 1), 'S': (0, -1), 'E': (1, 0), 'W': (-1, 0)}
+        memo = {cur}
+        for c in path:
+            cur = tuple(map(add, cur, dir[c]))
+            if cur in memo:
+                return True
+            memo.add(cur)
+        return False
+
+
+    def isPathCrossing1(self, path: str) -> bool:
         origin = [0, 0]
         memo = {(0, 0)}
 
