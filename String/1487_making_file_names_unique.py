@@ -1,0 +1,36 @@
+from typing import List
+
+
+class Solution:
+    def getFolderNames(self, names: List[str]) -> List[str]:
+        res = list()
+
+        for name in names:
+            tmp_name = name
+            idx = 0
+            while tmp_name in res:
+                idx += 1
+                tmp_name = '{0}({1})'.format(name, str(idx))
+            res.append(tmp_name)
+
+        return res
+
+
+def test_get_folder_names():
+    solution = Solution()
+    assert solution.getFolderNames(["pes", "fifa", "gta", "pes(2019)"]) == \
+           ["pes", "fifa", "gta", "pes(2019)"], 'wrong result'
+    assert solution.getFolderNames(["gta", "gta(1)", "gta", "avalon"]) == \
+           ["gta", "gta(1)", "gta(2)", "avalon"], 'wrong result'
+    assert solution.getFolderNames(["onepiece", "onepiece(1)", "onepiece(2)", "onepiece(3)", "onepiece"]) == \
+           ["onepiece", "onepiece(1)", "onepiece(2)", "onepiece(3)", "onepiece(4)"], 'wrong result'
+    assert solution.getFolderNames(["wano", "wano", "wano", "wano"]) == \
+           ["wano", "wano(1)", "wano(2)", "wano(3)"], 'wrong result'
+    assert solution.getFolderNames(["kaido", "kaido(1)", "kaido", "kaido(1)"]) == \
+           ["kaido", "kaido(1)", "kaido(2)", "kaido(1)(1)"], 'wrong result'
+    assert solution.getFolderNames(["kaido", "kaido(1)", "kaido", "kaido(1)", "kaido(2)"]) == \
+           ["kaido", "kaido(1)", "kaido(2)", "kaido(1)(1)", "kaido(2)(1)"], 'wrong result'
+
+
+if __name__ == '__main__':
+    test_get_folder_names()
