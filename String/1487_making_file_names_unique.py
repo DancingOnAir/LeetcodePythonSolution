@@ -1,18 +1,39 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def getFolderNames(self, names: List[str]) -> List[str]:
         res = list()
+        memo = set()
+        last = defaultdict(int)
+
+        for name in names:
+            v = last[name]
+            modified = name
+            while modified in memo:
+                v += 1
+                modified = f'{name}({v})'
+
+            last[name] = v
+            memo.add(modified)
+            res.append(modified)
+
+        return res
+
+    # brute force but TLE
+    def getFolderNames1(self, names: List[str]) -> List[str]:
+        res = list()
+        memo = set()
 
         for name in names:
             tmp_name = name
             idx = 0
-            while tmp_name in res:
+            while tmp_name in memo:
                 idx += 1
                 tmp_name = '{0}({1})'.format(name, str(idx))
             res.append(tmp_name)
-
+            memo.add(tmp_name)
         return res
 
 
