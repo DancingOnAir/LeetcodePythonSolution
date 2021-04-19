@@ -4,6 +4,21 @@ from collections import defaultdict
 
 class Solution:
     def getFolderNames(self, names: List[str]) -> List[str]:
+        memo = dict()
+
+        for name in names:
+            modified = name
+            if name in memo:
+                k = memo[name]
+                while modified in memo:
+                    k += 1
+                    modified = f'{name}({k})'
+                memo[name] = k
+            memo[modified] = 0
+
+        return list(memo.keys())
+
+    def getFolderNames2(self, names: List[str]) -> List[str]:
         res = list()
         memo = set()
         last = defaultdict(int)
@@ -39,8 +54,8 @@ class Solution:
 
 def test_get_folder_names():
     solution = Solution()
-    assert solution.getFolderNames(["pes", "fifa", "gta", "pes(2019)"]) == \
-           ["pes", "fifa", "gta", "pes(2019)"], 'wrong result'
+    # assert solution.getFolderNames(["pes", "fifa", "gta", "pes(2019)"]) == \
+    #        ["pes", "fifa", "gta", "pes(2019)"], 'wrong result'
     assert solution.getFolderNames(["gta", "gta(1)", "gta", "avalon"]) == \
            ["gta", "gta(1)", "gta(2)", "avalon"], 'wrong result'
     assert solution.getFolderNames(["onepiece", "onepiece(1)", "onepiece(2)", "onepiece(3)", "onepiece"]) == \
