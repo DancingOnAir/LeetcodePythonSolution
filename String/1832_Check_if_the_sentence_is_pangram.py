@@ -1,8 +1,13 @@
 from collections import Counter
+from operator import ior
+from functools import reduce
 
 
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
+        return reduce(ior, map(lambda c: 1 << (ord(c) - 97), sentence)) == (1 << 26) - 1
+
+    def checkIfPangram2(self, sentence: str) -> bool:
         return len(Counter(sentence)) == 26
 
     def checkIfPangram1(self, sentence: str) -> bool:
