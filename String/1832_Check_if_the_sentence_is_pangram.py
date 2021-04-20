@@ -1,5 +1,11 @@
+from collections import Counter
+
+
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
+        return len(Counter(sentence)) == 26
+
+    def checkIfPangram1(self, sentence: str) -> bool:
         counter = [0] * 26
         for c in sentence:
             counter[ord(c) - 97] += 1
