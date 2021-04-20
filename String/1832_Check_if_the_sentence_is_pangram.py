@@ -5,6 +5,9 @@ from functools import reduce
 
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
+        return len(set(sentence)) == 26
+
+    def checkIfPangram3(self, sentence: str) -> bool:
         return reduce(ior, map(lambda c: 1 << (ord(c) - 97), sentence)) == (1 << 26) - 1
 
     def checkIfPangram2(self, sentence: str) -> bool:
