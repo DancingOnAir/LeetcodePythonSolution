@@ -1,2 +1,3 @@
-# Leetcode_Python_Solution
-Solutions for the questions of Leetcode by python
+# Leetcode Python Solution
+Implement solutions for the questions from Leetcode by Python 3.7.
+
