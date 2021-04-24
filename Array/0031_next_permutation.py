@@ -2,8 +2,28 @@ from typing import List
 
 
 class Solution:
-    # more Pythonic method
     def nextPermutation(self, nums: List[int]) -> None:
+        n = len(nums)
+        i = n - 1
+        while i > 0 and nums[i - 1] >= nums[i]:
+            i -= 1
+
+        if not i:
+            return nums.reverse()
+
+        j = n - 1
+        while j > i and nums[j] <= nums[i - 1]:
+            j -= 1
+
+        nums[i - 1], nums[j] = nums[j], nums[i - 1]
+        j = n - 1
+        while i < j:
+            nums[i], nums[j] = nums[j], nums[i]
+            i += 1
+            j -= 1
+
+    # more pythonic method
+    def nextPermutation2(self, nums: List[int]) -> None:
         n = len(nums)
         for i in range(n - 1, 0, -1):
             if nums[i - 1] < nums[i]:
