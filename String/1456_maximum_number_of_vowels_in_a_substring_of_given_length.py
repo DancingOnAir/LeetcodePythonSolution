@@ -1,5 +1,19 @@
 class Solution:
     def maxVowels(self, s: str, k: int) -> int:
+        vowels = set('aeiou')
+
+        res, cur_vowel = 0, 0
+        for i, c in enumerate(s):
+            cur_vowel += 1 if c in vowels else 0
+
+            if i >= k and s[i - k] in vowels:
+                cur_vowel -= 1
+            res = max(res, cur_vowel)
+
+        return res
+
+    # pre sum
+    def maxVowels(self, s: str, k: int) -> int:
         n = len(s)
         if not n:
             return 0
