@@ -1,4 +1,5 @@
 class Solution:
+    # sliding window
     def maxVowels(self, s: str, k: int) -> int:
         vowels = set('aeiou')
 
