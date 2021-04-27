@@ -1,8 +1,22 @@
-from collections import deque
-
-
 class Solution:
     def longestBeautifulSubstring(self, word: str) -> int:
+        res = cur = count = 0
+        pre_char = 'z'
+
+        for c in word:
+            if c > pre_char:
+                count += 1
+            elif c < pre_char:
+                count = 1
+                cur = 0
+
+            cur += 1
+            if count == 5:
+                res = max(res, cur)
+            pre_char = c
+        return res
+
+    def longestBeautifulSubstring1(self, word: str) -> int:
         res, cur = 0, 0
         counter = set()
         vowels = set('aeiou')
