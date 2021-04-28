@@ -4,6 +4,15 @@ from collections import Counter
 
 class Solution:
     def peopleIndexes(self, favoriteCompanies: List[List[str]]) -> List[int]:
+        res = list()
+        s = [set(val) for val in favoriteCompanies]
+
+        for i, s1 in enumerate(s):
+            if all(i == j or not s1.issubset(s2) for j, s2 in enumerate(s)):
+                res.append(i)
+        return res
+
+    def peopleIndexes1(self, favoriteCompanies: List[List[str]]) -> List[int]:
         favoriteCompanies = [(val, i) for i, val in enumerate(favoriteCompanies)]
         favoriteCompanies.sort(key=lambda x: len(x[0]))
         favoriteCompanies.reverse()
