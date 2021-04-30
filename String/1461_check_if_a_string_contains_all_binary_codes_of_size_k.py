@@ -3,6 +3,9 @@ from collections import deque
 
 class Solution:
     def hasAllCodes(self, s: str, k: int) -> bool:
+        return len({s[i-k: i] for i in range(k, len(s) + 1)}) == 1 << k
+
+    def hasAllCodes3(self, s: str, k: int) -> bool:
         seen = set()
         q = deque()
         for c in s:
