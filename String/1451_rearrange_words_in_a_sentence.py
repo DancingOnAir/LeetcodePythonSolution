@@ -1,5 +1,8 @@
 class Solution:
     def arrangeWords(self, text: str) -> str:
+        return ' '.join(sorted(text.split(), key=len)).capitalize()
+
+    def arrangeWords1(self, text: str) -> str:
         text = text.split()
         text[0] = text[0].lower()
         text.sort(key=lambda x: len(x))
