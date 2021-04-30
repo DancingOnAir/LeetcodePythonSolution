@@ -3,6 +3,16 @@ class Solution:
         n = len(s)
         if n <= k:
             return False
+        memo = set()
+        for i in range(k, n+1):
+            memo.add(s[i-k:i])
+        return len(memo) == 2 ** k
+
+    # TLE
+    def hasAllCodes1(self, s: str, k: int) -> bool:
+        n = len(s)
+        if n <= k:
+            return False
 
         for i in range(1 << k):
             cur_binary = '{:b}'.format(i)
