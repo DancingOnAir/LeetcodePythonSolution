@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
+        res = list()
+        for p in paths:
+            res.append(p[0])
+        for p in paths:
+            if p[1] not in res:
+                return p[1]
+
+    def destCity2(self, paths: List[List[str]]) -> str:
         starts, dests = map(set, zip(*paths))
         return (dests - starts).pop()
 
