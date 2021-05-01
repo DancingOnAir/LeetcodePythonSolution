@@ -3,6 +3,10 @@ from typing import List
 
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
+        starts, dests = map(set, zip(*paths))
+        return (dests - starts).pop()
+
+    def destCity1(self, paths: List[List[str]]) -> str:
         res = ''
         memo = dict()
         for p in paths:
