@@ -5,7 +5,8 @@ class Solution:
     def largestNumber(self, cost: List[int], target: int) -> str:
         def backtracking(cur: List[int], total: int) -> None:
             if total == target:
-                nums.add(sorted(cur[:]))
+                if sorted(cur) not in nums:
+                    nums.append(sorted(cur[:]))
                 return
 
             for i in range(n):
@@ -19,16 +20,25 @@ class Solution:
         for i, val in enumerate(cost):
             d[val] = i + 1
         cost = [*d.keys()]
-        # cost.sort()
+
         n = len(cost)
-        # d = [(i + 1, cost[i]) for i in range(n)]
-        # d.sort(key=lambda x: (x[1], -x[0]))
-        print(d)
-        print(cost)
-        nums = set()
+        nums = list()
         backtracking([], 0)
+
+        nums.sort(key=len, reverse=True)
         print(nums)
-        pass
+        if not nums:
+            return '0'
+
+        max_len = len(nums[0])
+        res = ''
+        for s in nums:
+            if len(s) == max_len:
+                res = max(res, ''.join(sorted([str(d[i]) for i in s], reverse=True)))
+            else:
+                break
+
+        return res
 
 
 def test_largest_number():
