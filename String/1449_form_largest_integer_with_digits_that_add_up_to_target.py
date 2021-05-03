@@ -2,9 +2,28 @@ from typing import List
 
 
 class Solution:
+    # unbound knapsack optimization
+    # dp[j]: j means current target
+    def largestNumber(self, cost: List[int], target: int) -> str:
+        def get_bigger_str(s1, s2):
+            if len(s1) < len(s2):
+                return s2
+            elif len(s1) > len(s2):
+                return s1
+
+            return max(s1, s2)
+
+        dp = [''] + ['#' for _ in range(target)]
+        for i in range(1, len(cost) + 1):
+            for j in range(target + 1):
+                if j >= cost[i - 1] and dp[j - cost[i - 1]] != '#':
+                    dp[j] = get_bigger_str(dp[j], str(i) + dp[j - cost[i - 1]])
+
+        return dp[target] if dp[target] != '#' else '0'
+
     # unbound knapsack
     # dp[i][j]: i means first 0..i-1 nums, j means current target
-    def largestNumber(self, cost: List[int], target: int) -> str:
+    def largestNumber2(self, cost: List[int], target: int) -> str:
         def get_bigger_str(s1, s2):
             if len(s1) < len(s2):
                 return s2
