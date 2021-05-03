@@ -2,7 +2,32 @@ from typing import List
 
 
 class Solution:
+    # unbound knapsack
+    # dp[i][j]: i means first 0..i-1 nums, j means current target
     def largestNumber(self, cost: List[int], target: int) -> str:
+        def get_bigger_str(s1, s2):
+            if len(s1) < len(s2):
+                return s2
+            elif len(s1) > len(s2):
+                return s1
+
+            return max(s1, s2)
+
+        n = len(cost)
+        dp = [['' for _ in range(target+1)] for _ in range(n + 1)]
+
+        for j in range(1, target + 1):
+            dp[0][j] = '#'
+        for i in range(1, n + 1):
+            for j in range(1, target + 1):
+                if j >= cost[i - 1] and dp[i][j - cost[i - 1]] != '#':
+                    dp[i][j] = get_bigger_str(dp[i - 1][j], str(i) + dp[i][j - cost[i - 1]])
+                else:
+                    dp[i][j] = dp[i - 1][j]
+        return dp[n][target] if dp[n][target] != '#' else '0'
+
+    # TLE
+    def largestNumber1(self, cost: List[int], target: int) -> str:
         def backtracking(cur: List[int], total: int) -> None:
             if total == target:
                 if sorted(cur) not in nums:
