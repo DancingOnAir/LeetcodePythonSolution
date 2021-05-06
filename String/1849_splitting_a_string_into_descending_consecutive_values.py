@@ -1,5 +1,18 @@
 class Solution:
-    def splitString(self, s: str, pre: int = None) -> bool:
+    def splitString(self, s: str) -> bool:
+        def helper(s, pre):
+            if pre != -1 and int(s) == pre - 1:
+                return True
+            for i in range(1, len(s)):
+                cur = int(s[:i])
+                if pre == -1 or cur == pre - 1:
+                    if helper(s[i:], cur):
+                        return True
+            return False
+
+        return helper(s, -1)
+
+    def splitString3(self, s: str, pre: int = None) -> bool:
         if pre and int(s) == pre - 1:
             return True
 
