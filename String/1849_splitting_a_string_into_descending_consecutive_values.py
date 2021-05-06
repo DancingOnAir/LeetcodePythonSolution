@@ -1,5 +1,22 @@
 class Solution:
     def splitString(self, s: str) -> bool:
+        def helper(s: str, idx: int, length: int, pre: int, splits: int)-> bool:
+            if idx == len(s) and splits > 1:
+                return True
+
+            while idx + length <= len(s):
+                cur = int(s[idx: idx+length])
+                length += 1
+
+                if pre != -1 and cur != pre - 1:
+                    continue
+                if helper(s, idx + length - 1, 1, cur, splits + 1):
+                    return True
+            return False
+
+        return helper(s, 0, 1, -1, 0)
+
+    def splitString1(self, s: str) -> bool:
         n = len(s)
         if n < 2:
             return False
