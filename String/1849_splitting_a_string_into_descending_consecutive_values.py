@@ -1,5 +1,16 @@
 class Solution:
-    def splitString(self, s: str) -> bool:
+    def splitString(self, s: str, pre: int = None) -> bool:
+        if pre and int(s) == pre - 1:
+            return True
+
+        for i in range(1, len(s)):
+            cur = int(s[: i])
+            if pre is None or cur == pre - 1:
+                if self.splitString(s[i:], cur):
+                    return True
+        return False
+
+    def splitString2(self, s: str) -> bool:
         def helper(s: str, idx: int, length: int, pre: int, splits: int)-> bool:
             if idx == len(s) and splits > 1:
                 return True
