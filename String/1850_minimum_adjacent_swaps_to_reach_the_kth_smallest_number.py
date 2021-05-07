@@ -29,17 +29,16 @@ class Solution:
             next_permutation(num_list)
 
         res = 0
+        num = list(num)
         for i in range(len(num_list)):
             if num_list[i] != num[i]:
-                for j in range(len(num_list) - 1, i, -1):
-                    if num_list[j] == num[i]:
-                        k = j
-                        while k > i:
-                            num_list[k], num_list[k - 1] = num_list[k - 1], num_list[k]
-                            k -= 1
-
-                        res += j - i
-                        break
+                idx = i + 1
+                while num[idx] != num_list[i]:
+                    idx += 1
+                while idx != i:
+                    num[idx], num[idx - 1] = num[idx - 1], num[idx]
+                    res += 1
+                    idx -= 1
 
         return res
 
@@ -47,7 +46,7 @@ class Solution:
 def test_get_min_swaps():
     solution = Solution()
 
-    # assert solution.getMinSwaps('5489355142', 4) == 2, 'wrong result'
+    assert solution.getMinSwaps('5489355142', 4) == 2, 'wrong result'
     assert solution.getMinSwaps('11112', 4) == 4, 'wrong result'
     assert solution.getMinSwaps('00123', 1) == 1, 'wrong result'
     assert solution.getMinSwaps('059', 5) == 3, 'wrong result'
