@@ -32,14 +32,11 @@ class Solution:
         num = list(num)
         for i in range(len(num_list)):
             if num_list[i] != num[i]:
-                idx = i + 1
-                while num[idx] != num_list[i]:
-                    idx += 1
-                while idx != i:
-                    num[idx], num[idx - 1] = num[idx - 1], num[idx]
-                    res += 1
-                    idx -= 1
-
+                j = i + 1
+                while num[j] != num_list[i]:
+                    j += 1
+                num[i: j + 1] = [num[j]] + num[i: j]
+                res += j - i
         return res
 
 
