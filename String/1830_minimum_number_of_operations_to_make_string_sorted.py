@@ -53,6 +53,7 @@ class Solution:
             res += combination_tot * sum(cnt[:idx]) // tot
         return res % (10 ** 9 + 7)
 
+
 def test_make_string_sorted():
     solution = Solution()
     assert solution.makeStringSorted('cba') == 5, 'wrong result'
