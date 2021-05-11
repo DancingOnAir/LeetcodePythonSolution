@@ -4,6 +4,25 @@ from collections import deque, Counter, defaultdict
 class Solution:
     def minNumberOfFrogs(self, croakOfFrogs: str) -> int:
         d = {'c': 0, 'r': 1, 'o': 2, 'a': 3, 'k': 4}
+        cnt = [0] * 5
+        frogs = max_frogs = 0
+        for c in croakOfFrogs:
+            idx = d[c]
+            cnt[idx] += 1
+
+            if idx == 0:
+                frogs += 1
+                max_frogs = max(max_frogs, frogs)
+            elif idx == 4:
+                frogs -= 1
+            else:
+                cnt[idx - 1] -= 1
+                if cnt[idx - 1] < 0:
+                    return -1
+        return max_frogs if frogs == 0 else -1
+
+    def minNumberOfFrogs1(self, croakOfFrogs: str) -> int:
+        d = {'c': 0, 'r': 1, 'o': 2, 'a': 3, 'k': 4}
         memo = [0] * 5
 
         res = 0
