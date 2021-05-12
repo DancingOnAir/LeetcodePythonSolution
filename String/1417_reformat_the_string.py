@@ -3,20 +3,21 @@ from itertools import zip_longest
 
 class Solution:
     def reformat(self, s: str) -> str:
-        digits = ''
-        alphabets = ''
+        digits = list()
+        alphabets = list()
 
         for c in s:
             if c.isdigit():
-                digits += c
+                digits += [c]
             else:
-                alphabets += c
+                alphabets += [c]
+
         if abs(len(alphabets) - len(digits)) > 1:
             return ''
 
-        if len(digits) >= len(alphabets):
-            return ''.join([i[0]+i[1] for i in zip_longest(digits, alphabets, fillvalue='')])
-        return ''.join([i[0] + i[1] for i in zip_longest(alphabets, digits, fillvalue='')])
+        if len(digits) < len(alphabets):
+            alphabets, digits = digits, alphabets
+        return ''.join(map(lambda x: x[0] + x[1], zip_longest(digits, alphabets, fillvalue='')))
 
 
 def test_reformat():
