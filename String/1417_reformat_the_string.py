@@ -17,7 +17,7 @@ class Solution:
 
         if len(digits) < len(alphabets):
             alphabets, digits = digits, alphabets
-        return ''.join(map(lambda x: x[0] + x[1], zip_longest(digits, alphabets, fillvalue='')))
+        return ''.join(d+a for d, a in zip_longest(digits, alphabets, fillvalue=''))
 
 
 def test_reformat():
