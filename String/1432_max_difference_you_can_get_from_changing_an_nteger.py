@@ -1,5 +1,22 @@
 class Solution:
     def maxDiff(self, num: int) -> int:
+        a = b = str(num)
+
+        for c in a:
+            if c != '9':
+                a = a.replace(c, '9')
+                break
+
+        if b[0] != '1':
+            b = b.replace(b[0], '1')
+        else:
+            for c in b[1:]:
+                if c > '1':
+                    b = b.replace(c, '0')
+                    break
+        return int(a) - int(b)
+
+    def maxDiff1(self, num: int) -> int:
         max_num_digit = min_num_digit = ''
         min_digit = 1
         res = 0
