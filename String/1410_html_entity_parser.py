@@ -1,5 +1,14 @@
+import re
+
+
 class Solution:
     def entityParser(self, text: str) -> str:
+        entity_symbol_list = [('&quot;', '\"'), ('&apos;', '\''), ('&gt;', '>'), ('&lt;', '<'), ('&frasl;', '/'), ('&amp;', '&')]
+        for pat, rep in entity_symbol_list:
+            text = re.sub(pat, rep, text)
+        return text
+
+    def entityParser1(self, text: str) -> str:
         entity_symbol_dict = dict()
         entity_symbol_dict['&quot;'] = "\""
         entity_symbol_dict['&apos;'] = "'"
