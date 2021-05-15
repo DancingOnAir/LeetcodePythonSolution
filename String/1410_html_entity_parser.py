@@ -3,6 +3,14 @@ import re
 
 class Solution:
     def entityParser(self, text: str) -> str:
+        entity_symbol_list = [('&quot;', '\"'), ('&apos;', '\''), ('&gt;', '>'), ('&lt;', '<'), ('&frasl;', '/'),
+                              ('&amp;', '&')]
+
+        for k, v in entity_symbol_list:
+            text = text.replace(k, v)
+        return text
+
+    def entityParser2(self, text: str) -> str:
         entity_symbol_list = [('&quot;', '\"'), ('&apos;', '\''), ('&gt;', '>'), ('&lt;', '<'), ('&frasl;', '/'), ('&amp;', '&')]
         for pat, rep in entity_symbol_list:
             text = re.sub(pat, rep, text)
@@ -54,12 +62,12 @@ class Solution:
 
 def test_entity_parser():
     solution = Solution()
-    # assert solution.entityParser("&amp; is an HTML entity but &ambassador; is not.") == "& is an HTML entity but &ambassador; is not.", 'wrong result'
-    # assert solution.entityParser("and I quote: &quot;...&quot;") == "and I quote: \"...\"", "wrong result"
-    # assert solution.entityParser("Stay home! Practice on Leetcode :)") == "Stay home! Practice on Leetcode :)", "wrong result"
-    # assert solution.entityParser("x &gt; y &amp;&amp; x &lt; y is always false") == "x > y && x < y is always false", "wrong result"
-    # assert solution.entityParser("leetcode.com&frasl;problemset&frasl;all") == "leetcode.com/problemset/all", "wrong result"
-    # assert solution.entityParser("&amp;gt;") == "&gt;", "wrong result"
+    assert solution.entityParser("&amp; is an HTML entity but &ambassador; is not.") == "& is an HTML entity but &ambassador; is not.", 'wrong result'
+    assert solution.entityParser("and I quote: &quot;...&quot;") == "and I quote: \"...\"", "wrong result"
+    assert solution.entityParser("Stay home! Practice on Leetcode :)") == "Stay home! Practice on Leetcode :)", "wrong result"
+    assert solution.entityParser("x &gt; y &amp;&amp; x &lt; y is always false") == "x > y && x < y is always false", "wrong result"
+    assert solution.entityParser("leetcode.com&frasl;problemset&frasl;all") == "leetcode.com/problemset/all", "wrong result"
+    assert solution.entityParser("&amp;gt;") == "&gt;", "wrong result"
     assert solution.entityParser("&&gt;") == "&>", "wrong result"
 
 
