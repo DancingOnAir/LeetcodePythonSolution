@@ -4,6 +4,14 @@ from typing import List
 class Solution:
     def stringMatching(self, words: List[str]) -> List[str]:
         res = list()
+        sentence = ','.join(words)
+        for s in words:
+            if sentence.count(s) != 1:
+                res.append(s)
+        return res
+
+    def stringMatching1(self, words: List[str]) -> List[str]:
+        res = list()
 
         words.sort(key=len)
         for i, s1 in enumerate(words):
