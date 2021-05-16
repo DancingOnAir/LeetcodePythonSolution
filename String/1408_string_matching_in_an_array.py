@@ -1,0 +1,25 @@
+from typing import List
+
+
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        res = list()
+
+        words.sort(key=len)
+        for i, s1 in enumerate(words):
+            for s2 in words[i+1:]:
+                if s1 in s2:
+                    res.append(s1)
+                    break
+        return res
+
+
+def test_string_matching():
+    solution = Solution()
+    assert solution.stringMatching(["mass", "as", "hero", "superhero"]) == ["as", "hero"], 'wrong result'
+    assert solution.stringMatching(["leetcode", "et", "code"]) == ["et", "code"], 'wrong result'
+    assert solution.stringMatching(["blue", "green", "bu"]) == [], 'wrong result'
+
+
+if __name__ == '__main__':
+    test_string_matching()
