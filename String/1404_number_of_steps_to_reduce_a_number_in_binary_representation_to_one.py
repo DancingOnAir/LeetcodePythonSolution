@@ -1,9 +1,9 @@
 class Solution:
     def numSteps(self, s: str) -> int:
-        num = 0
-        for i, c in enumerate(s[::-1]):
-            num += 2 ** i * (c == '1')
-
+        # num = 0
+        # for i, c in enumerate(s[::-1]):
+        #     num += 2 ** i * (c == '1')
+        num = int(s, 2)
         res = 0
         while num != 1:
             if num & 1:
