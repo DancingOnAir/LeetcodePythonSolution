@@ -1,5 +1,16 @@
 class Solution:
+    # https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/discuss/1184352/JavaPython-Clean-and-Concise-Clear-Explanation-O(N)
     def numSteps(self, s: str) -> int:
+        res = carry = 0
+        for c in s[:0:-1]:
+            if int(c) + carry == 1:
+                carry = 1
+                res += 2
+            else:
+                res += 1
+        return res + carry
+
+    def numSteps1(self, s: str) -> int:
         # num = 0
         # for i, c in enumerate(s[::-1]):
         #     num += 2 ** i * (c == '1')
