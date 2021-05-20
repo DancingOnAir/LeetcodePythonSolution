@@ -1,5 +1,24 @@
+from collections import Counter
+
+import string
+
+
 class Solution:
     def sortString(self, s: str) -> str:
+        cnt = Counter(s)
+        res = list()
+        asc = True
+
+        while len(res) < len(s):
+            for i in range(26):
+                c = string.ascii_lowercase[i if asc else ~i]
+                if cnt[c] > 0:
+                    res.append(c)
+                    cnt[c] -= 1
+            asc = not asc
+        return ''.join(res)
+
+    def sortString1(self, s: str) -> str:
         n = len(s)
         if n < 2:
             return s
