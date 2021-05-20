@@ -5,6 +5,13 @@ import string
 
 class Solution:
     def sortString(self, s: str) -> str:
+        def generate_key(c, cnt=dict()):
+            p = cnt[c] = cnt.get(c, -1) + 1
+            return p, ord(c) * (-1) ** p
+
+        return ''.join(sorted(s, key=generate_key))
+
+    def sortString2(self, s: str) -> str:
         cnt = Counter(s)
         res = list()
         asc = True
