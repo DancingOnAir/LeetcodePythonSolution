@@ -2,8 +2,21 @@ from collections import Counter
 
 
 class Solution:
-    # https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/discuss/516977/JavaC%2B%2BPython-Easy-and-Concise
+    # sliding window
     def numberOfSubstrings(self, s: str) -> int:
+        res = 0
+        i = 0
+        cnt = {c: 0 for c in 'abc'}
+        for c in s:
+            cnt[c] += 1
+            while all(cnt.values()):
+                cnt[s[i]] -= 1
+                i += 1
+            res += i
+        return res
+
+    # https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/discuss/516977/JavaC%2B%2BPython-Easy-and-Concise
+    def numberOfSubstrings2(self, s: str) -> int:
         res = 0
         last = [-1] * 3
         for i, c in enumerate(s):
