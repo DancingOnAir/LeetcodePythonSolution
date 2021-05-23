@@ -3,6 +3,13 @@ import re
 
 class Solution:
     def freqAlphabets(self, s: str) -> str:
+        entity_symbol_list = [(str(i) if i < 10 else str(i)+'#', chr(i + 96)) for i in range(26, 0, -1)]
+
+        for pat, rep in entity_symbol_list:
+            s = s.replace(pat, rep)
+        return s
+
+    def freqAlphabets1(self, s: str) -> str:
         entity_symbol_list = [(str(i) if i < 10 else str(i)+'#', chr(i + 96)) for i in range(1, 27)]
 
         for pat, rep in reversed(entity_symbol_list):
