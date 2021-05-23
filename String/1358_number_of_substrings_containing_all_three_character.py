@@ -2,7 +2,17 @@ from collections import Counter
 
 
 class Solution:
+    # https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/discuss/516977/JavaC%2B%2BPython-Easy-and-Concise
     def numberOfSubstrings(self, s: str) -> int:
+        res = 0
+        last = [-1] * 3
+        for i, c in enumerate(s):
+            last[ord(c) - 97] = i
+            res += min(last) + 1
+        return res
+
+    # brute force
+    def numberOfSubstrings1(self, s: str) -> int:
         n = len(s)
 
         res = 0
