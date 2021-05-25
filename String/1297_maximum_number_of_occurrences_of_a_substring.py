@@ -1,8 +1,12 @@
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 class Solution:
     def maxFreq(self, s: str, maxLetters: int, minSize: int, maxSize: int) -> int:
+        count = Counter(s[i:i+minSize] for i in range(len(s) - minSize + 1))
+        return max([count[c] for c in count if len(set(c)) <= maxLetters] + [0])
+
+    def maxFreq1(self, s: str, maxLetters: int, minSize: int, maxSize: int) -> int:
         cnt = [0] * 26
         freq = defaultdict(int)
         start = 0
