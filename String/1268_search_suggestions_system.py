@@ -1,8 +1,20 @@
 from typing import List
+from bisect import bisect_left
 
 
 class Solution:
+    # binary search
     def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
+        products.sort()
+        cur, res = '', list()
+        for c in searchWord:
+            cur += c
+            i = bisect_left(products, cur)
+            res.append([p for p in products[i:i + 3] if p.startswith(cur)])
+        return res
+
+    # brute force O(n*m)
+    def suggestedProducts1(self, products: List[str], searchWord: str) -> List[List[str]]:
         res = list()
 
         for i, c in enumerate(searchWord):
