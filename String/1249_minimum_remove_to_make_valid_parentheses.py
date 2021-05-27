@@ -1,5 +1,22 @@
 class Solution:
+    # pythonic stack
     def minRemoveToMakeValid(self, s: str) -> str:
+        s = list(s)
+        stk = list()
+
+        for i, c in enumerate(s):
+            if c == '(':
+                stk.append(i)
+            elif c == ')':
+                if stk:
+                    stk.pop()
+                else:
+                    s[i] = ''
+        while stk:
+            s[stk.pop()] = ''
+        return ''.join(s)
+
+    def minRemoveToMakeValid1(self, s: str) -> str:
         idx = list()
         res = list()
         i = 0
