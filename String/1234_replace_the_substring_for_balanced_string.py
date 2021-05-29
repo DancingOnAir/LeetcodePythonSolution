@@ -1,8 +1,24 @@
-from collections import Counter
+from collections import Counter, defaultdict
 
 
 class Solution:
     def balancedString(self, s: str) -> int:
+        extra = Counter(s) - Counter({c: len(s) // 4 for c in 'QWER'})
+        if not extra:
+            return 0
+
+        res = len(s)
+        indices = defaultdict(list)
+        for i, c in enumerate(s):
+            indices[c].append(i)
+            if any(len(indices[k]) < v for k, v in extra.items()):
+                continue
+
+            res = min(res, i - min(indices[k][-v] for k, v in extra.items()) + 1)
+        return res
+
+    # sliding window
+    def balancedString1(self, s: str) -> int:
         res = n = len(s)
         count = Counter(s)
         if all(x == n // 4 for x in count.values()):
@@ -16,28 +32,6 @@ class Solution:
                 count[s[i]] += 1
                 i += 1
         return res
-        # for c in 'QWER':
-        #     if count[c] > n // 4:
-        #         count[c] -= n // 4
-        #     else:
-        #         del count[c]
-        #
-        # start = 0
-        # res = 0x3f3f3f3f
-        # cur = Counter()
-        # for i, c in enumerate(s):
-        #     if not cur and c not in count:
-        #         start += 1
-        #         continue
-        #
-        #     cur[c] += 1
-        #     if not len(count - cur):
-        #         res = min(res, i - start + 1)
-        #
-        #         while len(count - cur) >= 0:
-        #             start += 1
-        #             print(s[start: i+1])
-        #             cur = Counter(s[start: i+1])
 
 
 def test_balanced_string():
