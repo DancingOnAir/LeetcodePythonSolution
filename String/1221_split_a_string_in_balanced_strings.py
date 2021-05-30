@@ -1,5 +1,11 @@
+from itertools import accumulate
+
+
 class Solution:
     def balancedStringSplit(self, s: str) -> int:
+        return list(accumulate(map({'L': 1, 'R': -1}.get, s))).count(0)
+
+    def balancedStringSplit1(self, s: str) -> int:
         res = cnt = 0
         for c in s:
             cnt += 1 if c == 'L' else -1
