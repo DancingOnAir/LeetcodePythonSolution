@@ -3,6 +3,9 @@ from collections import Counter
 
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
+        return min(text.count(c) // 'balloon'.count(c) for c in 'balon')
+
+    def maxNumberOfBalloons1(self, text: str) -> int:
         n = len(text) // len('balloon')
         cnt = Counter(text)
         for i in range(n, -1, -1):
