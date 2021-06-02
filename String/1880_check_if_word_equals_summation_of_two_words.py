@@ -1,10 +1,10 @@
 class Solution:
-    # def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
-    #     # 'a' - '0' == 49
-    #     def numeric_total(s: str):
-    #         # return int(''.join([str(ord(c) - 97) for c in s]))
-    #         return int(''.join([chr(ord(c) - 49) for c in s]))
-    #     return numeric_total(firstWord) + numeric_total(secondWord) == numeric_total(targetWord)
+    def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
+        # 'a' - '0' == 49
+        def numeric_total(s: str):
+            # return int(''.join([str(ord(c) - 97) for c in s]))
+            return int(''.join([chr(ord(c) - 49) for c in s]))
+        return numeric_total(firstWord) + numeric_total(secondWord) == numeric_total(targetWord)
 
     def isSumEqual1(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
         def get_num(s: str):
