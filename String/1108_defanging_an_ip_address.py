@@ -1,5 +1,13 @@
 class Solution:
     def defangIPaddr(self, address: str) -> str:
+        res = ''
+        for c in address:
+            res += c if c.isdigit() else '[.]'
+
+        return res
+
+    # string replace
+    def defangIPaddr1(self, address: str) -> str:
         return address.replace('.', '[.]')
 
 
