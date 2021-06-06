@@ -1,5 +1,9 @@
 class Solution:
+    # split + join
     def defangIPaddr(self, address: str) -> str:
+        return '[.]'.join(address.split('.'))
+
+    def defangIPaddr2(self, address: str) -> str:
         res = ''
         for c in address:
             res += c if c.isdigit() else '[.]'
