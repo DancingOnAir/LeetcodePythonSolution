@@ -1,5 +1,8 @@
 class Solution:
-    def parseBoolExpr(self, expression: str) -> bool:
+    def parseBoolExpr(self, expression: str, t=True, f=False) -> bool:
+        return eval(expression.replace('!', 'not &').replace('|(', 'any([').replace('&(', 'all([').replace(')', '])'))
+
+    def parseBoolExpr1(self, expression: str) -> bool:
         def parse_helper(expr: str) -> bool:
             if expr[0] == 'f':
                 return False
@@ -27,6 +30,7 @@ class Solution:
                         return any(parse_helper(s) for s in sub_expr)
                     elif expr[0] == '&':
                         return all(parse_helper(s) for s in sub_expr)
+
         return parse_helper(expression)
 
 
