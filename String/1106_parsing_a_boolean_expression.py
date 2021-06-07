@@ -1,5 +1,20 @@
 class Solution:
-    def parseBoolExpr(self, expression: str, t=True, f=False) -> bool:
+    def parseBoolExpr(self, expression: str) -> bool:
+        stk = list()
+        for c in expression:
+            if c == ')':
+                seen = set()
+                while stk[-1] != '(':
+                    seen.add(stk.pop())
+                stk.pop()
+                op = stk.pop()
+                stk.append(all(seen) if op == '&' else any(seen) if op == '|' else not seen.pop())
+            elif c != ',':
+                stk.append(True if c == 't' else False if c == 'f' else c)
+
+        return stk.pop()
+
+    def parseBoolExpr2(self, expression: str, t=True, f=False) -> bool:
         return eval(expression.replace('!', 'not &').replace('|(', 'any([').replace('&(', 'all([').replace(')', '])'))
 
     def parseBoolExpr1(self, expression: str) -> bool:
