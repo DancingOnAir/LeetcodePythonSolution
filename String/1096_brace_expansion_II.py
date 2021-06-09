@@ -3,8 +3,33 @@ from itertools import product
 
 
 class Solution:
-    # https://leetcode.com/problems/brace-expansion-ii/discuss/317623/Python3-Clear-and-Short-Recursive-Solution
     def braceExpansionII(self, expression: str) -> List[str]:
+        pre = list()
+        cur = list()
+        stk = list()
+
+        for i, c in enumerate(expression):
+            if c == '{':
+                stk.append(pre)
+                stk.append(cur)
+                pre = list()
+                cur = list()
+            elif c == '}':
+                last = stk.pop()
+                second_last = stk.pop()
+
+                cur = [j + i for i in pre + cur for j in last or ['']]
+                pre = second_last
+            elif c == ',':
+                pre += cur
+                cur = list()
+            elif c.isalpha():
+                cur = [x + c for x in cur or ['']]
+
+        return sorted(set(pre + cur))
+
+    # https://leetcode.com/problems/brace-expansion-ii/discuss/317623/Python3-Clear-and-Short-Recursive-Solution
+    def braceExpansionII1(self, expression: str) -> List[str]:
         groups = [[]]
         level = 0
 
@@ -44,7 +69,7 @@ class Solution:
 
 def test_brace_expansion():
     solution = Solution()
-    print(solution.braceExpansionII('{a{b,c},d{e,f}{g,{j,k}{h,i{x,y{z,w}}}}}'))
+    # print(solution.braceExpansionII('{a{b,c},d{e,f}{g,{j,k}{h,i{x,y{z,w}}}}}'))
     # assert solution.braceExpansionII('{a{b,c}}') == ["ab", "ac"], 'wrong result'
     assert solution.braceExpansionII('{a,b}{c,{d,e}}') == ["ac", "ad", "ae", "bc", "bd", "be"], 'wrong result'
     assert solution.braceExpansionII('{{a,z},a{b,c},{ab,z}}') == ["a", "ab", "ac", "z"], 'wrong result'
