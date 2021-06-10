@@ -1,5 +1,18 @@
 class Solution:
+
     def gcdOfStrings(self, str1: str, str2: str) -> str:
+        def gcd(a, b):
+            if a < b:
+                a, b = b, a
+
+            while a % b != 0:
+                a, b = b, a % b
+            return b
+
+        i = gcd(len(str1), len(str2))
+        return str1[:i] if str1 + str2 == str2 + str1 else ''
+
+    def gcdOfStrings1(self, str1: str, str2: str) -> str:
         def gcd(a: int, b: int) -> int:
             if a < b:
                 a, b = b, a
