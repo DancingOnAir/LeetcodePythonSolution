@@ -4,6 +4,32 @@ from itertools import product
 
 class Solution:
     def braceExpansionII(self, expression: str) -> List[str]:
+        stk = [set(), {''}]
+        for c in expression:
+            if c == '{':
+                # 压入当前层已知元素
+                stk.append(set())
+                # 压入当前层未知元素
+                stk.append({''})
+            elif c == '}':
+                # 未知元素出栈
+                unknow = stk.pop()
+                # 合并两个集合，由于遇见}，未确定集合可以并入已知集合
+                know = stk.pop() | unknow
+                # 将当前层遇上一层未确定元素做笛卡尔积，完成出栈。
+                stk[-1] = {i + j for i in stk[-1] for j in know}
+            elif c == ',':
+                # 将未确定元素加入确定集合中
+                stk[-2] = stk[-1] | stk[-2]
+                # 未确定元素清零
+                stk[-1] = {''}
+            else:
+                # 输入为字母，直接与未确定元素集合做笛卡尔积
+                stk[-1] = {i + c for i in stk[-1]}
+
+        return sorted(list(stk[-1] | stk[-2]))
+
+    def braceExpansionII2(self, expression: str) -> List[str]:
         pre = list()
         cur = list()
         stk = list()
