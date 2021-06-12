@@ -2,7 +2,20 @@ from collections import Counter
 
 
 class Solution:
+    # https://leetcode.com/problems/last-substring-in-lexicographical-order/discuss/362387/JavaPython-3-Two-short-O(n)-codes-language%3A-2-pointers-and-encoding.
+    # encoding
     def lastSubstring(self, s: str) -> str:
+        idx = {c: i for i, c in enumerate(sorted(set(s)))}
+        radix, val, cur, lo = len(idx), 0, 0, 0
+        for i in range(len(s) - 1, -1, -1):
+            cur = idx[s[i]] + cur / radix
+            if val <= cur:
+                val = cur
+                lo = i
+        return s[lo:]
+
+    # brute force but TLE
+    def lastSubstring1(self, s: str) -> str:
         cnt = Counter(s)
         n = len(s)
         max_char = max(cnt)
