@@ -2,9 +2,19 @@ from collections import Counter
 
 
 class Solution:
+    # 1.排序最后的字符串必然是从某个位置一直到字符串结束
+    # 2.排序最后的字符串必然是以最大的字符开始
+    def lastSubstring(self, s: str) -> str:
+        max_char = max(s)
+        res = ''
+        for i, c in enumerate(s):
+            if c == max_char and s[i:] > res:
+                res = s[i:]
+        return res
+
     # https://leetcode.com/problems/last-substring-in-lexicographical-order/discuss/362387/JavaPython-3-Two-short-O(n)-codes-language%3A-2-pointers-and-encoding.
     # encoding
-    def lastSubstring(self, s: str) -> str:
+    def lastSubstring2(self, s: str) -> str:
         idx = {c: i for i, c in enumerate(sorted(set(s)))}
         radix, val, cur, lo = len(idx), 0, 0, 0
         for i in range(len(s) - 1, -1, -1):
