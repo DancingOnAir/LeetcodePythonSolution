@@ -2,9 +2,28 @@ from collections import Counter
 
 
 class Solution:
+    def lastSubstring(self, s: str) -> str:
+        i, j, k, n = 0, 1, 0, len(s)
+        while j + k < n:
+            if s[i + k] == s[j + k]:
+                k += 1
+            elif s[i] < s[j + k]:
+                i = j + k
+                j = i + 1
+                k = 0
+            elif s[i + k] < s[j + k]:
+                i = j
+                j += 1
+                k = 0
+            else:
+                j += 1
+                k = 0
+        return s[i:]
+
+
     # 1.排序最后的字符串必然是从某个位置一直到字符串结束
     # 2.排序最后的字符串必然是以最大的字符开始
-    def lastSubstring(self, s: str) -> str:
+    def lastSubstring3(self, s: str) -> str:
         max_char = max(s)
         res = ''
         for i, c in enumerate(s):
