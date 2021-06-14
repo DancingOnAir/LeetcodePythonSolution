@@ -2,6 +2,13 @@ from collections import Counter
 
 
 class Solution:
+    # https://leetcode-cn.com/problems/last-substring-in-lexicographical-order/solution/c-shuang-zhi-zhen-ji-lu-zi-dian-xu-zui-d-ovwd/
+    # 双指针，指针l记录字典序最大子串的首位下标，指针r向后扫描并与指针l进行比较
+    # s[l] > s[r]：r指针后移
+    # s[l] < s[r]：存在更大的子串，l移动到r，r指针后移
+    # s[l] == s[r]：k = 1,2,3,....，此时比较s[l + k] 与 s[r + k]，直到出现两者不相等的情况
+    # s[l + k] < s[r + k]: l移动到r，r指针后移
+    # s[l + k] > s[r + k]: l不动，r移动到r + k + 1
     def lastSubstring(self, s: str) -> str:
         i, j, k, n = 0, 1, 0, len(s)
         while j + k < n:
