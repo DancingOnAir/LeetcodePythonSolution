@@ -4,13 +4,29 @@ from collections import Counter
 
 class Solution:
     def camelMatch(self, queries: List[str], pattern: str) -> List[bool]:
+        def u(s):
+            return [c for c in s if c.isupper()]
+
+        def issup(s, t):
+            it = iter(t)
+            return all(c in it for c in s)
+            # for c in s:
+            #     if c in t:
+            #         t = t[t.index(c)+1:]
+            #     else:
+            #         return False
+            # return True
+
+        return [u(pattern) == u(q) and issup(pattern, q) for q in queries]
+
+    def camelMatch1(self, queries: List[str], pattern: str) -> List[bool]:
         res = [-1] * len(queries)
 
-        cnt = Counter(pattern)
+        def u(s):
+            return [c for c in s if c.isupper()]
+        cnt = u(pattern)
         for i, q in enumerate(queries):
-            cur = Counter(q)
-            diff = [x for x in (cur - cnt) if x.isupper()]
-            if len(diff) > 0:
+            if cnt != u(q):
                 res[i] = False
 
         for p in pattern:
