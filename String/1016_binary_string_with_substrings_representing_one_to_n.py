@@ -1,5 +1,8 @@
 class Solution:
     def queryString(self, s: str, n: int) -> bool:
+        return all(bin(i)[2:] in s for i in range(n, n // 2, -1))
+
+    def queryString1(self, s: str, n: int) -> bool:
         for i in range(n, 0, -1):
             if '{0:b}'.format(i) not in s:
                 return False
