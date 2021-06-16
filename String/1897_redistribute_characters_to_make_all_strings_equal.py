@@ -4,6 +4,9 @@ from collections import Counter
 
 class Solution:
     def makeEqual(self, words: List[str]) -> bool:
+        return all(v % len(words) == 0 for v in Counter(''.join(words)).values())
+
+    def makeEqual1(self, words: List[str]) -> bool:
         n = len(words)
         if n < 2:
             return True
