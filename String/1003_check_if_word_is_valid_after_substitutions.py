@@ -1,5 +1,13 @@
 class Solution:
+    # brute force
     def isValid(self, s: str) -> bool:
+        s2 = ""
+        while s2 != s:
+            s, s2 = s.replace('abc', ''), s
+        return s == ''
+
+    # stack
+    def isValid1(self, s: str) -> bool:
         stk = list()
         for c in s:
             if c == 'c':
@@ -10,7 +18,7 @@ class Solution:
             else:
                 stk.append(c)
 
-        return False if stk else True
+        return not stk
 
 
 def test_is_valid():
