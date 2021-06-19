@@ -7,16 +7,13 @@ class Solution:
         digit_logs = list()
 
         for log in logs:
-            log_list = log.split()
-            identifier = log_list[0]
-            content = ' '.join(log_list[1:])
-            if content[0].isdigit():
+            if log.split()[1].isdigit():
                 digit_logs.append(log)
             else:
-                letter_logs.append([identifier, content])
+                letter_logs.append(log)
 
-        letter_logs = sorted(letter_logs, key=lambda x: (x[1], x[0]))
-        return [' '.join(x) for x in letter_logs] + digit_logs
+        letter_logs = sorted(letter_logs, key=lambda x: (x.split()[1:], x.split()[0]))
+        return letter_logs + digit_logs
 
 
 def test_reorder_log_files():
