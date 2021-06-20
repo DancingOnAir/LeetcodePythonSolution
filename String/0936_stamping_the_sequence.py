@@ -2,7 +2,31 @@ from typing import List
 
 
 class Solution:
-    def movesToStamp(self, stamp: str, target: str) -> List[int]:
+    def movesToStamp(self, stamp, target):
+        n, m, t, s, res = len(target), len(stamp), list(target), list(stamp), list()
+
+        def check(i):
+            changed = False
+            for j in range(m):
+                if t[i + j] == '?':
+                    continue
+                if t[i + j] != s[j]:
+                    return False
+                changed = True
+            if changed:
+                t[i: i+m] = ['?'] * m
+                res.append(i)
+            return changed
+
+        changed = True
+        while changed:
+            changed = False
+            for i in range(n - m + 1):
+                changed |= check(i)
+        return res[::-1] if t == ['?'] * n else []
+
+    # failed solution
+    def movesToStamp1(self, stamp: str, target: str) -> List[int]:
         res = list()
         n = len(stamp)
         mask = '?' * n
