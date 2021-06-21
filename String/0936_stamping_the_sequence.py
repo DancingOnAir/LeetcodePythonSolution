@@ -4,6 +4,16 @@ from collections import defaultdict
 
 class Solution:
     # dfs
+    # https://leetcode.com/problems/stamping-the-sequence/discuss/189254/Python-Greedy-and-DFS
+    # rule 0. path[i + 1] can equal to path[i] + 1
+    # It means target[i] and target[i+1] are on the same stamp.
+    #
+    # rule 1. path[i + 1] can equal to 0.
+    # It means t[i + 1] is the start of another stamp
+    #
+    # rule 2. if path[i] == stamp.size - 1, we reach the end of a stamp.
+    # Under this stamp, it's another stamp, but not necessary the start.
+    # path[i + 1] can equal to 0 ~ stamp.size - 1.
     def movesToStamp(self, stamp, target):
         if stamp[0] != target[0] or stamp[-1] != target[-1]:
             return []
@@ -14,16 +24,19 @@ class Solution:
         for i, c in enumerate(stamp):
             pos[c].add(i)
 
+        # i represents current position of path, idx represents current position of stamp.
         def dfs(i, idx):
             path[i] = idx
             if i == m - 1:
                 return idx == n - 1
             nxt_idx = set()
-
+            # rule 2
             if idx == n - 1:
                 nxt_idx |= pos[target[i + 1]]
+            # rule 0
             elif stamp[idx + 1] == target[i + 1]:
                 nxt_idx.add(idx + 1)
+            # rule 1
             if stamp[0] == target[i + 1]:
                 nxt_idx.add(0)
 
@@ -55,7 +68,7 @@ class Solution:
                     return False
                 changed = True
             if changed:
-                t[i: i+m] = ['?'] * m
+                t[i: i + m] = ['?'] * m
                 res.append(i)
             return changed
 
