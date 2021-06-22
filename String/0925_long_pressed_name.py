@@ -3,6 +3,16 @@ from itertools import groupby
 
 class Solution:
     def isLongPressedName(self, name: str, typed: str) -> bool:
+        m, n = len(name), len(typed)
+        i = 0
+        for j, c in enumerate(typed):
+            if i < m and name[i] == typed[j]:
+                i += 1
+            elif not j or typed[j] != typed[j - 1]:
+                return False
+        return i == m
+
+    def isLongPressedName1(self, name: str, typed: str) -> bool:
         def helper(s: str):
             return [[k, len(list(g))] for k, g in groupby(s)]
 
