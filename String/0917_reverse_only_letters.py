@@ -1,5 +1,22 @@
 class Solution:
     def reverseOnlyLetters(self, s: str) -> str:
+        letters = ''
+        for ss in s:
+            if ss.isalpha():
+                letters += ss
+        letters = letters[::-1]
+        res = ''
+        i = 0
+        for ss in s:
+            if ss.isalpha():
+                res += letters[i]
+                i += 1
+            else:
+                res += ss
+        return res
+
+
+    def reverseOnlyLetters1(self, s: str) -> str:
         s = list(s)
         non_letters = dict()
         letters = list()
