@@ -1,5 +1,9 @@
 class Solution:
     def reverseOnlyLetters(self, s: str) -> str:
+        letters = [c for c in s if c.isalpha()]
+        return ''.join(ss if not ss.isalpha() else letters.pop() for ss in s)
+
+    def reverseOnlyLetters2(self, s: str) -> str:
         letters = ''
         for ss in s:
             if ss.isalpha():
@@ -14,7 +18,6 @@ class Solution:
             else:
                 res += ss
         return res
-
 
     def reverseOnlyLetters1(self, s: str) -> str:
         s = list(s)
