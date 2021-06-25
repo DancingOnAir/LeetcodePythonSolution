@@ -1,5 +1,27 @@
 class Solution:
+    # greedy
     def minSwaps(self, s: str) -> int:
+        ones = s.count('1')
+        zeros = len(s) - ones
+
+        if abs(ones - zeros) > 1:
+            return -1
+
+        def helper(x):
+            diff = 0
+            for c in s:
+                if c != x:
+                    diff += 1
+                x = '1' if x == '0' else '0'
+            return diff // 2
+
+        if ones > zeros:
+            return helper('1')
+        elif ones < zeros:
+            return helper('0')
+        return min(helper('1'), helper('0'))
+
+    def minSwaps1(self, s: str) -> int:
         n = len(s)
         ones = sum(1 for c in s if c == '1')
         zeros = n - ones
