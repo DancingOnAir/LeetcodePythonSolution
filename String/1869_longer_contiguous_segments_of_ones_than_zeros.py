@@ -3,6 +3,28 @@ from itertools import groupby
 
 class Solution:
     def checkZeroOnes(self, s: str) -> bool:
+        pre = ''
+        zeros = ones = 0
+        cur_zeros = cur_ones = 0
+
+        for c in s:
+            if not pre or c != pre:
+                pre = c
+                if c == '0':
+                    cur_zeros = 1
+                else:
+                    cur_ones = 1
+            elif c == pre:
+                if c == '0':
+                    cur_zeros += 1
+                else:
+                    cur_ones += 1
+            zeros = max(zeros, cur_zeros)
+            ones = max(ones, cur_ones)
+
+        return zeros < ones
+
+    def checkZeroOnes1(self, s: str) -> bool:
         cnt = [[k, len(list(g))] for k, g in groupby(s)]
 
         zeros = ones = 0
