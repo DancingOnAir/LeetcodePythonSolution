@@ -3,6 +3,19 @@ from itertools import groupby
 
 class Solution:
     def checkZeroOnes(self, s: str) -> bool:
+        best_zeros = best_ones = cur_zeros = cur_ones = 0
+        for c in s:
+            if c == '0':
+                cur_zeros += 1
+                cur_ones = 0
+            else:
+                cur_ones += 1
+                cur_zeros = 0
+            best_zeros = max(best_zeros, cur_zeros)
+            best_ones = max(best_ones, cur_ones)
+        return best_zeros < best_ones
+
+    def checkZeroOnes2(self, s: str) -> bool:
         pre = ''
         zeros = ones = 0
         cur_zeros = cur_ones = 0
