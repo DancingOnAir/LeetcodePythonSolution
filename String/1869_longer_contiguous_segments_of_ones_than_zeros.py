@@ -2,7 +2,19 @@ from itertools import groupby
 
 
 class Solution:
+    # generic solution
     def checkZeroOnes(self, s: str) -> bool:
+        cnt = {0: 0, 1: 0}
+        i = j = 0
+        while j < len(s):
+            while i < len(s) and s[i] == s[j]:
+                i += 1
+                cnt[ord(s[j]) - ord('0')] = max(cnt[ord(s[j]) - ord('0')], i - j)
+
+            j = i
+        return cnt[0] < cnt[1]
+
+    def checkZeroOnes3(self, s: str) -> bool:
         best_zeros = best_ones = cur_zeros = cur_ones = 0
         for c in s:
             if c == '0':
