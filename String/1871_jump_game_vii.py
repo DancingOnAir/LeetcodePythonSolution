@@ -1,8 +1,23 @@
 class Solution:
+    # Start counting 0's (pre) in a sliding window where min <= i <= max. which is done in 1st for loop.
+    # Decrease 0's when it drops out of sliding window which is done in 2nd for loop.
+    # When pre is more than 0 that means so far in the sliding window there was at least a 0 to use to jump.
+    def canReach(self, s: str, minJump: int, maxJump: int) -> bool:
+        dp = [c == '0' for c in s]
+        pre = 0
+
+        for i in range(1, len(s)):
+            if i >= minJump:
+                pre += dp[i - minJump]
+            if i > maxJump:
+                pre -= dp[i - maxJump - 1]
+            dp[i] &= pre > 0
+        return dp[-1]
+
     # presum + dp
     # dp[i] = 1 means it can jump from 0 to i otherwise, 0 means can not
     # pre represents sum(dp[i) i from 0 to i
-    def canReach(self, s: str, minJump: int, maxJump: int) -> bool:
+    def canReach2(self, s: str, minJump: int, maxJump: int) -> bool:
         n = len(s)
         dp = [1] + [0] * (n - 1)
         pre = [0] * n
