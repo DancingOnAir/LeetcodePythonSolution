@@ -1,5 +1,57 @@
 class Solution:
     def calculate(self, s: str) -> int:
+        def calc():
+            if len(nums) < 2:
+                ops.pop()
+                return
+
+            b = nums.pop()
+            a = nums.pop()
+            sign = ops.pop()
+            nums.append(a + b * (1 if sign == '+' else -1))
+
+        s = s.replace(' ', '')
+        ops = list()
+        nums = list()
+        nums.append(0)
+
+        i = 0
+        n = len(s)
+        while i < n:
+            c = s[i]
+            if c == '(':
+                ops.append(c)
+            elif c == ')':
+                while ops:
+                    op = ops[-1]
+                    if op != '(':
+                        calc()
+                    else:
+                        ops.pop()
+                        break
+            else:
+                if c.isdigit():
+                    num = 0
+                    j = i
+                    while j < n and s[j].isdigit():
+                        num = num * 10 + int(s[j])
+                        j += 1
+                    nums.append(num)
+                    i = j - 1
+                else:
+                    if s[i - 1] in '(+-':
+                        nums.append(0)
+
+                    while ops and ops[-1] != '(':
+                        calc()
+                    ops.append(c)
+            i += 1
+
+        while ops:
+            calc()
+        return nums[-1]
+
+    def calculate1(self, s: str) -> int:
         res = cur = 0
         sign = 1
         stk = list()
