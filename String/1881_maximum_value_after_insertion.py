@@ -1,5 +1,11 @@
 class Solution:
     def maxValue(self, n: str, x: int) -> str:
+        for i in range(len(n)):
+            if [str(x) > n[i], str(x) < n[i]][n[0] == '-']:
+                return n[:i] + str(x) + n[i:]
+        return n + str(x)
+
+    def maxValue1(self, n: str, x: int) -> str:
         n = list(n)
         x = str(x)
         if n[0] == '-':
