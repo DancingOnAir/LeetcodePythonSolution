@@ -1,5 +1,30 @@
 class Solution:
+    # slide window
+    # double string for circular array.
+    # eg. s = '111000', s*2 = '111000111000', for start = 2, s' = '11|100011|1000', namely s' = '100011'
     def minFlips(self, s: str) -> int:
+        n = len(s)
+        s *= 2
+        res_start_with_zero = res_start_with_one = 0
+        res = float('inf')
+
+        for i in range(n * 2):
+            if i % 2 != int(s[i]):
+                res_start_with_zero += 1
+            if (i + 1) % 2 != int(s[i]):
+                res_start_with_one += 1
+
+            if i >= n:
+                if (i - n) % 2 != int(s[i - n]):
+                    res_start_with_zero -= 1
+                if (i - n + 1) % 2 != int(s[i - n]):
+                    res_start_with_one += 1
+            if i >= n - 1:
+                res = min(res, res_start_with_zero, res_start_with_one)
+        return res
+
+    # count number of '1' on even & odd positions
+    def minFlips1(self, s: str) -> int:
         n = len(s)
         even_ones = odd_ones = 0
         for i, c in enumerate(s):
