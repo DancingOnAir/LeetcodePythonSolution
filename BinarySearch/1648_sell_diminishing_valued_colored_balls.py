@@ -1,10 +1,25 @@
 from typing import List
-from bisect import bisect_right
 
 
 class Solution:
+    # pattern 4
     def maxProfit(self, inventory: List[int], orders: int) -> int:
-        def get_orders(x):
+        fn = lambda x: sum(max(0, x - xx) for xx in inventory)
+
+        lo, hi, mod = 0, max(inventory), 10 ** 9 + 7
+        while lo < hi:
+            mid = lo + hi + 1 >> 1
+            if fn(mid) >= orders:
+                lo = mid
+            else:
+                hi = mid - 1
+        res = sum((x + lo + 1) * (x - lo) // 2 for x in inventory if x > lo)
+        return (res - (fn(lo) - orders) * (lo + 1)) % mod
+
+    # https://leetcode.com/problems/sell-diminishing-valued-colored-balls/discuss/927560/C%2B%2B-Binary-Answer-or-Sort%2BGreedy
+    # pattern 3
+    def maxProfit1(self, inventory: List[int], orders: int) -> int:
+        def have_enough_balls(x):
             res = 0
             for i in range(n - 1, -1, -1):
                 if inventory[i] <= x:
@@ -26,42 +41,16 @@ class Solution:
         n = len(inventory)
         while lo < hi:
             mid = lo + hi >> 1
-            if get_orders(mid) > orders:
+            if have_enough_balls(mid) > orders:
                 lo = mid + 1
             else:
                 hi = mid
 
         res = calc_amount(lo) % MOD
-        already_ordered = get_orders(lo)
+        already_ordered = have_enough_balls(lo)
         if already_ordered == orders:
             return res
         return (res + (orders - already_ordered) * lo) % MOD
-
-        # def helper(x):
-        #     return sum(inventory[x:]) - inventory[x] * (n - x)
-        #
-        # def calc(x, y):
-        #     return (y + x + 1) * (y - x) // 2
-        #
-        # MOD = 10 ** 9 + 7
-        # n = len(inventory)
-        # inventory.sort()
-        # left, right = 0, n - 1
-        #
-        # while left < right:
-        #     mid = left + right >> 1
-        #     if helper(mid) > orders:
-        #         left = mid + 1
-        #     else:
-        #         right = mid
-        #
-        # res = calc(inventory[left], inventory[-1])
-        # times = helper(left)
-        # if times == orders:
-        #     return res % MOD
-        #
-        # q, r = divmod(orders - times, n - left)
-        # return res + (inventory[left] + inventory[left] - q + 1) * q * (n - left) // 2 + (inventory[left] - q + 1) * r
 
 
 def test_max_profit():
