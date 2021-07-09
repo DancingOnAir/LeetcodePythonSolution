@@ -1,7 +1,8 @@
 ##Reference
 https://medium.com/@hazemu/useful-insights-into-binary-search-problems-8769d388b9c
 https://leetcode-cn.com/circle/article/bNaUjl/
-
+#### Very fantastic explanation
+https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/
 #Binary Search Template
 二分查找主要分为两种形式：
 - 基础形式
