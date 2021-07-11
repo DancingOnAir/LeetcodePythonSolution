@@ -1,5 +1,12 @@
 class Solution:
     def numberOfRounds(self, startTime: str, finishTime: str) -> int:
+        ts = 60 * int(startTime[:2]) + int(startTime[-2:])
+        tf = 60 * int(finishTime[:2]) + int(finishTime[-2:])
+        if 0 <= tf - ts < 15:
+            return 0
+        return tf // 15 - (ts + 14) // 15 + (ts > tf) * 96
+
+    def numberOfRounds1(self, startTime: str, finishTime: str) -> int:
         if startTime > finishTime:
             return (96 - self.numberOfRounds("00:00", startTime) - (1 if int(startTime[-2:]) % 15 else 0)) + self.numberOfRounds("00:00", finishTime)
 
