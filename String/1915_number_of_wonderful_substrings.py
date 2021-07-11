@@ -2,6 +2,19 @@ from collections import Counter
 
 
 class Solution:
+    # https://leetcode-cn.com/problems/number-of-wonderful-substrings/solution/qian-zhui-he-chang-jian-ji-qiao-by-endle-t57t/
+    # pre sum + bit mask
+    def wonderfulSubstrings(self, word: str) -> int:
+        cnt = [1] + [0] * 1023
+        res = cur = 0
+        for w in word:
+            cur ^= 1 << (ord(w) - ord('a'))
+            res += cnt[cur]
+            res += sum(cnt[cur ^ (1 << i)] for i in range(10))
+            cnt[cur] += 1
+        return res
+
+    # brute force but TLE
     def wonderfulSubstrings(self, word: str) -> int:
         n = len(word)
         if n < 2:
