@@ -2,6 +2,13 @@ from typing import List
 
 
 class Solution:
+    # Example:
+    # boxes      11010
+    # leftCount  01223
+    # leftCost   01358
+    # rightCount 21100
+    # rightCost  42100
+    # ans        43458
     def minOperations(self, boxes: str) -> List[int]:
         cost = count = 0
         n = len(boxes)
