@@ -1,5 +1,12 @@
 class Solution:
     def minOperations(self, s: str) -> int:
+        diff = 0
+        for i, c in enumerate(s):
+            if int(c) != (i % 2):
+                diff += 1
+        return min(diff, len(s) - diff)
+
+    def minOperations1(self, s: str) -> int:
         def helper(x):
             diff = 0
             for c in s:
