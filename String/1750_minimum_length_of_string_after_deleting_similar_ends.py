@@ -3,6 +3,11 @@ from itertools import groupby
 
 class Solution:
     def minimumLength(self, s: str) -> int:
+        while len(s) > 1 and s[0] == s[-1]:
+            s = s.strip(s[0])
+        return len(s)
+
+    def minimumLength1(self, s: str) -> int:
         cnt = [(k, len(list(g))) for k, g in groupby(s)]
         lo, hi = 0, len(cnt) - 1
         left, right = 0, len(s)
