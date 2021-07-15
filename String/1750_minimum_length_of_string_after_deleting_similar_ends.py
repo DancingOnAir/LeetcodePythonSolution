@@ -2,7 +2,19 @@ from itertools import groupby
 
 
 class Solution:
+    # two pointers
     def minimumLength(self, s: str) -> int:
+        lo, hi = 0, len(s) - 1
+        while lo < hi and s[lo] == s[hi]:
+            c = s[lo]
+            while lo <= hi and c == s[lo]:
+                lo += 1
+            while lo <= hi and c == s[hi]:
+                hi -= 1
+        return hi - lo + 1
+
+    # string manipulation
+    def minimumLength2(self, s: str) -> int:
         while len(s) > 1 and s[0] == s[-1]:
             s = s.strip(s[0])
         return len(s)
