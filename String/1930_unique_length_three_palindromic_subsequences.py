@@ -1,5 +1,16 @@
+import string
+
+
 class Solution:
     def countPalindromicSubsequence(self, s: str) -> int:
+        res = 0
+        for c in string.ascii_lowercase:
+            i, j = s.find(c), s.rfind(c)
+            if i != -1:
+                res += len(set(s[i + 1: j]))
+        return res
+
+    def countPalindromicSubsequence1(self, s: str) -> int:
         cnt = set()
         chars = set(s)
 
