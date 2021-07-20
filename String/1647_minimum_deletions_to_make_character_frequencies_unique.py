@@ -2,6 +2,16 @@ from collections import Counter
 
 
 class Solution:
+    def minDeletions(self, s: str) -> int:
+        cnt, res, used = Counter(s), 0, set()
+        for c, freq in cnt.items():
+            while freq > 0 and freq in used:
+                freq -= 1
+                res += 1
+            used.add(freq)
+
+        return res
+
     def minDeletions1(self, s: str) -> int:
         c = Counter(Counter(s).values())
         k = set(c.keys())
