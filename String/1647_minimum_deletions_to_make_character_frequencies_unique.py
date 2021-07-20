@@ -1,7 +1,24 @@
 from collections import Counter
+from heapq import heapify, heappop, heappush
 
 
 class Solution:
+    # heap
+    def minDeletions(self, s: str) -> int:
+        heap = sorted(-x for x in Counter(s).values())
+        heapify(heap)
+
+        res = 0
+        while len(heap) > 1:
+            cur = heappop(heap)
+            if cur == heap[0]:
+                res += 1
+                if cur + 1 != 0:
+                    heappush(heap, cur + 1)
+
+        return res
+
+    # greedy
     def minDeletions(self, s: str) -> int:
         cnt, res, used = Counter(s), 0, set()
         for c, freq in cnt.items():
