@@ -57,7 +57,7 @@ class Solution:
 def test_min_deletions():
     solution = Solution()
 
-    # assert solution.minDeletions('bogoidmdkbllehemdkfofcieckdoffiokflejeeffhihfbbfffboklaoochielobmcekaeoajicke') == 19, 'wrong result'
+    assert solution.minDeletions('bogoidmdkbllehemdkfofcieckdoffiokflejeeffhihfbbfffboklaoochielobmcekaeoajicke') == 19, 'wrong result'
     assert solution.minDeletions('accdcdadddbaadbc') == 1, 'wrong result'
     assert solution.minDeletions('aab') == 0, 'wrong result'
     assert solution.minDeletions('aaabbbcc') == 2, 'wrong result'
