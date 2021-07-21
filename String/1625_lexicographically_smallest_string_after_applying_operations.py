@@ -1,5 +1,24 @@
 class Solution:
+    # dfs
     def findLexSmallestString(self, s: str, a: int, b: int) -> str:
+        op1 = lambda s: ''.join(str((int(c) + a) % 10) if k & 1 else c for k, c in enumerate(s))
+        op2 = lambda s: s[-b:] + s[:-b]
+
+        seen = set()
+        stk = [s]
+        while stk:
+            s = stk.pop()
+            seen.add(s)
+            ss = op1(s)
+            if ss not in seen:
+                stk.append(ss)
+            ss = op2(s)
+            if ss not in seen:
+                stk.append(ss)
+        return min(seen)
+
+    # dfs
+    def findLexSmallestString1(self, s: str, a: int, b: int) -> str:
         def add(ss):
             return ''.join(str((int(c) + a) % 10) if k & 1 else c for k, c in enumerate(ss))
 
