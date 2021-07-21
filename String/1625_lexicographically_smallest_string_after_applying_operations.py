@@ -41,7 +41,7 @@ class Solution:
 
 def test_find_lex_smallest_string():
     solution = Solution()
-    # assert solution.findLexSmallestString('5525', 9, 2) == '2050', 'wrong result'
+    assert solution.findLexSmallestString('5525', 9, 2) == '2050', 'wrong result'
     assert solution.findLexSmallestString('74', 5, 1) == '24', 'wrong result'
     assert solution.findLexSmallestString('0011', 4, 2) == '0011', 'wrong result'
     assert solution.findLexSmallestString('43987654', 7, 3) == '00553311', 'wrong result'
