@@ -1,5 +1,11 @@
 class Solution:
     def maximumBinaryString(self, binary: str) -> str:
+        if '0' not in binary:
+            return binary
+        k, n = binary.count('1', binary.find('0')), len(binary)
+        return '1' * (n - k - 1) + '0' + '1' * k
+
+    def maximumBinaryString1(self, binary: str) -> str:
         zeros = binary.count('0')
         if zeros < 2:
             return binary
