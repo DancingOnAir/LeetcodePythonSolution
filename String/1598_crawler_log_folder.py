@@ -6,8 +6,8 @@ class Solution:
         res = 0
         for log in logs:
             if log == "../":
-                res -= 1 if res > 0 else 0
-            elif log == "./":
+                res = max(0, res - 1)
+            elif log != "./":
                 continue
             else:
                 res += 1
