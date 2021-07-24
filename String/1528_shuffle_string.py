@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def restoreString(self, s: str, indices: List[int]) -> str:
+        s = list(s)
+        for i in range(len(indices)):
+            while indices[i] != i:
+                s[i], s[indices[i]] = s[indices[i]], s[i]
+                indices[indices[i]], indices[i] = indices[i], indices[indices[i]]
+        return ''.join(s)
+
+    def restoreString1(self, s: str, indices: List[int]) -> str:
         memo = [[indices[i], s[i]] for i in range(len(s))]
         memo.sort(key=lambda x: x[0])
         return ''.join(memo[i][1] for i in range(len(s)))
