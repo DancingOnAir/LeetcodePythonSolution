@@ -2,7 +2,19 @@ import string
 
 
 class Solution:
+    # greedy
     def getSmallestString(self, n: int, k: int) -> str:
+        k -= n
+        res = ['a'] * n
+        i = n - 1
+        while i >= 0 and k > 0:
+            res[i] = chr(ord(res[i]) + min(k, 25))
+            k -= min(k, 25)
+            i -= 1
+        return ''.join(res)
+
+    # math
+    def getSmallestString2(self, n: int, k: int) -> str:
         q, r = divmod(k - n, 25)
         return ('' if q == n else 'a' * (n - q - 1) + chr(ord('a') + r)) + 'z' * q
 
