@@ -3,6 +3,10 @@ import string
 
 class Solution:
     def getSmallestString(self, n: int, k: int) -> str:
+        q, r = divmod(k - n, 25)
+        return ('' if q == n else 'a' * (n - q - 1) + chr(ord('a') + r)) + 'z' * q
+
+    def getSmallestString1(self, n: int, k: int) -> str:
         def helper(q, r):
             if q + r == n:
                 return 'a' * r + 'z' * q
