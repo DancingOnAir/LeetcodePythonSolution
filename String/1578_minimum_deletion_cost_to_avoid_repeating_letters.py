@@ -4,6 +4,15 @@ from itertools import groupby
 
 class Solution:
     def minCost(self, s: str, cost: List[int]) -> int:
+        res = max_cost = 0
+        for i in range(len(s)):
+            if i > 0 and s[i] != s[i - 1]:
+                max_cost = 0
+            res += min(max_cost, cost[i])
+            max_cost = max(max_cost, cost[i])
+        return res
+
+    def minCost1(self, s: str, cost: List[int]) -> int:
         memo = [(k, len(list(g))) for k, g in groupby(s)]
         res = start = 0
         for i in range(len(memo)):
