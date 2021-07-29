@@ -3,6 +3,9 @@ from collections import defaultdict, Counter
 
 class Solution:
     def areOccurrencesEqual(self, s: str) -> bool:
+        return all(i == len(s) // len(set(s)) for i in Counter(s).values())
+
+    def areOccurrencesEqual2(self, s: str) -> bool:
         return len(set(Counter(s).values())) == 1
 
     def areOccurrencesEqual1(self, s: str) -> bool:
