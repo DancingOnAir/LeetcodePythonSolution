@@ -3,6 +3,18 @@ from typing import List
 
 class Solution:
     def maximumNumber(self, num: str, change: List[int]) -> str:
+        num = list(num)
+        mutated = False
+        for i, c in enumerate(num):
+            cur = int(c)
+            if cur < change[cur]:
+                mutated = True
+                num[i] = str(change[cur])
+            elif cur > change[cur] and mutated:
+                break
+        return ''.join(num)
+
+    def maximumNumber1(self, num: str, change: List[int]) -> str:
         res = list(num)
         for i, c in enumerate(num):
             cur = int(c)
