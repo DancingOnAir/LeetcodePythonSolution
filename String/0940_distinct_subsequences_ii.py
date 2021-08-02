@@ -1,4 +1,5 @@
 class Solution:
+    # https://leetcode.com/problems/distinct-subsequences-ii/discuss/192017/C%2B%2BJavaPython-4-lines-O(N)-Time-O(1)-Space
     def distinctSubseqII(self, s: str) -> int:
         endWith = [0] * 26
         for c in s:
