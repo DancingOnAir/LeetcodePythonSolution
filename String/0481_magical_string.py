@@ -1,4 +1,5 @@
 class Solution:
+    # index 2 is the first value where the generated group does not include the value itself.
     def magicalString(self, n: int) -> int:
         s = [1, 2, 2]
         cur = 2
