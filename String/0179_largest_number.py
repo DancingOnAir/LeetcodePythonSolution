@@ -28,5 +28,22 @@ def test_largest_number():
     assert solution.largestNumber([10]) == '10', 'wrong result'
 
 
+def test_lambda_cmp():
+    # 如果返回负数，说明x排在y前面
+    # 如果返回正数，说明x排在y后面
+    # 如果返回0，说明x和y无先后关系
+    def cmp(y, x):
+        if x < y:
+            return -2
+        elif x == y:
+            return 0
+        return 3
+
+    nums = [3, 5, 2, 1, 4, 9, 6, 8, 7, 0]
+    nums = sorted(nums, key=cmp_to_key(cmp))
+    print(nums)
+
+
 if __name__ == '__main__':
+    # test_lambda_cmp()
     test_largest_number()
