@@ -1,10 +1,29 @@
 from typing import List
-from functools import cmp_to_key
-from collections import defaultdict
 
 
 class Solution:
+    # https://en.wikipedia.org/wiki/Interval_scheduling
+    # https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings/discuss/744420/C%2B%2BJavaPython-Interval-Scheduling-Maximization-(ISMP)
     def maxNumOfSubstrings(self, s: str) -> List[str]:
+        left = {c: i for i, c in reversed(list(enumerate(s)))}
+        right = {c: i for i, c in enumerate(s)}
+
+        res = list()
+        pre = -1
+        for i in sorted(right.values()):
+            l, r = left[s[i]], right[s[i]]
+            j = r
+            while j >= l > pre and r == i:
+                l = min(l, left[s[j]])
+                r = max(r, right[s[j]])
+                j -= 1
+
+            if l > pre and r == i:
+                res.append(s[l: r+1])
+                pre = r
+        return res
+
+    def maxNumOfSubstrings1(self, s: str) -> List[str]:
         d = dict()
         for i, c in enumerate(s):
             if c not in d:
