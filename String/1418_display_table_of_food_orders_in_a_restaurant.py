@@ -1,9 +1,24 @@
 from typing import List
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 class Solution:
     def displayTable(self, orders: List[List[str]]) -> List[List[str]]:
+        tables = defaultdict(Counter)
+        meal = set()
+
+        for _, tbl_num, food in orders:
+            meal.add(food)
+            tables[tbl_num][food] += 1
+        foods = sorted(meal)
+        res = [["Table"] + foods]
+
+        for tbl_num in sorted(tables, key=int):
+            res.append([tbl_num] + [str(tables[tbl_num][food]) for food in foods])
+        return res
+
+    # defaultdict of defaultdict + set
+    def displayTable1(self, orders: List[List[str]]) -> List[List[str]]:
         title = set()
         items = defaultdict(lambda: defaultdict(int))
 
@@ -12,7 +27,7 @@ class Solution:
             items[orders[i][1]][orders[i][2]] += 1
 
         res = list()
-        title = sorted(list(title))
+        title = sorted(title)
         res.append(["Table"] + title)
 
         for tbl_num, v in sorted(items.items(), key=lambda x: int(x[0])):
