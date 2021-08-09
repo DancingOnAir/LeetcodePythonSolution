@@ -1,8 +1,18 @@
 from collections import Counter
 
+import string
+
 
 class Solution:
     def canConstruct(self, s: str, k: int) -> bool:
+        if len(s) < k:
+            return False
+
+        for c in string.ascii_lowercase:
+            k -= s.count(c) & 1
+        return k >= 0
+
+    def canConstruct1(self, s: str, k: int) -> bool:
         cnt = Counter(s)
         odd = sum(1 if val & 1 else 0 for val in cnt.values())
 
