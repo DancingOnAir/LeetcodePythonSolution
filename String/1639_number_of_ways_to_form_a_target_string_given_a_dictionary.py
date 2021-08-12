@@ -3,7 +3,22 @@ from collections import Counter
 
 
 class Solution:
+    # 1d dp
     def numWays(self, words: List[str], target: str) -> int:
+        mod = 10 ** 9 + 7
+        n, l1, l2 = len(words), len(words[0]), len(target)
+        if l1 < l2:
+            return 0
+
+        dp = [1] + [0] * l2
+        for i in range(l1):
+            cnt = Counter(w[i] for w in words)
+            for j in range(min(i, l2 - 1), -1, -1):
+                dp[j+1] += dp[j] * cnt[target[j]] % mod
+        return dp[l2] % mod
+
+    # 2d dp
+    def numWays1(self, words: List[str], target: str) -> int:
         mod = 10 ** 9 + 7
         n, l1, l2 = len(words), len(target), len(words[0])
         if l1 > l2:
