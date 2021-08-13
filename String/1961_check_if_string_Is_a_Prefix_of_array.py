@@ -3,15 +3,16 @@ from typing import List
 
 class Solution:
     def isPrefixString(self, s: str, words: List[str]) -> bool:
+        return not len(s) or (words and s.startswith(words[0]) and self.isPrefixString(s[len(words[0]):], words[1:]))
+
+    def isPrefixString1(self, s: str, words: List[str]) -> bool:
         i = 0
         for w in words:
-            j = i + len(w)
-            if s[i: j] != w:
+            if s[i: i + len(w)] != w:
                 return False
-            if j == len(s):
+            i += len(w)
+            if i == len(s):
                 return True
-            i = j
-
         return False
 
 
