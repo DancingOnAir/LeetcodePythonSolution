@@ -1,5 +1,19 @@
 class Solution:
     def minInteger(self, num: str, k: int) -> str:
+        if k <= 0:
+            return num
+
+        n = len(num)
+        if k >= n * (n - 1) // 2:
+            return ''.join(sorted(num))
+
+        for i in range(10):
+            idx = num.find(str(i))
+            if 0 <= idx <= k:
+                return num[idx] + self.minInteger(num[:idx] + num[idx+1:], k - idx)
+
+    # brute force
+    def minInteger1(self, num: str, k: int) -> str:
         sorted_num = ''.join(sorted(num))
         start = 0
         while k > 0:
