@@ -1,6 +1,20 @@
+from collections import deque
+
+
 class Solution:
-    # dfs
+    # bfs
     def getHappyString(self, n: int, k: int) -> str:
+        next_letter = {'a': 'bc', 'b': 'ac', 'c': 'ab'}
+        q = deque(['a', 'b', 'c'])
+        print(q[0])
+        while len(q[0]) != n:
+            u = q.popleft()
+            for v in next_letter[u[-1]]:
+                q.append(u + v)
+        return q[k - 1] if len(q) >= k else ''
+
+    # dfs
+    def getHappyString2(self, n: int, k: int) -> str:
         def dfs(path=''):
             if len(res) == k:
                 return
