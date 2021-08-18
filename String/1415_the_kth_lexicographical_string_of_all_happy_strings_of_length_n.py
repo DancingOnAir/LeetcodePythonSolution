@@ -1,5 +1,24 @@
 class Solution:
+    # dfs
     def getHappyString(self, n: int, k: int) -> str:
+        def dfs(path=''):
+            if len(res) == k:
+                return
+
+            if len(path) == n:
+                res.append(path)
+                return
+
+            for x in 'abc':
+                if not path or x != path[-1]:
+                    dfs(path + x)
+
+        res = list()
+        dfs()
+        return res[-1] if len(res) == k else ''
+
+    # math
+    def getHappyString1(self, n: int, k: int) -> str:
         prem = 1 << (n - 1)
         if k > 3 * prem:
             return ""
