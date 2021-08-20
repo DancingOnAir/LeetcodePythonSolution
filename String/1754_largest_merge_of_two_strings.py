@@ -1,18 +1,14 @@
 class Solution:
-    # TLE
     def largestMerge(self, word1: str, word2: str) -> str:
-        n1, n2 = len(word1), len(word2)
+        if not word1 or not word2:
+            return word1 + word2
 
-        if n1 == 0:
-            return word2
-        if n2 == 0:
-            return word1
-        if word1[0] > word2[0]:
+        if word1 >= word2:
             return word1[0] + self.largestMerge(word1[1:], word2)
-        elif word1[0] < word2[0]:
-            return word2[0] + self.largestMerge(word1, word2[1:])
 
-        return max(word1[0] + self.largestMerge(word1[1:], word2), word2[0] + self.largestMerge(word1, word2[1:]))
+        return word2[0] + self.largestMerge(word1, word2[1:])
+
+
 
 
 def test_largest_merge():
