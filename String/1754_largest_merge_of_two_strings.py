@@ -1,5 +1,18 @@
 class Solution:
     def largestMerge(self, word1: str, word2: str) -> str:
+        res = ""
+        while word1 and word2:
+            if word1 >= word2:
+                res += word1[0]
+                word1 = word1[1:]
+            elif word1 < word2:
+                res += word2[0]
+                word2 = word2[1:]
+
+        return res + word1 + word2
+
+    # greedy + recursive
+    def largestMerge1(self, word1: str, word2: str) -> str:
         if not word1 or not word2:
             return word1 + word2
 
