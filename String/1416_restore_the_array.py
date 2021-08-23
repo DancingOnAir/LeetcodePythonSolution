@@ -1,5 +1,18 @@
 class Solution:
+    # https://leetcode.com/problems/restore-the-array/discuss/585673/Python-rolling-DP
     def numberOfArrays(self, s: str, k: int) -> int:
+        m, n, mod = len(str(k)) + 1, len(s), 10 ** 9 + 7
+        def valid(s):
+            return s[0] != '0' and int(s) <= k
+
+        dp = [0] * m
+        for i in range(n-1, -1, -1):
+            dp[i % m] = i > n - m and valid(s[i:])
+            dp[i % m] = (dp[i % m] + sum(dp[j % m] for j in range(i+1, min(n, i+m)) if valid(s[i: j]))) % mod
+        return dp[0]
+
+    # O(len(k) * s)
+    def numberOfArrays1(self, s: str, k: int) -> int:
         MOD = 10 ** 9 + 7
         m, n = len(str(k)), len(s)
         #dp[i] 表示前i个数字进行恢复的方案数
