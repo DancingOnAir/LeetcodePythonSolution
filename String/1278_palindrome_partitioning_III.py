@@ -1,37 +1,35 @@
 class Solution:
     def palindromePartition(self, s: str, k: int) -> int:
-        def changes_make_palindrome(ss):
-            changes = 0
-            i, j = 0, len(ss) - 1
+        def cost(s, i, j):
+            r = 0
             while i < j:
-                if ss[i] != ss[j]:
-                    changes += 1
+                if s[i] != s[j]:
+                    r += 1
                 i += 1
                 j -= 1
-            return changes
+            return r
 
         n = len(s)
-        if n == k:
-            return 0
-
         memo = dict()
-        for i in range(n):
-            for j in range(i+1, n+1):
-                ss = s[i: j]
 
-                if ss not in memo:
-                    memo[ss] = changes_make_palindrome(ss)
-        print(memo)
+        def dfs(start, k):
+            if (start, k) in memo:
+                return memo[(start, k)]
 
-        # dp[pos][k]
-        dp = [[0] * (k + 1) for _ in range(n + 1)]
-        for i in range(n - 1, -1, -1):
-            for j in range(1, min(k, n - i) + 1):
-                if j == 1:
-                    continue
+            if n - start == k:
+                return 0
 
-                dp[i][j] = min(dp[i])
-        return dp[0][k]
+            if k == 1:
+                return cost(s, start, n - 1)
+
+            res = float('inf')
+            for i in range(start + 1, n - k + 2):
+                res = min(res, dfs(i, k - 1) + cost(s, start, i - 1))
+
+            memo[(i, k)] = res
+            return res
+
+        return dfs(0, k)
 
 
 def test_palindrome_partition():
