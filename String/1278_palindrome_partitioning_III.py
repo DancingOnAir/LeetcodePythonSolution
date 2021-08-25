@@ -1,5 +1,29 @@
 class Solution:
     def palindromePartition(self, s: str, k: int) -> int:
+        def dfs(s, k):
+            if (s, k) in memo:
+                return memo[(s, k)]
+
+            if len(s) == k:
+                return 0
+
+            if k == 1:
+                # -1 - i = ~i
+                return sum(s[i] != s[~i] for i in range(len(s) // 2))
+
+            res = float('inf')
+            # len(s) - 1 - (k - 1) == len(s) - k + 2
+            for i in range(1, len(s) - k + 2):
+                res = min(res, dfs(s[:i], 1) + dfs(s[i:], k - 1))
+
+            memo[(s, k)] = res
+            return res
+
+        memo = dict()
+        return dfs(s, k)
+
+    # TLE top-down dfs
+    def palindromePartition1(self, s: str, k: int) -> int:
         def cost(s, i, j):
             r = 0
             while i < j:
