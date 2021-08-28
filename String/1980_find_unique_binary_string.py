@@ -2,7 +2,12 @@ from typing import List
 
 
 class Solution:
+    # https://leetcode.com/problems/find-unique-binary-string/discuss/1418687/Detailed-Explanation-O(N)-Java-C%2B%2B-Python-short-concise-code-Cantor's-Diagonalization
     def findDifferentBinaryString(self, nums: List[str]) -> str:
+        return ''.join('1' if num[i] == '0' else '0' for i, num in enumerate(nums))
+
+    # bin, string zfill
+    def findDifferentBinaryString1(self, nums: List[str]) -> str:
         n = len(nums)
         s = set(nums)
 
