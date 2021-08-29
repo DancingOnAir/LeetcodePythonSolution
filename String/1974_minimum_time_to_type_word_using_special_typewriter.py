@@ -1,13 +1,14 @@
 class Solution:
     def minTimeToType(self, word: str) -> int:
-        res = 0
-        start = 'a'
-        for c in word:
-            gap = abs(ord(c) - ord(start))
-            res += min(gap, 26 - gap)
-            start = c
+        res = len(word)
+        prev = 'a'
 
-        return res + len(word)
+        for c in word:
+            diff = abs(ord(c) - ord(prev))
+            res += min(diff, 26 - diff)
+            prev = c
+
+        return res
 
 
 def test_min_time_to_type():
