@@ -1,12 +1,11 @@
 class Solution:
     def dayOfYear(self, date: str) -> int:
-        def is_leap_year(y):
-            return (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)
-
         y, m, d = map(int, date.split('-'))
         months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        if (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0):
+            months[1] = 29
 
-        return d + sum(months[:m - 1]) + (1 if is_leap_year(y) and m > 2 else 0)
+        return d + sum(months[:m - 1])
 
 
 def test_day_of_year():
