@@ -1,5 +1,12 @@
+from datetime import datetime
+
+
 class Solution:
     def dayOfYear(self, date: str) -> int:
+        y, m, d = map(int, date.split('-'))
+        return int((datetime(y, m, d) - datetime(y, 1, 1)).days + 1)
+
+    def dayOfYear1(self, date: str) -> int:
         y, m, d = map(int, date.split('-'))
         months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         if (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0):
