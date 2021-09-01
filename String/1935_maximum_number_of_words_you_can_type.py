@@ -1,5 +1,13 @@
 class Solution:
     def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
+        def helper(s: set) -> int:
+            # set.intersection is O(min(m, n) if len(set A) = m, len(set B) = n
+            return 0 if set(brokenLetters).intersection(s) else 1
+
+        word_sets = map(set, text.split())
+        return sum(map(helper, word_sets))
+
+    def canBeTypedWords1(self, text: str, brokenLetters: str) -> int:
         brokenLetters = set(brokenLetters)
         res = 0
 
