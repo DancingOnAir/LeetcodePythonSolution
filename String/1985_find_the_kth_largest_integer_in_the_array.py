@@ -3,6 +3,17 @@ from functools import cmp_to_key
 
 
 class Solution:
+    def kthLargestNumber2(self, nums: List[str], k: int) -> str:
+        def cmp(x, y):
+            if (len(x) < len(y)) or (len(x) == len(y) and x < y):
+                return -1
+            elif (len(x) > len(y)) or (len(x) == len(y) and x > y):
+                return 1
+            else:
+                return 0
+
+        return sorted(nums, key=cmp_to_key(cmp))[len(nums) - k]
+
     def kthLargestNumber1(self, nums: List[str], k: int) -> str:
         nums = sorted(list(map(int, nums)))
         return str(nums[-k])
