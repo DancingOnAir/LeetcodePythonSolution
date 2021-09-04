@@ -45,5 +45,5 @@ def test_lambda_cmp():
 
 
 if __name__ == '__main__':
-    # test_lambda_cmp()
+    test_lambda_cmp()
     test_largest_number()
