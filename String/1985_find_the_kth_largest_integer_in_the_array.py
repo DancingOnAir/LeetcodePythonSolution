@@ -14,6 +14,9 @@ class Solution:
 
         return sorted(nums, key=cmp_to_key(cmp))[len(nums) - k]
 
+    def kthLargestNumber(self, nums: List[str], k: int) -> str:
+        return sorted(nums, key=int)[-k]
+
     def kthLargestNumber1(self, nums: List[str], k: int) -> str:
         nums = sorted(list(map(int, nums)))
         return str(nums[-k])
