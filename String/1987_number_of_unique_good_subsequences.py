@@ -1,5 +1,12 @@
 class Solution:
     def numberOfUniqueGoodSubsequences(self, binary: str) -> int:
+        mod = 10 ** 9 + 7
+        dp = [0] * 2
+        for ch in binary:
+            dp[int(ch)] = (sum(dp) + int(ch)) % mod
+        return (sum(dp) + ('0' in binary)) % mod
+
+    def numberOfUniqueGoodSubsequences1(self, binary: str) -> int:
         zeros = ones = 0
         mod = 10 ** 9 + 7
         for i in binary:
