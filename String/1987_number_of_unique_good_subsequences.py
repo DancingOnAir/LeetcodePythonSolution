@@ -1,14 +1,16 @@
 class Solution:
     def numberOfUniqueGoodSubsequences(self, binary: str) -> int:
-        n = len(binary)
-        dp = [1] + [0] * (n - 1)
+        zeros = ones = 0
+        mod = 10 ** 9 + 7
+        for i in binary:
+            if i == '1':
+                ones = (ones + zeros + 1) % mod
+            else:
+                zeros = (ones + zeros) % mod
+        return (ones + zeros + ('0' in binary)) % mod
 
-        for i in range(1, n):
-            dp[i] = dp[i - 1]
-        pass
 
-
-def test_number_of_uniqu_good_subsequences():
+def test_number_of_unique_good_subsequences():
     solution = Solution()
 
     assert solution.numberOfUniqueGoodSubsequences("001") == 2, 'wrong result'
@@ -17,4 +19,4 @@ def test_number_of_uniqu_good_subsequences():
 
 
 if __name__ == '__main__':
-    test_number_of_uniqu_good_subsequences()
+    test_number_of_unique_good_subsequences()
