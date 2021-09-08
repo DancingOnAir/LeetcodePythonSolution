@@ -2,6 +2,7 @@ import heapq
 
 
 class Solution:
+    # heapq
     def longestDiverseString(self, a: int, b: int, c: int) -> str:
         max_heap = list()
         for cnt, token in (-a, 'a'), (-b, 'b'), (-c, 'c'):
