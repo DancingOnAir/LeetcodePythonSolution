@@ -2,8 +2,20 @@ from itertools import groupby
 
 
 class Solution:
-    # itertools.groupby solution TLE
     def removeDuplicates(self, s: str, k: int) -> str:
+        stk = [['#', 0]]
+        for c in s:
+            if c != stk[-1][0]:
+                stk.append([c, 1])
+            else:
+                stk[-1][1] += 1
+                if stk[-1][1] == k:
+                    stk.pop()
+
+        return ''.join(c * k for c, k in stk)
+
+    # itertools.groupby solution TLE
+    def removeDuplicates1(self, s: str, k: int) -> str:
         while True:
             new_s = ''
             for c, g in groupby(s):
