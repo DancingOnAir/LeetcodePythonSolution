@@ -1,5 +1,16 @@
 class Solution:
+    # stack
     def removeDuplicates(self, s: str) -> str:
+        stk = list()
+        for c in s:
+            if stk and stk[-1] == c:
+                stk.pop()
+            else:
+                stk.append(c)
+        return ''.join(stk)
+
+    # two pointers
+    def removeDuplicates1(self, s: str) -> str:
         s = list(s)
         i = 0
         for j, c in enumerate(s):
