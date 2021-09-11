@@ -1,5 +1,20 @@
 class Solution:
     def makeFancyString(self, s: str) -> str:
+        res = ''
+        pre = ''
+        cnt = 0
+
+        for c in s:
+            if c == pre:
+                cnt += 1
+            else:
+                cnt = 1
+            if cnt < 3:
+                res += c
+            pre = c
+        return res
+
+    def makeFancyString1(self, s: str) -> str:
         stk = list()
         for c in s:
             if len(stk) > 1 and c == stk[-1] == stk[-2]:
