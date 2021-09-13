@@ -1,6 +1,19 @@
 class Solution:
-    # wormholes
+    # straight forward
     def reverseParentheses(self, s: str) -> str:
+        stk = [[]]
+        for c in s:
+            if c == '(':
+                stk.append([])
+            elif c == ')':
+                end = stk.pop()
+                stk[-1].extend(reversed(end))
+            else:
+                stk[-1].append(c)
+        return ''.join(stk.pop())
+
+    # wormholes
+    def reverseParentheses2(self, s: str) -> str:
         opened_bracket = list()
         pair = dict()
         for i, c in enumerate(s):
