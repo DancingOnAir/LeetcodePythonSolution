@@ -1,7 +1,37 @@
 from itertools import combinations
 
 
+def generate_combinations(l, n):
+    end = int('1' * l, 2)
+    res = list()
+    for i in range(end + 1):
+        b = "{0:b}".format(i)
+        if b.count('1') == n:
+            res.append(b.zfill(l))
+    return res
+
+
 class CombinationIterator:
+    def __init__(self, characters: str, combinationLength: int):
+        self.characters = characters
+        self.n = len(characters)
+        self.combs = generate_combinations(self.n, combinationLength)
+        self.m = len(self.combs) - 1
+        pass
+
+    def next(self) -> str:
+        res = ''
+        for i in range(self.n):
+            if self.combs[self.m][i] == '1':
+                res += self.characters[i]
+        self.m -= 1
+        return res
+
+    def hasNext(self) -> bool:
+        return self.m > -1
+
+
+class CombinationIterator1:
     def __init__(self, characters: str, combinationLength: int):
         self.combs = list(map(''.join, combinations(characters, combinationLength)))[::-1]
 
