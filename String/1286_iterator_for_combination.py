@@ -1,6 +1,32 @@
 from itertools import combinations
 
 
+class CombinationIterator:
+    def __init__(self, characters: str, combinationLength: int):
+        self.s = characters
+        self.finished = False
+        self.pos = [x for x in range(combinationLength)]
+
+    def next(self) -> str:
+        res = ''.join(self.s[x] for x in self.pos)
+        i = -1
+        for k in range(len(self.pos) - 1, -1, -1):
+            if self.pos[k] != len(self.s) - len(self.pos) + k:
+                i = k
+                break
+
+        if i == -1:
+            self.finished = True
+        else:
+            self.pos[i] += 1
+            for j in range(i + 1, len(self.pos)):
+                self.pos[j] = self.pos[j - 1] + 1
+        return res
+
+    def hasNext(self) -> bool:
+        return not self.finished
+
+
 def generate_combinations(l, n):
     end = int('1' * l, 2)
     res = list()
@@ -11,7 +37,7 @@ def generate_combinations(l, n):
     return res
 
 
-class CombinationIterator:
+class CombinationIterator2:
     def __init__(self, characters: str, combinationLength: int):
         self.characters = characters
         self.n = len(characters)
