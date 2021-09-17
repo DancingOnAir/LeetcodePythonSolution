@@ -1,7 +1,28 @@
 class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        def helper(l, r):
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                l -= 1
+                r += 1
+            return s[l + 1: r]
+
+        res = ''
+        for i in range(len(s)):
+            # odd case, eg. "aba"
+            cur = helper(i, i)
+            if len(cur) > len(res):
+                res = cur
+            # even case, eg. "abba"
+            cur = helper(i, i+1)
+            if len(cur) > len(res):
+                res = cur
+
+        return res
+
+
     # dp solution
     # dp[i][j] = 1 represents the substring [i: j] of s is palindrome else 0
-    def longestPalindrome(self, s: str) -> str:
+    def longestPalindrome1(self, s: str) -> str:
         n = len(s)
         if 0 == n or 1 == n:
             return s
