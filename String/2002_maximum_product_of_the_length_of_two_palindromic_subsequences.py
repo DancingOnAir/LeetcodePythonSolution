@@ -10,6 +10,31 @@ class Solution:
         for mask in range(1 << n):
             subseq = ''
             for i in range(n):
+                if mask & (1 << i) > 0:
+                    subseq += s[i]
+            if subseq == subseq[::-1]:
+                arr.append((mask, len(subseq)))
+
+        arr.sort(key=lambda x: x[1], reverse=True)
+        res = 1
+        for i in range(len(arr)):
+            m1, l1 = arr[i]
+            if l1 ** 2 < res:
+                break
+            for j in range(i+1, len(arr)):
+                m2, l2 = arr[j]
+                if m1 & m2 == 0 and l1 * l2 > res:
+                    res = l1 * l2
+                    break
+        return res
+
+    def maxProduct2(self, s: str) -> int:
+        n = len(s)
+        arr = list()
+
+        for mask in range(1 << n):
+            subseq = ''
+            for i in range(n):
                 # convert mask into actual sub sequence
                 if mask & (1 << i) > 0:
                     subseq += s[i]
