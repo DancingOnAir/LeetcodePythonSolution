@@ -1,8 +1,30 @@
 from functools import lru_cache
+from itertools import product
 
 
 class Solution:
     def maxProduct(self, s: str) -> int:
+        n = len(s)
+        arr = list()
+
+        for mask in range(1 << n):
+            subseq = ''
+            for i in range(n):
+                # convert mask into actual sub sequence
+                if mask & (1 << i) > 0:
+                    subseq += s[i]
+            if subseq == subseq[::-1]:
+                arr.append((mask, len(subseq)))
+
+        res = 0
+        for (m1, l1), (m2, l2) in product(arr, arr):
+            # disjoint
+            if m1 & m2 == 0:
+                res = max(res, l1 * l2)
+        return res
+
+    # dfs but TLE
+    def maxProduct1(self, s: str) -> int:
         def is_palidrome(x):
             return x == x[::-1]
 
