@@ -8,14 +8,16 @@ class Solution:
 
         res = ''
         for i in range(len(s)):
-            # odd case, eg. "aba"
-            cur = helper(i, i)
-            if len(cur) > len(res):
-                res = cur
-            # even case, eg. "abba"
-            cur = helper(i, i+1)
-            if len(cur) > len(res):
-                res = cur
+            # # odd case, eg. "aba"
+            # cur = helper(i, i)
+            # if len(cur) > len(res):
+            #     res = cur
+            # # even case, eg. "abba"
+            # cur = helper(i, i+1)
+            # if len(cur) > len(res):
+            #     res = cur
+            # simple implement
+            res = max(res, helper(i, i), helper(i, i+1), key=len)
 
         return res
 
