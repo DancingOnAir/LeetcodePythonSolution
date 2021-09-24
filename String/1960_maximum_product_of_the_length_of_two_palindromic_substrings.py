@@ -2,7 +2,48 @@ from itertools import accumulate
 
 
 class Solution:
+
     def maxProduct(self, s: str) -> int:
+        def expand(l, r):
+            while l >= 0 and r < n and s[l] == s[r]:
+                l, r = l - 1, r + 1
+            return (r - l + 1) // 2 - 1
+        n = len(s)
+        radius = [0] * n
+
+        right = -1
+        center = 0
+        for i in range(n):
+            if right > i:
+                j = 2 * center - i
+                radius[i] = min(radius[j], right - i)
+                radius[i] = expand(i - radius[i], i + radius[i])
+            else:
+                radius[i] = expand(i, i)
+
+            if i + radius[i] > right:
+                right = i + radius[i]
+                center = i
+
+        prefix, suffix = [1] + [0] * (n - 1), [0] * (n - 1) + [1]
+        p = 0
+        for i in range(1, n):
+            while p + radius[p] < i:
+                p += 1
+            prefix[i] = max(prefix[i - 1], 2 * (i - p) + 1)
+
+        p = n - 1
+        for i in range(n - 2, -1, -1):
+            while p - radius[p] > i:
+                p -= 1
+            suffix[i] = max(suffix[i + 1], 2 * (p - i) + 1)
+
+        res = 0
+        for i in range(1, n):
+            res = max(res, prefix[i - 1] * suffix[i])
+        return res
+
+    def maxProduct1(self, s: str) -> int:
         def manachers(S):
             # 添加@作为起始标志，$作为结束标志
             A = "@#" + '#'.join(S) + "#$"
