@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def finalValueAfterOperations(self, operations: List[str]) -> int:
+        return sum('+' in s or -1 for s in operations)
+
+    def finalValueAfterOperations2(self, operations: List[str]) -> int:
         s = ''.join(operations)
         return (s.count('+') - s.count('-')) // 2
 
