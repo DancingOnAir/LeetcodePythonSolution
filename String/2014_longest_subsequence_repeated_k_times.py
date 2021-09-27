@@ -1,13 +1,19 @@
+from collections import Counter
+from itertools import permutations
+
+
 class Solution:
     def longestSubsequenceRepeatedK(self, s: str, k: int) -> str:
-        n = len(s)
-        max_sub_seq_len = n // k
-
-        res = list()
-        for i in range(max_sub_seq_len):
-            pass
-        res.reverse()
-        return res[0]
+        freq = Counter(s)
+        hot = ''.join(ele * (freq[ele] // k) for ele in sorted(freq, reverse=True))
+        for i in range(len(hot), 0, -1):
+            for item in permutations(hot, i):
+                word = ''.join(item)
+                # 巧妙运用iter来遍历整个s
+                ss = iter(s)
+                if all(c in ss for c in word * k):
+                    return word
+        return ''
 
 
 def test_longest_subsequence_repeated_k():
