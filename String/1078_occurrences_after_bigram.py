@@ -5,6 +5,14 @@ class Solution:
     def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
         res = list()
         words = text.split()
+        for a, b, c in zip(words, words[1:], words[2:]):
+            if (a, b) == (first, second):
+                res.append(c)
+        return res
+
+    def findOcurrences1(self, text: str, first: str, second: str) -> List[str]:
+        res = list()
+        words = text.split()
         for i in range(len(words) - 2):
             if words[i] == first and words[i + 1] == second:
                 res.append(words[i + 2])
