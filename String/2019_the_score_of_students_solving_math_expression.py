@@ -4,7 +4,24 @@ from collections import defaultdict
 
 
 class Solution:
+    # dp
+    def scoreOfStudents(self, s: str, answers: List[int]) -> int:
+        @lru_cache(None)
+        def dp(i, j):
+            if i == j:
+                return {int(s[i])}
 
+            res = dict()
+            for k in range(i + 1, j, 2):
+                for a in dp(i, k - 1):
+                    for b in dp(k + 1, j):
+                        cur = a * b if s[k] == '*' else a + b
+                        if cur <= 1000:
+                            res[cur] = 2
+            return res
+
+        res = {**dp(0, len(s) - 1), **{eval(s): 5}}
+        return sum(res.get(x, 0) for x in answers)
 
     # short dfs
     def scoreOfStudents2(self, s: str, answers: List[int]) -> int:
