@@ -1,8 +1,31 @@
 from typing import List
+from functools import lru_cache
+from collections import defaultdict
 
 
 class Solution:
-    def scoreOfStudents(self, s: str, answers: List[int]) -> int:
+
+
+    # short dfs
+    def scoreOfStudents2(self, s: str, answers: List[int]) -> int:
+        op = {'+': lambda a, b: a + b, '*': lambda a, b: a * b}
+
+        @lru_cache(None)
+        def dfs(s):
+            if len(s) == 1:
+                return {s[0]}
+
+            return set([op[s[i]](a, b) for i in range(1, len(s), 2) for a in dfs(s[:i]) for b in dfs(s[i+1:]) if op[s[i]](a, b) <= 1000])
+
+        d = defaultdict(int)
+        t = tuple(c if c in ('+', '*') else int(c) for c in s)
+        for x in dfs(t):
+            d[x] = 2
+        d[eval(s)] = 5
+        return sum(d[x] for x in answers)
+
+    # TLE
+    def scoreOfStudents1(self, s: str, answers: List[int]) -> int:
         def cal(digits, ops, correct_cal_seq):
             if len(digits) == 1:
                 if correct_cal_seq:
