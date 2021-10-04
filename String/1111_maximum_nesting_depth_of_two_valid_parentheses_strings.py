@@ -3,8 +3,10 @@ from typing import List
 
 class Solution:
     def maxDepthAfterSplit(self, seq: str) -> List[int]:
+        return [(i & 1) ^ (c == '(') for i, c in enumerate(seq)]
+
+    def maxDepthAfterSplit1(self, seq: str) -> List[int]:
         res = list()
-        stk = list()
         cnt = 0
 
         for c in seq:
