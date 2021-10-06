@@ -1,9 +1,25 @@
 from collections import Counter
-from math import comb
+# from math import comb
 
 
 class Solution:
     def numTilePossibilities(self, tiles: str) -> int:
+        def traverse() -> int:
+            res = 0
+            for k, v in c.items():
+                if v > 0:
+                    res += 1
+
+                    c[k] -= 1
+                    res += traverse()
+                    c[k] += 1
+
+            return res
+
+        c = Counter(tiles)
+        return traverse()
+
+    def numTilePossibilities1(self, tiles: str) -> int:
         c = Counter(tiles)
         l = 0
         # dp[i][j] represents the possibilities of first i+1 items in counter, length equals j
@@ -12,7 +28,8 @@ class Solution:
         for v in c.values():
             l += v
             for i in range(l, 0, -1):
-                dp[i] += sum(dp[i - j] * comb(i, j) for j in range(1, min(i, v) + 1))
+                pass
+                # dp[i] += sum(dp[i - j] * comb(i, j) for j in range(1, min(i, v) + 1))
         return sum(dp) - 1
 
 
