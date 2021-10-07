@@ -2,6 +2,11 @@ from typing import List
 
 
 class Solution:
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
+        m = {c: i for i, c in enumerate(order)}
+        words = [[m[c] for c in w] for w in words]
+        return all(w1 <= w2 for w1, w2 in zip(words, words[1:]))
+
     def isAlienSorted1(self, words: List[str], order: str) -> bool:
         n = len(words)
         if n == 1:
