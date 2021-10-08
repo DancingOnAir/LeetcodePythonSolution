@@ -1,8 +1,21 @@
 from typing import List
+from collections import Counter
 
 
 class Solution:
     def numOfPairs(self, nums: List[str], target: str) -> int:
+        freq = Counter(nums)
+        res = 0
+        for k, v in freq.items():
+            if target.startswith(k):
+                suffix = target[len(k):]
+                res += freq[suffix] * v
+
+                if k == suffix:
+                    res -= freq[suffix]
+        return res
+
+    def numOfPairs1(self, nums: List[str], target: str) -> int:
         res = 0
         n = len(nums)
 
