@@ -2,8 +2,22 @@ from collections import Counter
 
 
 class Solution:
-    # standard sliding window
+    # improved sliding window
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
+        res = max_freq = 0
+        c = Counter()
+        for i in range(len(answerKey)):
+            c[answerKey[i]] += 1
+            max_freq = max(max_freq, c[answerKey[i]])
+
+            if res - max_freq < k:
+                res += 1
+            else:
+                c[answerKey[i - res]] -= 1
+        return res
+
+    # standard sliding window
+    def maxConsecutiveAnswers1(self, answerKey: str, k: int) -> int:
         max_freq = i = 0
         c = Counter()
         for j, ans in enumerate(answerKey):
