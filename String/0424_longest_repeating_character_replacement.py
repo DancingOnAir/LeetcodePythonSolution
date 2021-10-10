@@ -2,8 +2,22 @@ from collections import Counter
 
 
 class Solution:
-    # sliding window
     def characterReplacement(self, s: str, k: int) -> int:
+        res = max_freq = 0
+        cnt = Counter()
+
+        for i, c in enumerate(s):
+            cnt[c] += 1
+            max_freq = max(max_freq, cnt[c])
+
+            if res < max_freq + k:
+                res += 1
+            else:
+                cnt[s[i - res]] -= 1
+        return res
+
+    # sliding window
+    def characterReplacement1(self, s: str, k: int) -> int:
         i = max_freq = 0
         cnt = Counter()
 
