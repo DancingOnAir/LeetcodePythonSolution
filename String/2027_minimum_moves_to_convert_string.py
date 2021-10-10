@@ -1,5 +1,15 @@
 class Solution:
     def minimumMoves(self, s: str) -> int:
+        res = i = 0
+        while i < len(s):
+            if s[i] == 'X':
+                i += 3
+                res += 1
+            else:
+                i += 1
+        return res
+
+    def minimumMoves1(self, s: str) -> int:
         res = 0
         idx = s.find('X')
         while idx != -1:
