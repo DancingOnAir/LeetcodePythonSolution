@@ -1,26 +1,25 @@
 from collections import Counter
+from itertools import accumulate
 
 
 class Solution:
     def smallestSubsequence(self, s: str, k: int, letter: str, repetition: int) -> str:
-        m = [[i, c] for i, c in enumerate(s)]
-        m.sort(key=lambda x: x[1])
-
-        r = k - repetition
-        res = list()
-        idx = 0
-        while k > 0 or repetition > 0:
-            if
-            res.append(m[idx])
-            idx += 1
-            pass
-        pass
+        n = len(s)
+        m = list(accumulate([c == letter for c in s][::-1]))[::-1]
+        stk = ['#']
+        for i, c in enumerate(s):
+            while stk[-1] > c and len(stk) + n - i > k + 1 and (stk[-1] != letter or repetition < m[i]):
+                repetition += (stk.pop() == letter)
+            if len(stk) < min(k, k - repetition + (c == letter)) + 1:
+                stk += [c]
+                repetition -= (c == letter)
+        return ''.join(stk[1:])
 
 
 def test_smallest_subsequence():
     solution = Solution()
 
-    assert solution.smallestSubsequence("leet", 3, "e", 1) == "eet", 'wrong result'
+    # assert solution.smallestSubsequence("leet", 3, "e", 1) == "eet", 'wrong result'
     assert solution.smallestSubsequence("leetcode", 4, "e", 2) == "ecde", 'wrong result'
     assert solution.smallestSubsequence("bb", 2, "b", 2) == "bb", 'wrong result'
 
