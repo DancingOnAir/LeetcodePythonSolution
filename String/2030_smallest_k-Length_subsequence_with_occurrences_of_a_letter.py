@@ -4,6 +4,23 @@ from itertools import accumulate
 
 class Solution:
     def smallestSubsequence(self, s: str, k: int, letter: str, repetition: int) -> str:
+        cnt_letter = len([c for c in s if c == letter])
+        stk = list()
+
+        for i, c in enumerate(s):
+            while stk and stk[-1] > c and len(stk) + len(s) - i > k and (stk[-1] != letter or cnt_letter > repetition):
+                repetition += (stk.pop() == letter)
+            if len(stk) < k:
+                if c == letter:
+                    stk.append(c)
+                    repetition -= 1
+                elif k - len(stk) > repetition:
+                    stk.append(c)
+            if c == letter:
+                cnt_letter -= 1
+        return ''.join(stk)
+
+    def smallestSubsequence1(self, s: str, k: int, letter: str, repetition: int) -> str:
         n = len(s)
         m = list(accumulate([c == letter for c in s][::-1]))[::-1]
         stk = ['#']
