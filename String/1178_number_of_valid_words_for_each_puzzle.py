@@ -4,6 +4,17 @@ from collections import Counter
 
 class Solution:
     def findNumOfValidWords(self, words: List[str], puzzles: List[str]) -> List[int]:
+        cnt = Counter(frozenset(w) for w in words)
+        res = list()
+        for p in puzzles:
+            subs = [p[0]]
+            for c in p[1:]:
+                subs += [s + c for s in subs]
+            res.append(sum(cnt[frozenset(s)] for s in subs))
+        return res
+
+    # brute force
+    def findNumOfValidWords1(self, words: List[str], puzzles: List[str]) -> List[int]:
         words_count = [set(w) for w in words]
         puzzles_count = [set(p) for p in puzzles]
 
