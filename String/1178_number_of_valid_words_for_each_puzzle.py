@@ -1,9 +1,23 @@
 from typing import List
 from collections import Counter
+from itertools import combinations
 
 
 class Solution:
     def findNumOfValidWords(self, words: List[str], puzzles: List[str]) -> List[int]:
+        cnt = Counter(frozenset(w) for w in words)
+        res = list()
+        for p in puzzles:
+            cur = 0
+            for k in range(7):
+                for c in combinations(p[1:], k):
+                    cur += cnt[frozenset(tuple(p[0]) + c)]
+            res.append(cur)
+
+        return res
+
+    # using bfs to find all combinations
+    def findNumOfValidWords2(self, words: List[str], puzzles: List[str]) -> List[int]:
         cnt = Counter(frozenset(w) for w in words)
         res = list()
         for p in puzzles:
