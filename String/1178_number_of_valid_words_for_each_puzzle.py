@@ -5,6 +5,25 @@ from itertools import combinations
 
 class Solution:
     def findNumOfValidWords(self, words: List[str], puzzles: List[str]) -> List[int]:
+        cnt = Counter()
+        for w in words:
+            if len(set(w)) > 7:
+                continue
+            cur = 0
+            for c in w:
+                cur |= 1 << (ord(c) - 97)
+            cnt[cur] += 1
+
+        res = list()
+        for p in puzzles:
+            bfs = [1 << (ord(p[0]) - 97)]
+            for c in p[1:]:
+                bfs += [m | 1 << (ord(c) - 97) for m in bfs]
+            res.append(sum(cnt[m] for m in bfs))
+        return res
+
+    # using Counter.combination
+    def findNumOfValidWords3(self, words: List[str], puzzles: List[str]) -> List[int]:
         cnt = Counter(frozenset(w) for w in words)
         res = list()
         for p in puzzles:
@@ -44,9 +63,12 @@ def test_find_num_of_valid_words():
     solution = Solution()
 
     assert solution.findNumOfValidWords(["aaaa", "asas", "able", "ability", "actt", "actor", "access"],
-                                        ["aboveyz", "abrodyz", "abslute", "absoryz", "actresz", "gaswxyz"]) == [1, 1, 3, 2, 4, 0], 'wrong result'
+                                        ["aboveyz", "abrodyz", "abslute", "absoryz", "actresz", "gaswxyz"]) == [1, 1, 3,
+                                                                                                                2, 4,
+                                                                                                                0], 'wrong result'
     assert solution.findNumOfValidWords(["apple", "pleas", "please"],
-                                        ["aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"]) == [0, 1, 3, 2, 0], 'wrong result'
+                                        ["aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"]) == [0, 1, 3, 2,
+                                                                                                     0], 'wrong result'
 
 
 if __name__ == '__main__':
