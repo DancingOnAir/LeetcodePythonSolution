@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def minDeletionSize(self, strs: List[str]) -> int:
+        return sum(any(a > b for a, b in zip(col, col[1:])) for col in zip(*strs))
+
+    def minDeletionSize2(self, strs: List[str]) -> int:
         return sum(list(col) != sorted(col) for col in zip(*strs))
 
     def minDeletionSize1(self, strs: List[str]) -> int:
