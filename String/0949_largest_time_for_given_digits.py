@@ -4,6 +4,12 @@ from itertools import permutations
 
 class Solution:
     def largestTimeFromDigits(self, arr: List[int]) -> str:
+        for time in permutations(sorted(arr, reverse=True)):
+            if time[:2] < (2, 4) and time[2] < 6:
+                return '%d%d:%d%d' % time
+        return ''
+
+    def largestTimeFromDigits1(self, arr: List[int]) -> str:
         memo = set()
         for c in permutations(sorted(arr), 4):
             memo.add(c)
