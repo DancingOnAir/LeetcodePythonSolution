@@ -2,33 +2,34 @@ from typing import List
 
 
 class Solution:
+    class UnionFind(object):
+        def __init__(self):
+            self.parent = list(range(26))
+
+        def find(self, index):
+            if index == self.parent[index]:
+                return index
+
+            self.parent[index] = self.find(self.parent[index])
+            return self.parent[index]
+
+        def union(self, index1, index2):
+            self.parent[self.find(index1)] = self.find(index2)
+
     def equationsPossible(self, equations: List[str]) -> bool:
-        m = dict()
-        i = 1
+        uf = Solution.UnionFind()
         for e in equations:
-            a, b = e[0], e[3]
-            if a in m:
-                x = m[a]
-            else:
-                m[a] = i
-                x = i
-                i += 1
+            if e[1] == "=":
+                index1 = ord(e[0]) - ord('a')
+                index2 = ord(e[3]) - ord('a')
+                uf.union(index1, index2)
 
-            if b in m:
-                y = m[b]
-            else:
-                if e[1] == '=':
-                    m[b] = x
-                    y = x
-                else:
-                    m[b] = i
-                    y = i
-                    i += 1
-
-            if e[1] == '=' and x != y:
-                return False
-            elif e[1] == '!' and x == y:
-                return False
+        for e in equations:
+            if e[1] == "!":
+                index1 = ord(e[0]) - ord('a')
+                index2 = ord(e[3]) - ord('a')
+                if uf.find(index1) == uf.find(index2):
+                    return False
 
         return True
 
