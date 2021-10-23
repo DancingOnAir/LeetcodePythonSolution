@@ -3,6 +3,19 @@ from typing import List
 
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        def find(idx):
+            if idx != uf[idx]:
+                idx = find(uf[idx])
+            return idx
+
+        uf = {i: i for i in range(len(isConnected))}
+        for i in range(len(isConnected)):
+            for j in range(i + 1, len(isConnected)):
+                if isConnected[i][j] == 1:
+                    uf[find(i)] = find(j)
+        return len([x for x in uf if uf[x] == x])
+
+    def findCircleNum1(self, isConnected: List[List[int]]) -> int:
         n = len(isConnected)
         if 1 == n:
             return 1
