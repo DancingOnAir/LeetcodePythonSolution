@@ -2,7 +2,41 @@ from typing import List
 
 
 class Solution:
+    # dfs
     def solve(self, board: List[List[str]]) -> None:
+        row = len(board)
+        col = len(board[0])
+
+        def dfs(i, j):
+            if not 0 <= i < row or not 0 <= j < col or board[i][j] != 'O':
+                return
+            board[i][j] = 'A'
+            dfs(i - 1, j)
+            dfs(i + 1, j)
+            dfs(i, j - 1)
+            dfs(i, j + 1)
+
+        for i in range(row):
+            if board[i][0] == 'O':
+                dfs(i, 0)
+            if board[i][col - 1] == 'O':
+                dfs(i, col - 1)
+
+        for j in range(col):
+            if board[0][j] == 'O':
+                dfs(0, j)
+            if board[row - 1][j] == 'O':
+                dfs(row - 1, j)
+
+        for i in range(row):
+            for j in range(col):
+                if board[i][j] == 'A':
+                    board[i][j] = 'O'
+                elif board[i][j] == 'O':
+                    board[i][j] = 'X'
+
+    # union find
+    def solve1(self, board: List[List[str]]) -> None:
         row = len(board)
         col = len(board[0])
         parent = list(range(row * col + 1))
@@ -44,8 +78,9 @@ class Solution:
 def test_solve():
     solution = Solution()
 
-    assert solution.solve([["X", "X", "X", "X"], ["X", "O", "O", "X"], ["X", "X", "O", "X"], ["X", "O", "X", "X"]]) == [
-        ["X", "X", "X", "X"], ["X", "X", "X", "X"], ["X", "X", "X", "X"], ["X", "O", "X", "X"]], 'wrong result'
+    grid = [["X", "X", "X", "X"], ["X", "O", "O", "X"], ["X", "X", "O", "X"], ["X", "O", "X", "X"]]
+    solution.solve(grid)
+    assert grid == [["X", "X", "X", "X"], ["X", "X", "X", "X"], ["X", "X", "X", "X"], ["X", "O", "X", "X"]], 'wrong result'
 
 
 if __name__ == '__main__':
