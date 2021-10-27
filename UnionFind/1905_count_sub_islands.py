@@ -2,7 +2,46 @@ from typing import List
 
 
 class Solution:
+    class UnionFind(object):
+        def __init__(self, n):
+            self.parent = list(range(n))
+
+        def find(self, p):
+            if p != self.parent[p]:
+                p = self.find(self.parent[p])
+            return p
+
+        def union(self, p, q):
+            self.parent[self.find(p)] = self.find(q)
+
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+        row = len(grid1)
+        col = len(grid1[0])
+
+        uf = Solution.UnionFind(row * col)
+        for i in range(row):
+            for j in range(col):
+                idx = i * col + j
+                if grid2[i][j] == 1:
+                    if i > 0 and grid2[i - 1][j] == 1:
+                        uf.union(idx - col, idx)
+                    if j > 0 and grid2[i][j - 1] == 1:
+                        uf.union(idx - 1, idx)
+                else:
+                    uf.parent[idx] = -1
+
+        res = set()
+        for p in uf.parent:
+            if p != -1:
+                res.add(uf.find(p))
+
+        for i in range(row):
+            for j in range(col):
+                if uf.parent[i * col + j] >= 0 and grid1[i][j] == 0 and uf.find(uf.parent[i * col + j]) in res:
+                    res.remove(uf.find(uf.parent[i * col + j]))
+        return len(res)
+
+    def countSubIslands1(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
         m = len(grid1)
         n = len(grid1[0])
         parent = list(range(m * n + 1))
