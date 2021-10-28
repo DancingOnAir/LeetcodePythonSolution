@@ -14,7 +14,24 @@ class Solution:
         def union(self, p, q):
             self.parent[self.find(p)] = self.find(q)
 
+    # dfs
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+        def dfs(i, j):
+            if not (0 <= i < row and 0 <= j < col and grid2[i][j] == 1):
+                return 1
+
+            grid2[i][j] = 0
+            res = grid1[i][j]
+            for di, dj in [[0, 1], [1, 0], [-1, 0], [0, -1]]:
+                res &= dfs(i + di, j + dj)
+            return res
+
+        row = len(grid1)
+        col = len(grid1[0])
+        return sum(dfs(i, j) for i in range(row) for j in range(col) if grid2[i][j] == 1)
+
+    # union find
+    def countSubIslands2(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
         row = len(grid1)
         col = len(grid1[0])
 
