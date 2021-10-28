@@ -12,7 +12,12 @@ class Solution:
             return p
 
         def union(self, p, q):
-            self.parent[self.find(p)] = self.find(q)
+            r1 = self.find(p)
+            r2 = self.find(q)
+            if r1 == r2:
+                return
+
+            self.parent[r1] = r2
 
     # dfs
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:

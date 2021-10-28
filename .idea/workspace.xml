@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/UnionFind/1559_detect_cycles_in_2d_grid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnionFind/1905_count_sub_islands.py" beforeDir="false" afterPath="$PROJECT_DIR$/UnionFind/1905_count_sub_islands.py" afterDir="false" />
     </list>
@@ -30,13 +31,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/UnionFind" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.1905_count_sub_islands">
+  <component name="RunManager" selected="Python.1559_detect_cycles_in_2d_grid">
     <configuration name="0130_surrounded_regions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Leetcode_Python_Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,7 +102,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="0990_satisfiability_of_equality_equations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="1559_detect_cycles_in_2d_grid" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Leetcode_Python_Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -108,11 +110,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UnionFind" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UnionFind/0990_satisfiability_of_equality_equations.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UnionFind/1559_detect_cycles_in_2d_grid.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -144,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.1559_detect_cycles_in_2d_grid" />
         <item itemvalue="Python.1905_count_sub_islands" />
         <item itemvalue="Python.0130_surrounded_regions" />
         <item itemvalue="Python.0200_number_of_islands" />
         <item itemvalue="Python.0547_number_of_provinces" />
-        <item itemvalue="Python.0990_satisfiability_of_equality_equations" />
       </list>
     </recent_temporary>
   </component>
@@ -189,17 +191,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/UnionFind/1905_count_sub_islands.py</url>
-          <line>100</line>
+          <line>105</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/UnionFind/1905_count_sub_islands.py</url>
-          <line>91</line>
+          <line>96</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/UnionFind/1905_count_sub_islands.py</url>
-          <line>58</line>
+          <line>63</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
