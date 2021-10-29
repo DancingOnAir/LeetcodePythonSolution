@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/UnionFind/1391_check_if_there_is_a_valid_path_in_a_grid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnionFind/1559_detect_cycles_in_2d_grid.py" beforeDir="false" afterPath="$PROJECT_DIR$/UnionFind/1559_detect_cycles_in_2d_grid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +37,7 @@
       <recent name="$PROJECT_DIR$/UnionFind" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.1559_detect_cycles_in_2d_grid">
+  <component name="RunManager" selected="Python.1391_check_if_there_is_a_valid_path_in_a_grid">
     <configuration name="0130_surrounded_regions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Leetcode_Python_Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,7 +80,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="0547_number_of_provinces" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="1391_check_if_there_is_a_valid_path_in_a_grid" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Leetcode_Python_Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -92,7 +92,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UnionFind/0547_number_of_provinces.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UnionFind/1391_check_if_there_is_a_valid_path_in_a_grid.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -145,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.1391_check_if_there_is_a_valid_path_in_a_grid" />
         <item itemvalue="Python.1559_detect_cycles_in_2d_grid" />
         <item itemvalue="Python.1905_count_sub_islands" />
         <item itemvalue="Python.0130_surrounded_regions" />
         <item itemvalue="Python.0200_number_of_islands" />
-        <item itemvalue="Python.0547_number_of_provinces" />
       </list>
     </recent_temporary>
   </component>
