@@ -28,7 +28,6 @@ class Solution:
                 self.sz[rp] += self.sz[rq]
 
     def hasValidPath(self, grid: List[List[int]]) -> bool:
-        match = {1: [{1, 3, 5}, {}], 2: [{}, {2, 5, 6}], 3: [{}, {2, 5, 6}], 4: [{1, 3, 5}, {2, 5, 6}], 5: [{}, {}], 6: [{1, 3, 5}, {}]}
         row = len(grid)
         col = len(grid[0])
         uf = Solution.UF(row * 2 * col * 2)
@@ -49,7 +48,7 @@ class Solution:
                 if grid[i][j] in right:
                     uf.unite(idx, idx + 1)
 
-        return uf.find(0) == uf.find(2 * (row - 1) * col + 2 * (col - 1))
+        return uf.find(0) == uf.find(2 * (row - 1) * 2 * col + 2 * (col - 1))
 
 
 def test_has_valid_path():
