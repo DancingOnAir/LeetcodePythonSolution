@@ -9,6 +9,8 @@ class Solution:
 
         def find(self, p):
             while p != self.parent[p]:
+                # path compression
+                self.parent[p] = self.parent[self.parent[p]]
                 p = self.parent[p]
             return p
 
