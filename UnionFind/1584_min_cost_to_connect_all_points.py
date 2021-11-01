@@ -34,6 +34,15 @@ class Solution:
         def cal_manhattan_distance(pt1, pt2):
             return abs(pt1[0] - pt2[0]) + abs(pt1[1] - pt2[1])
 
+        def kruskal():
+            uf = Solution.UF(n)
+            res = 0
+            for i, j, v in edges:
+                if uf.find(i) != uf.find(j):
+                    uf.unite(i, j)
+                    res += v
+            return res
+
         n = len(points)
         edges = list()
         for i in range(n):
@@ -41,18 +50,7 @@ class Solution:
                 edges.append((i, j, cal_manhattan_distance(points[i], points[j])))
         edges.sort(key=lambda x: x[2])
 
-        uf = Solution.UF(n)
-        res = 0
-        for i, j, v in edges:
-            uf.unite(i, j)
-
-            if uf.cnt < n:
-                n -= 1
-                res += v
-
-            if uf.cnt == 1:
-                break
-        return res
+        return kruskal()
 
 
 def test_min_cost_connect_points():
