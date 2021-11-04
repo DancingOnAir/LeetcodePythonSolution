@@ -27,14 +27,18 @@ class Solution:
             else:
                 self.parent[rq] = rp
                 self.sz[rp] += self.sz[rq]
+            return True
 
+    # unicode union find
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+        pass
+
+    # union find
+    def findRedundantConnection1(self, edges: List[List[int]]) -> List[int]:
         uf = Solution.UF(len(edges) + 1)
         for i, j in edges:
-            if uf.find(i) == uf.find(j):
+            if not uf.unite(i, j):
                 return [i, j]
-            uf.unite(i, j)
-        return [0, 0]
 
 
 def test_find_redundant_connection():
