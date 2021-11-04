@@ -19,8 +19,9 @@ class Solution:
             rp = self.find(p)
             rq = self.find(q)
 
+            # exist cycle
             if rp == rq:
-                return
+                return False
 
             if self.sz[rp] < self.sz[rq]:
                 self.parent[rp] = rq
@@ -30,28 +31,47 @@ class Solution:
                 self.sz[rp] += self.sz[rq]
 
             self.cnt -= 1
+            return True
 
     def validateBinaryTreeNodes(self, n: int, leftChild: List[int], rightChild: List[int]) -> bool:
         uf = Solution.UF(n)
-        m = set()
-        for i in range(n):
-            # m.add(i)
-            if leftChild[i] != -1:
-                if leftChild[i] in m or uf.find(leftChild[i]) == uf.find(i):
+        in_degree = [0] * n
+        for parent, (lc, rc) in enumerate(zip(leftChild, rightChild)):
+            if lc != -1:
+                if not uf.unite(parent, lc):
                     return False
-                m.add(leftChild[i])
-                uf.unite(i, leftChild[i])
-
-            if rightChild[i] != -1:
-                if rightChild[i] in m or uf.find(rightChild[i]) == uf.find(i):
+                in_degree[lc] += 1
+                if in_degree[lc] > 1:
                     return False
-                m.add(rightChild[i])
-                uf.unite(i, rightChild[i])
 
-        if uf.cnt != 1:
-            return False
+            if rc != -1:
+                if not uf.unite(parent, rc):
+                    return False
+                in_degree[rc] += 1
+                if in_degree[rc] > 1:
+                    return False
 
-        return True
+        return uf.cnt == 1
+
+        # m = set()
+        # for i in range(n):
+        #     # m.add(i)
+        #     if leftChild[i] != -1:
+        #         if leftChild[i] in m or uf.find(leftChild[i]) == uf.find(i):
+        #             return False
+        #         m.add(leftChild[i])
+        #         uf.unite(i, leftChild[i])
+        #
+        #     if rightChild[i] != -1:
+        #         if rightChild[i] in m or uf.find(rightChild[i]) == uf.find(i):
+        #             return False
+        #         m.add(rightChild[i])
+        #         uf.unite(i, rightChild[i])
+        #
+        # if uf.cnt != 1:
+        #     return False
+        #
+        # return True
 
 
 def test_validate_binary_tree_nodes():
