@@ -31,7 +31,11 @@ class Solution:
 
     # unicode union find
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
-        pass
+        tree = ''.join(map(chr, range(1001)))
+        for u, v in edges:
+            if tree[u] == tree[v]:
+                return [u, v]
+            tree = tree.replace(tree[u], tree[v])
 
     # union find
     def findRedundantConnection1(self, edges: List[List[int]]) -> List[int]:
