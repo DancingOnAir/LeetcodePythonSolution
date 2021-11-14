@@ -41,19 +41,23 @@ class Solution:
                             uf.unite(i * n + j, x * n + y)
 
         idx_to_area = defaultdict(int)
-        idx_to_neighbor = defaultdict(set)
+        idx_to_neighbor = defaultdict(list)
         for i in range(n):
             for j in range(n):
                 if grid[i][j] == 1:
                     p = uf.find(i * n + j)
 
                     idx_to_area[p] += 1
-                    for x, y in (i, j - 2), (i, j + 2), (i - 2, j), (i + 2, j), (i + 1, j + 1), (i + 1, j - 1), (
-                    i - 1, j + 1), (i - 1, j - 1):
-                        if 0 <= x < n and 0 <= y < n and grid[x][y] == 1:
-                            q = uf.find(x * n + y)
-                            if p != q:
-                                idx_to_neighbor[p].add(q)
+                    for x, y in (i, j - 1), (i, j + 1), (i - 1, j), (i + 1, j):
+                        if 0 <= x < n and 0 <= y < n and grid[x][y] == 0:
+                            # if idx_to_neighbor[p][-1]:
+                            idx_to_neighbor[p].append(set())
+
+                            for a, b in (x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y):
+                                if 0 <= a < n and 0 <= b < n and (a, b) != (i, j) and grid[a][b] == 1:
+                                    q = uf.find(a * n + b)
+                                    if p != q:
+                                        idx_to_neighbor[p][-1].add(q)
 
         if not idx_to_neighbor:
             return min((max(idx_to_area.values()) if idx_to_area else 0) + 1, n * n)
@@ -61,13 +65,16 @@ class Solution:
         res = 0
         for p, qs in idx_to_neighbor.items():
             for q in qs:
-                res = max(res, idx_to_area[p] + idx_to_area[q] + 1)
+                res = max(res, idx_to_area[p] + sum(idx_to_area[i] for i in q) + 1)
         return res
 
 
 def test_largest_island():
     solution = Solution()
 
+    assert solution.largestIsland(
+        [[0, 0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 0, 0], [0, 1, 0, 0, 1, 0, 0], [1, 0, 1, 0, 1, 0, 0],
+         [0, 1, 0, 0, 1, 0, 0], [0, 1, 0, 0, 1, 0, 0], [0, 1, 1, 1, 1, 0, 0]]) == 18, 'wrong result'
     assert solution.largestIsland([[0, 0], [0, 0]]) == 1, 'wrong result'
     assert solution.largestIsland([[1, 0], [0, 1]]) == 3, 'wrong result'
     assert solution.largestIsland([[1, 1], [1, 0]]) == 4, 'wrong result'
