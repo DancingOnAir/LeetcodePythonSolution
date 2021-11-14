@@ -206,8 +206,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/UnionFind/0827_making_a_large_island.py</url>
-          <line>61</line>
-          <option name="timeStamp" value="32" />
+          <line>66</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
