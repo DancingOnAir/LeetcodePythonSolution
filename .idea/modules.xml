@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Leetcode_Python_Solution.iml" filepath="$PROJECT_DIR$/.idea/Leetcode_Python_Solution.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../PyWorkspace/alexa_migration/.idea/alexa_migration.iml" filepath="$PROJECT_DIR$/../../PyWorkspace/alexa_migration/.idea/alexa_migration.iml" />
       <module fileurl="file://$PROJECT_DIR$/../dialogflowmigration/.idea/dialogflowmigration.iml" filepath="$PROJECT_DIR$/../dialogflowmigration/.idea/dialogflowmigration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../PyWorkspace/《自然语言处理入门》随书代码/.idea/《自然语言处理入门》随书代码.iml" filepath="$PROJECT_DIR$/../../PyWorkspace/《自然语言处理入门》随书代码/.idea/《自然语言处理入门》随书代码.iml" />
     </modules>
   </component>
 </project>

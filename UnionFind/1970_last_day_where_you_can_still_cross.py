@@ -8,6 +8,12 @@ class Solution:
             self.col = c
             self.parent = list(range(r * c))
             self.sz = [1] * (r * c)
+            self.left = [0] * r * c
+            self.right = [0] * r * c
+            for i in range(r):
+                for j in range(c):
+                    self.left[i * c + j] = j
+                    self.right[i * c + j] = j
 
         def find(self, p):
             while p != self.parent[p]:
@@ -24,11 +30,12 @@ class Solution:
                 return False
 
             if self.sz[rp] < self.sz[rq]:
-                self.parent[rp] = rq
-                self.sz[rq] += self.sz[rp]
-            else:
-                self.parent[rq] = rp
-                self.sz[rp] += self.sz[rq]
+                rp, rq = rq, rp
+
+            self.parent[rq] = rp
+            self.sz[rp] += self.sz[rq]
+            self.left[rp] = min(self.left[rp], self.left[rq])
+            self.right[rp] = max(self.right[rp], self.right[rq])
 
             return True
 
@@ -36,38 +43,28 @@ class Solution:
             return self.find(p) == self.find(q)
 
     def latestDayToCross(self, row: int, col: int, cells: List[List[int]]) -> int:
-        def neighours(r, c):
+        def neighbors(r, c):
             for dr in (-1, 0, 1):
                 for dc in (-1, 0, 1):
                     if row > r + dr >= 0 <= c + dc < col and (dr, dc) != (0, 0):
                         yield r + dr, c + dc
 
         uf = Solution.UF(row, col)
-        grid = [[0] * col for _ in range(row)]
-        lefts = set()
-        rights = set()
+        # save water records
+        seen = set()
 
         for i in range(len(cells)):
-            x, y = cells[i]
-            x -= 1
-            y -= 1
+            x, y = cells[i][0] - 1, cells[i][1] - 1
 
-            grid[x][y] = 1
-            if y == 0:
-                lefts.add((x, y))
-            elif y == col - 1:
-                rights.add((x, y))
-
-            for r, c in neighours(x, y):
-                if grid[r][c] == 1:
+            for r, c in neighbors(x, y):
+                if (r, c) in seen:
                     uf.unite(x * col + y, r * col + c)
-
-            for l in lefts:
-                for r in rights:
-                    if uf.isConnected(l[0] * col + l[1], r[0] * col + r[1]):
+                    p = uf.find(r * col + c)
+                    if uf.left[p] == 0 and uf.right[p] == col - 1:
                         return i
 
-        return len(cells)
+            seen.add((x, y))
+        return row * col
 
 
 def test_latest_day_to_cross():
