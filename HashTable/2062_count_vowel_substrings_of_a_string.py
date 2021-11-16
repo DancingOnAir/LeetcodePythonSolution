@@ -3,29 +3,30 @@ from collections import defaultdict
 
 class Solution:
     def countVowelSubstrings(self, word: str) -> int:
-        m = defaultdict(int)
-        res = i = 0
-        for j in range(len(word)):
-            if word[j] in 'aeiou':
-                m[word[j]] += 1
-                if len(m) == 5:
-                    res += 1
-            else:
-                i += 1
-                while word[i] in 'aeiou':
-                    m[word[i]] -= 1
-                    if m[word[i]] == 0:
-                        del m[word[i]]
-                    if len(m) == 5:
-                        res += 1
-                i = j
+        freq = defaultdict(int)
+        res = j = 0
+        for i, c in enumerate(word):
+            if c in 'aeiou':
+                if not i or word[i - 1] not in 'aeiou':
+                    jj = j = i
+                    freq.clear()
+
+                freq[c] += 1
+                while len(freq) == 5 and all(freq.values()):
+                    freq[word[j]] -= 1
+                    j += 1
+                res += j - jj
 
         return res
 
 
 def test_count_vowel_substrings():
     solution = Solution()
-    assert solution.countVowelSubstrings("aeiouu") == 2, 'wrong result'
+    assert solution.countVowelSubstrings("aaeiouu") == 4, 'wrong result'
     assert solution.countVowelSubstrings("unicornarihan") == 0, 'wrong result'
     assert solution.countVowelSubstrings("cuaieuouac") == 7, 'wrong result'
     assert solution.countVowelSubstrings("bbaeixoubb") == 0, 'wrong result'
+
+
+if __name__ == '__main__':
+    test_count_vowel_substrings()
