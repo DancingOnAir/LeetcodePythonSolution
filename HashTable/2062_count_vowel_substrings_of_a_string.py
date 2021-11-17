@@ -3,6 +3,20 @@ from collections import defaultdict
 
 class Solution:
     def countVowelSubstrings(self, word: str) -> int:
+        res = 0
+        last_consonant = -1
+        vowels = {c: -1 for c in 'aeiou'}
+
+        for i, c in enumerate(word):
+            if c in vowels:
+                vowels[c] = i
+                res += max(min(vowels.values()) - last_consonant, 0)
+            else:
+                last_consonant = i
+
+        return res
+
+    def countVowelSubstrings1(self, word: str) -> int:
         freq = defaultdict(int)
         res = j = 0
         for i, c in enumerate(word):
