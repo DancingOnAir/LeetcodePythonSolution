@@ -4,6 +4,15 @@ from collections import Counter
 
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
+        freq = Counter(arr)
+        for x in freq:
+            if freq[x] == 1:
+                k -= 1
+            if not k:
+                return x
+        return ''
+
+    def kthDistinct1(self, arr: List[str], k: int) -> str:
         a = [c for c, v in Counter(arr).items() if v == 1]
         return a[k - 1] if len(a) >= k else ''
 
