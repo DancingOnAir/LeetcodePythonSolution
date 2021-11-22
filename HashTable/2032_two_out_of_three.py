@@ -1,9 +1,16 @@
 from typing import List
+from collections import Counter
 
 
 class Solution:
     def twoOutOfThree(self, nums1: List[int], nums2: List[int], nums3: List[int]) -> List[int]:
-        return list((set(nums1) & set(nums2)) | (set(nums1) & set(nums3)) | (set(nums2) & set(nums3)))
+        c = Counter()
+        for nums in nums1, nums2, nums3:
+            c.update(set(nums))
+        return [k for k, v in c.items() if v > 1]
+
+    def twoOutOfThree1(self, nums1: List[int], nums2: List[int], nums3: List[int]) -> List[int]:
+        return (set(nums1) & set(nums2)) | (set(nums1) & set(nums3)) | (set(nums2) & set(nums3))
 
 
 def test_two_out_of_three():
