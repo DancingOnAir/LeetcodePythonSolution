@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/HashTable/2001_number_of_pairs_of_interchangeable_rectangles.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/2001_number_of_pairs_of_interchangeable_rectangles.py" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/2001_number_of_pairs_of_interchangeable_rectangles.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,16 +213,6 @@
           <url>file://$PROJECT_DIR$/HashTable/2034_stock_price_fluctuation.py</url>
           <line>44</line>
           <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/HashTable/2001_number_of_pairs_of_interchangeable_rectangles.py</url>
-          <line>13</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/HashTable/2001_number_of_pairs_of_interchangeable_rectangles.py</url>
-          <line>11</line>
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
