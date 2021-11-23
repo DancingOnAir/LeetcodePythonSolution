@@ -1,26 +1,22 @@
 from typing import List
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 class DetectSquares:
     def __init__(self):
-        self.coordinates = defaultdict(int)
-        self.xs = defaultdict(set)
-        self.ys = defaultdict(set)
+        # self.coordinates = defaultdict(int)
+        self.coordinates = Counter()
 
     def add(self, point: List[int]) -> None:
-        p = tuple(point)
-        self.coordinates[p] += 1
-        self.xs[point[0]].add(p)
-        self.ys[point[1]].add(p)
+        self.coordinates[tuple(point)] += 1
 
     def count(self, point: List[int]) -> int:
         res = 0
-        for p in self.xs[point[0]]:
-            for q in self.ys[point[1]]:
-                r = (q[0], p[1])
-                if r in self.coordinates and abs(p[1] - point[1]) == abs(q[0] - point[0]):
-                    res += self.coordinates[p] * self.coordinates[q] * self.coordinates[r]
+        x1, y1 = point
+        for (x3, y3), cnt in self.coordinates.items():
+            if x1 != x3 and abs(x1 - x3) == abs(y1 - y3):
+                # Counter won't add new keys to the dict when you query for missing keys.
+                res += self.coordinates[(x1, y3)] * self.coordinates[(x3, y1)] * cnt
         return res
 
 
