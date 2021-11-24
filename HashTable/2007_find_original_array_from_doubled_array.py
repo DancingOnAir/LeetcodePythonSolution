@@ -4,6 +4,17 @@ from collections import Counter
 
 class Solution:
     def findOriginalArray(self, changed: List[int]) -> List[int]:
+        c = Counter(changed)
+        if c[0] & 1:
+            return []
+
+        for x in sorted(c):
+            if c[x] > c[x * 2]:
+                return []
+            c[x * 2] -= c[x] if x else c[x] // 2
+        return list(c.elements())
+
+    def findOriginalArray1(self, changed: List[int]) -> List[int]:
         if len(changed) & 1:
             return []
 
