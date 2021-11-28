@@ -4,6 +4,16 @@ from collections import defaultdict
 
 class Solution:
     def findingUsersActiveMinutes(self, logs: List[List[int]], k: int) -> List[int]:
+        uams = defaultdict(set)
+        for id, time in logs:
+            uams[id].add(time)
+
+        res = [0] * k
+        for uam in uams.values():
+            res[len(uam) - 1] += 1
+        return res
+
+    def findingUsersActiveMinutes1(self, logs: List[List[int]], k: int) -> List[int]:
         uam = defaultdict(set)
         for log in logs:
             uam[log[0]].add(log[1])

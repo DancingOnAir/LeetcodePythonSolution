@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/HashTable/1817_finding_the_users_active_minutes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/1817_finding_the_users_active_minutes.py" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/1817_finding_the_users_active_minutes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +216,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/HashTable/1817_finding_the_users_active_minutes.py</url>
-          <line>11</line>
+          <line>21</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
