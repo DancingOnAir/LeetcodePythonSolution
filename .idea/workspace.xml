@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/HashTable/1797_Design_authentication_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HashTable/2085_count_common_words_with_one_occurrence.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +37,7 @@
       <recent name="$PROJECT_DIR$/UnionFind" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.1797_Design_authentication_manager">
+  <component name="RunManager" selected="Python.2085_count_common_words_with_one_occurrence">
     <configuration name="1348_tweet_counts_per_frequency" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Leetcode_Python_Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,7 +122,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="1906_minimum_absolute_difference_queries" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="2085_count_common_words_with_one_occurrence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Leetcode_Python_Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -134,7 +134,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HashTable/1906_minimum_absolute_difference_queries.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HashTable/2085_count_common_words_with_one_occurrence.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -145,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.2085_count_common_words_with_one_occurrence" />
         <item itemvalue="Python.1797_Design_authentication_manager" />
         <item itemvalue="Python.1348_tweet_counts_per_frequency" />
         <item itemvalue="Python.1817_finding_the_users_active_minutes" />
         <item itemvalue="Python.1865_finding_pairs_with_a_certain_sum" />
-        <item itemvalue="Python.1906_minimum_absolute_difference_queries" />
       </list>
     </recent_temporary>
   </component>
