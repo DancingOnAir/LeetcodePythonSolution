@@ -2,7 +2,7 @@ from typing import List
 from collections import Counter
 
 class Solution:
-    def countNicePairs(self, nums: List[int]) -> int:
+    def countNicePairs1(self, nums: List[int]) -> int:
         def calculate_diff(num):
             return int(''.join(reversed(str(num)))) - num
 
@@ -16,6 +16,15 @@ class Solution:
             cur = len(v)
             res += cur * (cur - 1) // 2
         return res % mod
+
+    def countNicePairs(self, nums: List[int]) -> int:
+        diffs = Counter()
+        res = 0
+        for a in nums:
+            b = int(str(a)[::-1])
+            res += diffs[b - a]
+            diffs[b - a] += 1
+        return res % (10 ** 9 + 7)
 
 
 def test_count_nice_pairs():
