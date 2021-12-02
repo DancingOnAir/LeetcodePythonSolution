@@ -17,7 +17,7 @@ class Solution:
             res += cur * (cur - 1) // 2
         return res % mod
 
-    def countNicePairs(self, nums: List[int]) -> int:
+    def countNicePairs2(self, nums: List[int]) -> int:
         diffs = Counter()
         res = 0
         for a in nums:
@@ -25,6 +25,10 @@ class Solution:
             res += diffs[b - a]
             diffs[b - a] += 1
         return res % (10 ** 9 + 7)
+
+    def countNicePairs(self, nums: List[int]) -> int:
+        freq = Counter(num - int(str(num)[::-1]) for num in nums)
+        return sum(v * (v - 1) // 2 for v in freq.values()) % (10 ** 9 + 7)
 
 
 def test_count_nice_pairs():
