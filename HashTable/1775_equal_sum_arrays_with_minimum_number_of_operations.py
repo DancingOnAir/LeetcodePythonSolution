@@ -6,36 +6,25 @@ class Solution:
     def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
         sum1 = sum(nums1)
         sum2 = sum(nums2)
-        changes1 = [0] * 6
-        changes2 = [0] * 6
+        if sum1 == sum2:
+            return 0
+        elif sum1 > sum2:
+            return self.minOperations(nums2, nums1)
 
-        for x in nums1:
-            changes1[6 - x] += 1
-            changes1[x - 1] += 1
+        target = sum2 - sum1
 
-        for x in nums2:
-            changes2[6 - x] += 1
-            changes2[x - 1] += 1
+        gains1 = [6 - x for x in nums1]
+        gains2 = [x - 1 for x in nums2]
+        gains = gains1 + gains2
+        gains.sort(reverse=True)
 
-        # freq1, freq2 = [0] * 7, [0] * 7
-        # sum1 = sum2 = 0
-        #
-        # for x in nums1:
-        #     freq1[x] += 1
-        #     sum1 += x
-        #
-        # for x in nums2:
-        #     freq2[x] += 1
-        #     sum2 += x
-        #
-        # res = 0
-        # if sum1 == sum2:
-        #     return res
-        # if sum1 < sum2:
-        #     if
-        #
-        # return res
-        pass
+        res = 0
+        for g in gains:
+            target -= g
+            res += 1
+            if target <= 0:
+                return res
+        return -1
 
 
 def test_min_operations():
