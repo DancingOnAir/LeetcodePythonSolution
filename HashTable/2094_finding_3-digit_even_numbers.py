@@ -5,6 +5,26 @@ from collections import Counter
 class Solution:
     def findEvenNumbers(self, digits: List[int]) -> List[int]:
         freq = Counter(digits)
+        res = list()
+        for i in range(1, 10):
+            if not freq[i]:
+                continue
+
+            freq[i] -= 1
+            for j in range(10):
+                if not freq[j]:
+                    continue
+                freq[j] -= 1
+                for k in range(0, 10, 2):
+                    if not freq[k]:
+                        continue
+                    res.append(i*100 + j*10 + k)
+                freq[j] += 1
+            freq[i] += 1
+        return res
+
+    def findEvenNumbers1(self, digits: List[int]) -> List[int]:
+        freq = Counter(digits)
         end = [x for x in freq if x % 2 == 0]
 
         res = set()
