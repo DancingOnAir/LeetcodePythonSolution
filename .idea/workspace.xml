@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/HashTable/1743_restore_the_array_from_adjacent_pairs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HashTable/1711_count_good_meals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +37,28 @@
       <recent name="$PROJECT_DIR$/UnionFind" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.1743_restore_the_array_from_adjacent_pairs">
+  <component name="RunManager" selected="Python.1711_count_good_meals">
+    <configuration name="1711_count_good_meals" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Leetcode_Python_Solution" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HashTable" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HashTable/1711_count_good_meals.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="1743_restore_the_array_from_adjacent_pairs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Leetcode_Python_Solution" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,27 +122,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2085_count_common_words_with_one_occurrence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Leetcode_Python_Solution" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HashTable" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HashTable/2085_count_common_words_with_one_occurrence.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="viterbi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TDL" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.1711_count_good_meals" />
         <item itemvalue="Python.1743_restore_the_array_from_adjacent_pairs" />
         <item itemvalue="Python.1775_equal_sum_arrays_with_minimum_number_of_operations" />
         <item itemvalue="Python.viterbi" />
         <item itemvalue="Python.1814_count_nice_pairs_in_an_array" />
-        <item itemvalue="Python.2085_count_common_words_with_one_occurrence" />
       </list>
     </recent_temporary>
   </component>
@@ -223,16 +223,6 @@
           <url>file://$PROJECT_DIR$/HashTable/1797_Design_authentication_manager.py</url>
           <line>14</line>
           <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/HashTable/1743_restore_the_array_from_adjacent_pairs.py</url>
-          <line>27</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/HashTable/1743_restore_the_array_from_adjacent_pairs.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
