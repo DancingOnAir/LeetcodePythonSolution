@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/HashTable/1711_count_good_meals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/1711_count_good_meals.py" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/1711_count_good_meals.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,6 +223,11 @@
           <url>file://$PROJECT_DIR$/HashTable/1797_Design_authentication_manager.py</url>
           <line>14</line>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/HashTable/1711_count_good_meals.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
