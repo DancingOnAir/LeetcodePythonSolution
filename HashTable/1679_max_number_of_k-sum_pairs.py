@@ -1,9 +1,15 @@
 from typing import List
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
+        freq, res = Counter(nums), 0
+        for val in freq:
+            res += min(freq[val], freq[k - val])
+        return res // 2
+
+    def maxOperations1(self, nums: List[int], k: int) -> int:
         res = 0
         freq = defaultdict(int)
         for x in nums:
