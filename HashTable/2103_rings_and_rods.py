@@ -10,7 +10,7 @@ class Solution:
         freq = defaultdict(set)
         for i in range(0, n, 2):
             freq[rings[i+1]].add(rings[i])
-        return sum(1 for v in freq.values() if len(v) == 3)
+        return sum(len(v) == 3 for v in freq.values())
 
 
 def test_count_points():
