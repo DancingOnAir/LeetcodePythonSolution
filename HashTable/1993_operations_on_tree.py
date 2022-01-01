@@ -7,7 +7,6 @@ class LockingTree:
         # 记录lock[i]的状态，没有lock则为0，否则为对应的user
         self.lock_list = [0] * len(parent)
         self.children = [[] for _ in range(len(parent))]
-        # self.tree = {k: [v, 0] for k, v in enumerate(parent)}
 
     def lock(self, num: int, user: int) -> bool:
         if self.lock_list[num]:
