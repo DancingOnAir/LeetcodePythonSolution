@@ -1,8 +1,30 @@
 from typing import List
+from itertools import accumulate
 
 
 class Solution:
+    # for given list 1, 3, 5, 7, 9:
+    # For example, we choose i = 3 or the number l[i] = 7.
+    # To find abs difference for numbers smaller than equal to 7:
+    # 7 - 1 + 7 - 3 + 7 - 5 + 7 - 7 => 7 * 4 - (1 + 3 + 5 + 7) => 7 * (i + 1) - pre[i + 1]
+    # Similarly
+    # ((pre[len(l)] - pre[i]) - v * (len(l) - (i))) calculates abs difference between l[i] and numbers greater than l[i]
     def getDistances(self, arr: List[int]) -> List[int]:
+        res = [0] * len(arr)
+        freq = dict()
+
+        for i, val in enumerate(arr):
+            freq.setdefault(val, []).append(i)
+
+        for vs in freq.values():
+            pre_sum = [0]
+            pre_sum += list(accumulate(vs))
+            for i, v in enumerate(vs):
+                res[v] = (v * i - pre_sum[i + 1]) + (pre_sum[-1] - pre_sum[i] - v * (len(vs) - i - 1))
+        return res
+
+    # brute force, TLE
+    def getDistances1(self, arr: List[int]) -> List[int]:
         res = [0] * len(arr)
 
         freq = dict()
