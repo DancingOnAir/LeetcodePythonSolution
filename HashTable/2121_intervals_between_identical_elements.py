@@ -3,13 +3,33 @@ from itertools import accumulate
 
 
 class Solution:
+    def getDistances(self, arr: List[int]) -> List[int]:
+        res = [0] * len(arr)
+        pre, suf = [0] * len(arr), [0] * len(arr)
+
+        freq = dict()
+        for i, val in enumerate(arr):
+            freq.setdefault(val, []).append(i)
+
+        for vs in freq.values():
+            for i in range(1, len(vs)):
+                pre[vs[i]] = pre[vs[i - 1]] + i * (vs[i] - vs[i - 1])
+        for vs in freq.values():
+            for i in range(len(vs) - 2, -1, -1):
+                suf[vs[i]] = suf[vs[i + 1]] + (len(vs) - i - 1) * (vs[i + 1] - vs[i])
+
+        for i in range(len(arr)):
+            res[i] = pre[i] + suf[i]
+        return res
+
+
     # for given list 1, 3, 5, 7, 9:
     # For example, we choose i = 3 or the number l[i] = 7.
     # To find abs difference for numbers smaller than equal to 7:
     # 7 - 1 + 7 - 3 + 7 - 5 + 7 - 7 => 7 * 4 - (1 + 3 + 5 + 7) => 7 * (i + 1) - pre[i + 1]
     # Similarly
     # ((pre[len(l)] - pre[i]) - v * (len(l) - (i))) calculates abs difference between l[i] and numbers greater than l[i]
-    def getDistances(self, arr: List[int]) -> List[int]:
+    def getDistances2(self, arr: List[int]) -> List[int]:
         res = [0] * len(arr)
         freq = dict()
 
