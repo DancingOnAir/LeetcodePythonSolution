@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:
+        return [original[i: i+n] for i in range(0, len(original), n)] if m * n == len(original) else []
+
+    def construct2DArray1(self, original: List[int], m: int, n: int) -> List[List[int]]:
         if m * n != len(original):
             return list()
 
@@ -10,8 +13,6 @@ class Solution:
         for i in range(0, len(original), n):
             res.append(original[i: i + n])
         return res
-
-
 
 
 def test_construct_2d_array():
