@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../.idea/GitWorkspace.iml" filepath="$PROJECT_DIR$/../.idea/GitWorkspace.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Leetcode_Python_Solution.iml" filepath="$PROJECT_DIR$/.idea/Leetcode_Python_Solution.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../PyWorkspace/.idea/PyWorkspace.iml" filepath="$PROJECT_DIR$/../../PyWorkspace/.idea/PyWorkspace.iml" />
       <module fileurl="file://$PROJECT_DIR$/../TDL/.idea/TDL.iml" filepath="$PROJECT_DIR$/../TDL/.idea/TDL.iml" />
       <module fileurl="file://$PROJECT_DIR$/../dialogflowmigration/.idea/dialogflowmigration.iml" filepath="$PROJECT_DIR$/../dialogflowmigration/.idea/dialogflowmigration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../houndifysdkvariants/.idea/houndifysdkvariants.iml" filepath="$PROJECT_DIR$/../houndifysdkvariants/.idea/houndifysdkvariants.iml" />
     </modules>
   </component>
 </project>
