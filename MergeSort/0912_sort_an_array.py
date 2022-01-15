@@ -20,19 +20,29 @@ class Solution:
                 nums[k] = aux[i - lo]
                 i += 1
 
-    def sort(self, nums, lo, hi):
+    def sort_top_down(self, nums, lo, hi):
         if lo >= hi:
             return
 
         mid = lo + (hi - lo) // 2
-        self.sort(nums, lo, mid)
-        self.sort(nums, mid + 1, hi)
+        self.sort_top_down(nums, lo, mid)
+        self.sort_top_down(nums, mid + 1, hi)
 
         if nums[mid] > nums[mid + 1]:
             self.merge(nums, lo, mid, hi)
 
+    def sort_bottom_up(self, nums):
+        sz = 1
+        while sz <= len(nums):
+            i = 0
+            while i < len(nums):
+                self.merge(nums, i, i + sz - 1, min(i + sz + sz - 1, len(nums) - 1))
+                i += sz + sz
+            sz += sz
+
     def sortArray(self, nums: List[int]) -> List[int]:
-        self.sort(nums, 0, len(nums) - 1)
+        # self.sort_top_down(nums, 0, len(nums) - 1)
+        self.sort_bottom_up(nums)
         return nums
 
 
