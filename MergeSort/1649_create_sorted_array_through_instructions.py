@@ -1,4 +1,5 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
@@ -58,25 +59,56 @@ class Solution:
     #     #         nums[k] = aux[j - lo]
     #     #         j += 1
     #
-    # def sort(self, nums, lo, hi):
-    #     if lo >= hi:
-    #         return
-    #
-    #     mid = lo + (hi - lo) // 2
-    #     self.sort(nums, lo, mid)
-    #     self.sort(nums, mid + 1, hi)
-    #     # if nums[mid] > nums[mid + 1]:
-    #     self.merge(nums, lo, mid, hi)
+    def merge(self, nums, lo, mid, hi, id, left_less):
+        i, j, k = lo, mid + 1, 0
+        aux = [0] * (hi - lo + 1)
+
+        while i <= mid and j <= hi:
+            if nums[id[i]] < nums[id[j]]:
+                left_less[id[j]] += mid - i + 1
+                aux[k] = id[j]
+                k += 1
+                j += 1
+            else:
+                aux[k] = id[i]
+                k += 1
+                i += 1
+
+        while j <= hi:
+            aux[k] = id[j]
+            k += 1
+            j += 1
+
+        while i <= mid:
+            aux[k] = id[i]
+            k += 1
+            i += 1
+
+        for i in range(lo, hi+1):
+            id[i] = aux[i - lo]
+
+    def sort(self, nums, lo, hi, id, left_less):
+        if lo >= hi:
+            return
+
+        mid = lo + (hi - lo) // 2
+        self.sort(nums, lo, mid, id, left_less)
+        self.sort(nums, mid + 1, hi, id, left_less)
+        # if nums[mid] > nums[mid + 1]:
+        self.merge(nums, lo, mid, hi, id, left_less)
 
     def createSortedArray(self, instructions: List[int]) -> int:
-        repeat = dict()
-        id = list(range(len(instructions)))
-        self.sort(data, 0, len(instructions) - 1)
+        n = len(instructions)
+        repeat = defaultdict(int)
+        id = list(range(n))
+        left_less = [0] * n
+        self.sort(instructions, 0, len(instructions) - 1, id, left_less)
 
         mod = 10 ** 9 + 7
         res = 0
-        for i in range(len(instructions)):
-
+        for i in range(n):
+            res += min(left_less[i], i - left_less[i] - repeat[instructions[i]])
+            repeat[instructions[i]] += 1
             res %= mod
 
         return res
