@@ -1,5 +1,4 @@
 from typing import List
-from sort
 
 
 class Solution:
@@ -70,15 +69,15 @@ class Solution:
     #     self.merge(nums, lo, mid, hi)
 
     def createSortedArray(self, instructions: List[int]) -> int:
-        # [x, y, z] = val, num of less than current val, num of greater than current val
-        data = [[x, 0, 0] for x in instructions]
+        repeat = dict()
+        id = list(range(len(instructions)))
         self.sort(data, 0, len(instructions) - 1)
 
+        mod = 10 ** 9 + 7
         res = 0
-        MOD = 10 ** 9 + 7
-        for x in data:
-            res += min(x[0], x[1])
-            res %= MOD
+        for i in range(len(instructions)):
+
+            res %= mod
 
         return res
 
