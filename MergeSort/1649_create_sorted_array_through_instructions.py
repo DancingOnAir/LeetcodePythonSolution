@@ -1,64 +1,10 @@
 from typing import List
 from collections import defaultdict
+from bisect import bisect_left, bisect_right
+from sortedcontainers import SortedList
 
 
 class Solution:
-    # def merge(self, nums, lo, mid, hi):
-    #     i, j = lo, mid + 1
-    #     aux = list()
-    #
-    #     while i <= mid and j <= hi:
-    #         if nums[i][0] < nums[j][0]:
-    #             aux.append(nums[i])
-    #             i += 1
-    #         else:
-    #             less_than = i - lo
-    #             while i <= mid and nums[i][0] == nums[j][0]:
-    #                 aux.append(nums[i])
-    #                 i += 1
-    #
-    #             greater_than = mid - i + 1
-    #             val = nums[j][0]
-    #             while j <= hi and nums[j][0] == val:
-    #                 nums[j][1] += less_than
-    #                 nums[j][2] += greater_than
-    #                 aux.append(nums[j])
-    #                 j += 1
-    #
-    #     while i <= mid:
-    #         aux.append(nums[i])
-    #         i += 1
-    #     while j <= hi:
-    #         nums[j][1] += mid - lo + 1
-    #         aux.append(nums[j])
-    #         j += 1
-    #
-    #     m = 0
-    #     for k in range(lo, hi+1):
-    #         nums[k] = aux[m]
-    #         m += 1
-    #     # aux = nums[lo: hi+1]
-    #
-    #     # for k in range(lo, hi+1):
-    #     #     if i > mid:
-    #     #         aux[j - lo][1] += mid - lo + 1
-    #     #         nums[k] = aux[j - lo]
-    #     #         j += 1
-    #     #     elif j > hi:
-    #     #         nums[k] = aux[i - lo]
-    #     #         i += 1
-    #     #     elif aux[i - lo][0] <= aux[j - lo][0]:
-    #     #         nums[k] = aux[i - lo]
-    #     #         i += 1
-    #     #     else:
-    #     #         less_than = i - lo
-    #     #         greater_than = mid - i + 1
-    #     #
-    #     #         aux[j - lo][1] += less_than
-    #     #         aux[j - lo][2] += greater_than
-    #     #         nums[k] = aux[j - lo]
-    #     #         j += 1
-    #
     def merge(self, nums, lo, mid, hi, id, left_less):
         i, j, k = lo, mid + 1, 0
         aux = [0] * (hi - lo + 1)
@@ -94,10 +40,10 @@ class Solution:
         mid = lo + (hi - lo) // 2
         self.sort(nums, lo, mid, id, left_less)
         self.sort(nums, mid + 1, hi, id, left_less)
-        # if nums[mid] > nums[mid + 1]:
         self.merge(nums, lo, mid, hi, id, left_less)
 
-    def createSortedArray(self, instructions: List[int]) -> int:
+    # merge sort solution, but TLE
+    def createSortedArray1(self, instructions: List[int]) -> int:
         n = len(instructions)
         repeat = defaultdict(int)
         id = list(range(n))
@@ -110,6 +56,18 @@ class Solution:
             res += min(left_less[i], i - left_less[i] - repeat[instructions[i]])
             repeat[instructions[i]] += 1
             res %= mod
+
+        return res
+
+    # SortedList, if list.insert(i, val), it will be TLE.
+    def createSortedArray(self, instructions: List[int]) -> int:
+        res = 0
+        nums = SortedList()
+
+        for ins in instructions:
+            res += min(nums.bisect_left(ins), len(nums) - nums.bisect_right(ins))
+            res %= (10 ** 9 + 7)
+            nums.add(ins)
 
         return res
 
