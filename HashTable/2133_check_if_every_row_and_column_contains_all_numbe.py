@@ -4,6 +4,9 @@ from collections import Counter
 
 class Solution:
     def checkValid(self, matrix: List[List[int]]) -> bool:
+        return all(len(set(m)) == len(matrix) for m in matrix + list(zip(*matrix)))
+
+    def checkValid(self, matrix: List[List[int]]) -> bool:
         c = Counter(range(1, len(matrix) + 1))
 
         for row in matrix:
