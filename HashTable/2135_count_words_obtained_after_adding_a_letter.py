@@ -22,7 +22,6 @@ class Solution:
         return res
 
 
-
 def test_word_count():
     solution = Solution()
 
