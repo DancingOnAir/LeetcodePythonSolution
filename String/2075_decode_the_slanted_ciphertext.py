@@ -1,15 +1,27 @@
 class Solution:
     def decodeCiphertext(self, encodedText: str, rows: int) -> str:
+        cols = len(encodedText) // rows
+        res = list()
+        for i in range(cols):
+            while i < len(encodedText):
+                res.append(encodedText[i])
+                i += cols + 1
+
+        return ''.join(res).rstrip()
+
+    def decodeCiphertext1(self, encodedText: str, rows: int) -> str:
         n = len(encodedText)
         cols = n // rows
 
-        res = ''
+        res = list()
         for i in range(0, cols - rows + 3):
             for j in range(0, rows):
                 if j * cols + i + j < n:
-                    res += encodedText[j * cols + i + j]
+                    res.append(encodedText[j * cols + i + j])
 
-        return res.rstrip()
+        return ''.join(res).rstrip()
+
+
 
 
 def test_decode_ciphertext():
