@@ -7,20 +7,47 @@ class TreeNode:
 
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        if root is None:
-            return None
-
-        if root == p or root == q:
+    def lowestCommonAncestor1(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if root in (None, p, q):
             return root
 
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
 
-        if left and right:
-            return root
+        return root if left and right else left or right
 
-        return left if left else right
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        def dfs(r, u, depth):
+            if r is None:
+                return
+
+            parents[r] = u
+            depths[r] = depth
+
+            dfs(r.left, r, depth+1)
+            dfs(r.right, r, depth+1)
+
+        def jump_parent(r, steps):
+            while steps > 0:
+                r = parents[r]
+                steps -= 1
+
+            return r
+
+        parents = dict()
+        depths = dict()
+
+        dfs(root, None, 0)
+        if depths[p] < depths[q]:
+            q = jump_parent(q, depths[q] - depths[p])
+        else:
+            p = jump_parent(p, depths[p] - depths[q])
+
+        while p != q:
+            p = parents[p]
+            q = parents[q]
+
+        return p
 
 
 def test_lowest_common_ancestor():

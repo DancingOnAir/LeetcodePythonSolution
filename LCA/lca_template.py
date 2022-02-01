@@ -34,8 +34,11 @@ def find_least_common_recursive_ancestor(root: Optional[TreeNode], p: Optional[T
 
 
 def find_least_common_dfs_ancestor(root: Optional[TreeNode], p: Optional[TreeNode], q: Optional[TreeNode]) -> Optional[TreeNode]:
-    def dfs(r, c, depth):
-        parents[r] = c
+    def dfs(r, u, depth):
+        if r is None:
+            return
+
+        parents[r] = u
         depths[r] = depth
 
         dfs(r.left, r, depth+1)
