@@ -8,6 +8,15 @@ class TreeNode:
         self.right = right
 
 
+# pythonic version
+def find_least_common_ancestor_pythonic(root: Optional[TreeNode], p: Optional[TreeNode], q: Optional[TreeNode]) -> Optional[TreeNode]:
+    if root in (None, p, q):
+        return root
+
+    left, right = (find_least_common_ancestor_pythonic(child, p, q) for child in (root.left, root.right))
+    return root if left and right else left or right
+
+
 def find_least_common_ancestor(root: Optional[TreeNode], p: Optional[TreeNode], q: Optional[TreeNode]) -> Optional[TreeNode]:
     if root is None:
         return None
