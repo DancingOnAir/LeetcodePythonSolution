@@ -11,7 +11,55 @@ class TreeNode:
 
 class Solution:
     def getDirections(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
-        pass
+        def dfs(c, r, depth, direct):
+            if c is None:
+                return
+
+            parents[c] = r
+            depths[c] = depth
+            directions[c] = direct
+
+            nonlocal start_node
+            nonlocal dest_node
+            if c.val == startValue:
+                start_node = c
+            elif c.val == destValue:
+                dest_node = c
+
+            dfs(c.left, c, depth+1, 'L')
+            dfs(c.right, c, depth+1, 'R')
+
+        def jump_parent(r, steps, path):
+            while steps > 0:
+                path.append(directions[r])
+                r = parents[r]
+                steps -= 1
+            return r
+
+        parents = dict()
+        depths = dict()
+        directions = dict()
+        start_node = TreeNode()
+        dest_node = TreeNode()
+
+        dfs(root, None, 0, '')
+
+        start_path = list()
+        dest_path = list()
+        if depths[start_node] < depths[dest_node]:
+            dest_node = jump_parent(dest_node, depths[dest_node] - depths[start_node], dest_path)
+        else:
+            start_node = jump_parent(start_node, depths[start_node] - depths[dest_node], start_path)
+
+        while start_node != dest_node:
+            start_path.append('U')
+            start_node = parents[start_node]
+
+            dest_path.append(directions[dest_node])
+            dest_node = parents[dest_node]
+
+        dest_path.reverse()
+        return 'U' * len(start_path) + ''.join(dest_path)
 
 
 def test_get_directions():
@@ -27,5 +75,8 @@ def test_get_directions():
 
     node_list = [TreeNode(x) for x in range(3)]
     node_list[2].left = node_list[1]
+    assert solution.getDirections(node_list[2], 2, 1) == "L", 'wrong result'
 
-    assert solution.getDirections(node_list[5], 2, 1) == "L", 'wrong result'
+
+if __name__ == '__main__':
+    test_get_directions()
