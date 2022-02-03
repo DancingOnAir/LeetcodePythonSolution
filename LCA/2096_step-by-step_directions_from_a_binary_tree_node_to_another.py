@@ -11,6 +11,26 @@ class TreeNode:
 
 class Solution:
     def getDirections(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
+        def dfs(r, val, path):
+            if r.val == val:
+                return True
+            if r.left and dfs(r.left, val, path):
+                path += 'L'
+            elif r.right and dfs(r.right, val, path):
+                path += 'R'
+            return path
+
+        start_path = list()
+        dest_path = list()
+        dfs(root, startValue, start_path)
+        dfs(root, destValue, dest_path)
+
+        while len(start_path) and len(dest_path) and start_path[-1] == dest_path[-1]:
+            start_path.pop()
+            dest_path.pop()
+        return 'U' * len(start_path) + ''.join(reversed(dest_path))
+
+    def getDirections1(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
         def dfs(c, r, depth, direct):
             if c is None:
                 return
