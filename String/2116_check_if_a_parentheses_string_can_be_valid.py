@@ -1,42 +1,34 @@
 class Solution:
     def canBeValid(self, s: str, locked: str) -> bool:
         n = len(s)
-        if n & 0b1:
+        if n & 1:
             return False
-        total_zeros = locked.count('0')
-        left = [0] * n
-        right = [0] * n
-        zeros = 0
-        stk = list()
+
+        tot = op = cl = 0
         for i in range(n):
             if locked[i] == '0':
-                zeros += 1
-            else:
-                if s[i] == '(':
-                    stk.append((i, s[i]))
-                else:
-                    if stk and stk[-1][1] == '(':
-                        stk.pop()
-            left[i] = zeros
-            right[i] = total_zeros - zeros
+                tot += 1
+            elif s[i] == '(':
+                op += 1
+            elif s[i] == ')':
+                cl += 1
 
-        left_zero_cost = 0
-        for i, val in stk:
-            if val == ')':
-                if left[i] > left_zero_cost:
-                    left_zero_cost += 1
-                else:
-                    return False
+            if tot + op - cl < 0:
+                return False
 
-        right_zero_cost = 0
-        for i, val in stk[::-1]:
-            if val == '(':
-                if right[i] > right_zero_cost:
-                    right_zero_cost += 1
-                else:
-                    return False
+        tot = op = cl = 0
+        for i in range(n-1, -1, -1):
+            if locked[i] == '0':
+                tot += 1
+            elif s[i] == '(':
+                op += 1
+            elif s[i] == ')':
+                cl += 1
+
+            if tot + cl - op < 0:
+                return False
+
         return True
-
 
 def test_can_be_valid():
     solution = Solution()
