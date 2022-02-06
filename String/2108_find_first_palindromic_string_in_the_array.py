@@ -2,7 +2,11 @@ from typing import List
 
 
 class Solution:
+    # one line, next(iterator[, default])
     def firstPalindrome(self, words: List[str]) -> str:
+        return next((w for w in words if w == w[::-1]), '')
+
+    def firstPalindrome1(self, words: List[str]) -> str:
         for w in words:
             if w == w[::-1]:
                 return w
