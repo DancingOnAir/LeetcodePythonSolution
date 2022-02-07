@@ -16,7 +16,7 @@ class Solution:
         return ''.join(res)
 
     # backward
-    def addSpaces(self, s: str, spaces: List[int]) -> str:
+    def addSpaces2(self, s: str, spaces: List[int]) -> str:
         res = list()
         for i in reversed(range(len(s))):
             res.append(s[i])
@@ -26,6 +26,10 @@ class Solution:
 
         return ''.join(reversed(res))
 
+    def addSpaces(self, s: str, spaces: List[int]) -> str:
+        spaces = [0] + spaces + [len(s)]
+        res = list(s[spaces[i]: spaces[i + 1]] for i in range(len(spaces) - 1))
+        return ' '.join(res)
 
 def AddSpaces():
     solution = Solution()
