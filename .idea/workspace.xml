@@ -220,8 +220,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/String/2109_adding_spaces_to_a_string.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="49" />
+          <line>19</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

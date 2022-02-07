@@ -2,8 +2,8 @@ from typing import List
 
 
 class Solution:
-
-    def addSpaces(self, s: str, spaces: List[int]) -> str:
+    # forward
+    def addSpaces1(self, s: str, spaces: List[int]) -> str:
         res = list()
         j = 0
         for i, ch in enumerate(s):
@@ -14,6 +14,17 @@ class Solution:
             res.append(ch)
 
         return ''.join(res)
+
+    # backward
+    def addSpaces(self, s: str, spaces: List[int]) -> str:
+        res = list()
+        for i in reversed(range(len(s))):
+            res.append(s[i])
+            if spaces and i == spaces[-1]:
+                res.append(' ')
+                spaces.pop()
+
+        return ''.join(reversed(res))
 
 
 def AddSpaces():
