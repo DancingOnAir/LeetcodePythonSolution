@@ -31,7 +31,8 @@ class Solution:
         res = list(s[spaces[i]: spaces[i + 1]] for i in range(len(spaces) - 1))
         return ' '.join(res)
 
-def AddSpaces():
+
+def test_add_spaces():
     solution = Solution()
     assert solution.addSpaces("LeetcodeHelpsMeLearn", [8, 13, 15]) == "Leetcode Helps Me Learn", 'wrong result'
     assert solution.addSpaces("icodeinpython", [1, 5, 7, 9]) == "i code in py thon", 'wrong result'
@@ -39,4 +40,4 @@ def AddSpaces():
 
 
 if __name__ == '__main__':
-    AddSpaces()
+    test_add_spaces()

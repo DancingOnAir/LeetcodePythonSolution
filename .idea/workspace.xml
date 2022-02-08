@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/String/2129_capitalize_the_title.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/String/2109_adding_spaces_to_a_string.py" beforeDir="false" afterPath="$PROJECT_DIR$/String/2109_adding_spaces_to_a_string.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +46,7 @@
       <recent name="$PROJECT_DIR$/UnionFind" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.2109_adding_spaces_to_a_string">
+  <component name="RunManager" selected="Python tests.Python tests for 2129_capitalize_the_title.test_capitalize_title">
     <configuration name="2109_adding_spaces_to_a_string" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -66,20 +68,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for 2108_find_first_palindromic_string_in_the_array.test_first_palindrome" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;2108_find_first_palindromic_string_in_the_array.test_first_palindrome&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Python tests for 2109_adding_spaces_to_a_string.test_add_spaces" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -94,7 +82,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in 2108_find_first_palindromic_string_in_the_array.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for 2129_capitalize_the_title.test_capitalize_title" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -104,8 +92,8 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/String/2108_find_first_palindromic_string_in_the_array.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;2129_capitalize_the_title.test_capitalize_title&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests in 2109_adding_spaces_to_a_string.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -122,13 +110,27 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests in 2129_capitalize_the_title.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/String/2129_capitalize_the_title.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for 2129_capitalize_the_title.test_capitalize_title" />
+        <item itemvalue="Python tests.Python tests in 2129_capitalize_the_title.py" />
+        <item itemvalue="Python tests.Python tests for 2109_adding_spaces_to_a_string.test_add_spaces" />
         <item itemvalue="Python.2109_adding_spaces_to_a_string" />
         <item itemvalue="Python tests.Python tests in 2109_adding_spaces_to_a_string.py" />
-        <item itemvalue="Python tests.Python tests for 2108_find_first_palindromic_string_in_the_array.test_first_palindrome" />
-        <item itemvalue="Python tests.Python tests in 2108_find_first_palindromic_string_in_the_array.py" />
-        <item itemvalue="Python tests.Python tests for 2109_adding_spaces_to_a_string.test_add_spaces" />
       </list>
     </recent_temporary>
   </component>
@@ -216,11 +218,6 @@
           <url>file://$PROJECT_DIR$/../houndifysdkvariants/sample_long_wave_cc.py</url>
           <line>94</line>
           <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/String/2109_adding_spaces_to_a_string.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
