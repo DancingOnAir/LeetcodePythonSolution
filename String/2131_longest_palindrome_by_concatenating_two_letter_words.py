@@ -3,13 +3,33 @@ from collections import Counter
 
 
 class Solution:
-    def longestPalindrome1(self, words: List[str]) -> int:
-        freq = Counter()
-        pairs = 0
-        pass
-
-    # set
+    # straight forward with HashMap
     def longestPalindrome(self, words: List[str]) -> int:
+        freq = Counter()
+        center = res = 0
+
+        for w in words:
+            if w[0] == w[1]:
+                if freq[w] > 0:
+                    center -= 1
+                    freq[w] -= 1
+                    res += 4
+                else:
+                    center += 1
+                    freq[w] += 1
+            else:
+                if freq[w[::-1]] > 0:
+                    res += 4
+                    freq[w[::-1]] -= 1
+                else:
+                    freq[w] += 1
+
+        if center > 0:
+            res += 2
+        return res
+
+    # Counter, remove set
+    def longestPalindrome1(self, words: List[str]) -> int:
         center = aa = abba = 0
         freq = Counter(words)
 
