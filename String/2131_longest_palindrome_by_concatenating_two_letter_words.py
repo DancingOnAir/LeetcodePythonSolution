@@ -3,24 +3,25 @@ from collections import Counter
 
 
 class Solution:
+    def longestPalindrome1(self, words: List[str]) -> int:
+        freq = Counter()
+        pairs = 0
+        pass
+
+    # set
     def longestPalindrome(self, words: List[str]) -> int:
-        res = 0
-        memo = set()
+        center = aa = abba = 0
         freq = Counter(words)
-        flag = 0
-        for w in freq:
+
+        for w, c in freq.items():
             if w[0] == w[1]:
-                if freq[w] & 1:
-                    flag = 1
-                res += freq[w] // 2 * 4
-                continue
-
-            if w in memo:
-                res += min(freq[w], freq[w[::-1]]) * 4
+                aa += c // 2 * 2
+                if c % 2 == 1:
+                    center = 2
             else:
-                memo.add(w[::-1])
+                abba += min(freq[w], freq[w[::-1]])
 
-        return res + flag * 2
+        return center + aa * 2 + abba * 2
 
 
 def test_longest_palindrome():
