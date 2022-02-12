@@ -2,7 +2,33 @@ from typing import List
 
 
 class Solution:
+    # brute force
     def executeInstructions(self, n: int, startPos: List[int], s: str) -> List[int]:
+        m = len(s)
+        res = list()
+
+        for i in range(m):
+            x, y = startPos
+            cnt = m - i
+            for j in range(i, m):
+                if s[j] == 'L':
+                    y -= 1
+                elif s[j] == 'R':
+                    y += 1
+                elif s[j] == 'U':
+                    x -= 1
+                else:
+                    x += 1
+
+                if x < 0 or x >= n or y < 0 or y >= n:
+                    cnt = j - i
+                    break
+
+            res.append(cnt)
+        return res
+
+    # initial version
+    def executeInstructions1(self, n: int, startPos: List[int], s: str) -> List[int]:
         def get_num_instruction(s):
             # x, y
             moves = [0, 0]
