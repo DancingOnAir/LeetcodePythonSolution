@@ -1,9 +1,40 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
+    # O(m) solution
+    # https://leetcode.com/problems/execution-of-all-suffix-instructions-staying-in-a-grid/discuss/1647654/Python-Back-tracking-O(m)-Solution
+    def executeInstructions(self, n, start, s):
+        ns = len(s)
+        (x0, y0), (x, y) = start, (0, 0)
+        res = list(range(ns, 0, -1))
+        count = defaultdict(set)
+        count[x0, None].add(0)
+        count[None, y0].add(0)
+
+        for i in range(ns):
+            if s[i] == 'L':
+                y -= 1
+            elif s[i] == 'R':
+                y += 1
+            elif s[i] == 'U':
+                x -= 1
+            elif s[i] == 'D':
+                x += 1
+
+            count[x0 - x, None].add(i + 1)
+            count[None, y0 - y].add(i + 1)
+
+            for key in [(n - x, None), (None, n - y), (-x - 1, None), (None, -y - 1)]:
+                for j in count[key]:
+                    if res[j] > i - j:
+                        res[j] = i - j
+                count[key] = set()
+        return res
+
     # brute force
-    def executeInstructions(self, n: int, startPos: List[int], s: str) -> List[int]:
+    def executeInstructions2(self, n: int, startPos: List[int], s: str) -> List[int]:
         m = len(s)
 
         def mock(i):
@@ -39,10 +70,12 @@ class Solution:
                 else:
                     moves[1] -= 1
 
-                if (moves[0] > 0 and moves[0] > limits[0]) or (moves[0] < 0 and abs(moves[0]) > limits[2]) or (moves[1] > 0 and moves[1] > limits[3]) or (moves[1] < 0 and abs(moves[1]) > limits[1]):
+                if (moves[0] > 0 and moves[0] > limits[0]) or (moves[0] < 0 and abs(moves[0]) > limits[2]) or (
+                        moves[1] > 0 and moves[1] > limits[3]) or (moves[1] < 0 and abs(moves[1]) > limits[1]):
                     return i
 
             return len(s)
+
         # RDLU
         limits = [n - 1 - startPos[1], n - 1 - startPos[0], startPos[1], startPos[0]]
         res = list()
