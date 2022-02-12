@@ -5,11 +5,9 @@ class Solution:
     # brute force
     def executeInstructions(self, n: int, startPos: List[int], s: str) -> List[int]:
         m = len(s)
-        res = list()
 
-        for i in range(m):
+        def mock(i):
             x, y = startPos
-            cnt = m - i
             for j in range(i, m):
                 if s[j] == 'L':
                     y -= 1
@@ -20,12 +18,11 @@ class Solution:
                 else:
                     x += 1
 
-                if x < 0 or x >= n or y < 0 or y >= n:
-                    cnt = j - i
-                    break
+                if not (0 <= x < n and 0 <= y < n):
+                    return j - i
+            return m - i
 
-            res.append(cnt)
-        return res
+        return list(map(mock, range(m)))
 
     # initial version
     def executeInstructions1(self, n: int, startPos: List[int], s: str) -> List[int]:
