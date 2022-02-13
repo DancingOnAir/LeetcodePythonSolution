@@ -1,5 +1,11 @@
 class Solution:
     def checkString(self, s: str) -> bool:
+        for i, ch in enumerate(s):
+            if i > 0 and s[i - 1] == 'b' and ch == 'a':
+                return False
+        return True
+
+    def checkString1(self, s: str) -> bool:
         return 'ba' not in s
 
 
