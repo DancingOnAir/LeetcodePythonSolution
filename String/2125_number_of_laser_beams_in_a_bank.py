@@ -3,16 +3,12 @@ from typing import List
 
 class Solution:
     def numberOfBeams(self, bank: List[str]) -> int:
-        res = 0
-        pre = -1
-        for i, s in enumerate(bank):
+        res = pre = 0
+        for s in bank:
             ones = s.count('1')
-            if pre == -1:
+            if ones > 0:
+                res += ones * pre
                 pre = ones
-            else:
-                if ones > 0:
-                    res += ones * pre
-                    pre = ones
         return res
 
 
