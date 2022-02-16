@@ -75,6 +75,7 @@ class Solution:
 
         print(board)
 
+
 def test_solve():
     solution = Solution()
 
