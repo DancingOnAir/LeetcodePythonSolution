@@ -30,8 +30,45 @@ class Solution:
                 self.sz[rp] += self.sz[rq]
 
             self.group -= 1
-
+    # bit mask + union find
     def groupStrings(self, words: List[str]) -> List[int]:
+        n = len(words)
+        uf = self.UF(n)
+        memo = dict()
+        del_memo = dict()
+
+        for i in range(n):
+            h = 0
+            for ch in words[i]:
+                h |= 1 << (ord(ch) - ord('a'))
+
+            for j in range(26):
+                # if h's j-th bit is 1
+                if (h >> j) & 1:
+                    # new h is the bitmask after deleting the j-th bit
+                    del_h = h ^ (1 << j)
+                    if del_h in memo:
+                        uf.union(i, memo[del_h])
+                    # rep h is the bitmask after replacing the j-th bit
+                    if del_h in del_memo:
+                        uf.union(i, del_memo[del_h])
+                    else:
+                        del_memo[del_h] = i
+                    # for k in range(26):
+                    #     rep_h = del_h | (1 << k)
+                    #     if rep_h != del_h and rep_h in memo:
+                    #         uf.union(i, memo[rep_h])
+                else:
+                    # add h is the bitmask after adding the j-th bit
+                    add_h = h | (1 << j)
+                    if add_h in memo:
+                        uf.union(i, memo[add_h])
+
+            memo[h] = i
+        return [uf.group, max(uf.sz)]
+
+    # set operation but TLE
+    def groupStrings1(self, words: List[str]) -> List[int]:
         @lru_cache(None)
         def conntected(w1, w2):
             s1 = set(w1)
