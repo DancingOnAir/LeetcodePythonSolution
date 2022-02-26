@@ -27,3 +27,4 @@ def test_sub_str_hash():
 
 if __name__ == '__main__':
     test_sub_str_hash()
+
