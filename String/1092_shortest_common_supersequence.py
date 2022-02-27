@@ -1,5 +1,32 @@
 class Solution:
     def shortestCommonSupersequence(self, str1: str, str2: str) -> str:
+        # get one longest common subsequence string
+        def lcs(A, B):
+            l1, l2 = len(A), len(B)
+            dp = [['' for _ in range(l2 + 1)] for _ in range(l1 + 1)]
+            for i in range(l1):
+                for j in range(l2):
+                    if A[i] == B[j]:
+                        dp[i + 1][j + 1] = dp[i][j] + A[i]
+                    else:
+                        dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j], key=len)
+            return dp[-1][-1]
+
+        res = ''
+        i = j = 0
+        for c in lcs(str1, str2):
+            while str1[i] != c:
+                res += str1[i]
+                i += 1
+            while str2[j] != c:
+                res += str2[j]
+                j += 1
+            res += c
+            i += 1
+            j += 1
+        return res + str1[i:] + str2[j:]
+
+    def shortestCommonSupersequence1(self, str1: str, str2: str) -> str:
         l1, l2 = len(str1), len(str2)
 
         dp1 = [[0] * (l2+1) for _ in range(l1+1)]
