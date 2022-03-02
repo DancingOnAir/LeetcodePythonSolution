@@ -1,5 +1,16 @@
 class Solution:
     def longestDecomposition(self, text: str) -> int:
+        res, left, right = 0, '', ''
+        for i, j in zip(text, text[::-1]):
+            left += i
+            right = j + right
+
+            if left == right:
+                res += 1
+                left, right = '', ''
+        return res
+
+    def longestDecomposition1(self, text: str) -> int:
         left, right = 0, len(text)
         i = 1
         res = 0
