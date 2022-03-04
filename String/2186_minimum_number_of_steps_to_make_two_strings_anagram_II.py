@@ -1,8 +1,17 @@
-from collections import Counter
+from collections import Counter, defaultdict
 
 
 class Solution:
     def minSteps(self, s: str, t: str) -> int:
+        m = defaultdict(int)
+        for ch in s:
+            m[ch] += 1
+        for ch in t:
+            m[ch] -= 1
+        return sum(abs(x) for x in m.values())
+
+    # collections.counter
+    def minSteps1(self, s: str, t: str) -> int:
         return sum((Counter(s) - Counter(t)).values()) + sum((Counter(t) - Counter(s)).values())
 
 
