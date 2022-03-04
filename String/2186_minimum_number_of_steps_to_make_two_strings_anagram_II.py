@@ -1,8 +1,15 @@
 from collections import Counter, defaultdict
+from string import ascii_lowercase
 
 
 class Solution:
     def minSteps(self, s: str, t: str) -> int:
+        res = 0
+        for ch in ascii_lowercase:
+            res += abs(s.count(ch) - t.count(ch))
+        return res
+
+    def minSteps2(self, s: str, t: str) -> int:
         m = defaultdict(int)
         for ch in s:
             m[ch] += 1
