@@ -1,6 +1,11 @@
 class Solution:
     def countVowels(self, word: str) -> int:
-        pass
+        res = 0
+        for i, ch in enumerate(word):
+            if ch in 'aeiou':
+                res += (i + 1) * (len(word) - i)
+
+        return res
 
 
 def test_count_vowels():
