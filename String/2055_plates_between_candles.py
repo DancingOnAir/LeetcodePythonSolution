@@ -34,7 +34,7 @@ class Solution:
         res = list()
         for q in queries:
             p1 = bisect_left(candle, q[0])
-            p2 = bisect(candle, q[1])
+            p2 = bisect_right(candle, q[1])
             if p1 == p2:
                 res.append(0)
                 continue
