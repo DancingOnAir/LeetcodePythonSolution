@@ -1,5 +1,9 @@
 class Solution:
     def areNumbersAscending(self, s: str) -> bool:
+        nums = [int(w) for w in s.split() if w.isdigit()]
+        return all(a < b for a, b in zip(nums, nums[1:]))
+
+    def areNumbersAscending1(self, s: str) -> bool:
         prev = -1
         for w in s.split():
             if w[0].isdigit():
