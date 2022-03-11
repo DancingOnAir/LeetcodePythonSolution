@@ -8,6 +8,17 @@ class Solution:
         def valid(x, y):
             return 0 <= x < 8 and 0 <= y < 8
 
+        def fill(i, x, y, dirs):
+            for dir in dirs:
+                nx, ny = x + dir[0], y + dir[1]
+                t = 1
+
+                while valid(nx, ny):
+                    self.moves[i].append([dir[0], dir[1], t])
+                    nx += dir[0]
+                    ny += dir[1]
+                    t += 1
+
         def check(pos1, new_pos1, pos2, new_pos2):
             t1 = new_pos1[-1]
             t2 = new_pos2[-1]
@@ -24,24 +35,12 @@ class Solution:
                     return False
             return True
 
-        def fill(i, x, y, dirs):
-            for k in range(4):
-                dir = dirs[k]
-                nx, ny = x + dir[0], y + dir[1]
-                t = 1
-
-                while valid(nx, ny):
-                    self.moves[i].append([dir[0], dir[1], 1])
-                    nx += dir[0]
-                    ny += dir[1]
-                    t += 1
-
         def dfs(cur, new_pos, pos):
             if cur >= len(self.moves):
                 self.res += 1
                 return
 
-            for m in self.moves:
+            for m in self.moves[cur]:
                 ok = True
                 for i in range(len(new_pos)):
                     if not check(pos[i], new_pos[i], pos[cur], m):
@@ -56,7 +55,7 @@ class Solution:
                 new_pos.pop()
 
         direction_line = ((0, 1), (1, 0), (0, -1), (-1, 0))
-        direction_diagonal = ((1, 1), (-1, 1), (-1, -1), (-1, 1))
+        direction_diagonal = ((1, 1), (-1, 1), (-1, -1), (1, -1))
         n = len(pieces)
         self.moves = [[] for _ in range(n)]
 
@@ -76,7 +75,7 @@ class Solution:
                 fill(i, x, y, direction_line)
                 fill(i, x, y, direction_diagonal)
 
-        new_pos = list(list())
+        new_pos = list()
         self.res = 0
         dfs(0, new_pos, positions)
         return self.res
