@@ -3,6 +3,16 @@ from itertools import groupby
 
 class Solution:
     def winnerOfGame(self, colors: str) -> bool:
+        res = 0
+        for i in range(1, len(colors) - 1):
+            if colors[i - 1] == colors[i] == colors[i + 1]:
+                if colors[i] == 'A':
+                    res += 1
+                else:
+                    res -= 1
+        return res > 0
+
+    def winnerOfGame1(self, colors: str) -> bool:
         group = [(k, len(list(v))) for k, v in groupby(colors)]
 
         res = 0
