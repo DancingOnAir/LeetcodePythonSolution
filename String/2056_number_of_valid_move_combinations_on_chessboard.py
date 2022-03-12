@@ -4,6 +4,7 @@ from collections import Counter
 
 
 class Solution:
+    # https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard/discuss/1549465/If-you-are-confused-by-the-description...
     def countCombinations(self, pieces: List[str], positions: List[List[int]]) -> int:
         def valid(x, y):
             return 0 <= x < 8 and 0 <= y < 8
