@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # TODO
     def shortestSuperstring(self, words: List[str]) -> str:
         pass
 
