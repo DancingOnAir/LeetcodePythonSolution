@@ -5,6 +5,14 @@ from functools import lru_cache
 
 class Solution:
     def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
+        counter = Counter()
+        for w in words2:
+            counter |= Counter(w)
+
+        return [w for w in words1 if not (counter - Counter(w))]
+
+    # TLE
+    def wordSubsets1(self, words1: List[str], words2: List[str]) -> List[str]:
         res = list()
         counts = [Counter(w) for w in words2]
 
