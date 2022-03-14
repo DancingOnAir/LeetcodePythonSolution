@@ -1,5 +1,10 @@
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
+        while '()' in s:
+            s = s.replace('()', '')
+        return len(s)
+
+    def minAddToMakeValid2(self, s: str) -> int:
         left = right = 0
         for c in s:
             if c == '(':
