@@ -1,5 +1,12 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
+        def normalize(w):
+            m = dict()
+            return [m.setdefault(x, len(m)) for x in w]
+        x = normalize(pattern)
+        return normalize(pattern) == normalize(s.split())
+
+    def wordPattern1(self, pattern: str, s: str) -> bool:
         s = s.split()
         return len(pattern) == len(s) and len(set(pattern)) == len(set(s)) == len(set(zip(pattern, s)))
 
