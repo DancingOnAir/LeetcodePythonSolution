@@ -4,7 +4,17 @@ from functools import lru_cache
 
 
 class Solution:
-    def findAndReplacePattern(self, words: List[str], pattern: str) -> List[str]:
+    def findAndReplacePattern(self, words, p):
+        def normalize(w):
+            m = dict()
+            return [m.setdefault(c, len(m)) for c in w]
+        return [w for w in words if normalize(w) == normalize(p)]
+
+    # isomorphic method
+    def findAndReplacePattern2(self, words: List[str], pattern: str) -> List[str]:
+        return [w for w in words if len(w) == len(pattern) and len(set(w)) == len(set(pattern)) == len(set(zip(w, pattern)))]
+
+    def findAndReplacePattern1(self, words: List[str], pattern: str) -> List[str]:
         @lru_cache(None)
         def get_pos(word):
             m = defaultdict(list)
