@@ -9,11 +9,7 @@ class MapSum:
         self.m[key] = val
 
     def sum(self, prefix: str) -> int:
-        res = 0
-        for k, v in self.m:
-            if k.startswith(prefix):
-                res += v
-        return res
+        return sum(v for k, v in self.m.items() if k.startswith(prefix))
 
 
 def test_map_sum():
