@@ -1,6 +1,24 @@
 class Solution:
     def decodeString(self, s: str) -> str:
         stk = list()
+        for ch in s:
+            if ch == ']':
+                expr = ''
+                while stk[-1] != '[':
+                    expr = stk.pop() + expr
+                stk.pop()
+
+                num = ''
+                while stk and stk[-1].isdigit():
+                    num = stk.pop() + num
+                stk.append(expr * int(num))
+            else:
+                stk.append(ch)
+
+        return ''.join(stk)
+
+    def decodeString1(self, s: str) -> str:
+        stk = list()
 
         for ch in s:
             if ch == ']':
