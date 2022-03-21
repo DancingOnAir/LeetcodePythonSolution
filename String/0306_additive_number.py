@@ -1,5 +1,19 @@
+from itertools import combinations
+
+
 class Solution:
+    # itertools.combinations
     def isAdditiveNumber(self, num: str) -> bool:
+        def valid(a, b, s):
+            if a != str(int(a)) or b != str(int(b)):
+                return False
+            if not s:
+                return True
+            c = str(int(a) + int(b))
+            return s.startswith(c) and valid(b, c, s[len(c):])
+        return any(valid(num[:i], num[i:j], num[j:]) for i, j in combinations(range(1, len(num)), 2))
+
+    def isAdditiveNumber1(self, num: str) -> bool:
         def get_next_pos(start, first_len, second_len):
             if start + first_len + second_len == len(num):
                 return True
