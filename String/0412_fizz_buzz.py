@@ -4,6 +4,26 @@ from typing import List
 class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
         res = list()
+        three = 3
+        five = 5
+        for i in range(1, n + 1):
+            if i == three == five:
+                res.append('FizzBuzz')
+                three += 3
+                five += 5
+            elif i == three:
+                res.append('Fizz')
+                three += 3
+            elif i == five:
+                res.append('Buzz')
+                five += 5
+            else:
+                res.append(str(i))
+        return res
+
+    # straight forward
+    def fizzBuzz1(self, n: int) -> List[str]:
+        res = list()
         for i in range(1, n + 1):
             if i % 15 == 0:
                 res.append("FizzBuzz")
