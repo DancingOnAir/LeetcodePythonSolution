@@ -1,6 +1,17 @@
 class Solution:
     def maximumSubsequenceCount(self, text: str, pattern: str) -> int:
-        pass
+        first, second = pattern
+        first_num = second_num = 0
+        res = 0
+        for i in range(len(text) - 1, -1, -1):
+            if text[i] == first:
+                res += second_num
+                first_num += 1
+            elif text[i] == second:
+                res += first_num
+                second_num += 1
+
+        return res + max(first_num, second_num)
 
 
 def test_maximum_subsequence_count():
