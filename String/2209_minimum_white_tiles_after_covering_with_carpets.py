@@ -1,6 +1,19 @@
+from functools import lru_cache
+
+
 class Solution:
-    # dp[i][j] 代表用i条地毯覆盖前j块板砖
     def minimumWhiteTiles(self, floor: str, numCarpets: int, carpetLen: int) -> int:
+        @lru_cache(None)
+        def dp(i, j):
+            if i < 0:
+                return float('inf')
+            if j < 0:
+                return 0
+            return min(dp(i, j - 1) + int(floor[j]), dp(i - 1, j - carpetLen))
+        return dp(numCarpets, len(floor) - 1)
+
+    # dp[i][j] 代表用i条地毯覆盖前j块板砖
+    def minimumWhiteTiles1(self, floor: str, numCarpets: int, carpetLen: int) -> int:
         n = len(floor)
         dp = [[0] * n for _ in range(numCarpets + 1)]
         dp[0][0] = floor[0] == '1'
