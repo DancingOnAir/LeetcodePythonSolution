@@ -1,5 +1,23 @@
 class Solution:
+    # cars on left side which are moving in left direction are never going to collide,
+    # Similarly, cars on right side which are moving right side are never going to collide.
+    # In between them every car is going to collide.
     def countCollisions(self, directions: str) -> int:
+        left = 0
+        while left < len(directions) and directions[left] == 'L':
+            left += 1
+
+        right = len(directions) - 1
+        while right >= 0 and directions[right] == 'R':
+            right -= 1
+
+        res = 0
+        for i in range(left, right + 1):
+            if directions[i] != 'S':
+                res += 1
+        return res
+
+    def countCollisions1(self, directions: str) -> int:
         pre = directions[0]
         pre_num = 1
         res = 0
