@@ -1,8 +1,11 @@
 class Solution:
+    def countCollisions(self, directions: str) -> int:
+        return len(directions.lstrip('L').rstrip('R').replace('S', ''))
+
     # cars on left side which are moving in left direction are never going to collide,
     # Similarly, cars on right side which are moving right side are never going to collide.
     # In between them every car is going to collide.
-    def countCollisions(self, directions: str) -> int:
+    def countCollisions2(self, directions: str) -> int:
         left = 0
         while left < len(directions) and directions[left] == 'L':
             left += 1
