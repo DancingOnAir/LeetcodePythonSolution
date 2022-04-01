@@ -1,8 +1,17 @@
-from functools import lru_cache
+from functools import lru_cache, reduce
 
 
 class Solution:
     def backspaceCompare(self, s: str, t: str) -> bool:
+        def back(res, c):
+            if c != '#':
+                res.append(c)
+            elif res:
+                res.pop()
+            return res
+        return reduce(back, s, []) == reduce(back, t, [])
+
+    def backspaceCompare1(self, s: str, t: str) -> bool:
         @lru_cache(None)
         def helper(ss):
             stk = list()
