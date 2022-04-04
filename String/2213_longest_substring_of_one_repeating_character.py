@@ -68,8 +68,61 @@ class Node:
 
 
 class Solution:
-    # segment tree
+    def __init__(self):
+        self.s = None
+        # L[i]表示在节点i管理的区域中，从左侧延伸的单字母长度
+        self.L = [0] * 400005
+        # R[i]表示在节点i管理的区域中，从右侧延伸的单字母长度
+        self.R = [0] * 400005
+        # A[i]表示在节点i管理的区域中，单字母的最大长度
+        self.A = [0] * 400000
+
+    def merge(self, node, l, r):
+        nl = node << 1
+        nr = nl | 1
+        mid = (l + r) >> 1
+        self.A[node] = max(self.A[nl], self.A[nr])
+        self.L[node] = self.L[nl]
+        self.R[node] = self.R[nr]
+        if self.s[mid] == self.s[mid + 1]:
+            self.A[node] = max(self.A[node], self.R[nl] + self.L[nr])
+            if self.A[nl] == mid - l + 1:
+                self.L[node] += self.L[nr]
+            if self.A[nr] == r - mid:
+                self.R[node] += self.R[nl]
+
+    def build(self, node, l, r):
+        if l == r:
+            self.L[node] = self.R[node] = self.A[node] = 1
+        else:
+            mid = (l + r) >> 1
+            self.build(node << 1, l, mid)
+            self.build((node << 1) | 1, mid + 1, r)
+            self.merge(node, l, r)
+
+    def query(self, node, l, r, i, c):
+        if l == r:
+            self.s[l] = c
+        else:
+            mid = (l + r) >> 1
+            if i <= mid:
+                self.query(node << 1, l, mid, i, c)
+            else:
+                self.query((node << 1) | 1, mid + 1, r, i, c)
+            self.merge(node, l, r)
+        return self.A[node]
+
     def longestRepeating(self, s: str, queryCharacters: str, queryIndices: List[int]) -> List[int]:
+        self.s = list(s)
+        self.build(1, 0, len(s) - 1)
+
+        res = list()
+        for ch, idx in zip(queryCharacters, queryIndices):
+            res.append(self.query(1, 0, len(s) - 1, idx, ch))
+        return res
+
+    # segment tree
+    def longestRepeating2(self, s: str, queryCharacters: str, queryIndices: List[int]) -> List[int]:
         st = Node.build(s, 0, len(s) - 1)
         res = list()
         for ch, idx in zip(queryCharacters, queryIndices):
