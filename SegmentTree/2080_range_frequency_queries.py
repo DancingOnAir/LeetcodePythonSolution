@@ -3,8 +3,32 @@ from bisect import bisect_left, bisect_right
 from collections import defaultdict
 
 
-# binary search + default dict
+# bit
 class RangeFreqQuery:
+    def __init__(self, arr: List[int]):
+        self.n = len(arr)
+        self.bit = [defaultdict(int) for _ in range(4 * self.n)]
+        for i, ch in enumerate(arr):
+            self.update(i + 1, ch)
+
+    def update(self, i, val):
+        while i < self.n * 4:
+            self.bit[i][val] += 1
+            i += i & -i
+
+    def _query(self, i, val):
+        res = 0
+        while i > 0:
+            res += self.bit[i][val]
+            i -= i & -i
+        return res
+
+    def query(self, left: int, right: int, value: int) -> int:
+        return self._query(right + 1, value) - self._query(left, value)
+
+
+# binary search + default dict
+class RangeFreqQuery1:
     def __init__(self, arr: List[int]):
         self.occurrence = defaultdict(list)
         for i, val in enumerate(arr):
