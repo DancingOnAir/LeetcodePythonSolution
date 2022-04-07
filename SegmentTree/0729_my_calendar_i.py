@@ -1,21 +1,16 @@
 from collections import defaultdict
 
 
+# brute force
 class MyCalendar:
     def __init__(self):
-        self.memo = defaultdict(int)
+        self.calendar = list()
 
     def book(self, start: int, end: int) -> bool:
-        self.memo[start] += 1
-        self.memo[end] -= 1
-        sum = 0
-
-        for v in self.memo.values():
-            sum += v
-            if sum > 1:
-                self.memo[start] -= 1
-                self.memo[end] += 1
+        for s, e in self.calendar:
+            if start < e and end > s:
                 return False
+        self.calendar.append((start, end))
         return True
 
 
