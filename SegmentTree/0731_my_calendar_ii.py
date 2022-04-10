@@ -36,8 +36,8 @@ class SegmentTree:
     def pushdown(self, node):
         if node is None:
             return
-        mid = (node.left_bound + node.right_bound) >> 1
 
+        mid = (node.left_bound + node.right_bound) >> 1
         if node.left_child is None:
             node.left_child = Node(node.left_bound, mid)
         if node.right_child is None:
