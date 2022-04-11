@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 class Node:
     def __init__(self, l, r):
         self.left_child, self.right_child = None, None
@@ -68,13 +71,27 @@ class SegmentTree:
             return max(left_res, right_res)
 
 
-class MyCalendarThree:
+class MyCalendarThree1:
     def __init__(self):
         self.st = SegmentTree(0, 10 ** 9 + 2)
 
     def book(self, start: int, end: int) -> int:
         self.st.update(start, end - 1)
         return self.st.root.val
+
+
+class MyCalendarThree:
+    def __init__(self):
+        self.memo = defaultdict(int)
+
+    def book(self, start: int, end: int) -> int:
+        res = cur = 0
+        self.memo[start] += 1
+        self.memo[end] -= 1
+        for k in sorted(self.memo):
+            cur += self.memo[k]
+            res = max(res, cur)
+        return res
 
 
 def test_my_calendar_three():
