@@ -71,6 +71,7 @@ class SegmentTree:
             return max(left_res, right_res)
 
 
+# segment tree
 class MyCalendarThree1:
     def __init__(self):
         self.st = SegmentTree(0, 10 ** 9 + 2)
@@ -80,7 +81,8 @@ class MyCalendarThree1:
         return self.st.root.val
 
 
-class MyCalendarThree:
+# difference method
+class MyCalendarThree2:
     def __init__(self):
         self.memo = defaultdict(int)
 
@@ -92,6 +94,29 @@ class MyCalendarThree:
             cur += self.memo[k]
             res = max(res, cur)
         return res
+
+
+# segment tree
+class MyCalendarThree:
+    def __init__(self):
+        self.seg = defaultdict(int)
+        self.lazy = defaultdict(int)
+
+    def book(self, start: int, end: int) -> int:
+        def update(s, e, l=0, r=10 ** 9, i=1):
+            if e <= l or s >= r:
+                return
+
+            if s <= l < r <= e:
+                self.seg[i] += 1
+                self.lazy[i] += 1
+            else:
+                m = (l + r) >> 1
+                update(s, e, l, m, i * 2)
+                update(s, e, m, r, i * 2 + 1)
+                self.seg[i] = self.lazy[i] + max(self.seg[i*2], self.seg[i*2+1])
+        update(start, end)
+        return self.seg[1]
 
 
 def test_my_calendar_three():
