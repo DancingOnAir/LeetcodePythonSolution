@@ -31,7 +31,7 @@ class NumArray:
             if ~left & 1:
                 res += self.tree[left ^ 1]
             # 如果右边端点是其父节点的右儿子，那么加上它的兄弟，即父节点左儿子的值
-            if right ^ 1:
+            if right & 1:
                 res += self.tree[right ^ 1]
             left >>= 1
             right >>= 1
@@ -39,6 +39,18 @@ class NumArray:
 
 
 def test_num_array():
+    obj = NumArray([0, 9, 5, 7, 3])
+    assert obj.sumRange(4, 4) == 3, 'wrong result'
+    assert obj.sumRange(2, 4) == 15, 'wrong result'
+    assert obj.sumRange(3, 3) == 7, 'wrong result'
+    obj.update(4, 5)
+    obj.update(1, 7)
+    obj.update(0, 8)
+    assert obj.sumRange(1, 2) == 12, 'wrong result'
+    obj.update(1, 9)
+    assert obj.sumRange(4, 4) == 5, 'wrong result'
+    obj.update(3, 4)
+
     obj = NumArray([1, 3, 5])
     assert obj.sumRange(0, 2) == 9, 'wrong result'
     obj.update(1, 2)
