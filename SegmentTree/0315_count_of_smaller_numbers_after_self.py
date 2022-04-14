@@ -13,15 +13,15 @@ class ZkwSegmentTree:
         self.tree = [0] * (self.N << 1)
 
     def update(self, index):
-        i = index + self.N + 2 + 10 ** 4
+        i = index + self.N + 1
         while i > 0:
             self.tree[i] += 1
             i >>= 1
 
-    def query(self):
+    def query(self, right):
         res = 0
         left = self.N
-        right = self.N * 2 + 2
+        right += self.N + 2
 
         while (left ^ right ^ 1) != 0:
             if ~left & 1:
@@ -63,14 +63,15 @@ class SegmentTree:
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:
         # max range
-        MAX = 10 ** 4 + 1
+        bias = 10 ** 4
         # converting range from [-10^4, 10^4] to [0, 2*10^4]
         for i in range(len(nums)):
-            nums[i] += MAX
+            nums[i] += bias
         zkw = ZkwSegmentTree()
         for i in range(len(nums) - 1, -1, -1):
             zkw.update(nums[i])
-            nums[i] = zkw.query()
+            nums[i] = zkw.query(nums[i] - 1)
+
         return nums
 
     def countSmaller1(self, nums: List[int]) -> List[int]:
