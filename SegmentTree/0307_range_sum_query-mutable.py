@@ -5,6 +5,7 @@ from math import log2
 class NumArray:
     def __init__(self, nums: List[int]):
         self.N = 1
+        # zkw树中，数组所有的值在叶节点上，从第二个叶节点开始，第一个空着没用，为了方便query查询使用l-1, r+1
         while self.N < len(nums) + 2:
             self.N <<= 1
         self.tree = [0] * (self.N << 1)
@@ -25,7 +26,7 @@ class NumArray:
         res = 0
         left += self.N
         right += self.N + 2
-
+        # 左端点和右端点不是兄弟继续循环
         while (left ^ right ^ 1) != 0:
             # 如果左边端点是其父节点的左儿子，那么加上它的兄弟，即父节点右儿子的值
             if ~left & 1:

@@ -4,12 +4,34 @@ from math import log2
 
 # zkw segment tree
 class ZkwSegmentTree:
-    def __init__(self, nums):
-        self.MAX = 10 ** 4 + 1
-        while self.N < len(nums) + 2:
+    def __init__(self):
+        self.MAX = 2 * 10 ** 4 + 1
+        self.N = 1
+        while self.N < self.MAX + 2:
             self.N <<= 1
 
         self.tree = [0] * (self.N << 1)
+
+    def update(self, index):
+        i = index + self.N + 2 + 10 ** 4
+        while i > 0:
+            self.tree[i] += 1
+            i >>= 1
+
+    def query(self):
+        res = 0
+        left = self.N
+        right = self.N * 2 + 2
+
+        while (left ^ right ^ 1) != 0:
+            if ~left & 1:
+                res += self.tree[left ^ 1]
+            if right & 1:
+                res += self.tree[right ^ 1]
+            left >>= 1
+            right >>= 1
+
+        return res
 
 
 class SegmentTree:
@@ -40,6 +62,18 @@ class SegmentTree:
 
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:
+        # max range
+        MAX = 10 ** 4 + 1
+        # converting range from [-10^4, 10^4] to [0, 2*10^4]
+        for i in range(len(nums)):
+            nums[i] += MAX
+        zkw = ZkwSegmentTree()
+        for i in range(len(nums) - 1, -1, -1):
+            zkw.update(nums[i])
+            nums[i] = zkw.query()
+        return nums
+
+    def countSmaller1(self, nums: List[int]) -> List[int]:
         # max range
         MAX = 10 ** 4 + 1
         # converting range from [-10^4, 10^4] to [0, 2*10^4]
