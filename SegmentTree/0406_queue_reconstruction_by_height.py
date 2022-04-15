@@ -3,8 +3,22 @@ from bisect import bisect_right
 
 
 class Solution:
-    # TLE
+    # sort and find the empty space for current person
     def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
+        people.sort(key=lambda p: (p[0], -p[1]))
+        res = [[] for _ in range(len(people))]
+        for p in people:
+            space = p[1] + 1
+            for i in range(len(people)):
+                if not res[i]:
+                    space -= 1
+                    if space == 0:
+                        res[i] = p
+                        break
+        return res
+
+    # TLE
+    def reconstructQueue1(self, people: List[List[int]]) -> List[List[int]]:
         people = sorted(people, key=lambda x: (x[1], x[0]))
 
         n = len(people)
