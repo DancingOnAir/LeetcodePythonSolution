@@ -3,8 +3,40 @@ from bisect import bisect_right
 
 
 class Solution:
-    # sort and insert
     def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
+        people.sort(key=lambda x: (x[0], -x[1]))
+        tree = [0] * 4096
+        n = len(people)
+
+        res = [[] for _ in range(n)]
+        X = 2048
+        i = 2
+        k = X
+        l = 1
+        while i <= 4096:
+            for j in range(i // 2, 0, -1):
+                tree[l] = k
+                l += 1
+            k >>= 1
+            i <<= 1
+
+        for i in range(n):
+            j = 1
+            while j < X:
+                k = people[i][1]
+                j <<= 1
+
+                if k >= tree[j]:
+                    k -= tree[j]
+                    j += 1
+
+                tree[j] -= 1
+
+            res[j - X] = people[i]
+        return res
+
+    # sort and insert
+    def reconstructQueue3(self, people: List[List[int]]) -> List[List[int]]:
         people.sort(key=lambda p: (-p[0], p[1]))
         res = list()
         for p in people:
