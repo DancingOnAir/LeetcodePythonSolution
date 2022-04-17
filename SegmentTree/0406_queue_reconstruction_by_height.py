@@ -1,38 +1,54 @@
 from typing import List
 from bisect import bisect_right
+from collections import defaultdict
+
+
+class BIT:
+    def __init__(self, n):
+        self.n = n
+        self.tree = defaultdict(int)
+
+    @staticmethod
+    def lowbit(i):
+        return i & (-i)
+
+    def update(self, i, val):
+        if i <= 0:
+            return ValueError('index should be positive integer')
+
+        while i <= self.n:
+            self.tree[i] += val
+            i += self.lowbit(i)
+
+    def query(self, i):
+        if i > self.n:
+            i = self.n
+        res = 0
+        while i > 0:
+            res += self.tree[i]
+            i -= self.lowbit(i)
+        return res
 
 
 class Solution:
     def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
-        people.sort(key=lambda x: (x[0], -x[1]))
-        tree = [0] * 4096
         n = len(people)
-
         res = [[] for _ in range(n)]
-        X = 2048
-        i = 2
-        k = X
-        l = 1
-        while i <= 4096:
-            for j in range(i // 2, 0, -1):
-                tree[l] = k
-                l += 1
-            k >>= 1
-            i <<= 1
-
+        bit = BIT(n + 1)
         for i in range(n):
-            j = 1
-            while j < X:
-                k = people[i][1]
-                j <<= 1
+            bit.update(i + 1, 1)
 
-                if k >= tree[j]:
-                    k -= tree[j]
-                    j += 1
-
-                tree[j] -= 1
-
-            res[j - X] = people[i]
+        people.sort(key=lambda x: (x[0], -x[1]))
+        for h, c in people:
+            left, right = 1, n
+            while left <= right:
+                mid = (left + right) >> 1
+                if bit.query(mid) >= c + 1:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            res[left - 1] = [h, c]
+            bit.update(left, -1)
         return res
 
     # sort and insert
