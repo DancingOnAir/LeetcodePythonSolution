@@ -71,6 +71,7 @@ class SegmentTree:
 
 
 class Solution:
+    # bitwise operation, similiar question 898, 1061
     def closestToTarget(self, arr: List[int], target: int) -> int:
         s, res = set(), float('inf')
 
