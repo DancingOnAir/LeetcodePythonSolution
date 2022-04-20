@@ -1,11 +1,45 @@
 from typing import List
 
 
-class Node:
-    def __init__(self, l, r ,val):
-        self.left_child, self.right_child = None, None
-        self.left_bound, self.right_bound = l, r
-        self.val = val
+class TreeNode:
+    def __init__(self):
+        self.left = -1
+        self.right = -1
+        self.or_sum = 0
+
+
+class Tree:
+    def __init__(self, arr):
+        self.n = len(arr)
+        self.arr = arr
+        self.max_size = 4 * self.n
+        self.tree = [TreeNode() for _ in range(self.max_size)]
+
+    def build(self, idx, left, right):
+        self.tree[idx].left = left
+        self.tree[idx].right = right
+        if left == right:
+            self.tree[idx].or_sum = self.arr[left - 1]
+        else:
+            mid = (left + right) >> 1
+            self.build(idx << 1, left, mid)
+            self.build(idx << 1 | 1, mid + 1, right)
+            self.pushup(idx)
+
+    def pushup(self, idx):
+        return self.tree[idx << 1].or_sum & self.tree[idx << 1 | 1].or_sum
+
+    def query(self, l, r, i, xl, xr):
+        if xl <= l and xr >= r:
+            return self.tree[i].or_sum
+        else:
+            mid = (l + r) >> 1
+            res = float('inf')
+            if xl <= mid:
+                res &= self.query(l, r, i << 1, xl, mid)
+            if xr > mid:
+                res &= self.query(l, r, i << 1 | 1, mid+1, xr)
+        return res
 
 
 class SegmentTree:
@@ -21,26 +55,27 @@ class SegmentTree:
         if l > r:
             return float('-inf')
 
-        r += 1
         l += self.n
         r += self.n
         res = self.tree[l]
 
-        while l < r:
+        while l <= r:
+            # 左边界不属于其父节点的左孩子（左孩子下标为偶数）
             if l & 1:
                 res &= self.tree[l]
                 l += 1
-            if r & 1:
-                r -= 1
-                res &= self.tree[r]
-
             l >>= 1
+            # 右边界不属于其父节点的右孩子
+            if r & 1 == 0:
+                res &= self.tree[r]
+                r -= 1
             r >>= 1
+
         return res
 
 
 class Solution:
-    # bitwise operation, similiar question 898, 1061
+    # bitwise operation, similar question 898, 1061
     def closestToTarget1(self, arr: List[int], target: int) -> int:
         s, res = set(), float('inf')
 
