@@ -2,77 +2,46 @@ from typing import List
 
 
 class Node:
-    def __init__(self, val):
+    def __init__(self, l, r ,val):
         self.left_child, self.right_child = None, None
+        self.left_bound, self.right_bound = l, r
         self.val = val
-#
-#
-# class SegmentTree:
-#     def __init__(self, l, r):
-#         self.root = Node(l, r)
-#
-#     def update(self, node, l , r):
-#         if node is None:
-#             return
-#
-#         if l > node.right_bound or r < node.left_bound:
-#             return
-#         elif l <= node.left_bound and r >= node.right_bound:
-#
-#         else:
-#             self.update(node.left_child, l, r)
-#             self.update(node.right_child, l, r)
+
 
 class SegmentTree:
-    def __init__(self, l, r, target):
-        self.root = Node(0)
-        self.build(self.root, l, r)
-        self.target = target
-        self.closest = 10 ** 6
+    def __init__(self, arr):
+        self.n = len(arr)
+        self.tree = [0] * self.n + arr
 
-    def build(self, node, l, r):
-        if l == r:
-            return node
-        mid = (l + r) >> 1
+    def build(self):
+        for i in reversed(range(1, self.n)):
+            self.tree[i] = self.tree[i << 1] & self.tree[i << 1 | 1]
 
-        node.left_child = Node(0)
-        self.build(node.left_child, l, mid)
-        node.right_child = Node(0)
-        self.build(node.right_child, mid + 1, r)
+    def query(self, l, r):
+        if l > r:
+            return float('-inf')
 
-    def update(self, node, l, r, i, val):
-        if l == r:
-            node.val = val
-            node.closest = abs(val - self.target)
-            return
+        r += 1
+        l += self.n
+        r += self.n
+        res = self.tree[l]
 
-        mid = (l + r) >> 1
-        if i <= mid:
-            self.update(node.left_child, l, mid, i, val)
-        else:
-            self.update(node.right_child, mid+1, r, i, val)
-        node.val &= val
+        while l < r:
+            if l & 1:
+                res &= self.tree[l]
+                l += 1
+            if r & 1:
+                r -= 1
+                res &= self.tree[r]
 
-    def query(self, node, l, r, lx, rx):
-        if l == lx and r == rx:
-            self.closest = min(self.closest, abs(node.val - self.target))
-            return node.val
-
-        mid = (l + r) >> 1
-        if rx <= mid:
-            res = self.query(node.left_child, l, mid, lx, rx)
-        elif lx >= mid:
-            res = self.query(node.right_child, mid+1, r, lx, rx)
-        else:
-            res = self.query(node.left_child, l, mid, lx, rx) & self.query(node.right_child, mid+1, r, lx, rx)
-
-        self.closest = (self.closest, abs(res - self.target))
+            l >>= 1
+            r >>= 1
         return res
 
 
 class Solution:
     # bitwise operation, similiar question 898, 1061
-    def closestToTarget(self, arr: List[int], target: int) -> int:
+    def closestToTarget1(self, arr: List[int], target: int) -> int:
         s, res = set(), float('inf')
 
         for a in arr:
@@ -82,12 +51,27 @@ class Solution:
         return res
 
     # segment tree
-    def closestToTarget1(self, arr: List[int], target: int) -> int:
-        n = len(arr)
-        st = SegmentTree(1, n, target)
-        for i, val in enumerate(arr):
-            st.update(st.root, 1, n, i+1, val)
-        return st.query(st.root, 1, n, 1, n)
+    # 注意,对于任何正整数a, b 有a & b <= a, 在进行连续的&运算后，生成的是有序数组，可以使用二分查找来提速
+    # 也可以使用sliding window提速
+    def closestToTarget(self, arr: List[int], target: int) -> int:
+        st = SegmentTree(arr)
+        st.build()
+
+        res = float('inf')
+        l = r = 0
+        while r < len(arr):
+            v = st.query(l, r)
+            res = min(res, abs(v - target))
+
+            if v >= target:
+                r += 1
+            else:
+                if l < r:
+                    l += 1
+                else:
+                    l += 1
+                    r += 1
+        return res
 
 
 def test_closest_to_target():
