@@ -106,6 +106,12 @@ class Solution:
         return res
 
     def closestToTarget(self, arr: List[int], target: int) -> int:
+        # 求合适的segment tree的大小
+        # n = len(arr)
+        # x = math.ceil(math.log2(n))
+        # max_size = 2 * pow(2, x) - 1
+        # tree = [0] * max_size
+
         st = Tree(arr)
         st.build()
 
