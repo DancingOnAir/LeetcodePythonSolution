@@ -1,44 +1,41 @@
 from typing import List
 
 
-class TreeNode:
-    def __init__(self):
-        self.left = -1
-        self.right = -1
-        self.or_sum = 0
-
-
 class Tree:
     def __init__(self, arr):
         self.n = len(arr)
         self.arr = arr
         self.max_size = 4 * self.n
-        self.tree = [TreeNode() for _ in range(self.max_size)]
+        self.tree = [0] * self.max_size
 
-    def build(self, idx, left, right):
-        self.tree[idx].left = left
-        self.tree[idx].right = right
+    def build(self):
+        self._build(1, 0, self.n - 1)
+
+    def _build(self, idx, left, right):
         if left == right:
-            self.tree[idx].or_sum = self.arr[left - 1]
+            self.tree[idx] = self.arr[left]
         else:
             mid = (left + right) >> 1
-            self.build(idx << 1, left, mid)
-            self.build(idx << 1 | 1, mid + 1, right)
+            self._build(idx << 1, left, mid)
+            self._build(idx << 1 | 1, mid + 1, right)
             self.pushup(idx)
 
     def pushup(self, idx):
-        return self.tree[idx << 1].or_sum & self.tree[idx << 1 | 1].or_sum
+        self.tree[idx] = self.tree[idx << 1] & self.tree[idx << 1 | 1]
 
-    def query(self, l, r, i, xl, xr):
+    def query(self, xl, xr):
+        return self._query(0, self.n - 1, 1, xl, xr)
+
+    def _query(self, l, r, i, xl, xr):
         if xl <= l and xr >= r:
-            return self.tree[i].or_sum
-        else:
-            mid = (l + r) >> 1
-            res = float('inf')
-            if xl <= mid:
-                res &= self.query(l, r, i << 1, xl, mid)
-            if xr > mid:
-                res &= self.query(l, r, i << 1 | 1, mid+1, xr)
+            return self.tree[i]
+
+        mid = (l + r) >> 1
+        res = 1048575
+        if xl <= mid:
+            res &= self._query(l, mid, i << 1, xl, xr)
+        if xr > mid:
+            res &= self._query(mid + 1, r, i << 1 | 1, xl, xr)
         return res
 
 
@@ -88,12 +85,32 @@ class Solution:
     # segment tree
     # 注意,对于任何正整数a, b 有a & b <= a, 在进行连续的&运算后，生成的是有序数组，可以使用二分查找来提速
     # 也可以使用sliding window提速
-    def closestToTarget(self, arr: List[int], target: int) -> int:
+    def closestToTarget2(self, arr: List[int], target: int) -> int:
         st = SegmentTree(arr)
         st.build()
 
         res = float('inf')
         l = r = 0
+        while r < len(arr):
+            v = st.query(l, r)
+            res = min(res, abs(v - target))
+
+            if v >= target:
+                r += 1
+            else:
+                if l < r:
+                    l += 1
+                else:
+                    l += 1
+                    r += 1
+        return res
+
+    def closestToTarget(self, arr: List[int], target: int) -> int:
+        st = Tree(arr)
+        st.build()
+
+        l = r = 0
+        res = float('inf')
         while r < len(arr):
             v = st.query(l, r)
             res = min(res, abs(v - target))
