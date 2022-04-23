@@ -2,7 +2,8 @@ from operator import add, mul
 from functools import partial
 
 
-class Fancy:
+# list operation
+class Fancy1:
     def __init__(self):
         self.arr = list()
 
@@ -17,7 +18,28 @@ class Fancy:
 
     def getIndex(self, idx: int) -> int:
         if idx < len(self.arr):
-            return self.arr[idx]  % (10 ** 9 + 7)
+            return self.arr[idx] % (10 ** 9 + 7)
+        return -1
+
+
+# segment tree
+class Fancy:
+    def __init__(self):
+        self.n = 10 ** 5 + 1
+        self.arr =
+
+    def append(self, val: int) -> None:
+        self.arr.append(val)
+
+    def addAll(self, inc: int) -> None:
+        self.arr = list(map(partial(add, inc), self.arr))
+
+    def multAll(self, m: int) -> None:
+        self.arr = list(map(partial(mul, m), self.arr))
+
+    def getIndex(self, idx: int) -> int:
+        if idx < len(self.arr):
+            return self.arr[idx] % (10 ** 9 + 7)
         return -1
 
 
