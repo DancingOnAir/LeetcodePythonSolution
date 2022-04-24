@@ -22,24 +22,37 @@ class Fancy1:
         return -1
 
 
-# segment tree
+# math: Fermat's little theorem
 class Fancy:
     def __init__(self):
-        self.n = 10 ** 5 + 1
-        self.arr =
+        self.data = list()
+        self.csum = [0]
+        self.cmul = [1]
+        self.mod = 10 ** 9 + 7
 
     def append(self, val: int) -> None:
-        self.arr.append(val)
+        self.data.append(val)
+        self.csum.append(self.csum[-1])
+        self.cmul.append(self.cmul[-1])
 
     def addAll(self, inc: int) -> None:
-        self.arr = list(map(partial(add, inc), self.arr))
+        self.csum[-1] += inc
 
     def multAll(self, m: int) -> None:
-        self.arr = list(map(partial(mul, m), self.arr))
+        self.cmul[-1] *= m
+        self.cmul[-1] %= self.mod
+
+        self.csum[-1] *= m
+        self.csum[-1] %= self.mod
 
     def getIndex(self, idx: int) -> int:
-        if idx < len(self.arr):
-            return self.arr[idx] % (10 ** 9 + 7)
+        if idx < len(self.data):
+            # Fermat's little theorem states that if p is a prime number, then for any integer a,
+            # the number a^p − a is an integer multiple of p, i.e. a^p = a (mod p).
+            # In this application, we need a^(p-2) = a^-1 (mod p) where p is 1_000_000_007.
+            # ratio = self.cmul[-1] * pow(self.cmul[idx], -1, self.mod)
+            ratio = self.cmul[-1] * pow(self.cmul[idx], self.mod - 2, self.mod)
+            return (self.csum[-1] + (self.data[idx] - self.csum[idx]) * ratio) % self.mod
         return -1
 
 
