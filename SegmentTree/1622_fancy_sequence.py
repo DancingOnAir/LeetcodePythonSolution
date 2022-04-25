@@ -23,7 +23,7 @@ class Fancy1:
 
 
 # math: Fermat's little theorem
-class Fancy:
+class Fancy2:
     def __init__(self):
         self.data = list()
         self.csum = [0]
@@ -53,6 +53,30 @@ class Fancy:
             # ratio = self.cmul[-1] * pow(self.cmul[idx], -1, self.mod)
             ratio = self.cmul[-1] * pow(self.cmul[idx], self.mod - 2, self.mod)
             return (self.csum[-1] + (self.data[idx] - self.csum[idx]) * ratio) % self.mod
+        return -1
+
+
+# math: compose matrix
+class Fancy:
+    def __init__(self):
+        self.data = list()
+        self.add = 0
+        self.mul = 1
+        self.mod = 10 ** 9 + 7
+
+    def append(self, val: int) -> None:
+        self.data.append((val - self.add) * pow(self.mul, -1, self.mod))
+
+    def addAll(self, inc: int) -> None:
+        self.add += inc
+
+    def multAll(self, m: int) -> None:
+        self.add = self.add * m % self.mod
+        self.mul = self.mul * m % self.mod
+
+    def getIndex(self, idx: int) -> int:
+        if idx < len(self.data):
+            return (self.data[idx] * self.mul + self.add) % self.mod
         return -1
 
 

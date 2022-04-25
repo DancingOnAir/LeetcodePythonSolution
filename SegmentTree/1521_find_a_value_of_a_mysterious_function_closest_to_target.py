@@ -94,7 +94,7 @@ class Solution:
         while r < len(arr):
             v = st.query(l, r)
             res = min(res, abs(v - target))
-
+            # 当v大于target的时候，希望期望的结果趋于0，那么减小v的值，这样必须添加新的元素做&操作，所以r += 1
             if v >= target:
                 r += 1
             else:
