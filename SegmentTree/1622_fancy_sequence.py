@@ -56,7 +56,33 @@ class Fancy2:
         return -1
 
 
-# math: compose matrix
+# math: functional computing:
+# Since we only add and multiply, the transformation is a linear function x ↦ ax + b, defined by a and b.
+# When we add, we change it to (ax + b) + inc = ax + (b+inc), i.e., we just add inc to b.
+# When we multiply, we change it to (ax + b) * m = (am)x + (bm), i.e., we multiply both a and b by m.
+class Fancy3:
+    def __init__(self):
+        self.data = list()
+        self.add = 0
+        self.mul = 1
+        self.mod = 10 ** 9 + 7
+
+    def append(self, val: int) -> None:
+        self.data.append((val - self.add) * pow(self.mul, -1, self.mod))
+
+    def addAll(self, inc: int) -> None:
+        self.add += inc
+
+    def multAll(self, m: int) -> None:
+        self.add = self.add * m % self.mod
+        self.mul = self.mul * m % self.mod
+
+    def getIndex(self, idx: int) -> int:
+        if idx < len(self.data):
+            return (self.data[idx] * self.mul + self.add) % self.mod
+        return -1
+
+
 class Fancy:
     def __init__(self):
         self.data = list()
