@@ -83,26 +83,71 @@ class Fancy3:
         return -1
 
 
+# segment tree
 class Fancy:
     def __init__(self):
-        self.data = list()
-        self.add = 0
-        self.mul = 1
+        self.n = 10 ** 5 + 1
         self.mod = 10 ** 9 + 7
+        self.sz = 0
+        self.tree = [0] * (self.n << 2)
+        self.param_a = [1] * (self.n << 2)
+        self.param_b = [0] * (self.n << 2)
+
+    def update(self, tree_idx, l, r, xl, xr, val):
+        if xl > r or xr < l:
+            return
+
+        if l >= xl and r <= xr:
+            if val > 0:
+                self.tree[tree_idx] = (self.tree[tree_idx] + val) % self.mod
+                self.param_b[tree_idx] = (self.param_b[tree_idx] + val) % self.mod
+            else:
+                self.tree[tree_idx] = (self.tree[tree_idx] * -val) % self.mod
+                self.param_a[tree_idx] = (self.param_a[tree_idx] * -val) % self.mod
+                self.param_b[tree_idx] = (self.param_b[tree_idx] * -val) % self.mod
+        else:
+            self.push_down(tree_idx, l, r)
+            mid = (l + r) >> 1
+            self.update(tree_idx << 1, l, mid, xl, xr, val)
+            self.update(tree_idx << 1 | 1, mid + 1, r, xl, xr, val)
+
+    def query(self, tree_idx, l, r, xl, xr):
+        if xl > r or xr < l:
+            return 0
+        if xl == l and xr == r:
+            return self.tree[tree_idx]
+
+        self.push_down(tree_idx, l, r)
+        mid = (l + r) >> 1
+        return self.query(tree_idx << 1, l, mid, xl, xr) + self.query(tree_idx << 1 | 1, mid + 1, r, xl, xr)
+
+    def push_down(self, tree_idx, l, r):
+        if l < r and (self.param_a[tree_idx] > 1 or self.param_b[tree_idx] > 0):
+            self.tree[tree_idx << 1] = (self.tree[tree_idx << 1] * self.param_a[tree_idx] + self.param_b[tree_idx]) % self.mod
+            self.param_a[tree_idx << 1] = (self.param_a[tree_idx << 1] * self.param_a[tree_idx]) % self.mod
+            self.param_b[tree_idx << 1] = (self.param_b[tree_idx << 1] * self.param_a[tree_idx] + self.param_b[tree_idx]) % self.mod
+
+            self.tree[tree_idx << 1 | 1] = (self.tree[tree_idx << 1 | 1] * self.param_a[tree_idx] + self.param_b[tree_idx]) % self.mod
+            self.param_a[tree_idx << 1 | 1] = (self.param_a[tree_idx << 1 | 1] * self.param_a[tree_idx]) % self.mod
+            self.param_b[tree_idx << 1 | 1] = (self.param_b[tree_idx << 1 | 1] * self.param_a[tree_idx] + self.param_b[tree_idx]) % self.mod
+
+            self.param_a[tree_idx] = 1
+            self.param_b[tree_idx] = 0
+        pass
 
     def append(self, val: int) -> None:
-        self.data.append((val - self.add) * pow(self.mul, -1, self.mod))
+        self.update(1, 0, self.n - 1, self.sz, self.sz, val)
+        self.sz += 1
 
     def addAll(self, inc: int) -> None:
-        self.add += inc
+        self.update(1, 0, self.n - 1, 0, self.sz - 1, inc)
 
     def multAll(self, m: int) -> None:
-        self.add = self.add * m % self.mod
-        self.mul = self.mul * m % self.mod
+        self.update(1, 0, self.n - 1, 0, self.sz - 1, -m)
 
     def getIndex(self, idx: int) -> int:
-        if idx < len(self.data):
-            return (self.data[idx] * self.mul + self.add) % self.mod
+        if idx <= self.sz:
+            return self.query(1, 0, self.n - 1, idx, idx)
         return -1
 
 
