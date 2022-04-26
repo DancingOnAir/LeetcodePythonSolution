@@ -146,7 +146,7 @@ class Fancy:
         self.update(1, 0, self.n - 1, 0, self.sz - 1, -m)
 
     def getIndex(self, idx: int) -> int:
-        if idx <= self.sz:
+        if idx < self.sz:
             return self.query(1, 0, self.n - 1, idx, idx)
         return -1
 
