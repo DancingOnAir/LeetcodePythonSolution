@@ -83,8 +83,8 @@ class Fancy3:
         return -1
 
 
-# segment tree
-class Fancy:
+# segment tree which is implemented by array
+class Fancy4:
     def __init__(self):
         self.n = 10 ** 5 + 1
         self.mod = 10 ** 9 + 7
@@ -133,7 +133,6 @@ class Fancy:
 
             self.param_a[tree_idx] = 1
             self.param_b[tree_idx] = 0
-        pass
 
     def append(self, val: int) -> None:
         self.update(1, 0, self.n - 1, self.sz, self.sz, val)
@@ -148,6 +147,90 @@ class Fancy:
     def getIndex(self, idx: int) -> int:
         if idx < self.sz:
             return self.query(1, 0, self.n - 1, idx, idx)
+        return -1
+
+
+# segment tree which is implemented by link list
+class Node:
+    def __init__(self, l, r):
+        self.l = l
+        self.r = r
+        self.a = 1
+        self.b = 0
+        self.val = 0
+        self.lchild = None
+        self.rchild = None
+
+    def left_child(self):
+        if self.lchild is None:
+            self.lchild = Node(self.l, (self.l + self.r) // 2)
+        return self.lchild
+
+    def right_child(self):
+        if self.rchild is None:
+            self.rchild = Node((self.l + self.r) // 2 + 1, self.r)
+        return self.rchild
+
+
+class Fancy:
+    def __init__(self):
+        self.n = 10 ** 5 + 1
+        self.mod = 10 ** 9 + 7
+        self.sz = 0
+        self.root = Node(0, 10 ** 5)
+
+    def update(self, node, xl, xr, val):
+        if xl > node.r or xr < node.l:
+            return
+
+        if node.l >= xl and node.r <= xr:
+            if val > 0:
+                node.val = (node.val + val) % self.mod
+                node.b = (node.b + val) % self.mod
+            else:
+                node.val = (node.val * -val) % self.mod
+                node.a = (node.a * -val) % self.mod
+                node.b = (node.b * -val) % self.mod
+        else:
+            self.push_down(node)
+            self.update(node.left_child(), xl, xr, val)
+            self.update(node.right_child(), xl, xr, val)
+
+    def query(self, node, xl, xr):
+        if xl > node.r or xr < node.l:
+            return 0
+        if xl == node.l and xr == node.r:
+            return node.val
+
+        self.push_down(node)
+        return self.query(node.left_child(), xl, xr) + self.query(node.right_child(), xl, xr)
+
+    def push_down(self, node):
+        if node.l < node.r and (node.a > 1 or node.b > 0):
+            node.left_child().val = (node.lchild.val * node.a + node.b) % self.mod
+            node.lchild.a = (node.lchild.a * node.a) % self.mod
+            node.lchild.b = (node.lchild.b * node.a + node.b) % self.mod
+
+            node.right_child().val = (node.rchild.val * node.a + node.b) % self.mod
+            node.rchild.a = (node.rchild.a * node.a) % self.mod
+            node.rchild.b = (node.rchild.b * node.a + node.b) % self.mod
+
+            node.a = 1
+            node.b = 0
+
+    def append(self, val: int) -> None:
+        self.update(self.root, self.sz, self.sz, val)
+        self.sz += 1
+
+    def addAll(self, inc: int) -> None:
+        self.update(self.root, 0, self.sz - 1, inc)
+
+    def multAll(self, m: int) -> None:
+        self.update(self.root, 0, self.sz - 1, -m)
+
+    def getIndex(self, idx: int) -> int:
+        if idx < self.sz:
+            return self.query(self.root, idx, idx)
         return -1
 
 
