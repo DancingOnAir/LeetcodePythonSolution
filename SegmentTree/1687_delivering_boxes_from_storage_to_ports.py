@@ -4,26 +4,35 @@ from heapq import heapify, heappush, heappop
 
 class Solution:
     def boxDelivering(self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int) -> int:
-        # heapify(boxes)
-        boxes.reverse()
-        res = 0
-        ports = list()
-        while len(boxes) > 0:
-            num_boxes = weight = 0
+        n = len(boxes)
+        # cost[i] 表示运输前面0到i - 1下标的box船需要运输的趟数，不考虑返程
+        cost = [0] * (n + 1)
+        for i in range(2, n + 1):
+            cost[i] = cost[i - 1]
+            if boxes[i - 2][0] != boxes[i - 1][0]:
+                cost[i] += 1
 
-            while num_boxes <= maxBoxes and weight <= maxWeight:
-                box = boxes[-1]
-                if num_boxes + 1 > maxBoxes or weight + box[1] > maxWeight:
-                    break
-
-                num_boxes += 1
-                weight += box[1]
-                boxes.pop()
-
-                if ports[-1] != box[0]:
-                    ports.append(box[0])
-
-        return res
+        dp = [0] * (n + 1)
+        j = k = 1
+        w = 0
+        for i in range(1, n + 1):
+            w += boxes[i - 1][1]
+            while i - j + 1 > maxBoxes or w > maxWeight:
+                w -= boxes[j - 1][1]
+                j += 1
+            c = cost[i] - cost[j]
+            dp[i] = dp[j - 1] + c + 2
+            # j与前面一个箱子不同，没有造成截断，没有优化的必要
+            # c == 0 最后一车的箱子全部相同，也没有优化的必要
+            if c == 0 or j == 1 or boxes[j - 2][0] != boxes[j - 1][0]:
+                continue
+            # 向后移动到不截断为止
+            if k <= j:
+                k = j + 1
+                while boxes[k - 1][0] == boxes[j - 2][0]:
+                    k += 1
+            dp[i] = min(dp[i], dp[k - 1] + (c - 1) + 2)
+        return dp[-1]
 
 
 def test_box_delivering():
@@ -35,4 +44,3 @@ def test_box_delivering():
 
 if __name__ == '__main__':
     test_box_delivering()
-
