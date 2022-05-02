@@ -3,6 +3,8 @@ from heapq import heapify, heappush, heappop
 
 
 class Solution:
+    # base case: for 1 box, we need 2 trips for one shipload to deliver it and return.
+    # general case: for 2 or more boxes case, adding one shipload would result in 2 trips + diff ports.
     def boxDelivering(self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int) -> int:
         n = len(boxes)
         # cost[i] 表示运输前面0到i - 1下标的box船需要运输的趟数，不考虑返程
