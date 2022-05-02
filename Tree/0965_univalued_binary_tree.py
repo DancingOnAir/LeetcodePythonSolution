@@ -18,8 +18,7 @@ class Solution:
         pre = root.val
         while len(dq) > 0:
             x = dq.popleft()
-            cur = x.val
-            if cur != pre:
+            if x.val != pre:
                 return False
 
             if x.left:
