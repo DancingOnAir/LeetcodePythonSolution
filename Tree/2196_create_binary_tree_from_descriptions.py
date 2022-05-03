@@ -13,24 +13,22 @@ class TreeNode:
 class Solution:
     def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
         memo = dict()
-        parents = set()
+        children = set()
 
         for x, y, z in descriptions:
+            children.add(y)
             if x not in memo:
                 memo[x] = TreeNode(x)
-                parents.add(x)
             if y not in memo:
                 memo[y] = TreeNode(y)
-            if y in parents:
-                parents.remove(y)
 
             if z:
                 memo[x].left = memo[y]
             else:
                 memo[x].right = memo[y]
 
-        for p in parents:
-            return memo[p]
+        root = (set(memo) - children).pop()
+        return memo[root]
 
 
 def level_order_traverse(root: Optional[TreeNode]):
