@@ -17,15 +17,13 @@ class Solution:
 
         for x, y, z in descriptions:
             children.add(y)
-            if x not in memo:
-                memo[x] = TreeNode(x)
-            if y not in memo:
-                memo[y] = TreeNode(y)
+            nx = memo.setdefault(x, TreeNode(x))
+            ny = memo.setdefault(y, TreeNode(y))
 
             if z:
-                memo[x].left = memo[y]
+                nx.left = ny
             else:
-                memo[x].right = memo[y]
+                nx.right = ny
 
         root = (set(memo) - children).pop()
         return memo[root]
