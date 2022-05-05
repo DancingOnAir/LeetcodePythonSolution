@@ -11,11 +11,35 @@ class TreeNode:
 
 
 class Solution:
+    # dfs
+    def isEvenOddTree(self, root: Optional[TreeNode]) -> bool:
+        def dfs(node: Optional[TreeNode], level: int) -> bool:
+            if not node:
+                return True
+            if level & 1:
+                if node.val & 1:
+                    return False
+            else:
+                if not (node.val & 1):
+                    return False
+
+            if level in m:
+                if level & 1:
+                    if m[level] <= node.val:
+                        return False
+                else:
+                    if m[level] >= node.val:
+                        return False
+            m[level] = node.val
+            return dfs(node.left, level + 1) and dfs(node.right, level + 1)
+
+        m = dict()
+        return dfs(root, 0)
+
+    # level order
     def isEvenOddTree(self, root: Optional[TreeNode]) -> bool:
         level = 0
-        dq = deque()
-        dq.append(root)
-
+        dq = deque([root])
         while len(dq) > 0:
             cur_level_size = len(dq)
             pre = float('inf') if level & 1 else 0
