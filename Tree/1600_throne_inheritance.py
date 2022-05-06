@@ -1,5 +1,5 @@
 from typing import List
-from collections import deque
+from collections import deque, defaultdict
 
 
 class TreeNode:
@@ -11,7 +11,7 @@ class TreeNode:
         self.children.append(TreeNode(child))
 
 
-class ThroneInheritance:
+class ThroneInheritance1:
     def __init__(self, kingName: str):
         self.root = TreeNode(kingName)
         self.m = set()
@@ -40,6 +40,30 @@ class ThroneInheritance:
             for child in reversed(x.children):
                 dq.appendleft(child)
         return res
+
+
+class ThroneInheritance:
+    def __init__(self, kingName: str):
+        self.nation = defaultdict(list)
+        self.king = kingName
+        self.dead = set()
+
+    def birth(self, parentName: str, childName: str) -> None:
+        self.nation[parentName].append(childName)
+
+    def death(self, name: str) -> None:
+        self.dead.add(name)
+
+    def getInheritanceOrder(self) -> List[str]:
+        self.res = list()
+        self.dfs(self.king)
+        return self.res
+
+    def dfs(self, cur):
+        if cur not in self.dead:
+            self.res.append(cur)
+        for child in self.nation[cur]:
+            self.dfs(child)
 
 
 def test_throne_inheritance():
