@@ -55,15 +55,15 @@ class ThroneInheritance:
         self.dead.add(name)
 
     def getInheritanceOrder(self) -> List[str]:
-        self.res = list()
-        self.dfs(self.king)
-        return self.res
+        def dfs(cur):
+            if cur not in self.dead:
+                res.append(cur)
+            for child in self.nation[cur]:
+                dfs(child)
 
-    def dfs(self, cur):
-        if cur not in self.dead:
-            self.res.append(cur)
-        for child in self.nation[cur]:
-            self.dfs(child)
+        res = list()
+        dfs(self.king)
+        return res
 
 
 def test_throne_inheritance():
