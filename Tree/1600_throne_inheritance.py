@@ -14,7 +14,7 @@ class TreeNode:
 class ThroneInheritance:
     def __init__(self, kingName: str):
         self.root = TreeNode(kingName)
-        self.death = set()
+        self.m = set()
 
     def birth(self, parentName: str, childName: str) -> None:
         dq = deque([self.root])
@@ -28,12 +28,18 @@ class ThroneInheritance:
                 dq.append(child)
 
     def death(self, name: str) -> None:
-        self.death.add(name)
+        self.m.add(name)
 
     def getInheritanceOrder(self) -> List[str]:
         res = list()
-
-
+        dq = deque([self.root])
+        while len(dq) > 0:
+            x = dq.popleft()
+            if x.val not in self.m:
+                res.append(x.val)
+            for child in reversed(x.children):
+                dq.appendleft(child)
+        return res
 
 
 def test_throne_inheritance():
@@ -41,7 +47,7 @@ def test_throne_inheritance():
     obj.birth("king", "andy")
     obj.birth("king", "bob")
     obj.birth("king", "catherine")
-    obj.birth("king", "matthew")
+    obj.birth("andy", "matthew")
     obj.birth("bob", "alex")
     obj.birth("bob", "asha")
 
