@@ -12,6 +12,21 @@ class TreeNode:
 
 class Solution:
     def addOneRow(self, root: Optional[TreeNode], val: int, depth: int) -> Optional[TreeNode]:
+        if not root or depth <= 0:
+            return None
+
+        if depth == 1:
+            return TreeNode(val, root)
+
+        if depth == 2:
+            root.left = TreeNode(val, root.left)
+            root.right = TreeNode(val, None, root.right)
+        else:
+            root.left = self.addOneRow(root.left, val, depth - 1)
+            root.right = self.addOneRow(root.right, val, depth - 1)
+        return root
+
+    def addOneRow1(self, root: Optional[TreeNode], val: int, depth: int) -> Optional[TreeNode]:
         if depth == 1:
             return TreeNode(val, root)
 
@@ -30,10 +45,7 @@ class Solution:
                         dq.append(x.right)
                 sz -= 1
 
-            if depth == 2:
-                break
             depth -= 1
-
         return root
 
 
