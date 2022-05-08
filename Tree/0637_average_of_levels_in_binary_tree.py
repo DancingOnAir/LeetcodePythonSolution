@@ -14,16 +14,19 @@ class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
         dq = deque([root])
         res = list()
-        while len(dq) > 0:
-            sz = len(dq)
-            res.append(sum(x.val for x in dq) / sz)
-            while sz > 0:
+
+        while dq:
+            k, total = len(dq), 0
+            for i in range(k):
                 x = dq.popleft()
+                total += x.val
+
                 if x.left:
                     dq.append(x.left)
                 if x.right:
                     dq.append(x.right)
-                sz -= 1
+            res.append(total / k)
+
         return res
 
 
