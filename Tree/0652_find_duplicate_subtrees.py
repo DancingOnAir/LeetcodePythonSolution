@@ -14,6 +14,17 @@ class Solution:
     def findDuplicateSubtrees(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
         def tuplify(root):
             if root:
+                k = frozenset([(root.val, tuplify(root.left), tuplify(root.right))])
+                trees[k].append(root)
+                return k
+
+        trees = defaultdict(list)
+        tuplify(root)
+        return [roots[0] for roots in trees.values() if roots[1:]]
+
+    def findDuplicateSubtrees1(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
+        def tuplify(root):
+            if root:
                 # the type of k is tuple
                 k = root.val, tuplify(root.left), tuplify(root.right)
                 trees[k].append(root)
