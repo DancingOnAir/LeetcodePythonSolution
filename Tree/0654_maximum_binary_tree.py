@@ -3,15 +3,27 @@ from typing import List, Optional
 
 # Definition for a binary tree node.
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None, idx=-1):
+    def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-        self.idx = idx
 
 
 class Solution:
+    # stack
     def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+        nodes = list()
+        for num in nums:
+            node = TreeNode(num)
+            while nodes and nodes[-1].val < num:
+                node.left = nodes.pop()
+            if nodes:
+                nodes[-1].right = node
+            nodes.append(node)
+        return nodes[0]
+
+    # merge and conquer
+    def constructMaximumBinaryTree1(self, nums: List[int]) -> Optional[TreeNode]:
         if nums:
             max_id, max_val = max(enumerate(nums), key=lambda x: x[1])
             return TreeNode(max_val, self.constructMaximumBinaryTree(nums[:max_id]), self.constructMaximumBinaryTree(nums[max_id+1:]))
