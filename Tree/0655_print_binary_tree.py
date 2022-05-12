@@ -13,11 +13,23 @@ class TreeNode:
 class Solution:
     def printTree(self, root: Optional[TreeNode]) -> List[List[str]]:
         def get_height(root: Optional[TreeNode]):
-            if root is None:
-                return 0
-            left_height = get_height(root.left)
-            right_height = get_height(root.right)
-            return max(left_height, right_height) + 1
+            return 0 if root is None else max(get_height(root.left), get_height(root.right)) + 1
+
+        def update_value(node: Optional[TreeNode], lo, hi, depth):
+            if node:
+                mid = (lo + hi) // 2
+                res[depth][mid] = str(node.val)
+                update_value(node.left, lo, mid, depth + 1)
+                update_value(node.right, mid + 1, hi, depth + 1)
+
+        depth = get_height(root)
+        res = [[""] * (2 ** depth - 1) for _ in range(depth)]
+        update_value(root, 0, 2 ** depth - 1, 0)
+        return res
+
+    def printTree1(self, root: Optional[TreeNode]) -> List[List[str]]:
+        def get_height(root: Optional[TreeNode]):
+            return 0 if root is None else max(get_height(root.left), get_height(root.right)) + 1
 
         def helper(node, r, c):
             if node:
@@ -30,7 +42,7 @@ class Solution:
 
         m = get_height(root)
         n = 2 ** m - 1
-        res = [["" for _ in range(n)] for _ in range(m)]
+        res = [[""] * n for _ in range(m)]
         helper(root, 0, (n - 1)//2)
 
         return res
