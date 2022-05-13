@@ -12,21 +12,21 @@ class TreeNode:
 
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        res = 1
-        dq = deque([(root, 1)])
+        if not root:
+            return 0
 
-        while len(dq) > 0:
-            sz = len(dq)
-            if sz > 1:
-                res = max(res, dq[-1][1] - dq[0][1] + 1)
-            while sz:
-                x = dq.popleft()
-                if x[0].left:
-                    dq.append((x[0].left, x[1] * 2))
-                if x[0].right:
-                    dq.append((x[0].right, x[1] * 2 + 1))
-                sz -= 1
+        res = 0
+        queue = [(root, 1)]
 
+        while queue:
+            res = max(res, queue[-1][1] - queue[0][1] + 1)
+            temp = list()
+            for node, i in queue:
+                if node.left:
+                    temp.append((node.left, 2 * i))
+                if node.right:
+                    temp.append((node.right, 2 * i + 1))
+            queue = temp
         return res
 
 
