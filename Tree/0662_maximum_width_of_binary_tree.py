@@ -12,6 +12,21 @@ class TreeNode:
 
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        res = 0
+        queue = [(1, root)]
+        while queue:
+            res = max(res, queue[-1][0] - queue[0][0] + 1)
+            # enumerate(iterable, start=0)
+            # eg. s1 = "geek", list(enumerate(s1, 2))
+            # result: [(2, 'g'), (3, 'e'), (4, 'e'), (5, 'k')]
+            queue = [child
+                     for idx, node in queue
+                     for child in enumerate((node.left, node.right), 2 * idx)
+                     if child[1]]
+
+        return res
+
+    def widthOfBinaryTree1(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
 
