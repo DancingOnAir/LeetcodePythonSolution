@@ -11,7 +11,21 @@ class TreeNode:
 
 
 class Solution:
+    # dfs
     def findSecondMinimumValue(self, root: Optional[TreeNode]) -> int:
+        def dfs(node: Optional[TreeNode]):
+            if node:
+                if root.val < node.val < self.res:
+                    self.res = node.val
+                if node.val == root.val:
+                    dfs(node.left)
+                    dfs(node.right)
+
+        self.res = float('inf')
+        dfs(root)
+        return self.res if self.res != float('inf') else -1
+
+    def findSecondMinimumValue1(self, root: Optional[TreeNode]) -> int:
         res = -1
         dq = deque([root])
 
