@@ -10,11 +10,25 @@ class TreeNode:
 
 
 class Solution:
-    # def longestUnivaluePath1(self, root: Optional[TreeNode]) -> int:
-    #     def dfs(node: Optional[TreeNode]) -> int:
-    #         pass
-
     def longestUnivaluePath(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+
+        def traverse(node: Optional[TreeNode], val: int) -> int:
+            if not node:
+                return 0
+
+            left = traverse(node.left, node.val)
+            right = traverse(node.right, node.val)
+            self.res = max(self.res, left + right)
+
+            return 0 if val != node.val else 1 + max(left, right)
+
+        self.res = 0
+        traverse(root, -1)
+        return self.res
+
+    def longestUnivaluePath1(self, root: Optional[TreeNode]) -> int:
         self.res = 0
 
         def dfs(node: Optional[TreeNode]) -> int:
