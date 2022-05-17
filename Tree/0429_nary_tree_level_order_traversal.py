@@ -9,7 +9,16 @@ class Node:
 
 
 class Solution:
+    # bfs
     def levelOrder(self, root: 'Node') -> List[List[int]]:
+        q, res = root and [root], []
+        while q:
+            res.append([node.val for node in q])
+            q = [child for node in q for child in node.children if child]
+        return res
+
+    # level order traverse
+    def levelOrder1(self, root: 'Node') -> List[List[int]]:
         if not root:
             return []
 
@@ -17,14 +26,14 @@ class Solution:
         res = list()
         while dq:
             sz = len(dq)
-            tmp = list()
+            level = list()
             while sz:
                 x = dq.popleft()
-                tmp.append(x.val)
+                level.append(x.val)
                 if x.children:
                     dq.extend(x.children)
                 sz -= 1
-            res.append(tmp)
+            res.append(level)
 
         return res
 
