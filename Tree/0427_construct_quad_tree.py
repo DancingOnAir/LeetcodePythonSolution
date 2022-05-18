@@ -13,7 +13,26 @@ class Node:
 
 
 class Solution:
+    def isLeaf(self, grid):
+        return all(grid[i][j] == grid[0][0]
+                   for i in range(len(grid))
+                   for j in range(len(grid)))
+
     def construct(self, grid: List[List[int]]) -> 'Node':
+        if not grid:
+            return None
+        if self.isLeaf(grid):
+            return Node(grid[0][0] == 1, True, None, None, None, None)
+
+        n = len(grid)
+        return Node(grid[0][0],
+                    False,
+                    self.construct1([row[:n//2] for row in grid[:n//2]]),
+                    self.construct1([row[n//2:] for row in grid[:n//2]]),
+                    self.construct1([row[:n//2] for row in grid[n//2:]]),
+                    self.construct1([row[n//2:] for row in grid[n//2:]]))
+
+    def construct1(self, grid: List[List[int]]) -> 'Node':
         def is_same_value(x, y, l):
             for i in range(x, x + l):
                 for j in range(y, y + l):
