@@ -12,12 +12,10 @@ class Node:
 
 class Solution:
     def intersect(self, quadTree1: 'Node', quadTree2: 'Node') -> 'Node':
-        if (quadTree1.isLeaf and quadTree1.val == 1) or (quadTree2.isLeaf and quadTree2.val == 1):
-            return Node(1, True, None, None, None, None)
-        elif quadTree1.isLeaf and quadTree1.val == 0:
-            return quadTree2
-        elif quadTree2.isLeaf and quadTree2.val == 0:
-            return quadTree1
+        if quadTree1.isLeaf:
+            return quadTree1.val and quadTree1 or quadTree2
+        elif quadTree2.isLeaf:
+            return quadTree2.val and quadTree2 or quadTree1
         else:
             top_left = self.intersect(quadTree1.topLeft, quadTree2.topLeft)
             top_right = self.intersect(quadTree1.topRight, quadTree2.topRight)
@@ -25,7 +23,7 @@ class Solution:
             bottom_right = self.intersect(quadTree1.bottomRight, quadTree2.bottomRight)
             if top_left.isLeaf and top_right.isLeaf and bottom_left.isLeaf and bottom_right.isLeaf and top_left.val == top_right.val == bottom_left.val == bottom_right.val:
                 return Node(top_left.val, True, None, None, None, None)
-            return Node(1, False, top_left, top_right, bottom_left, bottom_right)
+            return Node(0, False, top_left, top_right, bottom_left, bottom_right)
 
 
 def test_intersect():
