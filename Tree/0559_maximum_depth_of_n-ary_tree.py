@@ -9,8 +9,15 @@ class Node:
 
 
 class Solution:
-    # improved bfs
+    # recursive
     def maxDepth(self, root: 'Node') -> int:
+        if not root:
+            return 0
+
+        return 1 + max(map(self.maxDepth, root.children or [None]))
+
+    # improved bfs
+    def maxDepth2(self, root: 'Node') -> int:
         q = list()
         if root:
             q.append((root, 1))
