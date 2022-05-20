@@ -9,7 +9,20 @@ class Node:
 
 
 class Solution:
+    # improved bfs
     def maxDepth(self, root: 'Node') -> int:
+        q = list()
+        if root:
+            q.append((root, 1))
+
+        res = 0
+        for node, level in q:
+            res = level
+            q += [(child, level + 1) for child in node.children if child]
+        return res
+
+    # bfs
+    def maxDepth1(self, root: 'Node') -> int:
         if not root:
             return 0
 
