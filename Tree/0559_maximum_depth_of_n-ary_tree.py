@@ -9,8 +9,21 @@ class Node:
 
 
 class Solution:
-    # recursive
+    # dfs
     def maxDepth(self, root: 'Node') -> int:
+        stk = list()
+        if root:
+            stk.append((root, 1))
+        res = 0
+        while stk:
+            node, depth = stk.pop()
+            res = max(res, depth)
+            for child in node.children:
+                stk.append((child, depth + 1))
+        return res
+
+    # recursive
+    def maxDepth3(self, root: 'Node') -> int:
         if not root:
             return 0
 
@@ -39,9 +52,8 @@ class Solution:
         while q:
             tmp = list()
             for node in q:
-                if node.children:
-                    for child in node.children:
-                        tmp.append(child)
+                for child in node.children:
+                    tmp.append(child)
             q = tmp
             res += 1
         return res
