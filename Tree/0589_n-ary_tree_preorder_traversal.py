@@ -18,7 +18,7 @@ class Solution:
         while stk:
             x = stk.pop()
             res.append(x.val)
-            stk += reversed(x.children)
+            stk.extend(x.children[::-1])
         return res
 
 
