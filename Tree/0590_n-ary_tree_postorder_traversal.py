@@ -10,6 +10,20 @@ class Node:
 
 class Solution:
     def postorder(self, root: 'Node') -> List[int]:
+        res = list()
+        if not root:
+            return res
+
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            res.append(node.val)
+            stk.extend(node.children)
+
+        return res[::-1]
+
+    # two stack
+    def postorder2(self, root: 'Node') -> List[int]:
         if not root:
             return []
 
