@@ -10,6 +10,23 @@ class Node:
 
 class Solution:
     def postorder(self, root: 'Node') -> List[int]:
+        if not root:
+            return []
+
+        stk1 = [root]
+        stk2 = []
+
+        while stk1:
+            node = stk1.pop()
+            stk2.append(node)
+            stk1.extend(node.children)
+
+        res = list()
+        while stk2:
+            res.append(stk2.pop().val)
+        return res
+
+    def postorder1(self, root: 'Node') -> List[int]:
         self.res = list()
 
         def dfs(root):
