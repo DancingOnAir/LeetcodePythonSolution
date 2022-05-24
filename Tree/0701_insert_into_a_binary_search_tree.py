@@ -11,6 +11,16 @@ class TreeNode:
 
 class Solution:
     def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        if not root:
+            return TreeNode(val)
+        if root.val < val:
+            root.right = self.insertIntoBST(root.right, val)
+        else:
+            root.left = self.insertIntoBST(root.left, val)
+        return root
+
+    # recursive
+    def insertIntoBST1(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         def helper(root: Optional[TreeNode], parent: Optional[TreeNode]):
             if not root:
                 if not parent:
