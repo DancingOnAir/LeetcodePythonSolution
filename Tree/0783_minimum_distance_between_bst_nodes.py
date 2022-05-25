@@ -11,7 +11,23 @@ class TreeNode:
 
 
 class Solution:
+    def __init__(self):
+        self.res = float('inf')
+        self.pre = float('-inf')
+
+    # recursive
     def minDiffInBST(self, root: Optional[TreeNode]) -> int:
+        if root.left:
+            self.minDiffInBST(root.left)
+        self.res = min(self.res, root.val - self.pre)
+        self.pre = root.val
+
+        if root.right:
+            self.minDiffInBST(root.right)
+        return self.res
+
+    # iterative
+    def minDiffInBST1(self, root: Optional[TreeNode]) -> int:
         bst = list()
         stk = [root]
         while stk:
