@@ -11,13 +11,24 @@ class TreeNode:
 
 class Solution:
     def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def dfs(node: Optional[TreeNode]):
+            if not node:
+                return True
+            left, right = dfs(node.left), dfs(node.right)
+            if left:
+                node.left = None
+            if right:
+                node.right = None
+            return left and right and node.val == 0
+
+        return root if not dfs(root) else None
+
+    def pruneTree1(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root:
             return None
 
-        if root.left:
-            root.left = self.pruneTree(root.left)
-        if root.right:
-            root.right = self.pruneTree(root.right)
+        root.left = self.pruneTree(root.left)
+        root.right = self.pruneTree(root.right)
 
         if root.val == 0 and root.left is None and root.right is None:
             return None
