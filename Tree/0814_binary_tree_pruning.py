@@ -10,6 +10,7 @@ class TreeNode:
 
 
 class Solution:
+    # postorder
     def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         def dfs(node: Optional[TreeNode]):
             if not node:
@@ -23,6 +24,7 @@ class Solution:
 
         return root if not dfs(root) else None
 
+    # postorder
     def pruneTree1(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root:
             return None
