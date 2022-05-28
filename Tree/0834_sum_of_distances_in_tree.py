@@ -1,8 +1,37 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def sumOfDistancesInTree(self, n: int, edges: List[List[int]]) -> List[int]:
+        # root 当前节点, pre 当前节点的根节点
+        def postorder(root, pre):
+            for i in tree[root]:
+                if i != pre:
+                    postorder(i, root)
+                    count[root] += count[i]
+                    res[root] += res[i] + count[i]
+
+        def preorder(root, pre):
+            for i in tree[root]:
+                if i != pre:
+                    res[i] = res[root] - count[i] + n - count[i]
+                    preorder(i, root)
+            pass
+
+        tree = defaultdict(set)
+        count = [1] * n
+        res = [0] * n
+
+        for u, v in edges:
+            tree[u].add(v)
+            tree[v].add(u)
+
+        postorder(0, -1)
+        preorder(0, -1)
+        return res
+
+    def sumOfDistancesInTree1(self, n: int, edges: List[List[int]]) -> List[int]:
         # u: 当前节点, f: 当前节点的根节点
         def dfs1(u, f):
             dp[u] = 0
