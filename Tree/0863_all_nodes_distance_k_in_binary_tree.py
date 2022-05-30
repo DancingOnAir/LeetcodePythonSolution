@@ -12,6 +12,51 @@ class TreeNode:
 
 class Solution:
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+        def get_path(root, target, path):
+            if not root:
+                return False
+            if root.val == target.val:
+                return True
+
+            path.append(root)
+            if get_path(root.left, target, path) or get_path(root.right, target, path):
+                return True
+
+            path.pop()
+            return False
+
+        def get_k_distance_nodes(root, k):
+            if not root:
+                return []
+            if not k:
+                return [root.val]
+            return get_k_distance_nodes(root.left, k-1) + get_k_distance_nodes(root.right, k-1)
+
+        if not k:
+            return [target.val]
+        path = list()
+        if not get_path(root, target, path):
+            return []
+
+        res = get_k_distance_nodes(target, k)
+
+        cur = target
+        while path and k > 0:
+            parent = path.pop()
+            k -= 1
+
+            if k == 0:
+                res.append(parent.val)
+            elif parent.left == cur:
+                res += get_k_distance_nodes(parent.right, k-1)
+            else:
+                res += get_k_distance_nodes(parent.left, k-1)
+
+            cur = parent
+        return res
+
+    # dfs + bfs
+    def distanceK1(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
         def dfs(root, parent):
             if root and parent:
                 graph[parent.val].add(root.val)
@@ -47,7 +92,7 @@ def test_distance_k():
     node5 = TreeNode(5, TreeNode(6), node2)
     node1 = TreeNode(1, TreeNode(0), TreeNode(8))
     root = TreeNode(3, node5, node1)
-    assert sorted(solution.distanceK(root, TreeNode(5), 2)) == [1, 4, 7], 'wrong result'
+    assert sorted(solution.distanceK(root, node5, 2)) == [1, 4, 7], 'wrong result'
 
 
 if __name__ == '__main__':
