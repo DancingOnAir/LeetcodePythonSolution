@@ -10,6 +10,7 @@ class TreeNode:
         self.right = right
 
 
+# another solution: https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/discuss/969164/Python-BFS-and-Euler-Path-with-picture
 class Solution:
     # find nodes of the deepest level and LCA
     def subtreeWithAllDeepest(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
