@@ -1,5 +1,5 @@
 from typing import List, Optional
-
+from collections import defaultdict
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -11,6 +11,22 @@ class TreeNode:
 
 class Solution:
     def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
+        if n & 1 == 0:
+            return []
+
+        self.res = defaultdict(list)
+        self.res[1] = [TreeNode()]
+
+        for i in range(3, n+1, 2):
+            for j in range(1, n, 2):
+                k = i - 1 - j
+                for left in self.res[j]:
+                    for right in self.res[k]:
+                        self.res[i].append(TreeNode(0, left, right))
+        return self.res[n]
+
+    # dp
+    def allPossibleFBT2(self, n: int) -> List[Optional[TreeNode]]:
         if n & 1 == 0:
             return []
 
@@ -26,7 +42,7 @@ class Solution:
                         dp[i].append(root)
         return dp[n]
 
-    # Complexity: Time O(N!), Space O(N!).
+    # Complexity: Time O(N!), Space O(N!)
     def allPossibleFBT1(self, n: int) -> List[Optional[TreeNode]]:
         if n & 1 == 0:
             return []
