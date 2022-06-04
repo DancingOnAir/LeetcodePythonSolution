@@ -10,6 +10,23 @@ class TreeNode:
 
 
 class Solution:
+    # stack
+    def constructFromPrePost(self, preorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        stk = [TreeNode(preorder[0])]
+        i = 0
+        for v in preorder[1:]:
+            node = TreeNode(v)
+            while stk[-1].val == postorder[i]:
+                stk.pop()
+                i += 1
+
+            if not stk[-1].left:
+                stk[-1].left = node
+            else:
+                stk[-1].right = node
+            stk.append(node)
+
+        return stk[0]
 
     # recursive
     def constructFromPrePost(self, preorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
