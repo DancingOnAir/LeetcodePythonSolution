@@ -13,6 +13,23 @@ class Solution:
     def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
         if n & 1 == 0:
             return []
+
+        dp = [[] for _ in range(n + 1)]
+        dp[1] = [TreeNode()]
+
+        for i in range(3, n+1, 2):
+            for j in range(1, n, 2):
+                k = i - 1 - j
+                for left in dp[j]:
+                    for right in dp[k]:
+                        root = TreeNode(0, left, right)
+                        dp[i].append(root)
+        return dp[n]
+
+    # Complexity: Time O(N!), Space O(N!).
+    def allPossibleFBT1(self, n: int) -> List[Optional[TreeNode]]:
+        if n & 1 == 0:
+            return []
         if n == 1:
             return [TreeNode()]
 
