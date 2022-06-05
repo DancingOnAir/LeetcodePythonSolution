@@ -7,7 +7,33 @@ class TreeNode:
 
 
 class Solution:
-    def increasingBST(self, root: TreeNode) -> TreeNode:
+
+
+    # iterative + inorder
+    def increasingBST2(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return None
+
+        pre_head = TreeNode(float('inf'))
+        cur = pre_head
+        stk = [(root, False)]
+
+        while stk:
+            node, done = stk.pop()
+            if done:
+                cur.right = TreeNode(node.val)
+                cur.left = None
+                cur = cur.right
+            else:
+                if node.right:
+                    stk.append((node.right, False))
+                stk.append((node, True))
+                if node.left:
+                    stk.append((node.left, False))
+        return pre_head.right
+
+    # recursive + inorder
+    def increasingBST1(self, root: TreeNode) -> TreeNode:
         def inorder(root):
             if not root:
                 return
