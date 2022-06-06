@@ -11,7 +11,29 @@ class TreeNode:
 
 
 class CBTInserter:
+    def __init__(self, root: Optional[TreeNode]):
+        self.tree = [root]
+        for node in self.tree:
+            if node.left:
+                self.tree.append(node.left)
+            if node.right:
+                self.tree.append(node.right)
 
+    def insert(self, val: int) -> int:
+        n = len(self.tree)
+        self.tree.append(TreeNode(val))
+        if n & 1:
+            self.tree[(n - 1) // 2].left = self.tree[-1]
+        else:
+            self.tree[(n - 1) // 2].right = self.tree[-1]
+        return self.tree[(n - 1) // 2].val
+
+    def get_root(self) -> Optional[TreeNode]:
+        return self.tree[0]
+
+
+# bfs
+class CBTInserter1:
     def __init__(self, root: Optional[TreeNode]):
         self.root = root
         self.nxt = None
