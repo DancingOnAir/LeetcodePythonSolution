@@ -13,14 +13,11 @@ class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         if not root:
             return 0
-
-        left = right = 0
         if root.val > high:
-            left = self.rangeSumBST(root.left, low, high)
+            return self.rangeSumBST(root.left, low, high)
         elif root.val < low:
-            right = self.rangeSumBST(root.right, low, high)
-
-        return left + root.val + right
+            return self.rangeSumBST(root.right, low, high)
+        return self.rangeSumBST(root.left, low, high) + root.val + self.rangeSumBST(root.right, low, high)
 
 
 def test_range_sum_bst():
