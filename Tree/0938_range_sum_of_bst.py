@@ -10,7 +10,22 @@ class TreeNode:
 
 
 class Solution:
+    # iterative Time: O(n), space: O(h), where n is the number of total nodes, h is the height of the tree.
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+        stk = [root]
+        res = 0
+        while stk:
+            node = stk.pop()
+            if node:
+                if node.val > low:
+                    stk.append(node.left)
+                if node.val < high:
+                    stk.append(node.right)
+                if low <= node.val <= high:
+                    res += node.val
+        return res
+
+    def rangeSumBST2(self, root: Optional[TreeNode], low: int, high: int) -> int:
         if not root:
             return 0
 
