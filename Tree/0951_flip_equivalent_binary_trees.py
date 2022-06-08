@@ -10,7 +10,16 @@ class TreeNode:
 
 
 class Solution:
+    # straightforward & laconic
     def flipEquiv(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        if not root1 or not root2:
+            return not root1 and not root2
+        return root1.val == root2.val \
+               and ((self.flipEquiv(root1.left, root2.left) and self.flipEquiv(root1.right, root2.right))
+                    or self.flipEquiv(root1.left, root2.right) and self.flipEquiv(root1.right, root2.left))
+
+    # straightforward but messy
+    def flipEquiv1(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
         if not root1 and not root2:
             return True
         elif not (root1 and root2):
@@ -52,16 +61,16 @@ class Solution:
 
 def test_flip_equiv():
     solution = Solution()
-    # node51 = TreeNode(5, TreeNode(7), TreeNode(8))
-    # node21 = TreeNode(2, TreeNode(4), node51)
-    # node31 = TreeNode(3, TreeNode(6))
-    # root1 = TreeNode(1, node21, node31)
-    #
-    # node52 = TreeNode(5, TreeNode(8), TreeNode(7))
-    # node32 = TreeNode(3, None, TreeNode(6))
-    # node22 = TreeNode(2, TreeNode(4), node52)
-    # root2 = TreeNode(1, node32, node22)
-    # assert solution.flipEquiv(root1, root2), 'wrong result'
+    node51 = TreeNode(5, TreeNode(7), TreeNode(8))
+    node21 = TreeNode(2, TreeNode(4), node51)
+    node31 = TreeNode(3, TreeNode(6))
+    root1 = TreeNode(1, node21, node31)
+
+    node52 = TreeNode(5, TreeNode(8), TreeNode(7))
+    node32 = TreeNode(3, None, TreeNode(6))
+    node22 = TreeNode(2, TreeNode(4), node52)
+    root2 = TreeNode(1, node32, node22)
+    assert solution.flipEquiv(root1, root2), 'wrong result'
 
     assert not solution.flipEquiv(TreeNode(1, TreeNode(2), TreeNode(3)), TreeNode(1, TreeNode(2, TreeNode(3)))), 'wrong result'
 
