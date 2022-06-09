@@ -10,8 +10,29 @@ class TreeNode:
 
 
 class Solution:
-    # pythonic & gracious bfs solution
+    # dfs
+    # which is pow of 2 minus 1.
+    # And for x = 2^k -1, x has a property that x & (x+1) == 0.
+    # For a complete tree, it must satisfy at least one of the following condition:
+    # if left subtree is a full tree with l nodes,
+    # right subtree must have r nodes that l / 2 <= r <= l
+    # if right subtree is a full tree with r nodes,
+    # left subtree must have l nodes that r <= l <= r * 2 + 1.
     def isCompleteTree(self, root: Optional[TreeNode]) -> bool:
+        def dfs(root):
+            if not root:
+                return 0
+            l = dfs(root.left)
+            r = dfs(root.right)
+            if l & (l + 1) == 0 and l // 2 <= r <= l:
+                return l + r + 1
+            if r & (r + 1) == 0 and r <= l <= 2 * r + 1:
+                return l + r + 1
+            return -1
+        return dfs(root) > 0
+
+    # pythonic & gracious bfs solution
+    def isCompleteTree2(self, root: Optional[TreeNode]) -> bool:
         bfs = [root]
         i = 0
         while bfs[i]:
