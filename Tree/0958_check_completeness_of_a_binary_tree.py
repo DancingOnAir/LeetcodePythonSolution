@@ -10,7 +10,17 @@ class TreeNode:
 
 
 class Solution:
+    # pythonic & gracious bfs solution
     def isCompleteTree(self, root: Optional[TreeNode]) -> bool:
+        bfs = [root]
+        i = 0
+        while bfs[i]:
+            bfs.append(bfs[i].left)
+            bfs.append(bfs[i].right)
+            i += 1
+        return not any(bfs[i:])
+
+    def isCompleteTree1(self, root: Optional[TreeNode]) -> bool:
         stk = [root]
         flag = False
 
