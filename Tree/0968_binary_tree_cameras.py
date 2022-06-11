@@ -10,11 +10,37 @@ class TreeNode:
 
 
 class Solution:
-    # a: root必须放置1个摄像头的情况下，覆盖整棵树需要的摄像头数目
-    # b: 无论root是否安放摄像头，覆盖整棵树需要的摄像头数目
-    # c: 无论root本身是否被监控，覆盖两颗子树需要的摄像头数目
-    # a >= b >= c
+    # 贪婪，叶子节点不放监控是最优解法，从叶子节点往上处理，那么选择后序遍历
+    # 每个节点的3种状态：1.有摄像头，2.无摄像头，但是已被摄像头覆盖，3.无摄像头，也没被摄像头覆盖
+    # 初始状态，None，因为需要叶子节点的父节点有摄像头，那么叶子节点是状态3，所以None节点不能有摄像头，也不能无摄像头五覆盖，只能状态2
     def minCameraCover(self, root: Optional[TreeNode]) -> int:
+        def postorder(root):
+            if not root:
+                return 2
+
+            left = postorder(root.left)
+            right = postorder(root.right)
+
+            if left == 2 and right == 2:
+                return 3
+            elif left == 3 or right == 3:
+                self.res += 1
+                return 1
+            elif left == 1 or right == 1:
+                return 2
+            return -1
+
+        self.res = 0
+        if postorder(root) == 3:
+            self.res += 1
+
+        return self.res
+
+    # a: root必须放置1个摄像头的情况下，覆盖以root为根节点的整棵树需要的摄像头数目
+    # b: 无论root是否安放摄像头，覆盖以root为根节点的整棵树需要的摄像头数目
+    # c: 无论root本身是否被监控，覆盖root的两颗子树需要的摄像头数目
+    # a >= b >= c
+    def minCameraCover1(self, root: Optional[TreeNode]) -> int:
         def dfs(root):
             if not root:
                 return float('inf'), 0, 0
