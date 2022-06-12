@@ -10,6 +10,31 @@ class TreeNode:
 
 
 class Solution:
+    # stack
+    def flipMatchVoyage(self, root: Optional[TreeNode], voyage: List[int]) -> List[int]:
+        res = list()
+        stk = [root]
+        idx = 0
+
+        while stk:
+            node = stk.pop()
+            if not node:
+                continue
+            if node.val != voyage[idx]:
+                return [-1]
+
+            idx += 1
+            if node.right and node.right.val == voyage[idx]:
+                if node.left:
+                    res.append(node.val)
+                stk.extend([node.left, node.right])
+            else:
+                stk.extend([node.right, node.left])
+
+        return res
+
+
+    # preorder
     def flipMatchVoyage(self, root: Optional[TreeNode], voyage: List[int]) -> List[int]:
         def preorder(root):
             if not root or self.idx >= len(voyage):
@@ -36,7 +61,7 @@ class Solution:
 
 def test_flip_match_voyage():
     solution = Solution()
-    assert solution.flipMatchVoyage(TreeNode(1, TreeNode(2)), [2, 1]) == [-1]
+    # assert solution.flipMatchVoyage(TreeNode(1, TreeNode(2)), [2, 1]) == [-1]
     assert solution.flipMatchVoyage(TreeNode(1, TreeNode(2), TreeNode(3)), [1, 3, 2]) == [1]
     assert solution.flipMatchVoyage(TreeNode(1, TreeNode(2), TreeNode(3)), [1, 2, 3]) == []
 
