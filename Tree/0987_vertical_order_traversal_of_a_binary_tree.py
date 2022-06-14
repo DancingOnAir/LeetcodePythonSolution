@@ -11,7 +11,36 @@ class TreeNode:
 
 class Solution:
     def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
-        pass
+        if not root:
+            return []
+
+        stk = [(root, 0, 0)]
+        q = list()
+        while stk:
+            node, r, c = stk.pop()
+            q.append((node.val, r, c))
+
+            if node.left:
+                stk.append((node.left, r + 1, c - 1))
+            if node.right:
+                stk.append((node.right, r + 1, c + 1))
+        q.sort(key=lambda x: (x[2], x[1], x[0]))
+
+        res = list()
+        i = float('inf')
+        cur = list()
+        for v, r, c in q:
+            if i == c:
+                cur.append(v)
+            else:
+                i = c
+                if cur:
+                    res.append(cur)
+                cur = [v]
+
+        if cur:
+            res.append(cur)
+        return res
 
 
 def test_vertical_traversal():
