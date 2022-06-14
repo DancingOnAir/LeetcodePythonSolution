@@ -1,4 +1,5 @@
 from typing import Optional, List
+from collections import defaultdict
 
 
 # Definition for a binary tree node.
@@ -10,7 +11,27 @@ class TreeNode:
 
 
 class Solution:
+    # dfs
     def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
+        m = defaultdict(list)
+        self.min_l, self.max_l = float('inf'), float('-inf')
+
+        def dfs(root, x, y):
+            self.min_l = min(self.min_l, x)
+            self.max_l = max(self.max_l, x)
+            m[x].append((y, root.val))
+            if root.left:
+                dfs(root.left, x - 1, y + 1)
+            if root.right:
+                dfs(root.right, x + 1, y + 1)
+
+        dfs(root, 0, 0)
+        res = list()
+        for i in range(self.min_l, self.max_l + 1):
+            res += [[j for i, j in sorted(m[i])]]
+        return res
+
+    def verticalTraversal1(self, root: Optional[TreeNode]) -> List[List[int]]:
         if not root:
             return []
 
