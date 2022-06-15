@@ -11,7 +11,27 @@ class TreeNode:
 
 class Solution:
     def smallestFromLeaf(self, root: Optional[TreeNode]) -> str:
-        pass
+        def dfs(root):
+            if not root:
+                return
+
+            if root.left is None and root.right is None:
+                self.cur.append(chr(root.val + ord('a')))
+                self.m.append(''.join(self.cur[::-1]))
+                self.cur.pop()
+                return
+
+            self.cur.append(chr(root.val + ord('a')))
+            if root.left:
+                dfs(root.left)
+            if root.right:
+                dfs(root.right)
+            self.cur.pop()
+
+        self.m = list()
+        self.cur = list()
+        dfs(root)
+        return min(self.m)
 
 
 def test_smallest_from_leaf():
