@@ -11,6 +11,28 @@ class TreeNode:
 
 class Solution:
     def smallestFromLeaf(self, root: Optional[TreeNode]) -> str:
+        def postorder(node):
+            if not node:
+                return []
+
+            left = postorder(node.left)
+            right = postorder(node.right)
+
+            res = list()
+            if not left and not right:
+                return [chr(node.val + ord('a'))]
+
+            for ch in left:
+                res.append(ch + chr(node.val + ord('a')))
+            for ch in right:
+                res.append(ch + chr(node.val + ord('a')))
+            return res
+
+        letters = sorted(postorder(root))
+        return letters[0]
+
+    # dfs + backtrack
+    def smallestFromLeaf1(self, root: Optional[TreeNode]) -> str:
         def dfs(root):
             if not root:
                 return
