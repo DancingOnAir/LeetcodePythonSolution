@@ -10,7 +10,19 @@ class TreeNode:
 
 
 class Solution:
+    # bfs, level order
     def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+        stk = [root]
+        while stk:
+            p = {child.val: node.val for node in stk for child in (node.left, node.right) if child}
+            stk = [child for node in stk for child in (node.left, node.right) if child]
+            if x in p and y in p and p[x] != p[y]:
+                return True
+
+        return False
+
+    # dfs, preorder
+    def isCousins1(self, root: Optional[TreeNode], x: int, y: int) -> bool:
         def preorder(node, pre, depth, val):
             if node:
                 if node.val == val:
