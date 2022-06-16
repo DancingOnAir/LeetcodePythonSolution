@@ -12,20 +12,14 @@ class TreeNode:
 class Solution:
     def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
         def preorder(node, pre, depth, val):
-            if not node:
-                return pre, -1
+            if node:
+                if node.val == val:
+                    return pre, depth
+                return preorder(node.left, node, depth + 1, val) or preorder(node.right, node, depth + 1, val)
 
-            if node.val == val:
-                return pre, depth
-            left = preorder(node.left, node, depth + 1, val)
-            right = preorder(node.right, node, depth + 1, val)
-
-            return left if left[1] >= 0 else right
-
-        # return preorder(root, None, 0, x) == preorder(root, None, 0, y)
-        rx = preorder(root, None, 0, x)
-        ry = preorder(root, None, 0, y)
-        return rx[1] == ry[1] and rx[0] != ry[0]
+        px, dx = preorder(root, None, 0, x)
+        py, dy = preorder(root, None, 0, y)
+        return dx == dy and px != py
 
 
 def test_is_cousins():
