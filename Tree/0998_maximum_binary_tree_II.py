@@ -10,7 +10,32 @@ class TreeNode:
 
 
 class Solution:
+    # iterative
     def insertIntoMaxTree(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        pre, cur = None, root
+        while cur and cur.val > val:
+            pre, cur = cur, cur.right
+        node = TreeNode(val)
+        node.left = cur
+        if pre:
+            pre.right = node
+
+        return root if root.val > val else node
+
+    # if val is the largest, i = B.length-1, the root node's value is val, i=0 to i-1 are in the left child of root.
+    # This explains why when val > root.val, root should be the left child of new node with value val.
+    # Else val is not the largest, the new node with value val is always the right child of root.
+    # recursive
+    def insertIntoMaxTree2(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        if root and root.val > val:
+            root.right = self.insertIntoMaxTree1(root.right, val)
+            return root
+        node = TreeNode(val)
+        node.left = root
+        return node
+
+    # inorder recursive
+    def insertIntoMaxTree1(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         a = list()
 
         def inorder(node: Optional[TreeNode]):
