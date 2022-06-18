@@ -11,6 +11,17 @@ class TreeNode:
 
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        def build_tree(arr: List[int], val: int):
+            if not arr or arr[-1] > val:
+                return None
+            node = TreeNode(arr.pop())
+            node.left = build_tree(arr, node.val)
+            node.right = build_tree(arr, val)
+            return node
+        return build_tree(preorder[::-1], float('inf'))
+
+    # recursive
+    def bstFromPreorder1(self, preorder: List[int]) -> Optional[TreeNode]:
         def helper(order):
             if not order:
                 return None
