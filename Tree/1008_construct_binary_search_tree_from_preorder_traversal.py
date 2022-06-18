@@ -1,4 +1,6 @@
+import bisect
 from typing import List, Optional
+from bisect import bisect_right
 
 
 # Definition for a binary tree node.
@@ -10,6 +12,15 @@ class TreeNode:
 
 
 class Solution:
+    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        if not preorder:
+            return None
+        root = TreeNode(preorder[0])
+        i = bisect_right(preorder, root.val)
+        root.left = self.bstFromPreorder(preorder[1: i])
+        root.right = self.bstFromPreorder(preorder[i:])
+        return root
+
     # recursive
     def bstFromPreorder2(self, preorder: List[int]) -> Optional[TreeNode]:
         def build_tree(arr: List[int], val: int):
@@ -22,7 +33,7 @@ class Solution:
         return build_tree(preorder[::-1], float('inf'))
 
     # recursive
-    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+    def bstFromPreorder1(self, preorder: List[int]) -> Optional[TreeNode]:
         # def helper(order):
         #     if not order:
         #         return None
