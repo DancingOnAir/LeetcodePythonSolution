@@ -10,7 +10,22 @@ class TreeNode:
 
 
 class Solution:
+    # filter(function, iterable)
+    #  If function is None, the identity function is assumed, that is, all elements of iterable that are false are removed.
     def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:
+        def dfs(node):
+            if not node.left and not node.right:
+                self.res += node.val
+            for child in filter(None, [node.left, node.right]):
+                child.val += node.val * 2
+                dfs(child)
+
+        self.res = 0
+        dfs(root)
+        return self.res
+
+    # recursive
+    def sumRootToLeaf1(self, root: Optional[TreeNode]) -> int:
         def preorder(node, cur):
             cur.append(str(node.val))
             if not node.left and not node.right:
