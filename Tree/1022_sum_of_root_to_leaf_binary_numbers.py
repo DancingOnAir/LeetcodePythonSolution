@@ -10,9 +10,17 @@ class TreeNode:
 
 
 class Solution:
+    def sumRootToLeaf(self, root: Optional[TreeNode], val=0) -> int:
+        if not root:
+            return 0
+        val = val * 2 + root.val
+        if root.left == root.right:
+            return val
+        return self.sumRootToLeaf(root.left, val) + self.sumRootToLeaf(root.right, val)
+
     # filter(function, iterable)
     #  If function is None, the identity function is assumed, that is, all elements of iterable that are false are removed.
-    def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:
+    def sumRootToLeaf2(self, root: Optional[TreeNode]) -> int:
         def dfs(node):
             if not node.left and not node.right:
                 self.res += node.val
