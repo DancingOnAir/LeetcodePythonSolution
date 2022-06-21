@@ -1,6 +1,7 @@
 from typing import Optional
 import re
 
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -11,6 +12,29 @@ class TreeNode:
 
 class Solution:
     def recoverFromPreorder(self, traversal: str) -> Optional[TreeNode]:
+        stk, i = list(), 0
+        while i < len(traversal):
+            level, val = 0, ''
+            while i < len(traversal) and traversal[i] == '-':
+                level += 1
+                i += 1
+            while i < len(traversal) and traversal[i] != '-':
+                val += traversal[i]
+                i += 1
+            while len(stk) > level:
+                stk.pop()
+
+            node = TreeNode(int(val))
+            if stk and stk[-1].left is None:
+                stk[-1].left = node
+            elif stk:
+                stk[-1].right= node
+            stk.append(node)
+
+        return stk[0]
+
+    # re + dfs
+    def recoverFromPreorder1(self, traversal: str) -> Optional[TreeNode]:
         vals = [(len(s[1]), int(s[2])) for s in re.findall("((-*)(\d+))", traversal)][::-1]
 
         def helper(depth):
