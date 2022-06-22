@@ -11,6 +11,7 @@ class TreeNode:
 
 
 class Solution:
+    # iterative + stack
     def recoverFromPreorder(self, traversal: str) -> Optional[TreeNode]:
         stk, i = list(), 0
         while i < len(traversal):
