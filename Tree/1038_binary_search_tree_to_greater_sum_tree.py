@@ -14,6 +14,19 @@ class Solution:
         self.val = 0
 
     def bstToGst(self, root: TreeNode) -> TreeNode:
+        if root:
+            node, stk, pre_sum = root, list(), 0
+            while node or stk:
+                while node:
+                    stk.append(node)
+                    node = node.right
+
+                node = stk.pop()
+                node.val = pre_sum = pre_sum + node.val
+                node = node.left
+        return root
+
+    def bstToGst2(self, root: TreeNode) -> TreeNode:
         if root.right:
             self.bstToGst(root.right)
 
