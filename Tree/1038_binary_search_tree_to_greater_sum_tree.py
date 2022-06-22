@@ -10,7 +10,21 @@ class TreeNode:
 
 
 class Solution:
+    def __init__(self):
+        self.val = 0
+
     def bstToGst(self, root: TreeNode) -> TreeNode:
+        if root.right:
+            self.bstToGst(root.right)
+
+        self.val += root.val
+        root.val = self.val
+
+        if root.left:
+            self.bstToGst(root.left)
+        return root
+
+    def bstToGst1(self, root: TreeNode) -> TreeNode:
         vals = list()
         node = root
         stk = list()
