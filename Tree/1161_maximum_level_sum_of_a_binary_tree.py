@@ -10,6 +10,25 @@ class TreeNode:
 
 
 class Solution:
+    # dfs
+    def maxLevelSum(self, root: Optional[TreeNode]) -> int:
+        def dfs(node, m, level):
+            if not node:
+                return
+
+            if len(m) == level:
+                m.append(node.val)
+            else:
+                m[level] += node.val
+
+            dfs(node.left, m, level+1)
+            dfs(node.right, m, level+1)
+
+        m = list()
+        dfs(root, m, 0)
+        return m.index(max(m)) + 1
+
+    # bfs
     def maxLevelSum(self, root: Optional[TreeNode]) -> int:
         res, q, depth = (float('-inf'), 0), [root], -1
         while q:
