@@ -11,6 +11,15 @@ class TreeNode:
 
 class Solution:
     def maxLevelSum(self, root: Optional[TreeNode]) -> int:
+        res, q, depth = (float('-inf'), 0), [root], -1
+        while q:
+            res = max(res, (sum(node.val for node in q), depth))
+            q = [child for node in q for child in (node.left, node.right) if child]
+            depth -= 1
+        return -res[1]
+
+    # bfs + queue
+    def maxLevelSum1(self, root: Optional[TreeNode]) -> int:
         res = level = 0
         max_sum = float('-inf')
         stk = [root]
