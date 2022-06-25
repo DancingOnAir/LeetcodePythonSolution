@@ -1,8 +1,26 @@
 from typing import List
-
+from math import log2
 
 class Solution:
+    # len(bin(x)) - 4 is the level. eg len(bin(2)) = 0
+    # the smallest and biggest together we get 3 * 2 ** (len(bin(x)) - 4) - 1
+    # node + mirrored_node = smallest + biggest
+    # -> zigzag_parent = smallest + biggest - nonzigzag_parent
     def pathInZigZagTree(self, label: int) -> List[int]:
+        level = int(log2(label))
+        nonzigzag_parent = 3 * 2 ** level - 1 - label
+
+        res = list()
+        while label:
+            res.append(label)
+            label //= 2
+            nonzigzag_parent //= 2
+            label, nonzigzag_parent = nonzigzag_parent, label
+        return res[::-1]
+
+
+    # straight forward
+    def pathInZigZagTree1(self, label: int) -> List[int]:
         level = 0
         label_idx = -1
         arr = list()
