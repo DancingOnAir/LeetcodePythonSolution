@@ -11,6 +11,23 @@ class TreeNode:
 
 class Solution:
     def lcaDeepestLeaves(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        # get subtree deepest depth
+        def helper(node, depth):
+            self.deepest = max(self.deepest, depth)
+            if not node:
+                return depth
+            left = helper(node.left, depth + 1)
+            right = helper(node.right, depth + 1)
+            if left == right == self.deepest:
+                self.lca = node
+            return max(left, right)
+
+        self.deepest = 0
+        self.lca = None
+        helper(root, 0)
+        return self.lca
+
+    def lcaDeepestLeaves1(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         def LCA(root, nodes):
             if not root or root in nodes:
                 return root
