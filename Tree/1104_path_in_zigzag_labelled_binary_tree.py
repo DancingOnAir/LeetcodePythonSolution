@@ -18,7 +18,6 @@ class Solution:
             label, nonzigzag_parent = nonzigzag_parent, label
         return res[::-1]
 
-
     # straight forward
     def pathInZigZagTree1(self, label: int) -> List[int]:
         level = 0
