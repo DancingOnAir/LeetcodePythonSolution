@@ -1,4 +1,4 @@
-from typing import Optional
+from collections import deque
 
 
 # Definition for a binary tree node.
@@ -10,7 +10,21 @@ class TreeNode:
 
 
 class Solution:
+    # bfs
     def sumEvenGrandparent(self, root: TreeNode) -> int:
+        res = 0
+        dq = deque([(root, False)])
+        while dq:
+            parent, even_grandparent = dq.popleft()
+            even_parent = (parent.val % 2 == 0)
+            for child in (parent.left, parent.right):
+                if child:
+                    dq.append((child, even_parent))
+                    res += child.val if even_grandparent else 0
+        return res
+
+    # dfs
+    def sumEvenGrandparent1(self, root: TreeNode) -> int:
         def dfs(node, p, g):
             if not node:
                 return
