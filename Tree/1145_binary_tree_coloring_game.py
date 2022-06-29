@@ -10,10 +10,25 @@ class TreeNode:
 
 
 class Solution:
+    def btreeGameWinningMove(self, root: Optional[TreeNode], n: int, x: int) -> bool:
+        c = [0, 0]
+        def postorder(node):
+            if not node:
+                return 0
+
+            left = postorder(node.left)
+            right = postorder(node.right)
+            if node.val == x:
+                c[0] = left
+                c[1] = right
+
+            return left + right + 1
+        return postorder(root) // 2 < max(max(c), n - sum(c) - 1)
+
     # y的最优策略是放在x邻近的节点上，
     # 计算可能存在的(最多3个)子树分别有多少节点, 选节点数最大的那个子树作为y的起始点.
     # 当选取的那个子树节点数大于剩余所有的节点数那么为true，否则为false.
-    def btreeGameWinningMove(self, root: Optional[TreeNode], n: int, x: int) -> bool:
+    def btreeGameWinningMove1(self, root: Optional[TreeNode], n: int, x: int) -> bool:
         def preorder(node):
             if not node:
                 return

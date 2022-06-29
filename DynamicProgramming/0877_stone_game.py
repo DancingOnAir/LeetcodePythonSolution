@@ -11,6 +11,11 @@ class Solution:
         return dp[0]
 
     # 2d dp
+    # dp[i][j] means the biggest number of stones you can get more than opponent picking piles in piles[i] ~ piles[j].
+    # You can first pick piles[i] or piles[j].
+    # If you pick piles[i], your result will be piles[i] - dp[i + 1][j],
+    # Notice: here is '-', not '+', coz the previous round is opponent, dp[i + 1][j] is the biggest number of the opponent can get more than you.
+    # If you pick piles[j], your result will be piles[j] - dp[i][j - 1]
     def stoneGame2(self, piles: List[int]) -> bool:
         n = len(piles)
         dp = [[0] * n for _ in range(n)]
