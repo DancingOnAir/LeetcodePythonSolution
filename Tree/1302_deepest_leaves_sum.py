@@ -12,11 +12,33 @@ class TreeNode:
 
 class Solution:
     def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
+        def find_deepest_level(node):
+            if not node:
+                return 0
+            return max(find_deepest_level(node.left), find_deepest_level(node.right)) + 1
+
+        def get_deepest_sum(node, i):
+            if not node:
+                return 0
+
+            if depth == i:
+                self.res += node.val
+            get_deepest_sum(node.left, i + 1)
+            get_deepest_sum(node.right, i + 1)
+
+        self.res = 0
+        depth = find_deepest_level(root)
+        get_deepest_sum(root, 1)
+        return self.res
+
+    # level order
+    def deepestLeavesSum2(self, root: Optional[TreeNode]) -> int:
         q = [root]
         while q:
             pre, q = q, [child for node in q for child in (node.left, node.right) if child]
         return sum(node.val for node in pre)
 
+    # preorder + defaultdict
     def deepestLeavesSum1(self, root: Optional[TreeNode]) -> int:
         def helper(node, depth):
             if not node:
