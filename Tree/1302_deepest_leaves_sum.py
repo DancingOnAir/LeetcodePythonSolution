@@ -12,8 +12,13 @@ class TreeNode:
 
 class Solution:
     def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
-        def helper(node, depth):
+        q = [root]
+        while q:
+            pre, q = q, [child for node in q for child in (node.left, node.right) if child]
+        return sum(node.val for node in pre)
 
+    def deepestLeavesSum1(self, root: Optional[TreeNode]) -> int:
+        def helper(node, depth):
             if not node:
                 return
             self.deepest = max(self.deepest, depth)
