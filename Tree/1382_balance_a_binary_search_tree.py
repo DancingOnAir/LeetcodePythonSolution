@@ -18,11 +18,18 @@ class Solution:
             self.tree.append(node.val)
             inorder(node.right)
 
+        def helper(arr):
+            if not arr:
+                return None
+            mid = len(arr) // 2
+            node = TreeNode(arr[mid])
+            node.left = helper(arr[: mid])
+            node.right = helper(arr[mid + 1:])
+            return node
+
         self.tree = list()
         inorder(root)
-
-
-        pass
+        return helper(self.tree)
 
 
 def test_balance_bst():
@@ -30,7 +37,7 @@ def test_balance_bst():
 
     root1 = TreeNode(1, None, TreeNode(2, None, TreeNode(3, None, TreeNode(4))))
     root2 = solution.balanceBST(root1)
-    assert root2.val == 2, 'wrong result'
+    assert root2.val == 3, 'wrong result'
 
 
 if __name__ == '__main__':
