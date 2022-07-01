@@ -13,6 +13,24 @@ class Solution:
     def balanceBST(self, root: TreeNode) -> TreeNode:
         def inorder(node):
             if not node:
+                return []
+            return inorder(node.left) + [node.val] + inorder(node.right)
+
+        def build(l, r):
+            if l > r:
+                return None
+            m = l + (r - l) // 2
+            node = TreeNode(self.tree[m])
+            node.left = build(l, m - 1)
+            node.right = build(m + 1, r)
+            return node
+
+        self.tree = inorder(root)
+        return build(0, len(self.tree) - 1)
+
+    def balanceBST1(self, root: TreeNode) -> TreeNode:
+        def inorder(node):
+            if not node:
                 return
             inorder(node.left)
             self.tree.append(node.val)
