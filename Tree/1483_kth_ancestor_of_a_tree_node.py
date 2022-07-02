@@ -1,24 +1,25 @@
 from typing import List
+from math import log2
 
 
 class TreeAncestor:
+    # self.dp[][] whose i, jth element indicates the ith node's 2^j
     def __init__(self, n: int, parent: List[int]):
-        # parent = [(p, i) for i, p in enumerate(parent)]
-        # parent.sort()
-        self.parent = parent
-        pass
-
-    # def build(self, parent):
-    #     for p, _ in parent:
+        depth = 1 + int(log2(n))
+        self.dp = [[-1] * depth for _ in range(n)]
+        for j in range(n):
+            for i in range(depth):
+                if j == 0:
+                    self.dp[i][0] = parent[i]
+                elif self.dp[i][j - 1] != -1:
+                    self.dp[i][j] = self.dp[self.dp[i][j - 1]][j - 1]
 
     def getKthAncestor(self, node: int, k: int) -> int:
-        res = node
-        while k:
-            if not res:
-                return -1
-            res = self.parent[res]
-            k -= 1
-        return res
+        while k > 0 and node != -1:
+            i = int(log2(k))
+            node = self.dp[node][i]
+            k -= (1 << i)
+        return node
 
 
 # Your TreeAncestor object will be instantiated and called as such:
