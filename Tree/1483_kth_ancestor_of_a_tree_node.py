@@ -7,8 +7,8 @@ class TreeAncestor:
     def __init__(self, n: int, parent: List[int]):
         depth = 1 + int(log2(n))
         self.dp = [[-1] * depth for _ in range(n)]
-        for j in range(n):
-            for i in range(depth):
+        for j in range(depth):
+            for i in range(n):
                 if j == 0:
                     self.dp[i][0] = parent[i]
                 elif self.dp[i][j - 1] != -1:
