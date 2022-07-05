@@ -9,14 +9,19 @@ class TreeNode:
         self.right = right
 
 
-# class FindElements:
-#     def __init__(self, root: Optional[TreeNode]):
-#
-#
-#     def find(self, target: int) -> bool:
-
-
+# https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree/discuss/431229/Python-Special-Way-for-find()-without-HashSet-O(1)-Space-O(logn)-Time
 class FindElements:
+    def __init__(self, root: Optional[TreeNode]):
+        self.root = root
+
+    def find(self, target: int) -> bool:
+        node = self.root
+        for bit in bin(target + 1)[3:]:
+            node = node and (node.left, node.right)[int(bit)]
+        return bool(node)
+
+
+class FindElements1:
     def __init__(self, root: Optional[TreeNode]):
         self.tree = set()
         self.preorder(root, 0)
