@@ -9,28 +9,25 @@ class TreeNode:
         self.right = right
 
 
+# class FindElements:
+#     def __init__(self, root: Optional[TreeNode]):
+#
+#
+#     def find(self, target: int) -> bool:
+
+
 class FindElements:
     def __init__(self, root: Optional[TreeNode]):
         self.tree = set()
-        self.preorder(root, -1, False)
-        pass
+        self.preorder(root, 0)
 
-    def preorder(self, root: Optional[TreeNode], parent: int, is_left: bool):
+    def preorder(self, root: Optional[TreeNode], idx: int):
         if not root:
             return
 
-        if parent == -1:
-            val = 0
-        elif is_left:
-            val = parent * 2 + 1
-        else:
-            val = parent * 2 + 2
-
-        self.tree.add(val)
-        if root.left:
-            self.preorder(root.left, val, True)
-        if root.right:
-            self.preorder(root.right, val, False)
+        self.tree.add(idx)
+        self.preorder(root.left, idx * 2 + 1)
+        self.preorder(root.right, idx * 2 + 2)
 
     def find(self, target: int) -> bool:
         return target in self.tree
