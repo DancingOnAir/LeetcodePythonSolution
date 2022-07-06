@@ -10,7 +10,33 @@ class TreeNode:
 
 
 class Solution:
+    # O(n)
     def getAllElements(self, root1: TreeNode, root2: TreeNode) -> List[int]:
+        def helper(stk, node):
+            while node:
+                stk.append(node)
+                node = node.left
+
+        stk1, stk2 = list(), list()
+        helper(stk1, root1)
+        helper(stk2, root2)
+
+        res = list()
+        while stk1 or stk2:
+            if not stk2:
+                stk = stk1
+            elif not stk1:
+                stk = stk2
+            else:
+                stk = stk1 if stk1[-1].val < stk2[-1].val else stk2
+
+            node = stk.pop()
+            res.append(node.val)
+            helper(stk, node.right)
+        return res
+
+    # inorder + sort
+    def getAllElements1(self, root1: TreeNode, root2: TreeNode) -> List[int]:
         res = list()
 
         def inorder(node):
