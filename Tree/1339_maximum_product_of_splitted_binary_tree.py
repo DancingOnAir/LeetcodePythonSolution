@@ -11,24 +11,18 @@ class TreeNode:
 
 class Solution:
     def maxProduct(self, root: Optional[TreeNode]) -> int:
-        def preorder(node, flag):
+        def dfs(node):
             if not node:
                 return 0
-
-            if flag:
-                self.nodes.append(node)
-            left = preorder(node.left, flag)
-            right = preorder(node.right, flag)
+            left = dfs(node.left)
+            right = dfs(node.right)
+            self.res = max(self.res, left * (total - left), right * (total - right))
             return left + right + node.val
 
-        self.nodes = list()
-        total = preorder(root, True)
-        res = 0
-        for node in self.nodes:
-            subtree = preorder(node, False)
-            res = max(res, subtree * (total - subtree))
-
-        return res % (10 ** 9 + 7)
+        self.res = total = 0
+        total = dfs(root)
+        dfs(root)
+        return self.res % (10 ** 9 + 7)
 
 
 def test_max_product():
