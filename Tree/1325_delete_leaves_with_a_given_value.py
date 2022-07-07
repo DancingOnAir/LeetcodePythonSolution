@@ -11,6 +11,14 @@ class TreeNode:
 
 class Solution:
     def removeLeafNodes(self, root: Optional[TreeNode], target: int) -> Optional[TreeNode]:
+        if not root:
+            return None
+        root.left = self.removeLeafNodes(root.left, target)
+        root.right = self.removeLeafNodes(root.right, target)
+        return None if root.left == root.right and root.val == target else root
+
+    # post order
+    def removeLeafNodes1(self, root: Optional[TreeNode], target: int) -> Optional[TreeNode]:
         def postorder(node):
             if not node:
                 return True
