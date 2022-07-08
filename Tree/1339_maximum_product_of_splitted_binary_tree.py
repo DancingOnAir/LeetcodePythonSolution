@@ -11,6 +11,18 @@ class TreeNode:
 
 class Solution:
     def maxProduct(self, root: Optional[TreeNode]) -> int:
+        def postorder(node):
+            if not node:
+                return 0
+            total = postorder(node.left) + postorder(node.right) + node.val
+            self.vals.append(total)
+            return total
+
+        self.vals = list()
+        total = postorder(root)
+        return max(v * (total - v) for v in self.vals) % (10 ** 9 + 7)
+
+    def maxProduct1(self, root: Optional[TreeNode]) -> int:
         def dfs(node):
             if not node:
                 return 0
