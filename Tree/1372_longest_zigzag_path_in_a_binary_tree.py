@@ -11,6 +11,18 @@ class TreeNode:
 
 class Solution:
     def longestZigZag(self, root: Optional[TreeNode]) -> int:
+        def helper(node, l, r):
+            if not node:
+                return
+            self.res = max(self.res, l, r)
+            helper(node.left, 0, l + 1)
+            helper(node.right, r + 1, 0)
+
+        self.res = 0
+        helper(root, 0, 0)
+        return self.res
+
+    def longestZigZag1(self, root: Optional[TreeNode]) -> int:
         # recursive return left, right, result
         # left is the maximum length in direction of root.left
         # right is the maximum length in direction of root.right
