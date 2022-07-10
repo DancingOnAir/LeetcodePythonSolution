@@ -13,6 +13,25 @@ class Solution:
     def maxSumBST(self, root: Optional[TreeNode]) -> int:
         def dfs(node):
             if not node:
+                return True, 0, float('inf'), float('-inf')
+
+            nonlocal res
+            bst1, s1, min1, max1 = dfs(node.left)
+            bst2, s2, min2, max2 = dfs(node.right)
+            if bst1 and bst2 and max1 < node.val < min2:
+                v = node.val + s1 + s2
+                res = max(res, v)
+                return True, v, min(min1, node.val), max(max2, node.val)
+
+            return False, 0, float('inf'), float('-inf')
+
+        res = 0
+        dfs(root)
+        return res
+
+    def maxSumBST1(self, root: Optional[TreeNode]) -> int:
+        def dfs(node):
+            if not node:
                 return True, None, None, None
             left_is_bst, left_node, left_min_val, left_max_val = dfs(node.left)
             right_is_bst, right_node, right_min_val, right_max_val = dfs(node.right)
