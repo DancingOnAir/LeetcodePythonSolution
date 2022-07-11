@@ -17,6 +17,26 @@ class TreeNode:
 
 
 class Solution:
+    # string find + dfs
+    def isSubPath(self, head: Optional[ListNode], root: Optional[TreeNode]) -> bool:
+        target = ''
+        while head:
+            target += str(head.val)
+            head = head.next
+
+        def dfs(node, path):
+            if target in path:
+                return True
+            if node.left:
+                if dfs(node.left, path + str(node.left.val)):
+                    return True
+            if node.right:
+                if dfs(node.right, path + str(node.right.val)):
+                    return True
+            return False
+        return dfs(root, str(root.val))
+
+    # dfs
     def isSubPath(self, head: Optional[ListNode], root: Optional[TreeNode]) -> bool:
         def preorder(node, head):
             if not head:
