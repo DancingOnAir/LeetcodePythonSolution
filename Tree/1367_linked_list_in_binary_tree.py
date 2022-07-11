@@ -18,7 +18,18 @@ class TreeNode:
 
 class Solution:
     def isSubPath(self, head: Optional[ListNode], root: Optional[TreeNode]) -> bool:
-        pass
+        def preorder(node, head):
+            if not head:
+                return True
+            if not node:
+                return False
+            return node.val == head.val and (preorder(node.left, head.next) or preorder(node.right, head.next))
+
+        if not head:
+            return True
+        if not root:
+            return False
+        return preorder(root, head) or self.isSubPath(head, root.left) or self.isSubPath(head, root.right)
 
 
 def test_is_sub_path():
