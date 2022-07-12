@@ -3,7 +3,17 @@ from collections import defaultdict
 
 
 class Solution:
+    # bottom-up dfs
     def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
+        def dfs(i):
+            if manager[i] != -1:
+                informTime[i] += dfs(manager[i])
+                manager[i] = -1
+            return informTime[i]
+        return max(dfs(i) for i in range(n))
+
+    # top-down dfs
+    def numOfMinutes1(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
         graph = defaultdict(list)
         for i, p in enumerate(manager):
             graph[p].append(i)
