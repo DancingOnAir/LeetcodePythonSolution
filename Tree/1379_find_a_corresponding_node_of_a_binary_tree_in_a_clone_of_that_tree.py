@@ -11,6 +11,18 @@ class TreeNode:
 
 class Solution:
     def getTargetCopy(self, original: Optional[TreeNode], cloned: Optional[TreeNode], target: Optional[TreeNode]) -> Optional[TreeNode]:
+        def dfs(node, target):
+            if not node:
+                return None
+            if node.val == target:
+                return node
+
+            left = dfs(node.left, target)
+            right = dfs(node.right, target)
+            return left if left else right
+        return dfs(cloned, target.val)
+
+    def getTargetCopy1(self, original: Optional[TreeNode], cloned: Optional[TreeNode], target: Optional[TreeNode]) -> Optional[TreeNode]:
         if not original:
             return None
         if original == target:
