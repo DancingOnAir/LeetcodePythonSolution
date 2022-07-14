@@ -10,7 +10,20 @@ class TreeNode:
 
 
 class Solution:
+    # yield
     def getTargetCopy(self, original: Optional[TreeNode], cloned: Optional[TreeNode], target: Optional[TreeNode]) -> Optional[TreeNode]:
+        def helper(node):
+            if node:
+                yield node
+                yield from helper(node.left)
+                yield from helper(node.right)
+
+        for node1, node2 in zip(helper(original), helper(cloned)):
+            if node1 == target:
+                return node2
+        return None
+
+    def getTargetCopy2(self, original: Optional[TreeNode], cloned: Optional[TreeNode], target: Optional[TreeNode]) -> Optional[TreeNode]:
         def dfs(node, target):
             if not node:
                 return None
