@@ -4,6 +4,25 @@ from collections import defaultdict
 
 class Solution:
     def frogPosition(self, n: int, edges: List[List[int]], t: int, target: int) -> float:
+        if n == 1:
+            return 1.0
+
+        graph = defaultdict(list)
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+        seen = [0] * (n + 1)
+
+        def dfs(i, t):
+            if i != 1 and len(graph[i]) == 1 or t == 0:
+                return i == target
+            seen[i] = 1
+            res = sum(dfs(j, t - 1) for j in graph[i] if not seen[j])
+            # len(graph[i]) - 1是为了除去父节点，i == 1是根节点，根节点没有父节点
+            return res * 1.0 / (len(graph[i]) - (i != 1))
+        return dfs(1, t)
+
+    def frogPosition1(self, n: int, edges: List[List[int]], t: int, target: int) -> float:
         graph = defaultdict(list)
         for u, v in edges:
             graph[u].append(v)
