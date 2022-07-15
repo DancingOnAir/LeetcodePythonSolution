@@ -4,6 +4,23 @@ from collections import defaultdict
 
 class Solution:
     def frogPosition(self, n: int, edges: List[List[int]], t: int, target: int) -> float:
+        graph = defaultdict(list)
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+
+        def dfs(parent, cur, time, prob):
+            if time < 0:
+                return 0
+            children = [child for child in graph[cur] if child != parent]
+            if cur == target:
+                if len(children) > 0 and time > 0:
+                    return 0
+                return prob
+            return sum(dfs(cur, child, time - 1, prob * (1 / len(children))) for child in children)
+        return dfs(-1, 1, t, 1)
+
+    def frogPosition2(self, n: int, edges: List[List[int]], t: int, target: int) -> float:
         if n == 1:
             return 1.0
 
@@ -22,6 +39,7 @@ class Solution:
             return res * 1.0 / (len(graph[i]) - (i != 1))
         return dfs(1, t)
 
+    # bfs
     def frogPosition1(self, n: int, edges: List[List[int]], t: int, target: int) -> float:
         graph = defaultdict(list)
         for u, v in edges:
