@@ -7,8 +7,19 @@ class TreeNode:
 
 
 class Solution:
-    # one line + recursive
     def goodNodes(self, root: TreeNode, mx=-100000) -> int:
+        res = 0
+        stk = [(root, root.val)]
+        while stk:
+            cur, cur_mx = stk.pop()
+            res += cur.val >= cur_mx
+            for child in (cur.left, cur.right):
+                if child:
+                    stk.append((child, max(cur.val, cur_mx)))
+        return res
+
+    # one line + recursive
+    def goodNodes2(self, root: TreeNode, mx=-100000) -> int:
         return (self.goodNodes(root.left, max(root.val, mx)) + self.goodNodes(root.right, max(root.val, mx)) + (root.val >= mx)) if root else 0
 
     def goodNodes1(self, root: TreeNode) -> int:
