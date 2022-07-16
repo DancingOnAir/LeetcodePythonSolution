@@ -7,7 +7,11 @@ class TreeNode:
 
 
 class Solution:
-    def goodNodes(self, root: TreeNode) -> int:
+    # one line + recursive
+    def goodNodes(self, root: TreeNode, mx=-100000) -> int:
+        return (self.goodNodes(root.left, max(root.val, mx)) + self.goodNodes(root.right, max(root.val, mx)) + (root.val >= mx)) if root else 0
+
+    def goodNodes1(self, root: TreeNode) -> int:
         def bfs(node, mx_ancestor):
             if node:
                 if node.val >= mx_ancestor:
@@ -16,7 +20,7 @@ class Solution:
                 bfs(node.right, max(node.val, mx_ancestor))
 
         self.res = 0
-        bfs(root, float('-inf'))
+        bfs(root, root.val)
         return self.res
 
 
