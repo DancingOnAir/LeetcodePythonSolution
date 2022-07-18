@@ -3,7 +3,23 @@ from collections import defaultdict
 
 
 class Solution:
+    # dfs
     def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
+        def dfs(node, pre):
+            for child in graph[node]:
+                if child != pre and dfs(child, node):
+                    hasApple[node] = True
+            return hasApple[node]
+
+        graph = defaultdict(list)
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+        dfs(0, -1)
+        return (sum(hasApple) - hasApple[0]) * 2
+
+    # dfs
+    def minTime1(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
         graph = defaultdict(list)
         for u, v in edges:
             graph[u].append(v)
