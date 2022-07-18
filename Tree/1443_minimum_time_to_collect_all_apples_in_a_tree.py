@@ -1,10 +1,35 @@
 from typing import List
-from collections import defaultdict
+from collections import defaultdict, deque
 
 
 class Solution:
-    # dfs
+    # Kahn's algorithm
     def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
+        hasApple[0] = True
+        degree = [0] * n
+
+        graph = defaultdict(list)
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+            degree[u] += 1
+            degree[v] += 1
+
+        dq = deque(u for u in range(n) if degree[u] == 1)
+        while dq:
+            u = dq.popleft()
+            if hasApple[u]:
+                continue
+            for v in graph[u]:
+                if degree[u] > 0:
+                    degree[v] -= 1
+                    degree[u] -= 1
+                    if degree[v] == 1:
+                        dq.append(v)
+        return sum(degree)
+
+    # dfs
+    def minTime2(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
         def dfs(node, pre):
             for child in graph[node]:
                 if child != pre and dfs(child, node):
@@ -44,12 +69,9 @@ class Solution:
 def test_min_time():
     solution = Solution()
 
-    assert solution.minTime(7, [[0, 1], [0, 2], [1, 4], [1, 5], [2, 3], [2, 6]],
-                            [False, False, True, False, True, True, False]) == 8, 'wrong result'
-    assert solution.minTime(7, [[0, 1], [0, 2], [1, 4], [1, 5], [2, 3], [2, 6]],
-                            [False, False, True, False, False, True, False]) == 6, 'wrong result'
-    assert solution.minTime(7, [[0, 1], [0, 2], [1, 4], [1, 5], [2, 3], [2, 6]],
-                            [False, False, False, False, False, False, False]) == 0, 'wrong result'
+    assert solution.minTime(7, [[0, 1], [0, 2], [1, 4], [1, 5], [2, 3], [2, 6]], [False, False, True, False, True, True, False]) == 8, 'wrong result'
+    assert solution.minTime(7, [[0, 1], [0, 2], [1, 4], [1, 5], [2, 3], [2, 6]], [False, False, True, False, False, True, False]) == 6, 'wrong result'
+    assert solution.minTime(7, [[0, 1], [0, 2], [1, 4], [1, 5], [2, 3], [2, 6]], [False, False, False, False, False, False, False]) == 0, 'wrong result'
 
 
 if __name__ == '__main__':
