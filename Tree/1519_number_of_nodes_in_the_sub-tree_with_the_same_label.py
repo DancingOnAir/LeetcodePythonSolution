@@ -1,5 +1,5 @@
 from typing import List
-from collections import defaultdict
+from collections import Counter, defaultdict
 
 
 class Solution:
@@ -10,9 +10,24 @@ class Solution:
             graph[v].append(u)
 
         res = [0] * n
+        seen = [False] * n
 
+        def postorder(node):
+            if seen[node]:
+                return Counter()
+
+            seen[node] = True
+            c = Counter()
+            for child in graph[node]:
+                if not seen[child]:
+                    c += postorder(child)
+
+            c += Counter(labels[node])
+            res[node] = c[labels[node]]
+            return c
+
+        postorder(0)
         return res
-        pass
 
 
 def test_count_sub_trees():
