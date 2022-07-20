@@ -3,7 +3,27 @@ from collections import Counter, defaultdict
 
 
 class Solution:
+    # dfs + Counter without seen array
     def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
+        def dfs(node, parent):
+            cnt = Counter(labels[node])
+            for child in graph[node]:
+                if child != parent:
+                    cnt += dfs(child, node)
+            res[node] = cnt[labels[node]]
+            return cnt
+
+        graph = defaultdict(list)
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+
+        res = [0] * n
+        dfs(0, None)
+        return res
+
+    # postorder + Counter
+    def countSubTrees1(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
         graph = defaultdict(list)
         for u, v in edges:
             graph[u].append(v)
