@@ -10,7 +10,35 @@ class TreeNode:
 
 
 class Solution:
+    # iterative
     def averageOfSubtree(self, root: Optional[TreeNode]) -> int:
+        # node, (total of nodes in subtree, num of nodes in subtree)
+        m = {None: (0, 0)}
+        res = 0
+        pre, node, stk = None, root, list()
+        while node or stk:
+            if node:
+                stk.append(node)
+                node = node.left
+            else:
+                node = stk[-1]
+                if node.right and node.right != pre:
+                    node = node.right
+                else:
+                    stk.pop()
+                    ls, lc = m[node.left]
+                    rs, rc = m[node.right]
+                    s, c = ls + rs + node.val, lc + rc + 1
+                    m[node] = (s, c)
+                    if s // c == node.val:
+                        res += 1
+                    pre = node
+                    node = None
+
+        return res
+
+    # recursive
+    def averageOfSubtree1(self, root: Optional[TreeNode]) -> int:
         # return total of nodes' value in subtree, num of nodes, answer of current tree
         def postorder(node):
             # nonlocal res
