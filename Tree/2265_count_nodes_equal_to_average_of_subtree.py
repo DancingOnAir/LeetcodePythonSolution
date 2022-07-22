@@ -11,24 +11,22 @@ class TreeNode:
 
 class Solution:
     def averageOfSubtree(self, root: Optional[TreeNode]) -> int:
-        # return total of subtree, num of nodes
+        # return total of nodes' value in subtree, num of nodes, answer of current tree
         def postorder(node):
-            nonlocal res
+            # nonlocal res
             if not node:
-                return 0, 0
-            if node.left == node.right:
-                res += 1
-                return node.val, 1
+                return 0, 0, 0
 
-            left_total, left_num = postorder(node.left)
-            right_total, right_num = postorder(node.right)
-            if node.val == (left_total + right_total + node.val) // (left_num + right_num + 1):
-                res += 1
-            return left_total + right_total + node.val, left_num + right_num + 1
+            left_total, left_num, left_res = postorder(node.left)
+            right_total, right_num, right_res = postorder(node.right)
+            total = left_total + right_total + node.val
+            n = left_num + right_num + 1
+            # if node.val == total // n:
+            #     res += 1
+            return total, n, left_res + right_res + (node.val == total // n)
+        # res = 0
+        return postorder(root)[2]
 
-        res = 0
-        postorder(root)
-        return res
 
 
 def test_average_of_subtree():
