@@ -10,8 +10,25 @@ class TreeNode:
 
 
 class Solution:
-    # LCA but TLE
     def countPairs(self, root: TreeNode, distance: int) -> int:
+        def dfs(node):
+            if not node:
+                return []
+            if node.left == node.right:
+                return [1]
+
+            left = dfs(node.left)
+            right = dfs(node.right)
+            nonlocal res
+            res += sum(l + r <= distance for l in left for r in right)
+            return [i + 1 for i in left + right if i + 1 < distance]
+
+        res = 0
+        dfs(root)
+        return res
+
+    # LCA but TLE
+    def countPairs1(self, root: TreeNode, distance: int) -> int:
         # distance of node1, node2 = distance of node1, root + distance of node2, root - 2 * distance of LCA, root
         def dist(node1, node2):
             node = LCA(root, node1, node2)
