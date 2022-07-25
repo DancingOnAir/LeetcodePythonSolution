@@ -2,7 +2,36 @@ from typing import List
 
 
 class Solution:
+    #
     def smallestMissingValueSubtree(self, parents: List[int], nums: List[int]) -> List[int]:
+        n = len(parents)
+        seen = [0] * 100010
+        res = [1] * n
+        if 1 not in nums:
+            return res
+
+        tree = [[] for _ in range(n)]
+        for i in range(1, n):
+            tree[parents[i]].append(i)
+
+        def dfs(node):
+            if seen[nums[node]] == 0:
+                for j in tree[node]:
+                    dfs(j)
+                seen[nums[node]] = 1
+
+        i = nums.index(1)
+        miss = 1
+        while i >= 0:
+            dfs(i)
+            while seen[miss]:
+                miss += 1
+            res[i] = miss
+            i = parents[i]
+        return res
+
+    # TLE
+    def smallestMissingValueSubtree1(self, parents: List[int], nums: List[int]) -> List[int]:
         n = len(parents)
         tree = [[] for _ in range(n)]
         for i, p in enumerate(parents):
