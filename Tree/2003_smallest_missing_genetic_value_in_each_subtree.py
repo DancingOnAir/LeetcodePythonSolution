@@ -3,7 +3,33 @@ from typing import List
 
 class Solution:
     def smallestMissingValueSubtree(self, parents: List[int], nums: List[int]) -> List[int]:
-        pass
+        n = len(parents)
+        tree = [[] for _ in range(n)]
+        for i, p in enumerate(parents):
+            if p != -1:
+                tree[p].append(i)
+
+        res = [1] * n
+
+        def dfs(node):
+            if not tree[node]:
+                if nums[node] == 1:
+                    res[node] = 2
+                return {nums[node]}, res[node]
+
+            s = {nums[node]}
+            pre = 1
+            for child in tree[node]:
+                a, b = dfs(child)
+                s |= a
+                pre = max(pre, b)
+            while pre in s:
+                pre += 1
+            res[node] = pre
+            return s, pre
+
+        dfs(0)
+        return res
 
 
 def test_smallest_missing_value_subtree():
