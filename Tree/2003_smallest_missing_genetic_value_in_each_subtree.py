@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # union find
     def smallestMissingValueSubtree(self, parents: List[int], nums: List[int]) -> List[int]:
         n = len(parents)
         res = [1] * n
@@ -39,6 +40,9 @@ class Solution:
         return res
 
     # dfs, o(n)
+    # Only the ancestors of value 1 and itself has miss value >1.
+    # That is the path from root 0 to the node with value 1.
+    # So we only need to handle nodes on this path.
     def smallestMissingValueSubtree2(self, parents: List[int], nums: List[int]) -> List[int]:
         n = len(parents)
         seen = [0] * 100002
