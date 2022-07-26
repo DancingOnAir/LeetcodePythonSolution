@@ -2,12 +2,46 @@ from typing import List
 
 
 class Solution:
-    # Only the ancestors of value 1 and itself has miss value >1.
-    # That is the path from root 0 to the node with value 1.
-    # So we only need to handle nodes on this path.
     def smallestMissingValueSubtree(self, parents: List[int], nums: List[int]) -> List[int]:
         n = len(parents)
-        seen = [0] * 100010
+        res = [1] * n
+        if 1 not in nums:
+            return res
+
+        tree = [[] for _ in range(n)]
+        for i, p in enumerate(parents):
+            if p != -1:
+                tree[p].append(i)
+
+        # union find
+        def find(i):
+            while parents[i] != i:
+                parents[i] = parents[parents[i]]
+                i = parents[i]
+            return i
+
+        def dfs(i):
+            m[nums[i]] = i
+            parents[i] = i
+            a = 1
+            for child in tree[i]:
+                dfs(child)
+                a = max(a, res[i])
+                # union
+                parents[child] = i
+
+            while a in m and find(m[a]) == i:
+                a += 1
+            res[i] = a
+
+        m = dict()
+        dfs(0)
+        return res
+
+    # dfs, o(n)
+    def smallestMissingValueSubtree2(self, parents: List[int], nums: List[int]) -> List[int]:
+        n = len(parents)
+        seen = [0] * 100002
         res = [1] * n
         if 1 not in nums:
             return res
@@ -36,11 +70,12 @@ class Solution:
     def smallestMissingValueSubtree1(self, parents: List[int], nums: List[int]) -> List[int]:
         n = len(parents)
         tree = [[] for _ in range(n)]
-        for i, p in enumerate(parents):
-            if p != -1:
-                tree[p].append(i)
+        for i in range(1, n):
+            tree[parents[i]].append(i)
 
         res = [1] * n
+        if 1 not in nums:
+            return res
 
         def dfs(node):
             if not tree[node]:
