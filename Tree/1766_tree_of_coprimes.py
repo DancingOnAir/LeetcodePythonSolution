@@ -1,8 +1,42 @@
 from typing import List
+from math import gcd
 
 
 class Solution:
+
     def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+        n = len(nums)
+        graph = [[] for _ in range(n)]
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+
+        res = [-1] * n
+        path = [[] for _ in range(51)]
+        seen = set()
+
+        def dfs(node, depth):
+            if node in seen:
+                return
+            seen.add(node)
+            max_depth = -1
+            for x in range(1, 51):
+                if gcd(nums[node], x) == 1:
+                    if len(path[x]) > 0:
+                        top_node, top_depth = path[x][-1]
+                        if max_depth < top_depth:
+                            max_depth = top_depth
+                            res[node] = top_node
+            path[nums[node]].append((node, depth))
+            for child in graph[node]:
+                dfs(child, depth + 1)
+            path[nums[node]].pop()
+
+        dfs(0, 0)
+        return res
+
+    # TLE
+    def getCoprimes1(self, nums: List[int], edges: List[List[int]]) -> List[int]:
         n = len(nums)
         graph = [[] for _ in range(n)]
         for u, v in edges:
