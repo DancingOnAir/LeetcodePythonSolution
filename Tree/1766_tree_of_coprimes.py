@@ -3,8 +3,36 @@ from math import gcd
 
 
 class Solution:
-
     def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+        n = len(nums)
+        graph = [[] for _ in range(n)]
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+        # path: key-> nums[node], val->list of (node, depth)
+        path = dict()
+        seen = {0}
+
+        def dfs(node, depth):
+            last_depth = -1
+            for x in path:
+                if gcd(nums[node], x) == 1:
+                    if path[x] and path[x][-1][1] > last_depth:
+                        res[node] = path[x][-1][0]
+                        last_depth = path[x][-1][1]
+
+            path.setdefault(nums[node], []).append((node, depth))
+            for child in graph[node]:
+                if child not in seen:
+                    seen.add(child)
+                    dfs(child, depth + 1)
+            path[nums[node]].pop()
+
+        res = [-1] * n
+        dfs(0, 0)
+        return res
+
+    def getCoprimes2(self, nums: List[int], edges: List[List[int]]) -> List[int]:
         n = len(nums)
         graph = [[] for _ in range(n)]
         for u, v in edges:
@@ -63,7 +91,7 @@ class Solution:
             for child in graph[node]:
                 if child != parent:
                     inorder(child, node, path)
-                    path.pop()
+            path.pop()
 
         res = [-1] * n
         inorder(0, -1, [])
