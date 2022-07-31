@@ -1,9 +1,43 @@
 from typing import List
 from heapq import nlargest
+from collections import deque
+from bisect import insort_right
+
 
 class Solution:
-    # improved dfs
+    # bfs
     def longestPath(self, parent: List[int], s: str) -> int:
+        n = len(parent)
+        child_num = [0] * n
+        for p in parent[1:]:
+            child_num[p] += 1
+        # the longest chain with node i as parent
+        longest = [[0] for _ in range(n)]
+        # add all the leaf nodes into deque: [current node, the maximum length end by this node]
+        dq = deque()
+        for i in range(n):
+            if not child_num[i]:
+                dq.append((i, 1))
+
+        res = 1
+        while dq:
+            cur_node, cur_len = dq.popleft()
+            cur_parent = parent[cur_node]
+
+            child_num[cur_parent] -= 1
+            if s[cur_node] != s[cur_parent]:
+                insort_right(longest[cur_parent], cur_len)
+                if len(longest[cur_parent]) > 2:
+                    longest[cur_parent].pop(0)
+
+            if child_num[cur_parent] == 0:
+                res = max(res, 1 + sum(longest[cur_parent][-2:]))
+                dq.append([cur_parent, 1 + longest[cur_parent][-1]])
+
+        return res
+
+    # improved dfs
+    def longestPath2(self, parent: List[int], s: str) -> int:
         n = len(parent)
         tree = [[] for _ in range(n)]
         for i, p in enumerate(parent):
