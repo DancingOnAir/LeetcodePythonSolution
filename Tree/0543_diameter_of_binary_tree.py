@@ -11,6 +11,16 @@ class TreeNode:
 
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        # return depth and diameter rooted at node
+        def dfs(node):
+            if not node:
+                return -1, 0
+            depth1, diameter1 = dfs(node.left)
+            depth2, diameter2 = dfs(node.right)
+            return max(depth1, depth2) + 1, max(diameter1, diameter2, depth1 + depth2 + 2)
+        return dfs(root)[1]
+
+    def diameterOfBinaryTree1(self, root: Optional[TreeNode]) -> int:
         def dfs(node):
             if not node:
                 return 0

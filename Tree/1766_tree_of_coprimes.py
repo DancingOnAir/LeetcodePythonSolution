@@ -1,9 +1,47 @@
 from typing import List
 from math import gcd
+from collections import deque
 
 
 class Solution:
+    # bfs
     def getCoprimes(self, nums: List[int], edges: List[List[int]]) -> List[int]:
+        def compute_gcd(a, b):
+            while b:
+                a, b = b, a % b
+            return a
+        # m keeps the set of j which is coprime with i in [0, 50]
+        m = {i: {j for j in range(51) if compute_gcd(i, j) == 1} for i in range(51)}
+        n = len(nums)
+        graph = [[] for _ in range(n)]
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+
+        res = [-1] * n
+        seen = set()
+        # the element is key: nums[node], val: list of parents' (node, depth)
+        dq = deque([(0, {})])
+        depth = 0
+
+        while dq:
+            sz = len(dq)
+            for _ in range(sz):
+                node, parents = dq.popleft()
+                seen.add(node)
+                overlap = m[nums[node]] & parents.keys()
+                if overlap:
+                    res[node] = parents[max(overlap, key=lambda x: parents[x][1])][0]
+                for child in graph[node]:
+                    if child not in seen:
+                        p = parents.copy()
+                        p[nums[node]] = (node, depth)
+                        dq.append((child, p))
+            depth += 1
+        return res
+
+    # dfs
+    def getCoprimes3(self, nums: List[int], edges: List[List[int]]) -> List[int]:
         n = len(nums)
         graph = [[] for _ in range(n)]
         for u, v in edges:
@@ -32,6 +70,7 @@ class Solution:
         dfs(0, 0)
         return res
 
+    # dfs
     def getCoprimes2(self, nums: List[int], edges: List[List[int]]) -> List[int]:
         n = len(nums)
         graph = [[] for _ in range(n)]
