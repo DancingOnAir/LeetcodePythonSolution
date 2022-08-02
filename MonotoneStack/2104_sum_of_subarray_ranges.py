@@ -2,8 +2,42 @@ from typing import List
 
 
 class Solution:
-    # two loops
     def subArrayRanges(self, nums: List[int]) -> int:
+        n = len(nums)
+        min_left, max_left = [0] * n, [0] * n
+        min_stack, max_stack = list(), list()
+        for i, val in enumerate(nums):
+            while min_stack and nums[min_stack[-1]] > val:
+                min_stack.pop()
+            min_left[i] = min_stack[-1] if min_stack else -1
+            min_stack.append(i)
+
+            while max_stack and nums[max_stack[-1]] < val:
+                max_stack.pop()
+            max_left[i] = max_stack[-1] if max_stack else -1
+            max_stack.append(i)
+
+        min_right, max_right = [0] * n, [0] * n
+        min_stack, max_stack = list(), list()
+        for i in range(n - 1, -1, -1):
+            while min_stack and nums[min_stack[-1]] >= nums[i]:
+                min_stack.pop()
+            min_right[i] = min_stack[-1] if min_stack else n
+            min_stack.append(i)
+
+            while max_stack and nums[max_stack[-1]] <= nums[i]:
+                max_stack.pop()
+            max_right[i] = max_stack[-1] if max_stack else n
+            max_stack.append(i)
+
+        min_sum = max_sum = 0
+        for i, num in enumerate(nums):
+            min_sum += (min_right[i] - i) * (i - min_left[i]) * num
+            max_sum += (max_right[i] - i) * (i - max_left[i]) * num
+        return max_sum - min_sum
+
+    # two loops
+    def subArrayRanges1(self, nums: List[int]) -> int:
         n = len(nums)
         res = 0
         for i in range(n):
