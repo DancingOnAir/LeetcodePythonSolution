@@ -1,8 +1,24 @@
 from typing import List
+from operator import gt, lt
 
 
 class Solution:
+    # improved monotone stack
     def subArrayRanges(self, nums: List[int]) -> int:
+        def helper(op):
+            res = 0
+            stk = list()
+            for i in range(len(nums) + 1):
+                while stk and (i == len(nums) or op(nums[stk[-1]], nums[i])):
+                    mid = stk.pop()
+                    ii = stk[-1] if stk else -1
+                    res += nums[mid] * (i - mid) * (mid - ii)
+                stk.append(i)
+            return res
+        return helper(lt) - helper(gt)
+
+    # monotone stack
+    def subArrayRanges2(self, nums: List[int]) -> int:
         n = len(nums)
         min_left, max_left = [0] * n, [0] * n
         min_stack, max_stack = list(), list()
