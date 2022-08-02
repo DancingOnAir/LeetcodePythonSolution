@@ -3,14 +3,14 @@ from typing import List
 
 class Solution:
     def get_largest_rectangle_area(self, heights):
-        stk = [-1]
-        heights.append(0)
+        stk = []
         res = 0
-        for i in range(len(heights)):
-            while heights[stk[-1]] > heights[i]:
-                res = max(res, heights[stk.pop()] * (i - stk[-1] - 1))
+        for i, h in enumerate(heights + [0]):
+            while stk and heights[stk[-1]] >= h:
+                H = heights[stk.pop()]
+                W = i if not stk else i - stk[-1] - 1
+                res = max(res, H * W)
             stk.append(i)
-        heights.pop()
 
         return res
 
@@ -19,6 +19,7 @@ class Solution:
             return 0
 
         res = 0
+        # dp 用来计算高度
         dp = [0] * len(matrix[0])
         for i in range(len(matrix)):
             for j in range(len(matrix[0])):
