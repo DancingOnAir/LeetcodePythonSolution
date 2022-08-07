@@ -9,21 +9,42 @@ class Solution:
             graph[u].append(v)
             graph[v].append(u)
 
-        n = len(graph)
-        roots = [k for k, v in graph.items() if len(v) == n - 1]
-        if not roots:
-            return 0
-        elif len(roots) > 1:
-            return 2
+        def helper(nodes):
+            d = defaultdict(list)
+            m = len(nodes) - 1
+            for node in nodes:
+                d[len(graph[node])].append(node)
 
-        pairs = {tuple(p) for p in pairs}
-        for root in roots:
-            nodes = graph[root]
-            for i in range(len(nodes)):
-                for j in range(i+1, len(nodes)):
-                    if (nodes[i], nodes[j]) in pairs and (nodes[j], nodes[i]) in pairs:
-                        return 2
-        return 1
+            if len(d[m]) == 0:
+                return 0
+            root = d[m][0]
+
+            for node in graph[root]:
+                graph[node].remove(root)
+
+            comps, seen, i = defaultdict(set), set(), 0
+            def dfs(node, i):
+                comps[i].add(node)
+                seen.add(node)
+                for nei in graph[node]:
+                    if nei not in seen:
+                        dfs(nei, i)
+
+            for node in nodes:
+                if node != root and node not in seen:
+                    dfs(node, i)
+                    i += 1
+
+            candidates = [helper(val) for val in comps.values()]
+            if 0 in candidates:
+                return 0
+            if 2 in candidates:
+                return 2
+            if len(d[m]) >= 2:
+                return 2
+            return 1
+
+        return helper(set(graph.keys()))
 
 
 def test_check_ways():
