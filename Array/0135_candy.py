@@ -2,24 +2,26 @@ from typing import List
 
 
 class Solution:
+    # https://leetcode.com/problems/candy/discuss/135698/Simple-solution-with-one-pass-using-O(1)-space
     def candy(self, ratings: List[int]) -> int:
         if not ratings:
             return 0
 
-        increase = decrease = peak = 0
-        res = 1
+        decrease = peak = 0
+        res = increase = 1
         for i in range(1, len(ratings)):
             if ratings[i - 1] < ratings[i]:
                 increase += 1
                 peak = increase
-                res += increase + 1
+                res += increase
                 decrease = 0
             elif ratings[i - 1] > ratings[i]:
                 decrease += 1
-                res += 1 + decrease + (0 if decrease > peak else -1)
-                increase = 0
+                res += decrease + (1 if peak <= decrease else 0)
+                increase = 1
             else:
-                increase = decrease = peak = 0
+                increase = 1
+                decrease = peak = 0
                 res += 1
         return res
 
