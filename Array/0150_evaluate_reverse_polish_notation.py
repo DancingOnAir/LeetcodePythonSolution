@@ -11,11 +11,11 @@ class Solution:
             if c == '+':
                 return a + b
             if c == '-':
-                return a - b
+                return b - a
             if c == '*':
                 return a * b
             if c == '/':
-                return int(a / b)
+                return int(b / a)
 
         for t in tokens:
             if t in {'+', '-', '*', '/'}:
