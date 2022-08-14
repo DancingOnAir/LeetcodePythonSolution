@@ -6,6 +6,18 @@ class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         if not nums or k <= 0:
             return False
+        m = set()
+        for i in range(len(nums)):
+            if nums[i] in m:
+                return True
+            m.add(nums[i])
+            if len(m) > k:
+                m.remove(nums[i - k])
+        return False
+
+    def containsNearbyDuplicate1(self, nums: List[int], k: int) -> bool:
+        if not nums or k <= 0:
+            return False
         m = dict()
         for i in range(len(nums)):
             if nums[i] in m and i - m[nums[i]] <= k:
