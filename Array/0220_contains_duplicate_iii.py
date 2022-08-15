@@ -1,9 +1,25 @@
 from typing import List
 from collections import OrderedDict
+from bisect import bisect_left, bisect_right
+from sortedcontainers import SortedList
 
 
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
+        m = SortedList()
+        for i, val in enumerate(nums):
+            pos1 = bisect_left(m, val - t)
+            pos2 = bisect_right(m, val + t)
+            if pos1 != pos2 and pos1 != len(m):
+                return True
+
+            m.add(nums[i])
+            if i >= k:
+                m.remove(nums[i - k])
+        return False
+
+    # TLE
+    def containsNearbyAlmostDuplicate1(self, nums: List[int], k: int, t: int) -> bool:
         def binary_search(arr, target, start, end):
             if start > end:
                 return False
@@ -25,6 +41,7 @@ class Solution:
 
 def test_contains_nearby_almost_duplicate():
     solution = Solution()
+    assert solution.containsNearbyAlmostDuplicate([7, 2, 8], 2, 1), 'wrong result'
     assert solution.containsNearbyAlmostDuplicate([-3, 3, -6], 2, 3), 'wrong result'
     assert solution.containsNearbyAlmostDuplicate([1, 2, 3, 1], 3, 0), 'wrong result'
     assert solution.containsNearbyAlmostDuplicate([1, 0, 1, 1], 1, 2), 'wrong result'
