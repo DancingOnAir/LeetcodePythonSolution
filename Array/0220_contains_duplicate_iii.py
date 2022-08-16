@@ -6,6 +6,26 @@ from sortedcontainers import SortedList
 
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
+        if t < 0:
+            return False
+        n = len(nums)
+        w = t + 1
+        bucket = dict()
+
+        for i, val in enumerate(nums):
+            j = val // w
+            if j in bucket:
+                return True
+            elif j - 1 in bucket and abs(nums[i] - bucket[j - 1]) < w:
+                return True
+            elif j + 1 in bucket and abs(nums[i] - bucket[j + 1]) < w:
+                return True
+            bucket[j] = nums[i]
+            if i >= k:
+                del bucket[nums[i - k] // w]
+        return False
+
+    def containsNearbyAlmostDuplicate2(self, nums: List[int], k: int, t: int) -> bool:
         m = SortedList()
         for i, val in enumerate(nums):
             pos1 = bisect_left(m, val - t)
