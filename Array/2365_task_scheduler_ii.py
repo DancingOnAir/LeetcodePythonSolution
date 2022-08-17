@@ -4,6 +4,15 @@ from collections import defaultdict
 
 class Solution:
     def taskSchedulerII(self, tasks: List[int], space: int) -> int:
+        days = 0
+        next_available_day = dict()
+
+        for t in tasks:
+            days = max(days + 1, next_available_day.setdefault(t, 0))
+            next_available_day[t] = days + space + 1
+        return days
+
+    def taskSchedulerII1(self, tasks: List[int], space: int) -> int:
         m = defaultdict(list)
         breaks = [0] * len(tasks)
 
