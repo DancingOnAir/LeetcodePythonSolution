@@ -3,10 +3,15 @@ from typing import List
 
 class Solution:
     def largestLocal(self, grid: List[List[int]]) -> List[List[int]]:
-        res = list()
+        tmp = list()
         for row in grid:
-            res.append([max(row[i:i + 3]) for i in range(len(row) - 2)])
-        pass
+            tmp.append([max(row[i:i + 3]) for i in range(len(row) - 2)])
+
+        res = list()
+        for col in zip(*tmp):
+            res.append([max(col[i:i + 3]) for i in range(len(col) - 2)])
+
+        return [[*col] for col in zip(*res)]
 
 
 def test_largest_local():
