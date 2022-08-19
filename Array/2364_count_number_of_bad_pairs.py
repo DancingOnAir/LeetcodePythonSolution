@@ -4,6 +4,15 @@ from collections import defaultdict
 
 class Solution:
     def countBadPairs(self, nums: List[int]) -> int:
+        good = 0
+        tot = len(nums) * (len(nums) - 1) // 2
+        dp = defaultdict(int)
+        for i, val in enumerate(nums):
+            good += dp[i - val]
+            dp[i - val] += 1
+        return tot - good
+
+    def countBadPairs1(self, nums: List[int]) -> int:
         freq = defaultdict(int)
         for i, val in enumerate(nums):
             freq[i - val] += 1
