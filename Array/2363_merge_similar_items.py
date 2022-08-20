@@ -4,10 +4,13 @@ from collections import Counter
 
 class Solution:
     def mergeSimilarItems(self, items1: List[List[int]], items2: List[List[int]]) -> List[List[int]]:
+        return sorted((Counter(dict(items1)) + Counter(dict(items2))).items())
+
+    def mergeSimilarItems1(self, items1: List[List[int]], items2: List[List[int]]) -> List[List[int]]:
         c = Counter()
         for v, w in items1 + items2:
             c[v] += w
-        return [[k, v] for k, v in sorted(c.items())]
+        return sorted(c.items())
 
 
 def test_merge_similar_items():
