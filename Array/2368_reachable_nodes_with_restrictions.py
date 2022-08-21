@@ -1,9 +1,26 @@
 from typing import List
-from collections import defaultdict
+from collections import defaultdict, deque
 
 
 class Solution:
     def reachableNodes(self, n: int, edges: List[List[int]], restricted: List[int]) -> int:
+        seen = set(restricted)
+        graph = defaultdict(set)
+        for u, v in edges:
+            graph[u].add(v)
+            graph[v].add(u)
+
+        dq = deque([0])
+        while dq:
+            node = dq.popleft()
+            seen.add(node)
+            for child in graph[node]:
+                if child not in seen:
+                    dq.append(child)
+        return len(seen) - len(restricted)
+
+    # bfs
+    def reachableNodes1(self, n: int, edges: List[List[int]], restricted: List[int]) -> int:
         graph = [[] for _ in range(n)]
         for u, v in edges:
             graph[u].append(v)
