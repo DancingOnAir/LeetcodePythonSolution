@@ -3,6 +3,16 @@ from typing import List
 
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
+        res = pre = 0
+        for x in nums:
+            if x <= pre:
+                pre += 1
+                res += pre - x
+            else:
+                pre = x
+        return res
+
+    def minOperations1(self, nums: List[int]) -> int:
         if len(nums) < 2:
             return 0
 
