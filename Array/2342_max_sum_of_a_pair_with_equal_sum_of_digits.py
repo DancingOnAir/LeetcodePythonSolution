@@ -3,7 +3,21 @@ from collections import defaultdict
 
 
 class Solution:
+    # two sum
     def maximumSum(self, nums: List[int]) -> int:
+        res = -1
+        m = dict()
+
+        for num in nums:
+            s = sum(int(d) for d in str(num))
+            if s not in m:
+                m[s] = num
+            else:
+                res = max(res, num + m[s])
+                m[s] = max(m[s], num)
+        return res
+
+    def maximumSum1(self, nums: List[int]) -> int:
         def get_digit_sum(num):
             return sum(map(int, str(num)))
 
