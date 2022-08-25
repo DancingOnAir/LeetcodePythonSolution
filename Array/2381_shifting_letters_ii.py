@@ -2,7 +2,29 @@ from typing import List
 
 
 class Solution:
+    # 差分数组
     def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
+        def shift(ch, step):
+            return chr((ord(ch) - 97 + step) % 26 + 97)
+
+        n = len(s)
+        diff = [0] * (n + 1)
+        for l, r, d in shifts:
+            val = 1
+            if d == 0:
+                val = -1
+            diff[l] += val
+            diff[r + 1] -= val
+
+        val = 0
+        res = list()
+        for i in range(n):
+            val += diff[i]
+            res.append(shift(s[i], val))
+        return ''.join(res)
+
+    # TLE
+    def shiftingLetters1(self, s: str, shifts: List[List[int]]) -> str:
         def shift(ch, step):
             return chr((ord(ch) - 97 + step) % 26 + 97)
 
