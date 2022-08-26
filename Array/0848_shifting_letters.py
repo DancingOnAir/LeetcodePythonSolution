@@ -1,8 +1,13 @@
 from typing import List
+from itertools import accumulate
 
 
 class Solution:
     def shiftingLetters(self, s: str, shifts: List[int]) -> str:
+        sh = list(accumulate(reversed(shifts)))[::-1]
+        return ''.join(chr((ord(s[i]) - 97 + val) % 26 + 97) for i, val in enumerate(sh))
+
+    def shiftingLetters1(self, s: str, shifts: List[int]) -> str:
         s = list(s)
         val = 0
         for i in range(len(shifts) - 1, -1, -1):
