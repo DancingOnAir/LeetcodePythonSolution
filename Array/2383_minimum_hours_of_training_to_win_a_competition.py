@@ -2,8 +2,20 @@ from typing import List
 
 
 class Solution:
-    def minNumberOfHours(self, initialEnergy: int, initialExperience: int, energy: List[int],
-                         experience: List[int]) -> int:
+    def minNumberOfHours(self, initialEnergy: int, initialExperience: int, energy: List[int], experience: List[int]) -> int:
+        res = 0
+        for x, y in zip(energy, experience):
+            if initialEnergy <= x:
+                res += x + 1 - initialEnergy
+                initialEnergy = x + 1
+            if initialExperience <= y:
+                res += y + 1 - initialExperience
+                initialExperience = y + 1
+            initialEnergy -= x
+            initialExperience += y
+        return res
+
+    def minNumberOfHours1(self, initialEnergy: int, initialExperience: int, energy: List[int], experience: List[int]) -> int:
         max_energy = sum(energy)
         max_exp = pre_sum = 0
         for exp in experience:
