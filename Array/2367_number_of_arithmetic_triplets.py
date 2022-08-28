@@ -3,6 +3,15 @@ from typing import List
 
 class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+        cnt = [False] * 201
+        res = 0
+        for x in nums:
+            if x >= 2 * diff:
+                res += cnt[x - diff] and cnt[x - diff * 2]
+            cnt[x] = True
+        return res
+
+    def arithmeticTriplets2(self, nums: List[int], diff: int) -> int:
         seen = set()
         res = 0
         for x in nums:
