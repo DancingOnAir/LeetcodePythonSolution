@@ -3,7 +3,24 @@ from typing import List
 
 class Solution:
     def maximumSegmentSum(self, nums: List[int], removeQueries: List[int]) -> List[int]:
-        pass
+        def find(x):
+            if x != parents[x]:
+                parents[x] = find(parents[x])
+            return parents[x]
+
+        n = len(nums)
+        parents = list(range(n + 1))
+        total = [0] * (n + 1)
+        res = [0] * n
+        for i in range(n - 1, 0, -1):
+            x = removeQueries[i]
+            pa = find(x + 1)
+            # 将x和x+1合并
+            parents[x] = pa
+
+            total[pa] += total[x] + nums[x]
+            res[i - 1] = max(res[i], total[pa])
+        return res
 
 
 def test_maximum_segment_sum():
