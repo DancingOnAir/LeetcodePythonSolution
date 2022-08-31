@@ -1,8 +1,44 @@
 from typing import List
 
 
+class UF:
+    def __init__(self, nums):
+        self.parent = list(range(len(nums)))
+        self.sum = [x for x in nums]
+
+    def find(self, p):
+        while p != self.parent[p]:
+            self.parent[p] = self.parent[self.parent[p]]
+            p = self.parent[p]
+        return p
+
+    def unite(self, p, q):
+        self.sum[self.find(q)] += self.sum[self.find(p)]
+        self.parent[self.find(p)] = self.find(q)
+
+
 class Solution:
+    # union find
     def maximumSegmentSum(self, nums: List[int], removeQueries: List[int]) -> List[int]:
+        n = len(nums)
+        uf = UF(nums)
+        seen = [False] * n
+        res = [0] * n
+        cur = 0
+        for i in range(n - 1, 0, -1):
+            x = removeQueries[i]
+            seen[x] = True
+
+            if x > 0 and seen[x - 1]:
+                uf.unite(x - 1, x)
+            if x < n - 1 and seen[x + 1]:
+                uf.unite(x, x + 1)
+            cur = max(cur, uf.sum[uf.find(x)])
+            res[i - 1] = cur
+        return res
+
+    # union find, only union 1 time
+    def maximumSegmentSum1(self, nums: List[int], removeQueries: List[int]) -> List[int]:
         def find(x):
             if x != parents[x]:
                 parents[x] = find(parents[x])
