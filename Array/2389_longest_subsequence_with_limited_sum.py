@@ -5,6 +5,10 @@ from bisect import bisect_right
 
 class Solution:
     def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
+        pre = list(accumulate(sorted(nums)))
+        return [bisect_right(pre, x) for x in queries]
+
+    def answerQueries1(self, nums: List[int], queries: List[int]) -> List[int]:
         res = list()
         pre_sum = list(accumulate(sorted(nums)))
         for x in queries:
