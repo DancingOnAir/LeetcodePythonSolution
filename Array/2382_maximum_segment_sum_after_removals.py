@@ -1,4 +1,5 @@
 from typing import List
+from itertools import accumulate
 
 
 class UF:
@@ -18,8 +19,31 @@ class UF:
 
 
 class Solution:
-    # union find
+    # pre sum
     def maximumSegmentSum(self, nums: List[int], removeQueries: List[int]) -> List[int]:
+        n = len(nums)
+        left = list(range(n))
+        right = list(range(n))
+        seen = [False] * n
+
+        pre_sum = [0] + list(accumulate(nums))
+        res = list()
+        mx = 0
+        for x in removeQueries[::-1]:
+            res.append(mx)
+            seen[x] = True
+            l, r = x, x
+            if x - 1 >= 0 and seen[x - 1]:
+                l = left[x - 1]
+            if x + 1 < n and seen[x + 1]:
+                r = right[x + 1]
+            left[r] = l
+            right[l] = r
+            mx = max(mx, pre_sum[r + 1] - pre_sum[l])
+        return res[::-1]
+
+    # union find
+    def maximumSegmentSum2(self, nums: List[int], removeQueries: List[int]) -> List[int]:
         n = len(nums)
         uf = UF(nums)
         seen = [False] * n
