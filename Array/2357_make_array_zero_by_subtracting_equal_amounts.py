@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
+        return len(set(nums) - {0})
+
+    def minimumOperations1(self, nums: List[int]) -> int:
         return len(set(nums)) - (1 if 0 in set(nums) else 0)
 
 
