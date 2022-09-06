@@ -5,6 +5,11 @@ from collections import Counter
 
 class Solution:
     def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
+        last = {c: i for i, g in enumerate(garbage) for c in g}
+        dist = list(accumulate(travel, initial=0))
+        return sum(map(len, garbage)) + sum(dist[last.get(c, 0)] for c in 'MPG')
+
+    def garbageCollection1(self, garbage: List[str], travel: List[int]) -> int:
         pre_sum = [0] + list(accumulate(travel))
         distance = dict()
         freq = Counter()
