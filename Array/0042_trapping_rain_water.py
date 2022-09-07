@@ -2,21 +2,23 @@ from typing import List
 
 
 class Solution:
-    # stack
+    # stack, 考虑成左右括号，求有效括号中间的积水问题。
     def trap(self, height: List[int]) -> int:
         if len(height) < 3:
             return 0
 
-        stk = []
+        stk = list()
         res = 0
-        for i in range(len(height)):
-            while stk and height[stk[-1]] < height[i]:
+        for i, cur in enumerate(height):
+            while stk and cur > height[stk[-1]]:
                 tmp = height[stk.pop()]
                 if stk:
-                    h = min(height[stk[-1]], height[i]) - tmp
+                    h = min(height[stk[-1]], cur) - tmp
                     w = i - stk[-1] - 1
                     res += w * h
             stk.append(i)
+            cur += 1
+
         return res
 
     # math calculates area
@@ -71,9 +73,8 @@ class Solution:
 
 def test_trap():
     solution = Solution()
-
-    height1 = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
-    print(solution.trap(height1))
+    assert solution.trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6, 'wrong result'
+    assert solution.trap([4, 2, 0, 3, 2, 5]) == 9, 'wrong result'
 
 
 if __name__ == '__main__':
