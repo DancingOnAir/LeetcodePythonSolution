@@ -2,7 +2,19 @@ from typing import List
 
 
 class Solution:
+    # sliding window + bit manipulation: ^, |
     def longestNiceSubarray(self, nums: List[int]) -> int:
+        res = mask = left = 0
+        for right, val in enumerate(nums):
+            while mask & val:
+                mask ^= nums[left]
+                left += 1
+            mask |= val
+            res = max(res, right - left + 1)
+        return res
+
+    # sliding window + bit manipulation: &
+    def longestNiceSubarray1(self, nums: List[int]) -> int:
         res = 1
         cur_sum = nums[0]
         left = 0
