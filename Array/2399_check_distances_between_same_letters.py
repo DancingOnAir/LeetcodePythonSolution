@@ -2,7 +2,17 @@ from typing import List
 
 
 class Solution:
+    # check 2nd character
     def checkDistances(self, s: str, distance: List[int]) -> bool:
+        for i, ch in enumerate(s):
+            d = distance[ord(ch) - 97]
+            if i + d + 1 >= len(s) or s[i + d + 1] != ch:
+                return False
+            # 这里distance[ord(ch) - 97] = -1，使得遇到第二个ch时，上面的i + d + 1 == i
+            distance[ord(ch) - 97] = -1
+        return True
+
+    def checkDistances1(self, s: str, distance: List[int]) -> bool:
         m = dict()
         for i, ch in enumerate(s):
             if ch in m:
