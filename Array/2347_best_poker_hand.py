@@ -4,6 +4,17 @@ from collections import defaultdict, Counter
 
 class Solution:
     def bestHand(self, ranks: List[int], suits: List[str]) -> str:
+        if len(set(suits)) == 1:
+            return "Flush"
+
+        if Counter(ranks).most_common(1)[0][1] >= 3:
+            return "Three of a Kind"
+        if Counter(ranks).most_common(1)[0][1] == 2:
+            return "Pair"
+        return "High Card"
+
+    # straight forward
+    def bestHand1(self, ranks: List[int], suits: List[str]) -> str:
         res = ["Flush", "Three of a Kind", "Pair", "High Card"]
         if len(set(suits)) == 1:
             return res[0]
