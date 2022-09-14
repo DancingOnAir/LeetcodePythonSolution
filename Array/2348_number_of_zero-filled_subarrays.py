@@ -3,7 +3,17 @@ from itertools import groupby
 
 
 class Solution:
+    # two pointers
     def zeroFilledSubarray(self, nums: List[int]) -> int:
+        res = j = 0
+        for i, val in enumerate(nums):
+            if val != 0:
+                j = i + 1
+            res += i - j + 1
+        return res
+
+    # itertools.groupby
+    def zeroFilledSubarray1(self, nums: List[int]) -> int:
         res = 0
         for k, g in groupby(nums):
             if k == 0:
