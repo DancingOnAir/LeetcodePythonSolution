@@ -3,8 +3,20 @@ from itertools import groupby
 
 
 class Solution:
-    # two pointers
+    # math
     def zeroFilledSubarray(self, nums: List[int]) -> int:
+        res = cnt = 0
+        nums += [1]
+        for x in nums:
+            if x == 0:
+                cnt += 1
+            else:
+                res += (cnt + 1) * cnt // 2
+                cnt = 0
+        return res
+
+    # two pointers
+    def zeroFilledSubarray2(self, nums: List[int]) -> int:
         res = j = 0
         for i, val in enumerate(nums):
             if val != 0:
