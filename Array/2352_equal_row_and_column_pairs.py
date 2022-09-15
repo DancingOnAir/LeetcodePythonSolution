@@ -1,9 +1,14 @@
 from typing import List
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 class Solution:
+    # pythonic，先col后row使用Counter更简单
     def equalPairs(self, grid: List[List[int]]) -> int:
+        c = Counter(zip(*grid))
+        return sum(c[tuple(r)] for r in grid)
+
+    def equalPairs1(self, grid: List[List[int]]) -> int:
         m = defaultdict(int)
         for r in grid:
             k = ','.join(map(str, r))
