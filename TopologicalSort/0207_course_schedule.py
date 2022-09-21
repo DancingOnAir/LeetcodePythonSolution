@@ -11,15 +11,15 @@ class Solution:
             in_degrees[v] += 1
 
         dq = deque(i for i, val in enumerate(in_degrees) if val == 0)
-        res = list()
+        res = 0
         while dq:
             u = dq.popleft()
-            res.append(u)
+            res += 1
             for v in graph[u]:
                 in_degrees[v] -= 1
                 if in_degrees[v] == 0:
                     dq.append(v)
-        return True if len(res) == numCourses else False
+        return res == numCourses
 
 
 def test_can_finish():
