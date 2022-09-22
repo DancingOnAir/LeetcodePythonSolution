@@ -1,9 +1,27 @@
 from typing import List
-from collections import deque
+from collections import deque, defaultdict
 
 
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        in_degrees = defaultdict(int)
+        graph = defaultdict(list)
+        for u, v in prerequisites:
+            in_degrees[u] += 1
+            graph[v].append(u)
+
+        res = list()
+        q = set(range(numCourses)) - set(in_degrees)
+        while q:
+            u = q.pop()
+            res.append(u)
+            for v in graph[u]:
+                in_degrees[v] -= 1
+                in_degrees[v] or q.add(v)
+
+        return res * (len(res) == numCourses)
+
+    def findOrder1(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         graph = [[] for _ in range(numCourses)]
         in_degrees = [0] * numCourses
         for u, v in prerequisites:
