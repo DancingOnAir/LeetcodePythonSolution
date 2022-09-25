@@ -3,7 +3,55 @@ from collections import deque
 
 
 class Solution:
+    # topologic sort + floyd's algorithm
     def longestCycle(self, edges: List[int]) -> int:
+        n = len(edges)
+        in_degree = [0] * n
+        for u, v in enumerate(edges):
+            if v != -1:
+                in_degree[v] += 1
+
+        candidates = set(range(n))
+        dq = deque(i for i, val in enumerate(in_degree) if val == 0)
+        while dq:
+            u = dq.popleft()
+            candidates.remove(u)
+            if edges[u] != -1:
+                in_degree[edges[u]] -= 1
+            if edges[u] != -1 and in_degree[edges[u]] == 0:
+                dq.append(edges[u])
+
+        if not candidates:
+            return -1
+
+        res = 0
+        seen = set()
+        for node in candidates:
+            if node in seen:
+                continue
+            u, v = edges[node], edges[edges[node]]
+            sz = 1
+            seen |= {node, u, v}
+            while u != v:
+                u = edges[u]
+                v = edges[edges[v]]
+                seen |= {u, v}
+            # 环问题求环起点，当一个指针从起点node开始走，另一个指针从相遇点v开始走，当2者相遇时，就是环的起点。
+            u = node
+            while u != v:
+                u = edges[u]
+                v = edges[v]
+            start = u
+
+            v = edges[start]
+            while v != start:
+                v = edges[v]
+                sz += 1
+            res = max(res, sz)
+        return res
+
+    # dfs
+    def longestCycle2(self, edges: List[int]) -> int:
         n = len(edges)
         seen = set()
         depths = [float('inf')] * n
