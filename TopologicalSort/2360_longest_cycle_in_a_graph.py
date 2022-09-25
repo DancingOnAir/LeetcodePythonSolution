@@ -5,6 +5,24 @@ from collections import deque
 class Solution:
     def longestCycle(self, edges: List[int]) -> int:
         n = len(edges)
+        seen = set()
+        depths = [float('inf')] * n
+
+        def dfs(i, depth):
+            if i in seen or edges[i] == -1:
+                return -1
+            if depths[i] < depth:
+                return depth - depths[i]
+            depths[i] = depth
+            res = dfs(edges[i], depth + 1)
+            seen.add(i)
+            return res
+
+        return max(dfs(i, 0) for i in range(n))
+
+    # topologic sort
+    def longestCycle1(self, edges: List[int]) -> int:
+        n = len(edges)
         graph = [[] for _ in range(n)]
         in_degree = [0] * n
         for u, v in enumerate(edges):
