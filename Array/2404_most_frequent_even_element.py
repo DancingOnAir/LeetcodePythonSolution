@@ -4,6 +4,9 @@ from collections import Counter
 
 class Solution:
     def mostFrequentEven(self, nums: List[int]) -> int:
+        return min(Counter(x for x in nums if x % 2 == 0).items(), key=lambda x: (-x[1], x[0]), default=[-1])[0]
+
+    def mostFrequentEven1(self, nums: List[int]) -> int:
         res = [k for k, v in sorted(Counter(nums).items(), key=lambda x: (-x[1], x[0])) if k % 2 == 0]
         return -1 if not res else res[0]
 
