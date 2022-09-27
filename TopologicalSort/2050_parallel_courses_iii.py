@@ -1,9 +1,22 @@
 from typing import List
 from collections import deque, defaultdict
+from functools import lru_cache
 
 
 class Solution:
+    # dp
     def minimumTime(self, n: int, relations: List[List[int]], time: List[int]) -> int:
+        graph = [[] for _ in range(n + 1)]
+        for u, v in relations:
+            graph[v].append(u)
+
+        @lru_cache(None)
+        def dp(node):
+            return time[node - 1] + max([dp(child) for child in graph[node]] + [0])
+        return max(dp(i) for i in range(1, n + 1))
+
+    # topological sort
+    def minimumTime1(self, n: int, relations: List[List[int]], time: List[int]) -> int:
         graph = [[] for _ in range(n)]
         in_degree = [0] * n
         for u, v in relations:
