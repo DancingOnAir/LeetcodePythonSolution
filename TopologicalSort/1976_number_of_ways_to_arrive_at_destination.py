@@ -1,14 +1,34 @@
 from typing import List
+from collections import defaultdict
+from heapq import heappop, heappush
 
 
 class Solution:
     def countPaths(self, n: int, roads: List[List[int]]) -> int:
-        graph = [[] for _ in range(n)]
-        in_degree = [0] * n
+        graph = defaultdict(list)
         for u, v, t in roads:
-            graph[u].append(v)
-            graph[v].append(u)
-        pass
+            graph[u].append((v, t))
+            graph[v].append((u, t))
+        # 先dijkstra求出0到任意点时间的花费
+        dist = [float('inf') for _ in range(n)]
+        dist[0] = 0
+        # 距离，点
+        pq = [(0, 0)]
+        # 表示到id的最短路径数
+        count = [1] + [0] * (n - 1)
+        while pq:
+            min_time, u = heappop(pq)
+            if u == n - 1:
+                return count[u] % (10 ** 9 + 7)
+            for v, t in graph[u]:
+                cand_time = t + min_time
+                # cand_time等于当前min_time则叠加，小于则覆盖更新
+                if cand_time == dist[v]:
+                    count[v] += count[u]
+                elif cand_time < dist[v]:
+                    dist[v] = cand_time
+                    heappush(pq, (cand_time, v))
+                    count[v] = count[u]
 
 
 def test_count_paths():
