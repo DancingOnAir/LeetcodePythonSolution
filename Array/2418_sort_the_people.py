@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        return [b for _, b in sorted(zip(heights, names), key=lambda x: -x[0])]
+
+    def sortPeople1(self, names: List[str], heights: List[int]) -> List[str]:
         return [names[i] for _, i in sorted({val: i for i, val in enumerate(heights)}.items(), key=lambda x: -x[0])]
 
 
