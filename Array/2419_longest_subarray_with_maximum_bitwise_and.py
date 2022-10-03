@@ -4,6 +4,21 @@ from itertools import groupby
 
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
+        res = cur = mx = 0
+        for x in nums:
+            if mx < x:
+                mx = x
+                res = cur = 0
+
+            if mx == x:
+                cur += 1
+            else:
+                cur = 0
+            res = max(res, cur)
+        return res
+
+    # groupby
+    def longestSubarray(self, nums: List[int]) -> int:
         return max((k, len(list(g))) for k, g in groupby(nums))[1]
 
 
