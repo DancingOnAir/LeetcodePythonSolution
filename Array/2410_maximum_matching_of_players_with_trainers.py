@@ -1,9 +1,21 @@
 from typing import List
+from bisect import bisect_left
 
 
 class Solution:
     def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
-        pass
+        players.sort()
+        trainers.sort()
+
+        res = 0
+        i, pre = -1, 0
+        for p in players:
+            pre += i + 1
+            i = bisect_left(trainers[pre:], p)
+            if i + pre >= len(trainers):
+                break
+            res += 1
+        return res
 
 
 def test_match_players_and_trainers():
