@@ -4,6 +4,17 @@ from bisect import bisect_left
 
 class Solution:
     def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
+        players.sort(reverse=True)
+        trainers.sort()
+        res = 0
+
+        for t in trainers:
+            if players and players[-1] <= t:
+                res += 1
+                players.pop()
+        return res
+
+    def matchPlayersAndTrainers2(self, players: List[int], trainers: List[int]) -> int:
         players.sort()
         trainers.sort()
         l1, l2 = len(players), len(trainers)
