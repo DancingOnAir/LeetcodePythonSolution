@@ -6,6 +6,22 @@ class Solution:
     def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
         players.sort()
         trainers.sort()
+        l1, l2 = len(players), len(trainers)
+        res = i = j = 0
+
+        while i < l1 and j < l2:
+            while j < l2 and trainers[j] < players[i]:
+                j += 1
+            if j < l2:
+                res += 1
+            i += 1
+            j += 1
+        return res
+
+    # TLE, 不需要二分查找
+    def matchPlayersAndTrainers1(self, players: List[int], trainers: List[int]) -> int:
+        players.sort()
+        trainers.sort()
 
         res = 0
         i, pre = -1, 0
