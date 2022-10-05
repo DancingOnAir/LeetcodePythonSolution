@@ -2,6 +2,22 @@ from typing import List
 
 
 class Solution:
+    def smallestSubarrays(self, nums: List[int]) -> List[int]:
+        if not nums:
+            return []
+
+        bits = dict()
+        res = [0] * len(nums)
+        for i in range(len(nums) - 1, -1, -1):
+            x, j = nums[i], 0
+            while x:
+                if x & 1:
+                    bits[j] = i
+                j += 1
+                x >>= 1
+            res[i] = max(bits.values()) - i + 1 if bits else 1
+        return res
+
     # https://leetcode.com/problems/smallest-subarrays-with-maximum-bitwise-or/solutions/2588015/java-c-python-bit-solution-with-explanation/
     # Assume the array has only 0 and 1.
     # Then the question changes:
@@ -14,7 +30,7 @@ class Solution:
     # we can iterate the array reversely
     # and keep the index j of last time we saw 1.
     # res[i] = max(1, last - i + 1)
-    def smallestSubarrays(self, nums: List[int]) -> List[int]:
+    def smallestSubarrays1(self, nums: List[int]) -> List[int]:
         n = len(nums)
         last = [0] * 32
         res = [0] * n
