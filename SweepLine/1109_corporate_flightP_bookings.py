@@ -2,8 +2,20 @@ from typing import List
 
 
 class Solution:
-    # sweep line
+    # running sum sweep line
     def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+        res = [0] * n
+        for i, j, x in bookings:
+            res[i - 1] += x
+            if j < n:
+                res[j] -= x
+
+        for i in range(1, n):
+            res[i] += res[i - 1]
+        return res
+
+    # sweep line
+    def corpFlightBookings1(self, bookings: List[List[int]], n: int) -> List[int]:
         res = [0] * (n + 1)
         for i, j, x in bookings:
             res[i - 1] += x
