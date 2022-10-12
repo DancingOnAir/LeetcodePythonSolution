@@ -1,8 +1,26 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def splitPainting(self, segments: List[List[int]]) -> List[List[int]]:
+        d = defaultdict(int)
+        for i, j, k in segments:
+            d[i] += k
+            d[j] -= k
+
+        res = list()
+        color, prev = 0, None
+        for now in sorted(d):
+            # if color == 0, it means this part isn't painted.
+            if color:
+                res.append([prev, now, color])
+            color += d[now]
+            prev = now
+
+        return res
+
+    def splitPainting1(self, segments: List[List[int]]) -> List[List[int]]:
         endpoints = list()
         for i, j, k in segments:
             endpoints.append([i, k])
