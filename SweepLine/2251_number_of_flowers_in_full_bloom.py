@@ -1,11 +1,17 @@
 from typing import List
-from bisect import bisect_right
+from bisect import bisect_right, bisect_left
 from collections import defaultdict
 
 
 class Solution:
-    # TLE
+    # binary search
     def fullBloomFlowers(self, flowers: List[List[int]], persons: List[int]) -> List[int]:
+        start = sorted(s for s, e in flowers)
+        end = sorted(e for s, e in flowers)
+        return [bisect_right(start, p) - bisect_left(end, p) for p in persons]
+
+    # sweep line
+    def fullBloomFlowers1(self, flowers: List[List[int]], persons: List[int]) -> List[int]:
         endpoints = defaultdict(int)
         for i, j in flowers:
             endpoints[i] += 1
