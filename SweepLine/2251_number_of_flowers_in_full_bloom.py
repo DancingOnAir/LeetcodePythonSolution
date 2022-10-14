@@ -13,11 +13,12 @@ class Solution:
 
         bloom = list()
         cur = 0
-        for i in sorted(endpoints):
+        sorted_endpoints = sorted(endpoints)
+        for i in sorted_endpoints:
             cur += endpoints[i]
             bloom.append(cur)
 
-        return [bloom[bisect_right(sorted(endpoints), p) - 1] for p in persons]
+        return [bloom[bisect_right(sorted_endpoints, p) - 1] for p in persons]
 
 
 def test_full_bloom_flowers():
