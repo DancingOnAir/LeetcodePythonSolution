@@ -5,7 +5,31 @@ from heapq import heappop, heappush
 
 
 class Solution:
+    # https://leetcode.com/problems/minimum-interval-to-include-each-query/solutions/1187616/python-heap-2-pointers-explained/
     def minInterval(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
+        A = sorted(intervals) + [[float('inf'), 0]]
+        Q = sorted([val, i] for i, val in enumerate(queries))
+        l1, l2 = len(A), len(Q)
+        h, res, p1, p2 = list(), [-1] * l2, 0, 0
+
+        while p1 < l1 and p2 < l2:
+            x, y = A[p1]
+            q, idx = Q[p2]
+
+            while h and h[0][1] < q:
+                heappop(h)
+
+            if x <= q:
+                heappush(h, (y - x + 1, y))
+                p1 += 1
+            else:
+                if h:
+                    res[idx] = h[0][0]
+                p2 += 1
+
+        return res
+
+    def minInterval1(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
         intervals = sorted(intervals)[::-1]
         h = list()
         res = dict()
