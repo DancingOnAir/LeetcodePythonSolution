@@ -7,6 +7,12 @@ from operator import xor
 class Solution:
     # easy & concise
     def findArray(self, pref: List[int]) -> List[int]:
+        # map这里是对2个list做xor操作
+        # list1: pref
+        # list2: 0, pref[0], pref[1], ... , pref[-2]
+        return list(map(xor, pref, [0] + pref[:-1]))
+
+    def findArray2(self, pref: List[int]) -> List[int]:
         for i in range(len(pref) - 1, 0, -1):
             pref[i] ^= pref[i - 1]
         return pref
