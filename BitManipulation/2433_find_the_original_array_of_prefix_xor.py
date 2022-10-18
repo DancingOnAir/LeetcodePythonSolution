@@ -1,6 +1,4 @@
 from typing import List
-from itertools import accumulate
-from functools import reduce
 from operator import xor
 
 
