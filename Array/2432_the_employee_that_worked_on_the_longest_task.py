@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def hardestWorker(self, n: int, logs: List[List[int]]) -> int:
+        pre, res = 0, (0, 0)
+        for idx, cur in logs:
+            # 注意这里是pre - cur，得到的是个负数，因为我们要求最大的工作时间，也就是最小的pre - cur的值
+            res = min(res, (pre - cur, idx))
+            pre = cur
+        return res[1]
+
+    def hardestWorker1(self, n: int, logs: List[List[int]]) -> int:
         res = s = 0
         longest_time = 0
         for i, e in logs:
