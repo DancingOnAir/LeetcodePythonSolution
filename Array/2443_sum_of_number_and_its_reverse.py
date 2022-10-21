@@ -1,6 +1,6 @@
 class Solution:
     def sumOfNumberAndReverse(self, num: int) -> bool:
-        return any(x + int(str(x)[::-1]) == num for x in range(num + 1))
+        return any(x + int(str(x)[::-1]) == num for x in range(num // 2, num + 1))
 
 
 def test_sum_of_number_and_reverse():
