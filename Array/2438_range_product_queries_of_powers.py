@@ -5,6 +5,16 @@ from itertools import accumulate
 class Solution:
     def productQueries(self, n: int, queries: List[List[int]]) -> List[int]:
         powers = list()
+        for i in range(30):
+            if n & (1 << i):
+                powers.append(1 << i)
+
+        powers = list(accumulate(powers, lambda x, y: x * y))
+        powers.append(1)
+        return [(powers[j] // powers[i - 1]) % (10 ** 9 + 7) for i, j in queries]
+
+    def productQueries1(self, n: int, queries: List[List[int]]) -> List[int]:
+        powers = list()
         i = 0
         while n:
             if n & 1:
