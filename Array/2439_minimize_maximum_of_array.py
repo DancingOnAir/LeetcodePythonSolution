@@ -1,9 +1,14 @@
 from typing import List
 from math import ceil
+from itertools import accumulate
 
 
 class Solution:
+    # (sum + i) // (i + 1) 等价于求ceil(sum // i)
     def minimizeArrayValue(self, nums: List[int]) -> int:
+        return max((x + i) // (i + 1) for i, x in enumerate(accumulate(nums)))
+
+    def minimizeArrayValue1(self, nums: List[int]) -> int:
         res = total = 0
         for i, x in enumerate(nums):
             total += x
