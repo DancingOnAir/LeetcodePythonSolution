@@ -5,6 +5,23 @@ from heapq import heapify, heappop, heappush
 class Solution:
     def minSumSquareDiff(self, nums1: List[int], nums2: List[int], k1: int, k2: int) -> int:
         n = len(nums1)
+        diffs = [-abs(nums1[i] - nums2[i]) for i in range(n)]
+        if k1 + k2 >= -sum(diffs):
+            return 0
+
+        heapify(diffs)
+        k = k1 + k2
+        while k > 0:
+            d = heappop(diffs)
+            gap = max(k // n, 1) if diffs else k
+            d += gap
+            heappush(diffs, d)
+            k -= gap
+        return sum(d ** 2 for d in diffs)
+
+    # bucket sort
+    def minSumSquareDiff2(self, nums1: List[int], nums2: List[int], k1: int, k2: int) -> int:
+        n = len(nums1)
         diffs = [abs(nums1[i] - nums2[i]) for i in range(n)]
         mx = max(diffs)
 
