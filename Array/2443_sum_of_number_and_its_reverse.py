@@ -1,5 +1,9 @@
 class Solution:
+    # TLE
     def sumOfNumberAndReverse(self, num: int) -> bool:
+        return num in {x + int(str(x)[::-1]) for x in range(100001)}
+
+    def sumOfNumberAndReverse1(self, num: int) -> bool:
         return any(x + int(str(x)[::-1]) == num for x in range(num // 2, num + 1))
 
 
