@@ -1,8 +1,19 @@
 from typing import List
+from math import gcd
 
 
 class Solution:
     def subarrayGCD(self, nums: List[int], k: int) -> int:
+        res = 0
+        for i in range(len(nums)):
+            for j in range(i, len(nums)):
+                nums[i] = gcd(nums[i], nums[j])
+                res += nums[i] == k
+                if nums[i] < k:
+                    break
+        return res
+
+    def subarrayGCD1(self, nums: List[int], k: int) -> int:
         def gcd(a, b):
             return a if b == 0 else gcd(b, a % b)
 
