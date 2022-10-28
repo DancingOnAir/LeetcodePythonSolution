@@ -3,6 +3,7 @@ from heapq import heapify, heappop, heappush
 
 
 class Solution:
+    # https://leetcode.com/problems/minimum-amount-of-time-to-fill-cups/solutions/2261394/java-c-python-max-max-a-sum-a-1-2/
     def fillCups(self, amount: List[int]) -> int:
         return max(max(amount), (sum(amount) + 1) // 2)
 
