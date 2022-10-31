@@ -32,14 +32,14 @@ def test_spiral_matrix():
     head = cur = ListNode(nums[0])
     for x in nums[1:]:
         cur.next = ListNode(x)
-        cur = ListNode(x)
+        cur = cur.next
     assert solution.spiralMatrix(3, 5, head) == [[3, 0, 2, 6, 8], [5, 0, -1, -1, 1], [5, 2, 4, 9, 7]], 'wrong result'
 
     nums = [0, 1, 2]
     head = cur = ListNode(nums[0])
     for x in nums[1:]:
         cur.next = ListNode(x)
-        cur = ListNode(x)
+        cur = cur.next
     assert solution.spiralMatrix(1, 4, head) == [[0, 1, 2, -1]], 'wrong result'
 
 
