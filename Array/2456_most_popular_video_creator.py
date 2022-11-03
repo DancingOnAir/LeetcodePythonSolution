@@ -4,6 +4,15 @@ from collections import defaultdict
 
 class Solution:
     def mostPopularCreator(self, creators: List[str], ids: List[str], views: List[int]) -> List[List[str]]:
+        tot, vis, mx = defaultdict(int), defaultdict(list), 0
+        for c, i, v in zip(creators, ids, views):
+            tot[c] += v
+            vis[c].append((-v, i))
+            mx = max(mx, tot[c])
+
+        return [[c, min(v)[1]] for c, v in vis.items() if tot[c] == mx]
+
+    def mostPopularCreator1(self, creators: List[str], ids: List[str], views: List[int]) -> List[List[str]]:
         m = dict()
         for i in range(len(creators)):
             if creators[i] not in m:
