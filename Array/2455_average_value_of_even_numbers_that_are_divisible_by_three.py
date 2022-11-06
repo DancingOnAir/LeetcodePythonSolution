@@ -3,6 +3,15 @@ from typing import List
 
 class Solution:
     def averageValue(self, nums: List[int]) -> int:
+        cnt = 0
+        res = 0
+        for x in nums:
+            if x % 2 == 0 and x % 3 == 0:
+                cnt += 1
+                res += x
+        return res // cnt if cnt else 0
+
+    def averageValue1(self, nums: List[int]) -> int:
         res = [x for x in nums if x % 6 == 0]
         return sum(res) // len(res) if res else 0
 
