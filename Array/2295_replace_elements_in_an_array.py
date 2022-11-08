@@ -3,6 +3,13 @@ from typing import List
 
 class Solution:
     def arrayChange(self, nums: List[int], operations: List[List[int]]) -> List[int]:
+        m = {v: i for i, v in enumerate(nums)}
+        for a, b in operations:
+            m[b] = m[a]
+            nums[m[a]] = b
+        return nums
+
+    def arrayChange1(self, nums: List[int], operations: List[List[int]]) -> List[int]:
         m = {v: [i] for i, v in enumerate(nums)}
         for a, b in operations:
             if b in m:
