@@ -2,7 +2,17 @@ from typing import List
 
 
 class Solution:
+    # https://leetcode.com/problems/replace-elements-in-an-array/solutions/2112285/python-simple-map-approach/
     def arrayChange(self, nums: List[int], operations: List[List[int]]) -> List[int]:
+        replace = dict()
+        for a, b in reversed(operations):
+            replace[a] = replace.get(b, b)
+        for i, val in enumerate(nums):
+            if val in replace:
+                nums[i] = replace[val]
+        return nums
+
+    def arrayChange2(self, nums: List[int], operations: List[List[int]]) -> List[int]:
         m = {v: i for i, v in enumerate(nums)}
         for a, b in operations:
             m[b] = m[a]
