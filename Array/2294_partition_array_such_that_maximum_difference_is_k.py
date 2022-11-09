@@ -4,6 +4,16 @@ from typing import List
 class Solution:
     def partitionArray(self, nums: List[int], k: int) -> int:
         nums.sort()
+        j, res = 0, 1
+
+        for i in range(len(nums)):
+            if nums[i] - nums[j] > k:
+                j = i
+                res += 1
+        return res
+
+    def partitionArray1(self, nums: List[int], k: int) -> int:
+        nums.sort()
         res = 1
         mx = mn = nums[0]
         for x in nums:
