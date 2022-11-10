@@ -4,6 +4,13 @@ from typing import List
 class Solution:
     def minimumDifference(self, nums: List[int], k: int) -> int:
         nums.sort()
+        res = float('inf')
+        for i in range(len(nums) - k + 1):
+            res = min(res, nums[i + k - 1] - nums[i])
+        return res
+
+    def minimumDifference1(self, nums: List[int], k: int) -> int:
+        nums.sort()
         l = 0
         res = float('inf')
         for r in range(len(nums)):
