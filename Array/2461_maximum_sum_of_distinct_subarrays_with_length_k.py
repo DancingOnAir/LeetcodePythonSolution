@@ -1,10 +1,31 @@
 from typing import List
-from collections import defaultdict
+from collections import Counter
 
 
 class Solution:
-    # improved sliding window + set
+    # sliding window + smart enumerate instead of map
     def maximumSubarraySum(self, nums: List[int], k: int) -> int:
+        c = Counter(nums[:k])
+        tot = sum(nums[:k])
+        n = len(c)
+        res = tot if n == k else 0
+        for i, v in enumerate(nums[k:]):
+            # grace skill
+            tot += v - nums[i]
+            c[nums[i]] -= 1
+
+            if c[nums[i]] == 0:
+                n -= 1
+            if c[v] == 0:
+                n += 1
+            c[v] += 1
+
+            if n == k:
+                res = max(res, tot)
+        return res
+
+    # improved sliding window + set
+    def maximumSubarraySum2(self, nums: List[int], k: int) -> int:
         m = set()
         tot = res = 0
         for i in range(len(nums)):
