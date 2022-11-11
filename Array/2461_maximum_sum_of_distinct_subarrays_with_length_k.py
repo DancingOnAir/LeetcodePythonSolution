@@ -1,8 +1,27 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
+    # improved sliding window + set
     def maximumSubarraySum(self, nums: List[int], k: int) -> int:
+        m = set()
+        tot = res = 0
+        for i in range(len(nums)):
+            while nums[i] in m or len(m) == k:
+                tot -= nums[i - len(m)]
+                m.remove(nums[i - len(m)])
+
+            m.add(nums[i])
+            tot += nums[i]
+
+            if len(m) == k:
+                res = max(res, tot)
+
+        return res
+
+    # sliding window + set
+    def maximumSubarraySum1(self, nums: List[int], k: int) -> int:
         res = cur = 0
         l = 0
         m = set()
