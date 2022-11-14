@@ -4,6 +4,24 @@ from heapq import heappop, heappush
 
 class Solution:
     def secondGreaterElement(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        stk = list()
+        pre = [[] for _ in range(n)]
+        for i in range(n):
+            while stk and nums[stk[-1]] < nums[i]:
+                pre[i].append(stk.pop())
+            stk.append(i)
+
+        pq = list()
+        res = [-1] * n
+        for i in range(n):
+            while pq and pq[0][0] < nums[i]:
+                res[heappop(pq)[1]] = nums[i]
+            for j in pre[i]:
+                heappush(pq, (nums[j], j))
+        return res
+
+    def secondGreaterElement1(self, nums: List[int]) -> List[int]:
         stk1 = list()
         stk2 = list()
         res = [-1] * len(nums)
