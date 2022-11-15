@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
+        stk, res = list(), [-1] * len(nums)
+        for i in list(range(len(nums))) * 2:
+            while stk and nums[stk[-1]] < nums[i]:
+                res[stk.pop()] = nums[i]
+            stk.append(i)
+        return res
+
+    def nextGreaterElements1(self, nums: List[int]) -> List[int]:
         n = len(nums)
         res = [-1] * n
         stk = list()
