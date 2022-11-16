@@ -1,5 +1,18 @@
 class Solution:
+    # calculate depth
     def scoreOfParentheses(self, s: str) -> int:
+        res = bal = 0
+        for i, ch in enumerate(s):
+            if ch == '(':
+                bal += 1
+            else:
+                bal -= 1
+                if s[i - 1] == '(':
+                    res += 1 << bal
+        return res
+
+    # stack
+    def scoreOfParentheses1(self, s: str) -> int:
         stk = list()
         cur = 0
 
