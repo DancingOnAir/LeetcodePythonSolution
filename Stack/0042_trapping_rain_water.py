@@ -7,18 +7,16 @@ class Solution:
         if len(height) < 3:
             return 0
 
-        stk = list()
         res = 0
-        for i, cur in enumerate(height):
-            while stk and cur > height[stk[-1]]:
-                tmp = height[stk.pop()]
+        stk = list()
+        for i, val in enumerate(height):
+            while stk and height[stk[-1]] < val:
+                cur = height[stk.pop()]
                 if stk:
-                    h = min(height[stk[-1]], cur) - tmp
+                    h = min(height[stk[-1]], val) - cur
                     w = i - stk[-1] - 1
                     res += w * h
             stk.append(i)
-            cur += 1
-
         return res
 
     # math calculates area
