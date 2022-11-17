@@ -1,13 +1,16 @@
+from typing import List, Tuple
+
+
 class StockSpanner:
     def __init__(self):
-        self.stock = list()
+        self.stock: List[Tuple[int, int]] = list()
 
     def next(self, price: int) -> int:
         res = 1
-        while res <= len(self.stock) and self.stock[-res] <= price:
-            res += 1
+        while self.stock and self.stock[-1][0] <= price:
+            res += self.stock.pop()[1]
 
-        self.stock.append(price)
+        self.stock.append((price, res))
         return res
 
 
