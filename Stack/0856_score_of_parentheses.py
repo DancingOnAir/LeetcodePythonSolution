@@ -1,6 +1,10 @@
 class Solution:
-    # calculate depth
+    # one line eval
     def scoreOfParentheses(self, s: str) -> int:
+        return eval(s.replace(')(', ')+(').replace('()', '1').replace(')', ')*2'))
+
+    # calculate depth
+    def scoreOfParentheses2(self, s: str) -> int:
         res = bal = 0
         for i, ch in enumerate(s):
             if ch == '(':
