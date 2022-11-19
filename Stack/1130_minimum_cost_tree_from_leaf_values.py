@@ -3,6 +3,19 @@ from typing import List
 
 class Solution:
     def mctFromLeafValues(self, arr: List[int]) -> int:
+        stk = [float('inf')]
+        res = 0
+        for a in arr:
+            while stk[-1] < a:
+                mid = stk.pop()
+                res += mid * min(stk[-1], a)
+            stk.append(a)
+
+        while len(stk) > 2:
+            res += stk.pop() * stk[-1]
+        return res
+
+    def mctFromLeafValues2(self, arr: List[int]) -> int:
         res = 0
         while len(arr) > 1:
             i = arr.index(min(arr))
