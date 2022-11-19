@@ -5,6 +5,14 @@ class Solution:
     def mctFromLeafValues(self, arr: List[int]) -> int:
         res = 0
         while len(arr) > 1:
+            i = arr.index(min(arr))
+            res += min(arr[i - 1: i] + arr[i + 1: i + 2]) * arr.pop(i)
+        return res
+
+    # intuition, remove element from smallest to bigger.
+    def mctFromLeafValues1(self, arr: List[int]) -> int:
+        res = 0
+        while len(arr) > 1:
             idx = arr.index(min(arr))
             if 0 < idx < len(arr) - 1:
                 res += min(arr[idx - 1], arr[idx + 1]) * arr[idx]
