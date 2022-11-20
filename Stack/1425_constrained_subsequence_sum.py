@@ -1,9 +1,24 @@
 from typing import List
+from collections import deque
 
 
 class Solution:
     def constrainedSubsetSum(self, nums: List[int], k: int) -> int:
-        pass
+        dq = deque()
+
+        for i in range(len(nums)):
+            if dq:
+                nums[i] += dq[0]
+
+            while len(dq) and nums[i] > dq[-1]:
+                dq.pop()
+
+            if nums[i] > 0:
+                dq.append(nums[i])
+
+            if i >= k and dq and dq[0] == nums[i - k]:
+                dq.popleft()
+        return max(nums)
 
 
 def test_constrained_subset_sum():
