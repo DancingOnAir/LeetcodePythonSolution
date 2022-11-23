@@ -1,8 +1,22 @@
 from typing import List
+from bisect import bisect_left
 
 
 class Solution:
+    # brute force
     def minimumMountainRemovals(self, nums: List[int]) -> int:
+        n = len(nums)
+
+        def longest(arr):
+            mono = [10 ** 9] * n
+            for a in arr:
+                i = bisect_left(mono, a)
+                mono[i] = a
+            return i if i else -n
+        return n - max(longest(nums[: i + 1]) + longest(nums[:i - 1:-1]) + 1 for i in range(1, n - 1))
+
+    # dp
+    def minimumMountainRemovals1(self, nums: List[int]) -> int:
         n = len(nums)
         left = [1] * n
         right = [1] * n
