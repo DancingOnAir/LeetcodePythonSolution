@@ -3,9 +3,24 @@ from itertools import  accumulate
 
 
 class Solution:
+    # https://leetcode.cn/problems/sum-of-total-strength-of-wizards/solution/dan-diao-zhan-qian-zhui-he-de-qian-zhui-d9nki/
+    # 前缀和的前缀和
     # one pass
     def totalStrength(self, strength: List[int]) -> int:
-        pass
+        res, ac, acc, mod, stk = 0, 0, [0], 10 ** 9 + 7, [-1]
+        strength += [0]
+        for r, a in enumerate(strength):
+            ac += a
+            acc.append(ac + acc[-1])
+            while stk and strength[stk[-1]] > a:
+                i = stk.pop()
+                l = stk[-1]
+                lacc = acc[i] - acc[max(l, 0)]
+                racc = acc[r] - acc[i]
+                ln, rn = i - l, r - i
+                res += strength[i] * (racc * ln - lacc * rn) % mod
+            stk.append(r)
+        return res % mod
 
     # https://leetcode.com/problems/sum-of-total-strength-of-wizards/solutions/2061985/java-c-python-one-pass-solution/
     # for each strength[i] as minimum, calculate sum
