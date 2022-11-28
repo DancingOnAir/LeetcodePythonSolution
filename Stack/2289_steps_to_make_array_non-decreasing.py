@@ -3,6 +3,15 @@ from typing import List
 
 class Solution:
     def totalSteps(self, nums: List[int]) -> int:
+        stk = list()
+        for x in nums[::-1]:
+            cnt = 0
+            while stk and x > stk[-1][0]:
+                cnt = max(cnt + 1, stk.pop()[1])
+            stk.append((x, cnt))
+        return max(cnt for _, cnt in stk)
+
+    def totalSteps1(self, nums: List[int]) -> int:
         n = len(nums)
         dp = [0] * n
         stk = list()
