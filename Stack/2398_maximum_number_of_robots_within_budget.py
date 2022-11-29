@@ -1,10 +1,31 @@
 from typing import List
 from itertools import accumulate
+from collections import deque
 
 
 class Solution:
-    # TLE
+    # mono deque to find max value in a sliding window
     def maximumRobots(self, chargeTimes: List[int], runningCosts: List[int], budget: int) -> int:
+        n = len(chargeTimes)
+        dq = deque()
+        cur = i = 0
+        for j in range(n):
+            cur += runningCosts[j]
+            # 注意等于也要pop，更新dq中的idx
+            while dq and chargeTimes[dq[-1]] <= chargeTimes[j]:
+                dq.pop()
+            dq.append(j)
+            # 这里是if 不是while
+            if chargeTimes[dq[0]] + (j - i + 1) * cur > budget:
+                if dq[0] == i:
+                    dq.popleft()
+                cur -= runningCosts[i]
+                i += 1
+        # 因为上面是if，所以当得到一个window的size = x，不用检查长度在x以下的子数组，这里x就是最大值，那么自然i就是最小
+        return n - i
+
+    # TLE, sliding window
+    def maximumRobots1(self, chargeTimes: List[int], runningCosts: List[int], budget: int) -> int:
         n = len(chargeTimes)
         l = 0
         res = 0
