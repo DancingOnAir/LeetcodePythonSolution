@@ -3,27 +3,21 @@ from typing import List
 
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
-        stk = []
-
-        for i, num in enumerate(prices):
-            while stk and prices[stk[-1]] >= num:
-                prices[stk.pop()] -= num
+        stk = list()
+        res = prices[:]
+        for i in range(len(prices)):
+            while stk and prices[stk[-1]] >= prices[i]:
+                res[stk.pop()] -= prices[i]
             stk.append(i)
-        return prices
+        return res
 
 
 def test_final_prices():
     solution = Solution()
-
-    prices1 = [8, 4, 6, 2, 3]
-    print(solution.finalPrices(prices1))
-
-    prices2 = [1, 2, 3, 4, 5]
-    print(solution.finalPrices(prices2))
-
-    prices3 = [10, 1, 1, 6]
-    print(solution.finalPrices(prices3))
+    assert solution.finalPrices([8, 4, 6, 2, 3]) == [4, 2, 4, 2, 3], 'wrong result'
+    assert solution.finalPrices([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5], 'wrong result'
 
 
 if __name__ == '__main__':
     test_final_prices()
+
