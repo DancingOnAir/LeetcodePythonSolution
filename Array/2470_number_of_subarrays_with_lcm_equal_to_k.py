@@ -1,22 +1,32 @@
 from typing import List
 from math import lcm
+from collections import defaultdict
 
 
 class Solution:
     def subarrayLCM(self, nums: List[int], k: int) -> int:
-        n = len(nums)
         res = 0
-        for i in range(n):
-            if k % nums[i] == 0:
-                if nums[i] == k:
-                    res += 1
+        m = dict()
+        for x in nums:
+            cur = {x: 1}
+            for y in m.keys():
+                l = lcm(x, y)
+                if l <= k:
+                    cur[l] = cur.get(l, 0) + m[y]
+            res += cur.get(k, 0)
+            m = cur
+        return res
 
-                cur = nums[i]
-                for j in range(i + 1, n):
-                    cur = lcm(cur, nums[j])
-                    if cur % k == 0:
-                        if cur == k:
-                            res += 1
+    def subarrayLCM1(self, nums: List[int], k: int) -> int:
+        res = 0
+        for i in range(len(nums)):
+            cur = nums[i]
+            for j in range(i, len(nums)):
+                cur = lcm(cur, nums[j])
+                if cur == k:
+                    res += 1
+                elif cur > k:
+                    break
 
         return res
 
