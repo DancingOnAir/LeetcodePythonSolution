@@ -4,6 +4,10 @@ from typing import List
 class Solution:
     def distinctAverages(self, nums: List[int]) -> int:
         nums.sort()
+        return len(set(x for x in (nums.pop(0) + nums.pop() for _ in range(len(nums) // 2))))
+
+    def distinctAverages1(self, nums: List[int]) -> int:
+        nums.sort()
         n = len(nums)
         return len(set(nums[i] + nums[n - i - 1] for i in range(n // 2)))
 
