@@ -1,9 +1,9 @@
 from typing import List
 from math import lcm
-from collections import defaultdict
 
 
 class Solution:
+    # O(n * d(k) * log(k))
     def subarrayLCM(self, nums: List[int], k: int) -> int:
         res = 0
         m = dict()
