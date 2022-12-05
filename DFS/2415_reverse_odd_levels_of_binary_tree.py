@@ -16,7 +16,9 @@ class Solution:
                 return
             if is_odd_level:
                 node1.val, node2.val = node2.val, node1.val
+            # 这里node1一直left就是前序遍历，node2一直right，就是后序遍历，比较树里以中心线对称的2个结点，如果符合条件就交换值，参考q101
             dfs(node1.left, node2.right, not is_odd_level)
+            # 同理，node1是后续遍历，node2是前序遍历
             dfs(node2.left, node1.right, not is_odd_level)
         dfs(root.left, root.right, True)
         return root
