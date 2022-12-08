@@ -2,7 +2,27 @@ from typing import List
 
 
 class Solution:
+    # iterative
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+
+        seen = {source}
+        stk = [source]
+        while stk:
+            u = stk.pop()
+            for v in g[u]:
+                if v == destination:
+                    return True
+                if v not in seen:
+                    seen.add(v)
+                    stk.append(v)
+        return destination in seen
+
+    # recursive
+    def validPath1(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
         def dfs(u, g, seen):
             if u == destination:
                 return True
