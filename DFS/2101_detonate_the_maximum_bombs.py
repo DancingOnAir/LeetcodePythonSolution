@@ -2,7 +2,32 @@ from typing import List
 
 
 class Solution:
+    # dfs
     def maximumDetonation(self, bombs: List[List[int]]) -> int:
+        n = len(bombs)
+        res = 0
+        g = [[] for _ in range(n)]
+
+        for i in range(n):
+            for j in range(n):
+                if i != j and bombs[i][2] ** 2 >= (bombs[i][0] - bombs[j][0]) ** 2 + (bombs[i][1] - bombs[j][1]) ** 2:
+                    g[i].append(j)
+
+        def dfs(node, seen):
+            for child in g[node]:
+                if child not in seen:
+                    seen.add(child)
+                    dfs(child, seen)
+
+        for i in range(n):
+            seen = {i}
+            dfs(i, seen)
+            res = max(res, len(seen))
+
+        return res
+
+    # bfs
+    def maximumDetonation1(self, bombs: List[List[int]]) -> int:
         n = len(bombs)
         g = [[] for _ in range(n)]
         for i in range(n - 1):
