@@ -2,10 +2,31 @@ from typing import List
 
 
 class Solution:
+    # 下面方法的优化版本
+    def componentValue(self, nums: List[int], edges: List[List[int]]) -> int:
+        g = [[] for _ in nums]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+
+        # post-order
+        def dfs(u, p):
+            res = nums[u]
+            for v in g[u]:
+                if v != p:
+                    res += dfs(v, u)
+            return 0 if res == cand else res
+
+        total = sum(nums)
+        for cand in range(max(nums), total // 2 + 1):
+            if total % cand == 0 and dfs(0, -1) == 0:
+                return total // cand - 1
+        return 0
+
     # max(nums) 是最小能分割出的子树的值, 那么sum(nums) // max(nums) 就是最大能分割出的子树数量
     # 从sum(nums) // max(nums) 遍历到 0
     # dfs的思路，如果子树是符合target值的，那么可以将它视为值为0的连通块，连通其他子树
-    def componentValue(self, nums: List[int], edges: List[List[int]]) -> int:
+    def componentValue1(self, nums: List[int], edges: List[List[int]]) -> int:
         g = [[] for _ in nums]
         for u, v in edges:
             g[u].append(v)
