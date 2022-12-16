@@ -5,6 +5,19 @@ class Solution:
     def findBall(self, grid: List[List[int]]) -> List[int]:
         m, n = len(grid), len(grid[0])
 
+        def dfs(c):
+            for r in range(m):
+                c2 = c + grid[r][c]
+                if c2 < 0 or c2 >= n or grid[r][c] != grid[r][c2]:
+                    return -1
+                c = c2
+            return c
+
+        return list(map(dfs, range(n)))
+
+    def findBall1(self, grid: List[List[int]]) -> List[int]:
+        m, n = len(grid), len(grid[0])
+
         def dfs(r, c):
             if c < 0 or c >= n:
                 return -1
