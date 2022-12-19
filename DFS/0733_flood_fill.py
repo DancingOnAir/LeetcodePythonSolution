@@ -2,7 +2,28 @@ from typing import List
 
 
 class Solution:
-    def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, new_color: int) -> List[List[int]]:
+        color = image[sr][sc]
+        if color == new_color:
+            return image
+
+        m, n = len(image), len(image[0])
+
+        def dfs(r, c):
+            if image[r][c] == color:
+                image[r][c] = new_color
+                if r >= 1:
+                    dfs(r - 1, c)
+                if r < m - 1:
+                    dfs(r + 1, c)
+                if c >= 1:
+                    dfs(r, c - 1)
+                if c < n - 1:
+                    dfs(r, c + 1)
+        dfs(sr, sc)
+        return image
+
+    def floodFill1(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
         m, n = len(image), len(image[0])
         seen = set()
 
