@@ -4,6 +4,27 @@ from collections import defaultdict
 
 class Solution:
     def minScore(self, n: int, roads: List[List[int]]) -> int:
+        def union(x, y, z):
+            px = find(x)
+            py = find(y)
+
+            min_dist = min(dist[px], dist[py], z)
+            parents[px] = py
+            dist[px] = dist[py] = min_dist
+
+        def find(x):
+            while parents[x] != x:
+                parents[x] = parents[parents[x]]
+                x = parents[x]
+            return x
+
+        parents = [i for i in range(n + 1)]
+        dist = [float('inf') for _ in range(n + 1)]
+        for u, v, d in roads:
+            union(u, v, d)
+        return dist[find(1)]
+
+    def minScore1(self, n: int, roads: List[List[int]]) -> int:
         g = defaultdict(list)
         for u, v, d in roads:
             g[u].append([v, d])
