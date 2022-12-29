@@ -3,7 +3,24 @@ from collections import defaultdict
 
 
 class Solution:
+    # iterative
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        g = defaultdict(list)
+        for u, v in tickets:
+            g[u].append(v)
+        for k in g:
+            g[k].sort(reverse=True)
+
+        res = list()
+        stk = ['JFK']
+        while stk:
+            while g[stk[-1]]:
+                stk.append(g[stk[-1]].pop())
+            res.append(stk.pop())
+        return res[::-1]
+
+    # recursive
+    def findItinerary1(self, tickets: List[List[str]]) -> List[str]:
         res = list()
         g = defaultdict(list)
         for u, v in tickets:
