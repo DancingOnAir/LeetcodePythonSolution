@@ -6,10 +6,11 @@ class Solution:
     # iterative
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
         g = defaultdict(list)
-        for u, v in tickets:
+        for u, v in sorted(tickets)[::-1]:
             g[u].append(v)
-        for k in g:
-            g[k].sort(reverse=True)
+
+        # for k in g:
+        #     g[k].sort(reverse=True)
 
         res = list()
         stk = ['JFK']
@@ -20,13 +21,15 @@ class Solution:
         return res[::-1]
 
     # recursive
-    def findItinerary1(self, tickets: List[List[str]]) -> List[str]:
+    def findItinerary2(self, tickets: List[List[str]]) -> List[str]:
         res = list()
         g = defaultdict(list)
-        for u, v in tickets:
+        # for u, v in tickets:
+        #     g[u].append(v)
+        # for k in g:
+        #     g[k].sort(reverse=True)
+        for u, v in sorted(tickets)[::-1]:
             g[u].append(v)
-        for k in g:
-            g[k].sort(reverse=True)
 
         def dfs(u):
             while g[u]:
