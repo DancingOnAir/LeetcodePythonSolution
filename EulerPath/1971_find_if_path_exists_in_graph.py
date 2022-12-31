@@ -2,8 +2,24 @@ from typing import List
 
 
 class Solution:
-    # iterative
+    # euler path
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+
+        def dfs(u):
+            if u == destination:
+                return True
+            res = False
+            while g[u]:
+                res |= dfs(g[u].pop())
+            return res
+        return dfs(source)
+
+    # iterative
+    def validPath2(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
         g = [[] for _ in range(n)]
         for u, v in edges:
             g[u].append(v)
