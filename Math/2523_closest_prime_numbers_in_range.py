@@ -3,8 +3,32 @@ from bisect import bisect_left
 
 
 class Solution:
-    # Sieve of Eratoshenes
+    # Sieve of Euler
     def closestPrimes(self, left: int, right: int) -> List[int]:
+        seen = [0] * (right + 1)
+        primes = []
+        cnt = 0
+        for i in range(2, right + 1):
+            if not seen[i]:
+                primes.append(i)
+                cnt += 1
+            for j in range(cnt):
+                if i * primes[j] > right:
+                    break
+
+                seen[i * primes[j]] = i
+                if i % primes[j] == 0:
+                    break
+
+        start = bisect_left(primes, left)
+        res = [-1, -1]
+        for i in range(start, len(primes) - 1):
+            if res[0] == -1 or res[1] - res[0] > primes[i + 1] - primes[i]:
+                res = [primes[i], primes[i + 1]]
+        return res
+
+    # Sieve of Eratoshenes
+    def closestPrimes1(self, left: int, right: int) -> List[int]:
         # TLE
         # def primes(x):
         #     i = 2
