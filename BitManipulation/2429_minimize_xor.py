@@ -1,5 +1,21 @@
 class Solution:
+    # concise solution
     def minimizeXor(self, num1: int, num2: int) -> int:
+        a = bin(num1).count("1")
+        b = bin(num2).count("1")
+        res = num1
+
+        for i in range(32):
+            if a > b and (1 << i) & num1 > 0:
+                res ^= (1 << i)
+                a -= 1
+            elif a < b and (1 << i) & num1 == 0:
+                res ^= (1 << i)
+                a += 1
+        return res
+
+    # original solution
+    def minimizeXor1(self, num1: int, num2: int) -> int:
         one1 = sum(map(int, bin(num1)[2:]))
         one2 = sum(map(int, bin(num2)[2:]))
 
