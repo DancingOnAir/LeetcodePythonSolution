@@ -1,6 +1,8 @@
 class Solution:
     def minBitFlips(self, start: int, goal: int) -> int:
-        # return sum(int(x) ^ int(y) for x, y in zip(bin(start)[2:], bin(goal)[2:]))
+        return bin(start ^ goal).count('1')
+
+    def minBitFlips1(self, start: int, goal: int) -> int:
         res = 0
         a = bin(start)[2:]
         b = bin(goal)[2:]
