@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def largestCombination(self, candidates: List[int]) -> int:
+        return max(sum(x & (1 << i) > 0 for x in candidates) for i in range(24))
+
+    def largestCombination1(self, candidates: List[int]) -> int:
         res = 0
         for i in range(24):
             res = max(res, sum(1 for x in candidates if x & (1 << i)))
