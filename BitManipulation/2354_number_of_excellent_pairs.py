@@ -1,10 +1,19 @@
+import tkinter
 from typing import List
 from collections import Counter
 
 
 class Solution:
-    # TLE
     def countExcellentPairs(self, nums: List[int], k: int) -> int:
+        c = list()
+        for x in set(nums):
+            c.append(bin(x).count('1'))
+
+        c = Counter(c)
+        return sum(c[k1] * c[k2] for k1 in c for k2 in c if k1 + k2 >= k)
+
+    # TLE
+    def countExcellentPairs1(self, nums: List[int], k: int) -> int:
         bits = [bin(x).count('1') for x in nums]
         res = 0
         seen = set()
