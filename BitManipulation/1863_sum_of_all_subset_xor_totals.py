@@ -4,7 +4,20 @@ from functools import reduce
 
 
 class Solution:
+    # bit mask
     def subsetXORSum(self, nums: List[int]) -> int:
+        res = 0
+        for i in range(1, 1 << len(nums)):
+            total = 0
+            for j in range(len(nums)):
+                if i & (1 << j):
+                    total ^= nums[j]
+            res += total
+
+        return res
+
+    # brute force
+    def subsetXORSum1(self, nums: List[int]) -> int:
         res = 0
         for i in range(1, len(nums) + 1):
             for comb in combinations(nums, i):
