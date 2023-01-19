@@ -34,3 +34,11 @@
    1. To set a bit to 1: mask = mask | (1 << bitIndex)
    2. To set a bit to 0: mask = mask & ~(1 << bitIndex)
    3. To get a bit (to be able to check it): (mask & (1 << bitIndex)) != 0
+   4. Check whether the jth object is in the subset (check whether jth bit is 1): use the bitwise AND operation T = mask & (1 << bitIndex)
+   5. To toggle (flip the status of) the j-th item of the set: use the bitwise XOR operation mask ^= (1 << bitIndex).
+   6. To get the value of the least significant bit that is on (first from the right): use T = (A & (-A)). 
+   7. To turn on all bits in a set of size n: (be careful with overflows), use A = (1 << n) - 1
+   8. Iterate through all subsets of a set of size n:
+           `for ( x = 0; x < (1 << n); ++x )`  
+   9. Iterate through all subsets of a subset y (not including empty set):
+           `for ( x = y; x > 0; x = ( y & (x-1) ) )`
