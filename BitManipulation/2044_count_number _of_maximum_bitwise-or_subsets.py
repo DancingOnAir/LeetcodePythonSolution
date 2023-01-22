@@ -1,10 +1,17 @@
 from typing import List
 from collections import Counter, defaultdict
-from itertools import zip_longest
 
 
 class Solution:
     def countMaxOrSubsets(self, nums: List[int]) -> int:
+        dp = Counter([0])
+        for x in nums:
+            # 注意这里不用list转换的话，会报错：dict类型不能在遍历的时候改变size
+            for k, v in list(dp.items()):
+                dp[k | x] += v
+        return dp[max(dp)]
+
+    def countMaxOrSubsets1(self, nums: List[int]) -> int:
         m = defaultdict(int)
         for i in range(1, 1 << len(nums)):
             total = 0
