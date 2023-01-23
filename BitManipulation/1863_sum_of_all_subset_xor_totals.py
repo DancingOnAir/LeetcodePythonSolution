@@ -22,6 +22,7 @@ class Solution:
 
     Time complexity: O(n), Space: O(1)
     """
+    # 数学推导 https://math.stackexchange.com/questions/248245/exactly-half-of-the-elements-of-mathcalpa-are-odd-sized
     def subsetXORSum(self, nums: List[int]) -> int:
         bits = 0
         for x in nums:
