@@ -1,8 +1,12 @@
 from typing import List
+from itertools import accumulate
 
 
 class Solution:
     def decode(self, encoded: List[int], first: int) -> List[int]:
+        return list(accumulate([first] + encoded, lambda x, y: x ^ y))
+
+    def decode1(self, encoded: List[int], first: int) -> List[int]:
         res = [first]
         for x in encoded:
             res.append(res[-1] ^ x)
