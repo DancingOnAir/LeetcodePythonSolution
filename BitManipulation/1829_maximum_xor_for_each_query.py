@@ -1,9 +1,17 @@
 from typing import List
-from itertools import accumulate
 
 
 class Solution:
     def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
+        n = len(nums)
+        res = [0] * n
+        mx = 2 ** maximumBit - 1
+        for i in range(len(nums)):
+            mx ^= nums[i]
+            res[n - i - 1] = mx
+        return res
+
+    def getMaximumXor1(self, nums: List[int], maximumBit: int) -> List[int]:
         res = list()
         max_num = 2 ** maximumBit - 1
         acc = 0
