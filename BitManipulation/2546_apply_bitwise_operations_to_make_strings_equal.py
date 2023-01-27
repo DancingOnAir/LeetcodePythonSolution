@@ -1,5 +1,8 @@
 class Solution:
     def makeStringsEqual(self, s: str, target: str) -> bool:
+        return ('1' in s) == ('1' in target)
+
+    def makeStringsEqual1(self, s: str, target: str) -> bool:
         return (s == target) or (s.count('1') > 0 and target.count('1') > 0)
 
 
