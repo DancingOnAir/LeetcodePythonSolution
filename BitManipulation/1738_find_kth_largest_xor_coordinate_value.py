@@ -1,9 +1,27 @@
 from typing import List
-from heapq import heappush, heappop
+from heapq import heappush, heappop, heappushpop
 
 
 class Solution:
     def kthLargestValue(self, matrix: List[List[int]], k: int) -> int:
+        m, n = len(matrix), len(matrix[0])
+        pq = list()
+
+        for i in range(m):
+            for j in range(n):
+                if i:
+                    matrix[i][j] ^= matrix[i - 1][j]
+                if j:
+                    matrix[i][j] ^= matrix[i][j - 1]
+                if i and j:
+                    matrix[i][j] ^= matrix[i - 1][j - 1]
+                if len(pq) < k:
+                    heappush(pq, matrix[i][j])
+                else:
+                    heappushpop(pq, matrix[i][j])
+        return pq[0]
+
+    def kthLargestValue1(self, matrix: List[List[int]], k: int) -> int:
         m = len(matrix)
         n = len(matrix[0])
         res = [[-1] * n for _ in range(m)]
