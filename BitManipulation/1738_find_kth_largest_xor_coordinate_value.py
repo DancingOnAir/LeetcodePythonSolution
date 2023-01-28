@@ -4,6 +4,20 @@ from heapq import heappush, heappop, heappushpop
 
 class Solution:
     def kthLargestValue(self, matrix: List[List[int]], k: int) -> int:
+        R, C = map(len, (matrix, matrix[0]))
+        res = [[0] * (C + 1) for _ in range(R + 1)]
+        hp = list()
+        for r, row in enumerate(matrix):
+            for c, cell in enumerate(row):
+                res[r + 1][c + 1] = cell ^ res[r][c + 1] ^ res[r + 1][c] ^ res[r][c]
+                if len(hp) < k:
+                    heappush(hp, res[r + 1][c + 1])
+                else:
+                    heappushpop(hp, res[r + 1][c + 1])
+        return hp[0]
+
+    # concise
+    def kthLargestValue2(self, matrix: List[List[int]], k: int) -> int:
         m, n = len(matrix), len(matrix[0])
         pq = list()
 
@@ -21,6 +35,7 @@ class Solution:
                     heappushpop(pq, matrix[i][j])
         return pq[0]
 
+    # original
     def kthLargestValue1(self, matrix: List[List[int]], k: int) -> int:
         m = len(matrix)
         n = len(matrix[0])
