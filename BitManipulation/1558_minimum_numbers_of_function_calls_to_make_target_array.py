@@ -1,5 +1,4 @@
 from typing import List
-from collections import Counter
 
 
 class Solution:
@@ -9,7 +8,7 @@ class Solution:
 
 def test_min_operations():
     solution = Solution()
-    assert solution.minOperations([1,5]) == 5, 'wrong result'
+    assert solution.minOperations([1, 5]) == 5, 'wrong result'
     assert solution.minOperations([2, 2]) == 3, 'wrong result'
     assert solution.minOperations([4, 2, 5]) == 6, 'wrong result'
 

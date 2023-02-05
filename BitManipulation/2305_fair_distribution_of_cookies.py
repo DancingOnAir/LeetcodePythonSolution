@@ -2,6 +2,32 @@ from typing import List
 
 
 class Solution:
+    # bitmask
+    def distributeCookies(self, cookies: List[int], k: int) -> int:
+        # def helper(i):
+
+        n = len(cookies)
+        m = 1 << n
+        # SUM[i] 表示分配的饼干集合为i，设集合i的元素和为SUM[i]
+        SUM = [0] * m
+        for i, v in enumerate(cookies):
+            for j in range(1 << i):
+                SUM[(1 << i) | j] = SUM[j] + v
+
+        # dp[i][mask] 表示前i个小朋友，分mask的bit位为1的糖的不平等最小值
+        f = SUM.copy()
+        for i in range(1, k):
+            for j in range(m - 1, 0, -1):
+                s = j
+                while s:
+                    v = f[j ^ s]
+                    if SUM[s] > v:
+                        v = SUM[s]
+                    if v < f[j]:
+                        f[j] = v
+                    s = (s - 1) & j
+        return f[-1]
+
     # backtracking
     # 优化点:
     # 1.对称重复，v[i] == 0可以避免 ？？还是不确定
@@ -10,7 +36,7 @@ class Solution:
     # 4.如果当前已分配的孩子有饼干数目大于res，那么break
     # 5.如果有重复的，比如第一个饼干分给任一孩子都是一样的，那么只分配1次即可。同理，第二个饼干分给除了第一个已分配过的孩子外其他孩子也是一样的。
     #   i > 0 and v[i] == v[i - 1] 那么break
-    def distributeCookies(self, cookies: List[int], k: int) -> int:
+    def distributeCookies1(self, cookies: List[int], k: int) -> int:
         def helper(idx):
             nonlocal res
             if idx == n:
