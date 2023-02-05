@@ -2,6 +2,8 @@ from typing import List
 
 
 class Solution:
+    # concise bitmask
+    # https://leetcode.com/problems/fair-distribution-of-cookies/solutions/2141573/dp-submask-enumeration-most-optimal-solution-100-faster-c/
     def distributeCookies(self, cookies: List[int], k: int) -> int:
         n = len(cookies)
         SUM = [0] * (1 << n)
