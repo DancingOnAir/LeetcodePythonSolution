@@ -2,10 +2,30 @@ from typing import List
 
 
 class Solution:
-    # bitmask
     def distributeCookies(self, cookies: List[int], k: int) -> int:
-        # def helper(i):
+        n = len(cookies)
+        SUM = [0] * (1 << n)
+        for mask in range(1 << n):
+            total = 0
+            for i in range(n):
+                if mask & (1 << i):
+                    total += cookies[i]
+            SUM[mask] = total
 
+        dp = [[float('inf')] * (1 << n) for _ in range(k + 1)]
+        dp[0][0] = 0
+        for i in range(1, k + 1):
+            for mask in range(1 << n):
+                sub_mask = mask
+                while sub_mask:
+                    dp[i][mask] = min(dp[i][mask], max(dp[i - 1][mask ^ sub_mask], SUM[sub_mask]))
+                    sub_mask = mask & (sub_mask - 1)
+
+        return dp[k][(1 << n) - 1]
+
+    # bitmask
+    # https://leetcode.cn/problems/fair-distribution-of-cookies/solution/by-endlesscheng-80ao/
+    def distributeCookies2(self, cookies: List[int], k: int) -> int:
         n = len(cookies)
         m = 1 << n
         # SUM[i] 表示分配的饼干集合为i，设集合i的元素和为SUM[i]
