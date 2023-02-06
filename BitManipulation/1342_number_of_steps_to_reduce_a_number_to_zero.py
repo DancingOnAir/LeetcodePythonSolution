@@ -1,5 +1,8 @@
 class Solution:
     def numberOfSteps(self, num: int) -> int:
+        return sum(2 if x == '1' else 1 for x in bin(num)[2:]) - 1
+
+    def numberOfSteps1(self, num: int) -> int:
         res = 0
         while num:
             if num & 1:
