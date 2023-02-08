@@ -4,6 +4,16 @@ from typing import List
 class Solution:
     def findSubsequences(self, nums: List[int]) -> List[List[int]]:
         n = len(nums)
+        res = set()
+        for bitmask in range(1 << n):
+            cur = [nums[i] for i in range(n) if (bitmask >> i) & 1]
+            if len(cur) > 1 and all(cur[i] <= cur[i + 1] for i in range(len(cur) - 1)):
+                res.add(tuple(cur))
+        return res
+
+    # original brute force
+    def findSubsequences1(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
         if n < 2:
             return [[]]
 
