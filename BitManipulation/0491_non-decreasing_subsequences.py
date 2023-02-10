@@ -45,7 +45,7 @@ def test_find_subsequences():
     res2 = solution.findSubsequences([4, 4, 3, 2, 1])
     assert len(res2) == 1, 'wrong result'
     for x in res2:
-        assert x in [[4,4]], 'wrong result'
+        assert x in [[4, 4]], 'wrong result'
 
 
 if __name__ == '__main__':
