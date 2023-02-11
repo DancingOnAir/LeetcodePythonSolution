@@ -11,7 +11,7 @@ class Solution:
 
         return res
 
-    def minFlips(self, a: int, b: int, c: int) -> int:
+    def minFlips1(self, a: int, b: int, c: int) -> int:
         s = bin(((a | b) ^ c))[2:][::-1]
         res = 0
         for i, v in enumerate(s):
