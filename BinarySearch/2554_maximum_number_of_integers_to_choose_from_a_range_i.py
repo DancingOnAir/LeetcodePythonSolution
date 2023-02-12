@@ -3,7 +3,21 @@ from bisect import bisect_left, bisect_right
 
 
 class Solution:
+    # hashset
     def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
+        res = 0
+        s = set(banned)
+        for i in range(1, n + 1):
+            if maxSum < 0:
+                break
+
+            if i not in s:
+                maxSum -= i
+                res += maxSum >= 0
+        return res
+
+    # binary search
+    def maxCount2(self, banned: List[int], n: int, maxSum: int) -> int:
         pre_sum = [0]
         banned = sorted(set(banned))
         for x in banned:
@@ -27,6 +41,7 @@ class Solution:
                 return mid - pos
         return res
 
+    # two pointers
     def maxCount1(self, banned: List[int], n: int, maxSum: int) -> int:
         i = j = total = res = 0
         banned.sort()
