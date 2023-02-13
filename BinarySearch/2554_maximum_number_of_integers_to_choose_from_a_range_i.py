@@ -64,8 +64,8 @@ class Solution:
 
 def test_max_count():
     solution = Solution()
-    # assert solution.maxCount([11], 7, 50) == 7, 'wrong result'
-    # assert solution.maxCount([1, 6, 5], 5, 6) == 2, 'wrong result'
+    assert solution.maxCount([11], 7, 50) == 7, 'wrong result'
+    assert solution.maxCount([1, 6, 5], 5, 6) == 2, 'wrong result'
     assert solution.maxCount([1, 2, 3, 4, 5, 6, 7], 8, 1) == 0, 'wrong result'
 
 
