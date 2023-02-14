@@ -2,7 +2,11 @@ from typing import List
 
 
 class Solution:
+    # https://leetcode.com/problems/h-index-ii/solutions/693380/python-2-solutions-binary-search-o-log-n-and-oneliner-o-n-explained/
     def hIndex(self, citations: List[int]) -> int:
+        if not citations:
+            return 0
+
         n = len(citations)
         left, right = 0, n - 1
         while left <= right:
@@ -14,10 +18,8 @@ class Solution:
             elif citations[mid] > n - mid:
                 right = mid - 1
             elif citations[mid] == n - mid:
-                left = mid + 1
+                right = mid - 1
 
-        if citations[left - 1] == n - left + 1:
-            left -= 1
         return n - left
 
 
