@@ -4,6 +4,20 @@ from bisect import bisect_left, bisect_right
 
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        n = len(matrix)
+        # start from the top-right cell
+        row, col = 0, len(matrix[0]) - 1
+        while row < n and col >= 0:
+            mid = matrix[row][col]
+            if mid == target:
+                return True
+            if mid > target:
+                col -= 1
+            else:
+                row += 1
+        return False
+
+    def searchMatrix1(self, matrix: List[List[int]], target: int) -> bool:
         if not matrix:
             return False
         r = bisect_right(matrix, [target])
