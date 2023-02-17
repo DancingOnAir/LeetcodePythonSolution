@@ -2,7 +2,7 @@ from bisect import bisect_left
 
 
 class Solution:
-    # built-in binary search method in python 3.9
+    # built-in binary search method in python 3.10
     def firstBadVersion(self, n: int) -> int:
         return bisect_left(range(n + 1), True, 1, key=isBadVersion)
 
