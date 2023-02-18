@@ -1,8 +1,21 @@
 from typing import List
+from bisect import bisect_left, bisect_right
 
 
 class Solution:
+    # equal to lower - nums[i] <= nums[j] <= upper - nums[i]
+    # TLE
     def countFairPairs(self, nums: List[int], lower: int, upper: int) -> int:
+        nums.sort()
+        res = 0
+        n = len(nums)
+        for i in range(n):
+            low = bisect_left(nums[i + 1:], lower - nums[i])
+            high = bisect_right(nums[i + 1:], upper - nums[i])
+            res += high - low
+        return res
+
+    def countFairPairs1(self, nums: List[int], lower: int, upper: int) -> int:
         n = len(nums)
         if n < 2:
             return 0
