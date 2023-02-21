@@ -13,7 +13,7 @@ class Solution:
             while prizePositions[j] < prizePositions[i] - k:
                 j += 1
             dp[i + 1] = max(dp[i], i - j + 1)
-            res = max(res, dp[i] + i - j + 1)
+            res = max(res, dp[j] + i - j + 1)
         return res
 
     # binary search + dp
