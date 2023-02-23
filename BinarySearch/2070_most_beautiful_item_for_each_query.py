@@ -1,8 +1,15 @@
 from typing import List
+from bisect import bisect_left
 
 
 class Solution:
     def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
+        items = sorted(items + [[0, 0]])
+        for i in range(len(items) - 1):
+            items[i + 1][1] = max(items[i][1], items[i + 1][1])
+        return [items[bisect_left(items, [q + 1]) - 1][1] for q in queries]
+
+    def maximumBeauty1(self, items: List[List[int]], queries: List[int]) -> List[int]:
         items.sort()
         mx = 0
         for i, v in enumerate(items):
