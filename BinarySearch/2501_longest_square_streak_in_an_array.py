@@ -1,8 +1,30 @@
 from typing import List
+from bisect import bisect_left
 
 
 class Solution:
     def longestSquareStreak(self, nums: List[int]) -> int:
+        nums.sort()
+        seen = set()
+        res = -1
+        for x in nums:
+            if x in seen:
+                continue
+
+            temp = {x}
+            while True:
+                idx = bisect_left(nums, x ** 2)
+                if idx < len(nums) and nums[idx] == x ** 2:
+                    temp.add(nums[idx])
+                    x = nums[idx]
+                else:
+                    break
+            if len(temp) > 1:
+                res = max(res, len(temp))
+            seen |= temp
+        return res
+
+    def longestSquareStreak1(self, nums: List[int]) -> int:
         def binary_search(i):
             l, r = i + 1, len(nums) - 1
             k = nums[i] ** 2
