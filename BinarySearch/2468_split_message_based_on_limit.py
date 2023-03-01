@@ -2,9 +2,26 @@ from typing import List
 
 
 class Solution:
+    def splitMessage(self, message: str, limit: int) -> List[str]:
+        # cur表示活动的页数总共占有的字符数, k表示第一个符合的分割数
+        cur = k = i = 0
+        # k means <k/k> already takes limit characters,
+        # it is impossible to split message as required.
+        while 3 + len(str(k)) * 2 < limit and cur + len(message) + (len(str(k)) + 3) * k > limit * k:
+            k += 1
+            cur += len(str(k))
+
+        res = list()
+        if 3 + len(str(k)) * 2 < limit:
+            for j in range(1, k + 1):
+                d = limit - len(str(j)) - len(str(k)) - 3
+                res.append('%s<%s/%s>' % (message[i: i + d], j, k))
+                i += d
+        return res
+
     # 此题不能用二分，因为不是一个增量的问题，当分割次数少可能不够分，分割次数多可能占用的字符数多，也不够分。
     # 二分错误解法如下
-    def splitMessage(self, message: str, limit: int) -> List[str]:
+    def splitMessage1(self, message: str, limit: int) -> List[str]:
         def possible(x):
             # 1-9, 10-99, 100-999, 1000-9999
             # pre_sum = [9, 90*2, 900*3, 9000*4]
