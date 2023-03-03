@@ -5,6 +5,15 @@ from functools import reduce
 
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
+        i = 0
+        while i < len(nums):
+            j = bisect_right(nums, nums[i])
+            if i + 1 == j:
+                return nums[i]
+            i = j
+        return -1
+
+    def singleNonDuplicate1(self, nums: List[int]) -> int:
         return reduce(lambda a, b: a ^ b, nums)
 
 
