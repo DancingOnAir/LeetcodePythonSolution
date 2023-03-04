@@ -6,7 +6,7 @@ class Solution:
         left, right = 0, len(arr) - k
         while left <= right:
             mid = left + (right - left) // 2
-            if x - arr[mid] > arr[mid + k] - x:
+            if mid + k < len(arr) and x - arr[mid] > arr[mid + k] - x:
                 left = mid + 1
             else:
                 right = mid - 1
@@ -15,6 +15,7 @@ class Solution:
 
 def test_find_closest_elements():
     solution = Solution()
+    assert solution.findClosestElements([1], 1, 1) == [1], 'wrong result'
     assert solution.findClosestElements([1, 1, 1, 10, 10, 10], 1, 9) == [10], 'wrong result'
     assert solution.findClosestElements([1, 2, 3, 4, 5], 4, 3) == [1, 2, 3, 4], 'wrong result'
     assert solution.findClosestElements([1, 2, 3, 4, 5], 4, -1) == [1, 2, 3, 4], 'wrong result'
