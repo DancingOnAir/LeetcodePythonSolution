@@ -3,7 +3,17 @@ from bisect import bisect_left
 
 
 class Solution:
+    # bisect_left
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
+        nums2.reverse()
+        res = 0
+        for i, v in enumerate(nums1):
+            j = len(nums2) - 1 - bisect_left(nums2, v)
+            res = max(res, j - i if j >= i else 0)
+        return res
+
+    # binary search
+    def maxDistance1(self, nums1: List[int], nums2: List[int]) -> int:
         l1, l2 = len(nums1), len(nums2)
         res = 0
         for i, v in enumerate(nums1):
