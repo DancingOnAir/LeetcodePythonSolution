@@ -5,7 +5,7 @@ class Solution:
     # https://leetcode.com/problems/subsequence-with-the-minimum-score/solutions/3174009/c-clean-explained/
     def minimumScore(self, s: str, t: str) -> int:
         l1, l2 = len(s), len(t)
-        pre = [-1] * l1
+        pre = [-1] * l2
         j = 0
         for i, c in enumerate(s):
             if j >= l2:
@@ -27,7 +27,7 @@ class Solution:
         res = l2
         for i in range(l2):
             if pre[i] != -1:
-                res = min(res, l2 - pre[i] - 1)
+                res = min(res, l2 - i - 1)
             if suf[i] != -1:
                 res = min(res, i)
 
@@ -41,7 +41,7 @@ class Solution:
                 lo, hi = i + 1, l2 - 1
                 while lo <= hi:
                     mid = (lo + hi) // 2
-                    if pre[i] < suf[hi]:
+                    if pre[i] < suf[mid]:
                         hi = mid - 1
                     else:
                         lo = mid + 1
