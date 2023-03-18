@@ -1,9 +1,30 @@
 from typing import List
+from bisect import bisect_right
 
 
 class Solution:
-    # sliding window
     def maximumWhiteTiles(self, tiles: List[List[int]], carpetLen: int) -> int:
+        tiles.sort(key=lambda x: x[0])
+        start_pos = [s for s, _ in tiles]
+        pre_sum = [0]
+        for i in range(1, len(tiles) + 1):
+            pre_sum.append(pre_sum[-1] + (tiles[i - 1][1] - tiles[i - 1][0] + 1))
+
+        res = 0
+        for i in range(len(tiles)):
+            s, e = tiles[i]
+            if e >= s + carpetLen - 1:
+                return carpetLen
+
+            cur = bisect_right(start_pos, s + carpetLen - 1) - 1
+            compensate = 0
+            if tiles[cur][1] > s + carpetLen - 1:
+                compensate = tiles[cur][1] - s - carpetLen + 1
+            res = max(res, pre_sum[cur + 1] - pre_sum[i] - compensate)
+        return res
+
+    # sliding window
+    def maximumWhiteTiles1(self, tiles: List[List[int]], carpetLen: int) -> int:
         tiles.sort()
         res = cover = i = j = 0
         while i < len(tiles) and res < carpetLen:
