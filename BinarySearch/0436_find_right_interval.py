@@ -4,6 +4,10 @@ from bisect import bisect_left
 
 class Solution:
     def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
+        starts = sorted([val[0], i] for i, val in enumerate(intervals)) + [[float('inf'), -1]]
+        return [starts[bisect_left(starts, [i[1]])][1] for i in intervals]
+
+    def findRightInterval1(self, intervals: List[List[int]]) -> List[int]:
         arr = sorted((val[0], val[1], i) for i, val in enumerate(intervals))
         res = [-1] * len(intervals)
         for i, val in enumerate(intervals):
