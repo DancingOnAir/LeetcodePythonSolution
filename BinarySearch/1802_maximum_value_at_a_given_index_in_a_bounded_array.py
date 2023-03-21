@@ -1,5 +1,26 @@
 class Solution:
+    # binary search + smart check
     def maxValue(self, n: int, index: int, maxSum: int) -> int:
+        def get_sum(a):
+            b = max(0, a - index)
+            res = (a + b) * (a - b + 1) // 2
+            b = max(0, a - ((n - 1) - index))
+            res += (a + b) * (a - b + 1) // 2
+            return res - a
+
+        maxSum -= n
+        left, right = 0, maxSum
+        while left <= right:
+            mid = left + (right - left) // 2
+            cur = get_sum(mid)
+            if cur > maxSum:
+                right = mid - 1
+            else:
+                left = mid + 1
+        return left
+
+    # binary search
+    def maxValue1(self, n: int, index: int, maxSum: int) -> int:
         left, right = 1, maxSum
         while left <= right:
             mid = left + (right - left) // 2
