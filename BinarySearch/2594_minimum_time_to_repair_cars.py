@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def repairCars(self, ranks: List[int], cars: int) -> int:
-        left, right = 0, max(ranks) * cars * cars // len(ranks) + 1
+        left, right = 0, min(ranks) * cars * cars // len(ranks) + 1
         while left <= right:
             mid = left + (right - left) // 2
             total = sum(int((mid / x) ** 0.5) for x in ranks)
