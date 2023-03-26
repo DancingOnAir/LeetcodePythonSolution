@@ -5,6 +5,10 @@ from bisect import bisect_left
 class Solution:
     def findRadius(self, houses: List[int], heaters: List[int]) -> int:
         heaters.sort()
+        return max(min(abs(h - x) for i in [bisect_left(heaters, h)] for x in heaters[i - i > 0: i + 1]) for h in houses)
+
+    def findRadius1(self, houses: List[int], heaters: List[int]) -> int:
+        heaters.sort()
         res = 0
         for x in houses:
             i = bisect_left(heaters, x)
