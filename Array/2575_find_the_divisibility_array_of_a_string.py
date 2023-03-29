@@ -3,6 +3,18 @@ from typing import List
 
 class Solution:
     def divisibilityArray(self, word: str, m: int) -> List[int]:
+        digits = '0123456789'
+        d = {c: i for i, c in enumerate(digits)}
+        res = [0] * len(word)
+        r = 0
+        for i, c in enumerate(word):
+            num = r * 10 + d[c]
+            r = num % m
+            if r == 0:
+                res[i] = 1
+        return res
+
+    def divisibilityArray1(self, word: str, m: int) -> List[int]:
         res = list()
         mod = 0
         for i, v in enumerate(word):
