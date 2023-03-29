@@ -70,7 +70,7 @@ def test_summary_ranges():
     obj = SummaryRanges()
     obj.addNum(1)
     print(obj.getIntervals())
-    obj.addNum(0)
+    obj.addNum(3)
     print(obj.getIntervals())
     obj.addNum(7)
     print(obj.getIntervals())
