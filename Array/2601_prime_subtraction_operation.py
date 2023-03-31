@@ -4,6 +4,24 @@ from bisect import bisect_left
 
 class Solution:
     def primeSubOperation(self, nums: List[int]) -> bool:
+        mx = 1000
+        primes = [0]
+        is_prime = [True] * mx
+        for i in range(2, mx):
+            if is_prime[i]:
+                primes.append(i)
+                for j in range(i * i, mx, i):
+                    is_prime[j] = False
+
+        pre = 0
+        for x in nums:
+            if x <= pre:
+                return False
+
+            pre = x - primes[bisect_left(primes, x - pre) - 1]
+        return True
+
+    def primeSubOperation1(self, nums: List[int]) -> bool:
         if len(nums) < 2:
             return True
 
