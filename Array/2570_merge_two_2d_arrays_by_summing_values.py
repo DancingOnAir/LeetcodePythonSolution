@@ -3,6 +3,16 @@ from typing import List
 
 class Solution:
     def mergeArrays(self, nums1: List[List[int]], nums2: List[List[int]]) -> List[List[int]]:
+        m = dict()
+        for a, b in nums1 + nums2:
+            if a not in m:
+                m[a] = b
+            else:
+                m[a] += b
+
+        return list(sorted([k, v] for k, v in m.items()))
+
+    def mergeArrays1(self, nums1: List[List[int]], nums2: List[List[int]]) -> List[List[int]]:
         i = j = 0
         res = list()
         while i < len(nums1) or j < len(nums2):
