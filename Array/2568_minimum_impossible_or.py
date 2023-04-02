@@ -3,6 +3,10 @@ from typing import List
 
 class Solution:
     def minImpossibleOR(self, nums: List[int]) -> int:
+        nums = set(nums)
+        return next(1 << i for i in range(32) if (1 << i) not in nums)
+
+    def minImpossibleOR1(self, nums: List[int]) -> int:
         for i in range(32):
             if (1 << i) not in set(nums):
                 return 1 << i
