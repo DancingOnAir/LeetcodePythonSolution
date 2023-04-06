@@ -1,9 +1,17 @@
 from typing import List
-from collections import Counter
+from collections import Counter, defaultdict
 
 
 class Solution:
     def findMatrix(self, nums: List[int]) -> List[List[int]]:
+        res = defaultdict(list)
+        for k, v in Counter(nums).items():
+            for r in range(v):
+                res[r].append(k)
+        res = list(res.values())
+        return res
+
+    def findMatrix1(self, nums: List[int]) -> List[List[int]]:
         res = list()
         n = len(nums)
         c = Counter(nums)
