@@ -3,6 +3,10 @@ from typing import List
 
 class Solution:
     def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
+        diff = sorted(a - b for a, b in zip(reward1, reward2))
+        return sum(reward2) + sum(diff[-k:])
+
+    def miceAndCheese1(self, reward1: List[int], reward2: List[int], k: int) -> int:
         n = len(reward1)
         diff = [[reward1[i] - reward2[i], i] for i in range(n)]
         s = set()
