@@ -3,6 +3,16 @@ from typing import List
 
 class Solution:
     def findScore(self, nums: List[int]) -> int:
+        seen = [0] * (len(nums) + 1)
+        res = 0
+        for v, i in sorted([v, i] for i, v in enumerate(nums)):
+            if seen[i]:
+                continue
+            res += v
+            seen[i] = seen[i - 1] = seen[i + 1] = 1
+        return res
+
+    def findScore1(self, nums: List[int]) -> int:
         nums = sorted([[v, i] for i, v in enumerate(nums)], reverse=True)
         res, n = 0, len(nums)
         seen = set()
