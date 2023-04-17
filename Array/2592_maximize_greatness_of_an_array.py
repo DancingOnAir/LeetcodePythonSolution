@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def maximizeGreatness(self, nums: List[int]) -> int:
+        nums.sort()
+        i = 0
+        for x in nums:
+            if nums[i] < x:
+                i += 1
+        return i
+
+    def maximizeGreatness1(self, nums: List[int]) -> int:
         n = len(nums)
         if n < 2:
             return 0
