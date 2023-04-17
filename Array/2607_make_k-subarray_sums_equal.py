@@ -3,6 +3,7 @@ from math import gcd
 
 
 class Solution:
+    # https://leetcode.cn/problems/make-k-subarray-sums-equal/solution/zhuan-huan-zhong-wei-shu-tan-xin-pei-shu-4dut/
     # bedzout's lamma + greedy
     def makeSubKSumEqual(self, arr: List[int], k: int) -> int:
         n = len(arr)
