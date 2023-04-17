@@ -1,8 +1,12 @@
 from typing import List
+from collections import Counter
 
 
 class Solution:
     def maximizeGreatness(self, nums: List[int]) -> int:
+        return len(nums) - max(Counter(nums).values())
+
+    def maximizeGreatness2(self, nums: List[int]) -> int:
         nums.sort()
         i = 0
         for x in nums:
