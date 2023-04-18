@@ -1,9 +1,20 @@
 from typing import List
+from collections import Counter
 
 
 class Solution:
-    # brute force, but TLE
+    # use dp to record
     def beautifulSubarrays(self, nums: List[int]) -> int:
+        dp = Counter({0: 1})
+        res = pre = 0
+        for x in nums:
+            pre ^= x
+            res += dp[pre]
+            dp[pre] += 1
+        return res
+
+    # brute force, but TLE
+    def beautifulSubarrays1(self, nums: List[int]) -> int:
         pre_sum = [0]
         for x in nums:
             pre_sum.append(pre_sum[-1] ^ x)
