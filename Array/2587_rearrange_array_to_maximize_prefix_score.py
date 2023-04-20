@@ -1,8 +1,18 @@
 from typing import List
+from heapq import heapify, heappop
 
 
 class Solution:
     def maxScore(self, nums: List[int]) -> int:
+        heapify(nums)
+        total = sum(nums)
+        res = len(nums)
+        while total <= 0 and nums:
+            total -= heappop(nums)
+            res -= 1
+        return res
+
+    def maxScore1(self, nums: List[int]) -> int:
         nums.sort(reverse=True)
         total = res = 0
         while res < len(nums):
