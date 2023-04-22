@@ -1,8 +1,16 @@
 from typing import List
+from itertools import accumulate
 
 
 class Solution:
     def findPrefixScore(self, nums: List[int]) -> List[int]:
+        mx, conversion = 0, list()
+        for x in nums:
+            mx = max(mx, x)
+            conversion.append(mx + x)
+        return list(accumulate(conversion))
+
+    def findPrefixScore1(self, nums: List[int]) -> List[int]:
         res = list()
         pre_mx = mx = pre_sum = 0
         for x in nums:
