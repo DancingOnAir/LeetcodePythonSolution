@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def rowAndMaximumOnes(self, mat: List[List[int]]) -> List[int]:
+        return sorted([[i, sum(r)] for i, r in enumerate(mat)], key=lambda x: (-x[1], x[0]))[0]
+
+    def rowAndMaximumOnes1(self, mat: List[List[int]]) -> List[int]:
         res = [-1, -1]
         for i, r in enumerate(mat):
             total = sum(r)
