@@ -1,8 +1,16 @@
-from itertools import groupby
-
-
 class Solution:
+    # dfs
     def minOperations(self, n: int) -> int:
+        def dfs(x):
+            if x & (x - 1) == 0:
+                return 1
+            low_bit = x & -x
+            return 1 + min(dfs(x + low_bit << 1), dfs(x - low_bit << 1))
+
+        return dfs(n)
+
+    # bit manipulation
+    def minOperations1(self, n: int) -> int:
         res = 1
         while n & (n - 1):
             low_bit = n & -n
