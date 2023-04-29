@@ -1,6 +1,16 @@
 class Solution:
-    # 计算周期t有多少个
     def addMinimum(self, word: str) -> int:
+        if not word:
+            return 0
+        if word[:3] == 'abc':
+            return self.addMinimum(word[3:])
+        if len(word) > 1:
+            if word[:2] == 'ab' or word[:2] == 'ac' or word[:2] == 'bc':
+                return 1 + self.addMinimum(word[2:])
+        return 2 + self.addMinimum(word[1:])
+
+    # 计算周期t有多少个
+    def addMinimum2(self, word: str) -> int:
         t = 1 + sum(x >= y for x, y in zip(word, word[1:]))
         return t * 3 - len(word)
 
