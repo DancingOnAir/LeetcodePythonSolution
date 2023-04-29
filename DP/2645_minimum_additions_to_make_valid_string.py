@@ -1,5 +1,11 @@
 class Solution:
+    # 计算周期t有多少个
     def addMinimum(self, word: str) -> int:
+        t = 1 + sum(x >= y for x, y in zip(word, word[1:]))
+        return t * 3 - len(word)
+
+    # stack
+    def addMinimum1(self, word: str) -> int:
         if len(set(word)) == 1:
             return len(word) * 2
 
