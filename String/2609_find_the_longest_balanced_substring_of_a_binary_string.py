@@ -1,5 +1,14 @@
 class Solution:
     def findTheLongestBalancedSubstring(self, s: str) -> int:
+        res = '01'
+        for i in range(25):
+            if res in s:
+                res = '0' + res + '1'
+            else:
+                break
+        return len(res) - 2
+
+    def findTheLongestBalancedSubstring1(self, s: str) -> int:
         i = 0
         res = 0
         while i < len(s) and s[i] == '1':
