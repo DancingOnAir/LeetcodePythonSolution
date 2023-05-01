@@ -3,6 +3,14 @@ from typing import List
 
 class Solution:
     def closetTarget(self, words: List[str], target: str, startIndex: int) -> int:
+        res = float('inf')
+        n = len(words)
+        for i, v in enumerate(words):
+            if v == target:
+                res = min(res, abs(startIndex - i), abs(n - abs(startIndex - i)))
+        return -1 if res == float('inf') else res
+
+    def closetTarget1(self, words: List[str], target: str, startIndex: int) -> int:
         n = len(words)
         res = 0
         while res < n:
