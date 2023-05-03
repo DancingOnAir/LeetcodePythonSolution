@@ -12,6 +12,16 @@ class TreeNode:
 class Solution:
     def rob(self, root: Optional[TreeNode]) -> int:
         def dfs(node):
+            if not node:
+                return 0, 0
+            left = dfs(node.left)
+            right = dfs(node.right)
+            return node.val + left[1] + right[1], max(left) + max(right)
+
+        return max(dfs(root))
+
+    def rob1(self, root: Optional[TreeNode]) -> int:
+        def dfs(node):
             lr = lnr = rr = rnr = 0
             if node.left:
                 lr, lnr = dfs(node.left)
