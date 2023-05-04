@@ -5,7 +5,7 @@ class Solution:
             if x & (x - 1) == 0:
                 return 1
             low_bit = x & -x
-            return 1 + min(dfs(x + low_bit << 1), dfs(x - low_bit << 1))
+            return 1 + min(dfs(x + low_bit), dfs(x - low_bit))
 
         return dfs(n)
 
