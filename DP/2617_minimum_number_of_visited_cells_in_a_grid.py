@@ -1,9 +1,36 @@
 from typing import List
+from heapq import heappop, heappush
+from math import inf
 
 
 class Solution:
-    # dp but TLE
+    # https://leetcode.cn/problems/minimum-number-of-visited-cells-in-a-grid/solution/m-n-ge-you-xian-dui-lie-by-zerotrac2-d9rg/
     def minimumVisitedCells(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        dp = [[inf] * n for _ in range(m)]
+        dp[0][0] = 1
+        # 优先队列
+        row_heap, col_heap = [[] for _ in range(m)], [[] for _ in range(n)]
+        for i in range(m):
+            for j in range(n):
+                while row_heap[i] and row_heap[i][0][1] + grid[i][row_heap[i][0][1]] < j:
+                    heappop(row_heap[i])
+                if row_heap[i]:
+                    dp[i][j] = min(dp[i][j], dp[i][row_heap[i][0][1]] + 1)
+
+                while col_heap[j] and col_heap[j][0][1] + grid[col_heap[j][0][1]][j] < i:
+                    heappop(col_heap[j])
+                if col_heap[j]:
+                    dp[i][j] = min(dp[i][j], dp[col_heap[j][0][1]][j] + 1)
+
+                if dp[i][j] != inf:
+                    heappush(row_heap[i], (dp[i][j], j))
+                    heappush(col_heap[j], (dp[i][j], i))
+
+        return dp[-1][-1] if dp[-1][-1] < inf else -1
+
+    # dp but TLE
+    def minimumVisitedCells1(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
         dp = [[10 ** 6] * n for _ in range(m)]
         dp[0][0] = 1
