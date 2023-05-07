@@ -3,7 +3,21 @@ from functools import lru_cache
 
 
 class Solution:
+    # bottom-up dp
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        target += sum(nums)
+        if target < 0 or target % 2:
+            return 0
+
+        target //= 2
+        dp = [1] + [0] * target
+        for x in nums:
+            for c in range(target, x - 1, -1):
+                dp[c] = dp[c] + dp[c - x]
+        return dp[target]
+
+    # top-down dp
+    def findTargetSumWays2(self, nums: List[int], target: int) -> int:
         target += sum(nums)
         if target < 0 or target % 2:
             return 0
