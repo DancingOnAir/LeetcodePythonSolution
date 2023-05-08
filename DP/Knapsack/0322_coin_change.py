@@ -5,6 +5,21 @@ from math import inf
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         n = len(coins)
+        # dp前i个coins组成amount为c的时候需要最少的数量
+        dp = [[inf] * (amount + 1) for _ in range(n + 1)]
+        dp[0][0] = 0
+        for i, x in enumerate(coins):
+            for c in range(amount + 1):
+                if c < x:
+                    dp[i + 1][c] = dp[i][c]
+                else:
+                    dp[i + 1][c] = min(dp[i][c], dp[i + 1][c - x] + 1)
+
+        res = dp[n][amount]
+        return res if res < inf else -1
+
+    def coinChange1(self, coins: List[int], amount: int) -> int:
+        n = len(coins)
 
         def dfs(i, c):
             if i < 0:
