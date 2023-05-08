@@ -2,7 +2,24 @@ from typing import List
 
 
 class Solution:
+    # https://www.bilibili.com/video/BV1Xj411K7oF/?spm_id_from=333.788&vd_source=e6f3bca3cb4f75b9e8b036e0e78f1541
     def rob(self, nums: List[int]) -> int:
+        n = len(nums)
+        memo = [-1] * n
+
+        def dfs(i):
+            if i < 0:
+                return 0
+            if memo[i] != -1:
+                return memo[i]
+
+            res = max(dfs(i - 1), dfs(i - 2) + nums[i])
+            memo[i] = res
+            return res
+
+        return dfs(len(nums) - 1)
+
+    def rob2(self, nums: List[int]) -> int:
         n = len(nums)
         if not n:
             return 0
