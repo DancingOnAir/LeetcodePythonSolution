@@ -2,7 +2,17 @@ from typing import List
 
 
 class Solution:
+    # dfs递归转递推
+    # dfs(i) = max(dfs(i - 1), dfs(i - 2) + nums[i]) => dp[i + 2] = max(dp[i + 1], dp[i] + nums[i + 2])
+    def rob(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = [0] * (n + 2)
+        for i, x in enumerate(nums):
+            dp[i + 2] = max(dp[i + 1], dp[i] + x)
+        return dp[-1]
+
     # https://www.bilibili.com/video/BV1Xj411K7oF/?spm_id_from=333.788&vd_source=e6f3bca3cb4f75b9e8b036e0e78f1541
+    # dfs
     def rob(self, nums: List[int]) -> int:
         n = len(nums)
         memo = [-1] * n
