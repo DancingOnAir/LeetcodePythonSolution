@@ -2,8 +2,20 @@ from functools import lru_cache
 
 
 class Solution:
-    # dfs
+    # 2d dp
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        l1, l2 = len(text1), len(text2)
+        dp = [[0] * (l2 + 1) for _ in range(l1 + 1)]
+        for i, x in enumerate(text1):
+            for j, y in enumerate(text2):
+                if x == y:
+                    dp[i + 1][j + 1] = dp[i][j] + 1
+                else:
+                    dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1])
+        return dp[l1][l2]
+
+    # dfs + cache
+    def longestCommonSubsequence1(self, text1: str, text2: str) -> int:
         @lru_cache(None)
         def dfs(i, j):
             if i < 0 or j < 0:
