@@ -2,8 +2,23 @@ from functools import lru_cache
 
 
 class Solution:
-    # 2d dp
+    # 1d dp
     def minDistance(self, word1: str, word2: str) -> int:
+        dp = list(range(len(word2) + 1))
+        for i, x in enumerate(word1):
+            pre = dp[0]
+            dp[0] += 1
+            for j, y in enumerate(word2):
+                tmp = dp[j + 1]
+                if x == y:
+                    dp[j + 1] = pre
+                else:
+                    dp[j + 1] = min(pre, dp[j], dp[j + 1]) + 1
+                pre = tmp
+        return dp[-1]
+
+    # 2d dp
+    def minDistance5(self, word1: str, word2: str) -> int:
         l1, l2 = len(word1), len(word2)
         dp = [[0] * (l2 + 1) for _ in range(l1 + 1)]
         dp[0] = list(range(l2 + 1))
