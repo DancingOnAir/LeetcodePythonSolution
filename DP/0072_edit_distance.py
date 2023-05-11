@@ -2,8 +2,24 @@ from functools import lru_cache
 
 
 class Solution:
-    # bottom-up, space optimized
+    # https://www.bilibili.com/video/BV1TM4y1o7ug/?spm_id_from=333.788&vd_source=e6f3bca3cb4f75b9e8b036e0e78f1541
+    # dfs
     def minDistance(self, word1: str, word2: str) -> int:
+        l1, l2 = len(word1), len(word2)
+
+        @lru_cache(None)
+        def dfs(i, j):
+            if i < 0:
+                return j + 1
+            if j < 0:
+                return i + 1
+            if word1[i] == word2[j]:
+                return dfs(i - 1, j - 1)
+            return min(dfs(i, j - 1), dfs(i - 1, j), dfs(i - 1, j - 1)) + 1
+        return dfs(l1 - 1, l2 - 1)
+
+    # bottom-up, space optimized
+    def minDistance3(self, word1: str, word2: str) -> int:
         l1, l2 = len(word1), len(word2)
         cur, pre = [0] * (l2+1), [0] * (l2+1)
 
