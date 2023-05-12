@@ -4,7 +4,18 @@ from functools import lru_cache
 
 
 class Solution:
+    # https://www.bilibili.com/video/BV1ub411Q7sB/?spm_id_from=333.788&vd_source=e6f3bca3cb4f75b9e8b036e0e78f1541
     def lengthOfLIS(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = [0] * n
+        for i in range(n):
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    dp[i] = max(dp[i], dp[j])
+            dp[i] += 1
+        return max(dp)
+
+    def lengthOfLIS3(self, nums: List[int]) -> int:
         n = len(nums)
 
         @lru_cache(None)
