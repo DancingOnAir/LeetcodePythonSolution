@@ -1,9 +1,22 @@
 from typing import List
 from bisect import bisect_left
+from functools import lru_cache
 
 
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
+        n = len(nums)
+
+        @lru_cache(None)
+        def dfs(i):
+            res = 0
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    res = max(res, dfs(j))
+            return res + 1
+        return max(dfs(i) for i in range(n))
+
+    def lengthOfLIS2(self, nums: List[int]) -> int:
         dp = list()
         for num in nums:
             i = bisect_left(dp, num)
