@@ -5,6 +5,17 @@ from functools import lru_cache
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
+        pre_f0 = f0 = 0
+        f1 = -inf
+
+        for p in prices:
+            new_f0 = max(f0, f1 + p)
+            f1 = max(f1, pre_f0 - p)
+            pre_f0 = f0
+            f0 = new_f0
+        return f0
+
+    def maxProfit2(self, prices: List[int]) -> int:
         n = len(prices)
         # dp[i][0] 表示卖出股票，dp[i][1] 表示持有股票，dp[i][2] 表示在冷却时间
         dp = [[0] * 2 for _ in range(n + 2)]
