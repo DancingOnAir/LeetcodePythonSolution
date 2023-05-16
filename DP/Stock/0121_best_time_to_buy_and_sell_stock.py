@@ -13,7 +13,8 @@ class Solution:
             for j in range(2):
                 dp[i + 1][j + 1][0] = max(dp[i][j + 1][0], dp[i][j + 1][1] + p)
                 dp[i + 1][j + 1][1] = max(dp[i][j + 1][1], dp[i][j][0] - p)
-        return max(dp[n][j][0] for j in range(3))
+        # 没有profit可以不交易
+        return max(dp[n][2][0], 0)
 
     # 看待成恰好交易一次的股票交易问题
     # dfs(i, -1, 0) = -inf 任何情况下 j不能为负
