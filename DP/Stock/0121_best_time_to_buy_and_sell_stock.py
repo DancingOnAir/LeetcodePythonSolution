@@ -4,8 +4,22 @@ from math import inf
 
 
 class Solution:
-    # 看待成恰好交易一次的股票交易问题
     def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        dp = [[[-inf] * 2 for _ in range(3)] for _ in range(n + 1)]
+        dp[0][1][0] = 0
+
+        for i, p in enumerate(prices):
+            for j in range(2):
+                dp[i + 1][j + 1][0] = max(dp[i][j + 1][0], dp[i][j + 1][1] + p)
+                dp[i + 1][j + 1][1] = max(dp[i][j + 1][1], dp[i][j][0] - p)
+        return max(dp[n][j][0] for j in range(3))
+
+    # 看待成恰好交易一次的股票交易问题
+    # dfs(i, -1, 0) = -inf 任何情况下 j不能为负
+    # dfs(-1, j, 0) = 0 第0天开始未持有股票
+    # dfs(-1, j, 0) = -inf 第0天开始不可能持有股票
+    def maxProfit1(self, prices: List[int]) -> int:
         n = len(prices)
 
         @lru_cache(None)
