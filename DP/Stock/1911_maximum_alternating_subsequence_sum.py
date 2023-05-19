@@ -3,7 +3,17 @@ from functools import lru_cache
 
 
 class Solution:
+    # 2-d dp
     def maxAlternatingSum(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = [[0] * 2 for _ in range(n + 1)]
+        for i, x in enumerate(nums):
+            dp[i + 1][0] = max(dp[i][0], dp[i][1] - x)
+            dp[i + 1][1] = max(dp[i][1], dp[i][0] + x)
+        return dp[n][1]
+
+    # dfs + cache
+    def maxAlternatingSum1(self, nums: List[int]) -> int:
         n = len(nums)
 
         @lru_cache(None)
