@@ -5,6 +5,19 @@ from functools import lru_cache
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         n = len(coins)
+        dp = [[0] * (amount + 1) for _ in range(n + 1)]
+        dp[0][0] = 1
+        for i, x in enumerate(coins):
+            for c in range(amount + 1):
+                if x > c:
+                    dp[i + 1][c] = dp[i][c]
+                else:
+                    dp[i + 1][c] = dp[i][c] + dp[i + 1][c - x]
+        return dp[n][amount]
+
+    # dfs + cache
+    def change1(self, amount: int, coins: List[int]) -> int:
+        n = len(coins)
 
         @lru_cache(None)
         def dfs(i, c):
