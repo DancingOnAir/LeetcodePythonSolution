@@ -44,7 +44,7 @@ class Solution:
 
 def test_coin_change():
     solution = Solution()
-    assert solution.coinChange([1,2,5], 11) == 3, 'wrong result'
+    assert solution.coinChange([1, 2, 5], 11) == 3, 'wrong result'
     assert solution.coinChange([2], 3) == -1, 'wrong result'
     assert solution.coinChange([1], 0) == 0, 'wrong result'
 
