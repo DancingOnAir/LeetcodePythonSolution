@@ -3,7 +3,22 @@ from math import inf
 
 
 class Solution:
+    # dp
     def numSquares(self, n: int) -> int:
+        mx = int(n ** 0.5)
+        dp = [[inf] * (n + 1) for _ in range(mx + 2)]
+        dp[0][0] = 0
+
+        for x in range(mx + 1):
+            for c in range(n + 1):
+                if c < x * x:
+                    dp[x + 1][c] = dp[x][c]
+                else:
+                    dp[x + 1][c] = min(dp[x][c], dp[x + 1][c - x * x] + 1)
+        return dp[mx + 1][n]
+
+    # dfs + cache
+    def numSquares1(self, n: int) -> int:
         mx = int(n ** 0.5)
 
         @lru_cache(None)
