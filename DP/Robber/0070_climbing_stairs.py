@@ -2,7 +2,18 @@ from functools import lru_cache
 
 
 class Solution:
+    # dp
     def climbStairs(self, n: int) -> int:
+        dp = [0] * (n + 2)
+        dp[1] = 1
+        dp[2] = 1
+
+        for i in range(n):
+            dp[i + 2] = dp[i + 1] + dp[i]
+        return dp[n + 1]
+
+    # dfs
+    def climbStairs1(self, n: int) -> int:
         @lru_cache(None)
         def dfs(i):
             if i < 0:
