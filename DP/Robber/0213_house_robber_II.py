@@ -9,12 +9,14 @@ class Solution:
             return nums[0]
 
         @lru_cache(None)
-        def dfs(i, arr):
-            if i < 0:
+        def dfs(i, stop):
+            if i < stop:
                 return 0
+            if i == stop:
+                return nums[stop]
 
-            return max(dfs(i - 1, arr), dfs(i - 2, arr) + arr[i])
-        return max(dfs(n - 2, tuple(nums[1:])), dfs(n - 2, tuple(nums[:-1])))
+            return max(dfs(i - 1, stop), dfs(i - 2, stop) + nums[i])
+        return max(dfs(n - 1, 1), dfs(n - 2, 0))
 
 
 def test_rob():
