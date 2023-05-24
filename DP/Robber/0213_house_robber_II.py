@@ -4,6 +4,30 @@ from functools import lru_cache
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
+        def helper(arr):
+            n = len(arr)
+
+            dp = [0] * (n + 2)
+            for i, x in enumerate(arr):
+                dp[i + 2] = max(dp[i + 1], dp[i] + arr[i])
+            return dp[n + 1]
+
+        return max(nums[0] + helper(nums[2: -1]), helper(nums[1:]))
+
+    # improved dfs
+    def rob2(self, nums: List[int]) -> int:
+        n = len(nums)
+
+        @lru_cache(None)
+        def dfs(i, arr):
+            if i < 0:
+                return 0
+            return max(dfs(i - 1, arr), dfs(i - 2, arr) + arr[i])
+
+        return max(nums[0] + dfs(n - 4, tuple(nums[2: -1])), dfs(n - 2, tuple(nums[1:])))
+
+    # dfs
+    def rob1(self, nums: List[int]) -> int:
         n = len(nums)
         if n == 1:
             return nums[0]
