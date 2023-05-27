@@ -6,6 +6,14 @@ from functools import lru_cache
 class Solution:
     def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
         l1, l2 = len(nums1), len(nums2)
+        dp = [[-inf] * (l2 + 1) for _ in range(l1 + 1)]
+        for i, x in enumerate(nums1):
+            for j, y in enumerate(nums2):
+                dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1], dp[i][j] + x * y, x * y)
+        return dp[l1][l2]
+
+    def maxDotProduct1(self, nums1: List[int], nums2: List[int]) -> int:
+        l1, l2 = len(nums1), len(nums2)
 
         @lru_cache(None)
         def dfs(i, j):
