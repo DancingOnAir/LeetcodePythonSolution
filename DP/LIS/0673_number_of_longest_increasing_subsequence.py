@@ -1,10 +1,31 @@
 from typing import List
+from functools import lru_cache
 from collections import Counter
 
 
 class Solution:
-    # double dp
+    # dp
     def findNumberOfLIS(self, nums: List[int]) -> int:
+        n = len(nums)
+
+        dp = [[0] * 2 for _ in range(n)]
+        mx = 0
+        for i in range(n):
+            sz = dp[i][0]
+            cnt = 0
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    if dp[j][0] == sz:
+                        cnt += dp[j][1]
+                    elif dp[j][0] > sz:
+                        cnt = dp[j][1]
+                        sz = dp[j][0]
+            dp[i] = [sz + 1, cnt if cnt != 0 else 1]
+            mx = max(mx, dp[i][0])
+        return sum(dp[i][1] for i in range(n) if dp[i][0] == mx)
+
+    # double dp
+    def findNumberOfLIS1(self, nums: List[int]) -> int:
         n = len(nums)
         if n < 2:
             return n
