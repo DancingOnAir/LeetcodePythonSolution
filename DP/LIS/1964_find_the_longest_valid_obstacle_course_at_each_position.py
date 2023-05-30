@@ -1,10 +1,24 @@
 from typing import List
 from functools import lru_cache
+from bisect import bisect_right
 
 
 class Solution:
-    # TLE dp
+    # binary search
     def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        g = list()
+        res = list()
+        for x in obstacles:
+            j = bisect_right(g, x)
+            if j == len(g):
+                g.append(x)
+            else:
+                g[j] = x
+            res.append(j + 1)
+        return res
+
+    # TLE dp
+    def longestObstacleCourseAtEachPosition2(self, obstacles: List[int]) -> List[int]:
         n = len(obstacles)
 
         dp = [0] * n
