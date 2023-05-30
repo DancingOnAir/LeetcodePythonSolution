@@ -5,7 +5,19 @@ from functools import lru_cache
 
 class Solution:
     # https://www.bilibili.com/video/BV1ub411Q7sB/?spm_id_from=333.788&vd_source=e6f3bca3cb4f75b9e8b036e0e78f1541
+    # binary search
     def lengthOfLIS(self, nums: List[int]) -> int:
+        res = list()
+        for x in nums:
+            j = bisect_left(res, x)
+            if j == len(res):
+                res.append(x)
+            else:
+                res[j] = x
+        return len(res)
+
+    # dp
+    def lengthOfLIS4(self, nums: List[int]) -> int:
         n = len(nums)
         dp = [0] * n
         for i in range(n):
@@ -15,6 +27,7 @@ class Solution:
             dp[i] += 1
         return max(dp)
 
+    # dfs
     def lengthOfLIS3(self, nums: List[int]) -> int:
         n = len(nums)
 
