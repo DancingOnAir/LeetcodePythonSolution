@@ -2,7 +2,26 @@ from functools import lru_cache
 
 
 class Solution:
+    # dp
     def longestPalindrome(self, word1: str, word2: str) -> int:
+        s = word1 + word2
+        n = len(s)
+        res = 0
+        dp = [[0] * n for _ in range(n)]
+
+        for i in range(n - 1, -1, -1):
+            dp[i][i] = 1
+            for j in range(i + 1, n):
+                if s[i] == s[j]:
+                    dp[i][j] = dp[i + 1][j - 1] + 2
+                    if i < len(word1) <= j:
+                        res = max(res, dp[i][j])
+                else:
+                    dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])
+        return res
+
+    # dfs
+    def longestPalindrome1(self, word1: str, word2: str) -> int:
         s = word1 + word2
         res = 0
         n = len(s)
