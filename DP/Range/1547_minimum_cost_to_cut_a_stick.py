@@ -4,20 +4,35 @@ from functools import lru_cache
 
 
 class Solution:
-    # dfs + cache
+    # dp
     def minCost(self, n: int, cuts: List[int]) -> int:
         cuts.sort()
         cuts = [0] + cuts + [n]
+        m = len(cuts)
+
+        dp = [[0] * m for _ in range(m)]
+        for i in range(m - 1, -1, -1):
+            for j in range(i + 2, m):
+                dp[i][j] = inf
+                for k in range(i + 1, j):
+                    dp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j] + cuts[j] - cuts[i])
+        return dp[0][m - 1]
+
+    # dfs + cache
+    def minCost1(self, n: int, cuts: List[int]) -> int:
+        cuts.sort()
+        cuts = [0] + cuts + [n]
+        m = len(cuts)
 
         @lru_cache(None)
         def dfs(i, j):
             if i + 1 == j:
                 return 0
             res = inf
-            for k in range(i, j + 1):
-                res = min(res, dfs(i, k - 1) + dfs(k + 1, j) + cuts[j + 1] - cuts[i - 1])
+            for k in range(i + 1, j):
+                res = min(res, dfs(i, k) + dfs(k, j) + cuts[j] - cuts[i])
             return res
-        return dfs(1, len(cuts) - 1)
+        return dfs(0, m - 1)
 
 
 def test_min_cost():
