@@ -5,8 +5,23 @@ from functools import lru_cache
 
 
 class Solution:
-    # improved dfs
+    # dp
     def mergeStones(self, stones: List[int], k: int) -> int:
+        n = len(stones)
+        if (n - k) % (k - 1):
+            return -1
+
+        ps = list(accumulate([0] + stones))
+        dp = [[0] * n for _ in range(n)]
+        for i in range(n - 1, -1, -1):
+            for j in range(i + 1, n):
+                dp[i][j] = min(dp[i][m] + dp[m + 1][j] for m in range(i, j, k - 1))
+                if (j - i) % (k - 1) == 0:
+                    dp[i][j] += ps[j + 1] - ps[i]
+        return dp[0][n - 1]
+
+    # improved dfs
+    def mergeStones2(self, stones: List[int], k: int) -> int:
         n = len(stones)
         if (n - k) % (k - 1):
             return -1
