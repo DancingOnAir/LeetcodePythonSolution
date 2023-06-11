@@ -25,3 +25,12 @@ class Solution:
         res = 0
         dfs(root)
         return res
+
+
+def test_diameter_of_binary_tree():
+    solution = Solution()
+    assert solution.diameterOfBinaryTree(TreeNode(1, TreeNode(2, TreeNode(4), TreeNode(5)), TreeNode(3))) == 3, 'wrong result'
+
+
+if __name__ == '__main__':
+    test_diameter_of_binary_tree()
