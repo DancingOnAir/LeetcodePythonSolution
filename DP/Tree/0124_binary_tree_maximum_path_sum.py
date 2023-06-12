@@ -20,7 +20,7 @@ class Solution:
 
             nonlocal res
             res = max(res, l + r + node.val)
-            return max(l, r) + node.val
+            return max(max(l, r) + node.val, 0)
 
         res = 0
         dfs(root)
