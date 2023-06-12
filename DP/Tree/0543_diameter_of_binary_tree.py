@@ -11,6 +11,21 @@ class TreeNode:
 
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        def dfs(pa):
+            if not pa:
+                return 0
+            l = dfs(pa.left)
+            r = dfs(pa.right)
+
+            nonlocal res
+            res = max(res, l + r)
+            return max(l, r) + 1
+
+        res = 0
+        dfs(root)
+        return res
+
+    def diameterOfBinaryTree1(self, root: Optional[TreeNode]) -> int:
         def dfs(node):
             if not node:
                 return -1
