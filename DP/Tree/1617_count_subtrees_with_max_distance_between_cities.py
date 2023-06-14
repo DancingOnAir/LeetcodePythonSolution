@@ -2,32 +2,38 @@ from typing import List
 
 
 class Solution:
+
     def countSubgraphsForEachDiameter(self, n: int, edges: List[List[int]]) -> List[int]:
-        g = [[] for _ in range(n + 1)]
+        g = [[] for _ in range(n)]
         for u, v in edges:
-            g[u].append(v)
-            g[v].append(u)
+            g[u - 1].append(v - 1)
+            g[v - 1].append(u - 1)
 
-        res = [0] * n
+        res = [0] * (n - 1)
 
-        def dfs(u, pa):
-            depths = list()
+        for mask in range(3, 1 << n):
+            # 至少需要2个点
+            if (mask & (mask - 1)) == 0:
+                continue
 
-            for v in g[u]:
-                if v != pa:
-                    cur = dfs(v, u)
-                    for x in cur:
-                        depths.append(x + 1)
+            seen = diameter = 0
 
-            for d in depths:
-                res[d] += 1
+            def dfs(u):
+                nonlocal seen, diameter
+                # 标记x为访问过的城市
+                seen |= 1 << u
+                mx = 0
+                for v in g[u]:
+                    if ((seen >> v) & 1) == 0 and ((mask >> v) & 1):
+                        depth = dfs(v) + 1
+                        diameter = max(diameter, mx + depth)
+                        mx = max(mx, depth)
+                return mx
 
-            for i, d in enumerate(depths):
-                for j in range(i + 1, len(depths)):
-                    res[d + depths[j]] += 1
-            return depths if depths else [0]
-
-        dfs(1, -1)
+            dfs(mask.bit_length() - 1)
+            # dfs保证是1个连通图，不是森林。这里保证经过的点一致，是同一个连通图
+            if seen == mask:
+                res[diameter - 1] += 1
         return res
 
 
