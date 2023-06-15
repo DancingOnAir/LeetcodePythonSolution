@@ -2,8 +2,46 @@ from typing import List
 
 
 class Solution:
-
+    # https://leetcode.cn/problems/count-subtrees-with-max-distance-between-cities/solution/tu-jie-on3-mei-ju-zhi-jing-duan-dian-che-am2n/
+    # dfs + multiply theory
     def countSubgraphsForEachDiameter(self, n: int, edges: List[List[int]]) -> List[int]:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u - 1].append(v - 1)
+            g[v - 1].append(u - 1)
+
+        # 计算任意2个城市间的距离
+        dist = [[0] * n for _ in range(n)]
+
+        def dfs(u, pa):
+            for v in g[u]:
+                if v != pa:
+                    dist[i][v] = dist[i][u] + 1
+                    dfs(v, u)
+
+        for i in range(n):
+            # 计算i到其余城市的距离
+            dfs(i, -1)
+
+        def dfs2(u, pa):
+            cnt = 1
+            for v in g[u]:
+                if v != pa and (di[v] < d or (di[v] == d and v > j)) and (dj[v] < d or (dj[v] == d and v > i)):
+                    cnt *= dfs2(v, u)
+            if di[u] + dj[u] > d:
+                cnt += 1
+            return cnt
+
+        res = [0] * (n - 1)
+        for i, di in enumerate(dist):
+            for j in range(i + 1, n):
+                dj = dist[j]
+                d = di[j]
+                res[d - 1] += dfs2(i, -1)
+        return res
+
+    # dfs + binary mask
+    def countSubgraphsForEachDiameter1(self, n: int, edges: List[List[int]]) -> List[int]:
         g = [[] for _ in range(n)]
         for u, v in edges:
             g[u - 1].append(v - 1)
