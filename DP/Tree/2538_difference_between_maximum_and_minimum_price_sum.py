@@ -1,9 +1,32 @@
 from typing import List
-from functools import lru_cache
 
 
 class Solution:
     def maxOutput(self, n: int, edges: List[List[int]], price: List[int]) -> int:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+
+        def dfs(u, pa):
+            nonlocal res
+            mx1 = p = price[u]
+            mx2 = 0
+            for v in g[u]:
+                if v != pa:
+                    s1, s2 = dfs(v, u)
+                    res = max(res, mx1 + s2, mx2 + s1)
+                    # 这里都加p因为u肯定不是叶子，而v有可能是
+                    mx1 = max(mx1, s1 + p)
+                    mx2 = max(mx2, s2 + p)
+            return mx1, mx2
+
+        res = 0
+        dfs(0, -1)
+        return res
+
+    # TLE
+    def maxOutput1(self, n: int, edges: List[List[int]], price: List[int]) -> int:
         g = [[] for _ in range(n)]
         for u, v in edges:
             g[u].append(v)
