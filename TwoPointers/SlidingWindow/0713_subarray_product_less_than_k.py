@@ -3,11 +3,14 @@ from typing import List
 
 class Solution:
     def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
+        if k <= 1:
+            return 0
+
         left = res = 0
         total = 1
         for right, x in enumerate(nums):
             total *= x
-            while left <= right and total >= k:
+            while total >= k:
                 total //= nums[left]
                 left += 1
             res += right - left + 1
