@@ -3,6 +3,22 @@ from typing import List
 
 class Solution:
     def minOperations(self, nums: List[int], x: int) -> int:
+        target = sum(nums) - x
+        if target < 0:
+            return -1
+        left = cur = 0
+        res = -1
+        for right, val in enumerate(nums):
+            cur += val
+            while cur > target:
+                cur -= nums[left]
+                left += 1
+            if cur == target:
+                res = max(res, right - left + 1)
+
+        return -1 if res < 0 else len(nums) - res
+
+    def minOperations1(self, nums: List[int], x: int) -> int:
         total = sum(nums)
         if total < x:
             return -1
