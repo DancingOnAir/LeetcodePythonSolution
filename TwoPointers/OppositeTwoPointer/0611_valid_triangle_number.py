@@ -6,6 +6,22 @@ class Solution:
         nums.sort()
         n = len(nums)
         res = 0
+        for i in range(2, n):
+            x = nums[i]
+
+            left, right = 0, i - 1
+            while left < right:
+                if nums[left] + nums[right] <= x:
+                    left += 1
+                else:
+                    res += right - left
+                    right -= 1
+        return res
+
+    def triangleNumber1(self, nums: List[int]) -> int:
+        nums.sort()
+        n = len(nums)
+        res = 0
         for i in range(n - 1, 1, -1):
             x = nums[i]
 
