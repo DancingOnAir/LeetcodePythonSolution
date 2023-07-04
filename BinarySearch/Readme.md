@@ -1,9 +1,9 @@
 ##Reference
-https://medium.com/@hazemu/useful-insights-into-binary-search-problems-8769d388b9c
-https://leetcode-cn.com/circle/article/bNaUjl/
+- https://medium.com/@hazemu/useful-insights-into-binary-search-problems-8769d388b9c
+- https://leetcode-cn.com/circle/article/bNaUjl/
 #### Very fantastic explanation
-https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-48c1d/wo-xie-le--9c7a4/
-https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/
+- https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-48c1d/wo-xie-le--9c7a4/
+- https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/
 #Binary Search Template
 二分查找主要分为两种形式：
 - 基础形式
