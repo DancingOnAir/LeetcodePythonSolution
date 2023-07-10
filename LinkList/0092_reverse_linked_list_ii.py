@@ -10,30 +10,24 @@ class ListNode:
 
 class Solution:
     def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
-        lo, hi, pre = None, None, None
-        cur = head
-        cnt = 0
+        pre_head = ListNode(0)
+        pre_head.next = head
+        p0 = pre_head
 
-        while cur:
-            cnt += 1
-            if cnt > right:
-                break
+        for _ in range(left - 1):
+            p0 = p0.next
 
+        pre = None
+        cur = p0.next
+        for _ in range(right - left + 1):
             nxt = cur.next
-            if cnt >= left:
-                if cnt == left:
-                    lo = pre
-                    hi = cur
-                cur.next = pre
+            cur.next = pre
             pre = cur
             cur = nxt
 
-        if lo:
-            lo.next = pre
-        if hi:
-            hi.next = cur
-
-        return head
+        p0.next.next = cur
+        p0.next = pre
+        return pre_head.next
 
 
 def test_reverse_between():
