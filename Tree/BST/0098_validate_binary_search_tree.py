@@ -10,6 +10,7 @@ class TreeNode:
 
 
 class Solution:
+    # 【验证二叉搜索树【基础算法精讲 11】】 https://www.bilibili.com/video/BV14G411P7C1/?share_source=copy_web&vd_source=1fe6e1be7076869ed72407a8374a4eba
     # preorder
     def isValidBST(self, root: Optional[TreeNode], left=-inf, right=inf) -> bool:
         if root is None:
