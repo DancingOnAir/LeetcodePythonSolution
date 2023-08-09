@@ -1,4 +1,5 @@
 from typing import Optional
+from math import inf
 
 
 class TreeNode:
@@ -9,10 +10,16 @@ class TreeNode:
 
 
 class Solution:
+    # preorder
+    def isValidBST(self, root: Optional[TreeNode], left=-inf, right=inf) -> bool:
+        if root is None:
+            return True
+        return left < root.val < right and self.isValidBST(root.left, left, root.val) and self.isValidBST(root.right, root.val, right)
+
     pre = float('-inf')
 
     # inorder
-    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+    def isValidBST1(self, root: Optional[TreeNode]) -> bool:
         if not root:
             return True
 
