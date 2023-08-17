@@ -12,6 +12,17 @@ class TreeNode:
 
 class Solution:
     def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
+        dq = deque([root])
+        while dq:
+            node = dq.popleft()
+            if node.right:
+                dq.append(node.right)
+            if node.left:
+                dq.append(node.left)
+
+        return node.val
+
+    def findBottomLeftValue1(self, root: Optional[TreeNode]) -> int:
         if not root:
             return -1
 
