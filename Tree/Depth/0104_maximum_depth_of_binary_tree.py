@@ -1,4 +1,5 @@
 from typing import Optional
+from collections import deque
 
 
 class TreeNode:
@@ -9,8 +10,25 @@ class TreeNode:
 
 
 class Solution:
-    # recursive
+    # level order
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+
+        res = 0
+        dq = deque([root])
+        while dq:
+            res += 1
+            for _ in range(len(dq)):
+                node = dq.popleft()
+                if node.left:
+                    dq.append(node.left)
+                if node.right:
+                    dq.append(node.right)
+        return res
+
+    # recursive
+    def maxDepth1(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
         left_max = self.maxDepth(root.left)
