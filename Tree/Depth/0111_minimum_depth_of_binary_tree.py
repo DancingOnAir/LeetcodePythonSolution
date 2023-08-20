@@ -1,4 +1,5 @@
 from typing import Optional
+from collections import deque
 
 
 class TreeNode:
@@ -10,6 +11,25 @@ class TreeNode:
 
 class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+
+        dq = deque([root])
+        res = 0
+        while dq:
+            for _ in range(len(dq)):
+                node = dq.popleft()
+                res += 1
+                if node.left == node.right:
+                    return res
+                if node.left:
+                    dq.append(node.left)
+                if node.right:
+                    dq.append(node.right)
+
+        return res
+
+    def minDepth1(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
 
