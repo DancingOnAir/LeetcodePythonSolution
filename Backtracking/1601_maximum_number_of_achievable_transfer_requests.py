@@ -3,7 +3,32 @@ from typing import List
 
 class Solution:
     def maximumRequests(self, n: int, requests: List[List[int]]) -> int:
-        pass
+        def dfs(i):
+            nonlocal cnt
+            if all(x == 0 for x in m):
+                nonlocal res
+                res = max(res, cnt)
+
+            if i == len(requests):
+                return
+
+            dfs(i + 1)
+
+            m[requests[i][0]] -= 1
+            m[requests[i][1]] += 1
+            cnt += 1
+
+            dfs(i + 1)
+
+            m[requests[i][0]] += 1
+            m[requests[i][1]] -= 1
+            cnt -= 1
+
+        res = cnt = 0
+        m = [0] * n
+
+        dfs(0)
+        return res
 
 
 def test_maximum_requests():
