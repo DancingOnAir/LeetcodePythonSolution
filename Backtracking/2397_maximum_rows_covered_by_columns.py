@@ -2,7 +2,18 @@ from typing import List
 
 
 class Solution:
+    # bit mask
     def maximumRows(self, matrix: List[List[int]], numSelect: int) -> int:
+        res = 0
+        mask = [sum(c << j for j, c in enumerate(r)) for i, r in enumerate(matrix)]
+        for x in range(1 << len(matrix[0])):
+            if bin(x)[2:].count('1') == numSelect:
+                # x & r == r 表示r是x的子集，所有1都被覆盖
+                res = max(res, sum(x & r == r for r in mask))
+        return res
+
+    # backtracking recursive
+    def maximumRows1(self, matrix: List[List[int]], numSelect: int) -> int:
         def dfs(i):
             nonlocal cnt
             if cnt == numSelect:
