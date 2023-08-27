@@ -2,8 +2,21 @@ from typing import List
 
 
 class Solution:
-    # bit mask
+    # bitmask: Gosper's Hack: https://www.bilibili.com/video/BV1na41137jv/?vd_source=e6f3bca3cb4f75b9e8b036e0e78f1541
     def maximumRows(self, matrix: List[List[int]], numSelect: int) -> int:
+        res = 0
+        x = (1 << numSelect) - 1
+        mask = [sum(c << j for j, c in enumerate(r)) for i, r in enumerate(matrix)]
+        while x < (1 << len(matrix[0])):
+            res = max(res, sum(x & r == r for r in mask))
+            lowbit = x & -x
+            left = x + lowbit
+            right = (x ^ left) // lowbit >> 2
+            x = left | right
+        return res
+
+    # bit mask
+    def maximumRows2(self, matrix: List[List[int]], numSelect: int) -> int:
         res = 0
         mask = [sum(c << j for j, c in enumerate(r)) for i, r in enumerate(matrix)]
         for x in range(1 << len(matrix[0])):
