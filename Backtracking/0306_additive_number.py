@@ -1,26 +1,26 @@
 class Solution:
     def isAdditiveNumber(self, num: str) -> bool:
         n = len(num)
-        if n < 3:
-            return False
 
-        def dfs(first, second, i):
-            if i == n:
+        def dfs(first, second, s):
+            if not s:
                 return True
 
-            for j in range(i, n):
-                cur = int(num[i: j + 1])
-                if first == -1:
-                    dfs(cur, second, j + 1)
-                elif second == -1:
-                    dfs(first, cur, j + 1)
-                elif cur == first + second:
-                    if dfs(second, cur, j + 1):
-                        return True
-
+            total = first + second
+            if s.startswith(str(total)):
+                return dfs(second, total, s[len(str(total)):])
             return False
 
-        return dfs(-1, -1, 0)
+        for i in range(1, n - 1):
+            if num[0] == '0' and i > 1:
+                break
+            for j in range(i + 1, n):
+                if num[i] == '0' and j - i > 1:
+                    break
+                if dfs(int(num[:i]), int(num[i:j]), num[j:]):
+                    return True
+
+        return False
 
 
 def test_is_additive_number():
