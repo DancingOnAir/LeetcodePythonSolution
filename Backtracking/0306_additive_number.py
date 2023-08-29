@@ -1,5 +1,20 @@
+from itertools import combinations
+
+
 class Solution:
     def isAdditiveNumber(self, num: str) -> bool:
+        def dfs(first, second, s):
+            if first != str(int(first)) and second != str(int(second)):
+                return False
+            if not s:
+                return True
+
+            total = str(int(first) + int(second))
+            return s.startswith(total) and dfs(second, total, s[len(total):])
+
+        return any(dfs(num[:i], num[i:j], num[j:]) for i, j in combinations(range(1, len(num)), 2))
+
+    def isAdditiveNumber1(self, num: str) -> bool:
         n = len(num)
 
         def dfs(first, second, s):
