@@ -6,20 +6,21 @@ class Solution:
         res = []
         path = []
 
-        def dfs(i):
+        def dfs(i, tot):
             d = k - len(path)
+            if tot < 0 or tot > (i * 2 - d + 1) * d // 2:
+                return
 
             if len(path) == k:
-                if sum(path) == n:
-                    res.append(path.copy())
+                res.append(path.copy())
                 return
 
             for j in range(i, d - 1, -1):
                 path.append(j)
-                dfs(j - 1)
+                dfs(j - 1, tot - j)
                 path.pop()
 
-        dfs(9)
+        dfs(9, n)
         return res
 
 
