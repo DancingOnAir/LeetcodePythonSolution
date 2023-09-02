@@ -2,7 +2,30 @@ from typing import List
 
 
 class Solution:
+    # 模板1，选或者不选
     def combine(self, n: int, k: int) -> List[List[int]]:
+        res = []
+        path = []
+
+        def dfs(i):
+            if len(path) == k:
+                res.append(path.copy())
+                return
+
+            if i <= 0 or i < k - len(path):
+                return
+
+            dfs(i - 1)
+
+            path.append(i)
+            dfs(i - 1)
+            path.pop()
+
+        dfs(n)
+        return res
+
+    # 模板2
+    def combine1(self, n: int, k: int) -> List[List[int]]:
         res = []
         path = []
 
