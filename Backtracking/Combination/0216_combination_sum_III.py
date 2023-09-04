@@ -8,6 +8,29 @@ class Solution:
 
         def dfs(i, tot):
             d = k - len(path)
+            if i < 0 or tot < 0 or (i + i - d + 1) * d // 2 < tot:
+                return
+
+            if len(path) == k:
+                res.append(path.copy())
+                return
+
+            dfs(i - 1, tot)
+
+            path.append(i)
+            dfs(i - 1, tot - i)
+            path.pop()
+
+        dfs(9, n)
+        return res
+
+    # mode 2
+    def combinationSum31(self, k: int, n: int) -> List[List[int]]:
+        res = []
+        path = []
+
+        def dfs(i, tot):
+            d = k - len(path)
             if tot < 0 or tot > (i * 2 - d + 1) * d // 2:
                 return
 
