@@ -3,26 +3,27 @@ from typing import List
 
 class Solution:
     def grayCode(self, n: int) -> List[int]:
-        res = []
         path = [0]
 
         def valid(a, b):
             return bin(a ^ b)[2:].count('1') == 1
 
         def dfs(i, s):
-            if i == 2 ** n - 1:
+            if len(path) == 2 ** n:
                 if valid(path[0], path[-1]):
-                    nonlocal res
-                    res = path[:]
-                return
+                    return True
+                return False
 
             for c in s:
                 if valid(path[-1], c):
                     path.append(c)
-                    dfs(i + 1, s - {c})
+                    if dfs(i + 1, s - {c}):
+                        return True
                     path.pop()
+            return False
+
         dfs(0, set(range(1, 2 ** n)))
-        return res
+        return path
 
 
 def test_gray_code():
