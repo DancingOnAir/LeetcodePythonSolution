@@ -2,7 +2,12 @@ from typing import List
 
 
 class Solution:
+    # https://blog.csdn.net/jingfengvae/article/details/51691124
     def grayCode(self, n: int) -> List[int]:
+        return list(map(lambda x: x ^ (x >> 1), range(2 ** n)))
+
+    # backtracking
+    def grayCode1(self, n: int) -> List[int]:
         path = [0]
 
         def valid(a, b):
