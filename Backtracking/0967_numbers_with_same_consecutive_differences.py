@@ -3,13 +3,13 @@ from typing import List
 
 class Solution:
     def numsSameConsecDiff(self, n: int, k: int) -> List[int]:
-        res = []
+        res = set()
         x = 0
 
         def dfs(i):
             nonlocal x
             if i == n:
-                res.append(x)
+                res.add(x)
                 return
 
             if i == 0:
@@ -29,7 +29,7 @@ class Solution:
                     dfs(i + 1)
                     x = cur
         dfs(0)
-        return res
+        return list(res)
 
 
 def test_nums_same_consec_diff():
