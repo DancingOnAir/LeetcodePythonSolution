@@ -1,5 +1,29 @@
 class Solution:
+    # backtracking
     def smallestNumber(self, pattern: str) -> str:
+        n = len(pattern)
+        res = '9' * (n + 1)
+        path = []
+
+        def dfs(i):
+            if i == n + 1:
+                nonlocal res
+                res = min(res, ''.join(path))
+                return
+
+            for j in range(1, 10):
+                if str(j) in path:
+                    continue
+
+                if i == 0 or (pattern[i - 1] == 'I' and str(j) > path[-1]) or (pattern[i - 1] == 'D' and str(j) < path[-1]):
+                    path.append(str(j))
+                    dfs(i + 1)
+                    path.pop()
+        dfs(0)
+        return res
+
+    # greed
+    def smallestNumber1(self, pattern: str) -> str:
         n = len(pattern)
         res = [str(i) for i in range(1, n + 2)]
 
