@@ -2,8 +2,29 @@ from typing import List
 
 
 class Solution:
-    # backtracking mode2
+    # backtracking mode1
     def beautifulSubsets(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        res = -1
+        cnt = [0] * (max(nums) + k + 1)
+
+        def dfs(i):
+            if i == n:
+                nonlocal res
+                res += 1
+                return
+
+            dfs(i + 1)
+            if cnt[nums[i] - k] == 0 and cnt[nums[i] + k] == 0:
+                cnt[nums[i]] += 1
+                dfs(i + 1)
+                cnt[nums[i]] -= 1
+
+        dfs(0)
+        return res
+
+    # backtracking mode2
+    def beautifulSubsets1(self, nums: List[int], k: int) -> int:
         n = len(nums)
         # - 1 for the empty set
         res = -1
