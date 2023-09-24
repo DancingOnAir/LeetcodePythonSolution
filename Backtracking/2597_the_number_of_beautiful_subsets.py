@@ -2,8 +2,10 @@ from typing import List
 
 
 class Solution:
+    # backtracking mode2
     def beautifulSubsets(self, nums: List[int], k: int) -> int:
         n = len(nums)
+        # - 1 for the empty set
         res = -1
         cnt = [0] * (max(nums) + k + 1)
 
