@@ -2,7 +2,31 @@ from typing import List
 
 
 class Solution:
+    # improved backtracking
     def getMaximumGold(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        res = 0
+
+        def dfs(x, y, gold):
+            gold += grid[x][y]
+
+            nonlocal res
+            res = max(res, gold)
+
+            cur = grid[x][y]
+            grid[x][y] = 0
+            for nx, ny in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
+                if 0 <= nx < m and 0 <= ny < n and grid[nx][ny] > 0:
+                    dfs(nx, ny, gold)
+            grid[x][y] = cur
+
+        for i in range(m):
+            for j in range(n):
+                dfs(i, j, 0)
+        return res
+
+    # backtracking
+    def getMaximumGold1(self, grid: List[List[int]]) -> int:
         nodes = []
         m, n = len(grid), len(grid[0])
         res = 0
