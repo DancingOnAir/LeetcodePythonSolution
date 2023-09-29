@@ -1,6 +1,21 @@
 class Solution:
-    # match end with 25, 50, 00
     def minimumOperations(self, num: str) -> int:
+        n = len(num)
+        num = num[::-1]
+        res = n - ('0' in num)
+
+        for i in range(n):
+            if i > res:
+                break
+
+            if num[i] in '05':
+                for j in range(i + 1, n):
+                    if (num[j] + num[i]) in {'00', '25', '50', '75'}:
+                        res = min(res, j - 1)
+        return res
+
+    # match end with 25, 50, 00
+    def minimumOperations1(self, num: str) -> int:
         res = n = len(num)
         pattern_25 = []
         pattern_50 = []
