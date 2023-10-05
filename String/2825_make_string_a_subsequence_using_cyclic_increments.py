@@ -3,6 +3,13 @@ from functools import lru_cache
 
 class Solution:
     def canMakeSubsequence(self, str1: str, str2: str) -> bool:
+        j, l1, l2 = 0, len(str1), len(str2)
+        for i in range(l1):
+            if j < l2 and (ord(str2[j]) - ord(str1[i])) % 26 <= 1:
+                j += 1
+        return j == l2
+
+    def canMakeSubsequence1(self, str1: str, str2: str) -> bool:
         l1, l2 = len(str1), len(str2)
 
         @lru_cache(None)
