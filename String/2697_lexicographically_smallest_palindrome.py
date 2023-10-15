@@ -1,5 +1,8 @@
 class Solution:
     def makeSmallestPalindrome(self, s: str) -> str:
+        return ''.join(map(min, zip(s, s[::-1])))
+
+    def makeSmallestPalindrome1(self, s: str) -> str:
         left, right = 0, len(s) - 1
         s = list(s)
         while left < right:
