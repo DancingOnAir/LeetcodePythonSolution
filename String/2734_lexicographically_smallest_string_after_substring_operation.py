@@ -1,5 +1,19 @@
 class Solution:
     def smallestString(self, s: str) -> str:
+        n = len(s)
+        s = list(s)
+        i = 0
+        while i < n and s[i] == 'a':
+            i += 1
+        if i == n:
+            s[-1] = 'z'
+        while i < n and s[i] != 'a':
+            s[i] = chr(ord(s[i]) - 1)
+            i += 1
+
+        return ''.join(s)
+
+    def smallestString1(self, s: str) -> str:
         def helper(x):
             return ''.join(map(lambda c: chr((ord(c) - 98) % 26 + 97), x))
 
