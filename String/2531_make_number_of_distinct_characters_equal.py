@@ -10,8 +10,9 @@ class Solution:
         for k1 in ascii_lowercase:
             for k2 in ascii_lowercase:
                 if c1[k1] and c2[k2]:
-                    if l1 == l2:
-                        return True
+                    if k1 == k2:
+                        if l1 == l2:
+                            return True
                     else:
                         cnt1, cnt2 = l1, l2
                         if c1[k1] == 1:
