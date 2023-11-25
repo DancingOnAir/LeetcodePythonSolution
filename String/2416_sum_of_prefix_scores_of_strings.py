@@ -1,4 +1,5 @@
 from typing import List
+from collections import Counter
 
 
 class Trie:
@@ -9,7 +10,7 @@ class Trie:
 
 class Solution:
     # Trie
-    def sumPrefixScores(self, words: List[str]) -> List[int]:
+    def sumPrefixScores1(self, words: List[str]) -> List[int]:
         trie = Trie()
         res = []
 
@@ -33,23 +34,17 @@ class Solution:
 
         return res
 
-    # brute force, but TLE
-    def sumPrefixScores1(self, words: List[str]) -> List[int]:
-        n = len(words)
-        res = []
-
+    # collection.Count
+    def sumPrefixScores(self, words: List[str]) -> List[int]:
+        c = Counter()
         for w in words:
-            cur = 0
-            for i in range(1, len(w) + 1):
-                pre = w[:i]
-                flag = [True] * n
-                for j, s in enumerate(words):
-                    if flag[j]:
-                        if s.startswith(pre):
-                            cur += 1
-                        else:
-                            flag[j] = False
-            res.append(cur)
+            for i in range(len(w)):
+                c[w[:i + 1]] += 1
+
+        res = []
+        for w in words:
+            res.append(sum(c[w[:i+1]] for i in range(len(w))))
+
         return res
 
 
