@@ -5,11 +5,14 @@ class Solution:
     def minDeletionSize(self, strs: List[str]) -> int:
         n = len(strs)
         m = len(strs[0])
-        for i in range(m):
-            cur = [s[i] for s in strs]
-            if sorted(cur) == cur:
-                return i
-        return n
+        res = 0
+        unsorted = set(range(n - 1))
+        for j in range(m):
+            if any(strs[i][j] > strs[i + 1][j] for i in unsorted):
+                res += 1
+            else:
+                unsorted -= {i for i in unsorted if strs[i][j] < strs[i + 1][j]}
+        return res
 
 
 def test_min_deletion_size():
