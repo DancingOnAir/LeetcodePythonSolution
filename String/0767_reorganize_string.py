@@ -3,7 +3,15 @@ from heapq import heappop, heappush, heapify
 
 
 class Solution:
+    # https://leetcode.com/problems/reorganize-string/solutions/113435/4-lines-python/
+    # the difference between a[-1:]!=a[-2:-1]and a[-1]!=a[-2]， slice won't throw error when the list only contains 1 element
     def reorganizeString(self, s: str) -> str:
+        a = sorted(sorted(s), key=s.count)
+        h = len(s) // 2
+        a[1::2], a[::2] = a[:h], a[h:]
+        return ''.join(a) * (a[-1:] != a[-2:-1])
+
+    def reorganizeString1(self, s: str) -> str:
         c = Counter(s)
         pq = [(-v, k) for k, v in c.items()]
         heapify(pq)
