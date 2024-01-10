@@ -13,7 +13,7 @@ class Solution:
             j = ord(y) - ord('a')
             dist[i][j] = min(dist[i][j], c)
 
-        # recursive method
+        # recursive method O(n3)
         # @cache
         # def dfs(k, i, j):
         #     if k < 0:
@@ -24,7 +24,7 @@ class Solution:
         # for x, y in zip(source, target):
         #     res += dfs(25, ord(x) - ord('a'), ord(y) - ord('a'))
 
-        # loop method
+        # loop method O(n3), n = 26
         for k in range(26):
             for i in range(26):
                 for j in range(26):
