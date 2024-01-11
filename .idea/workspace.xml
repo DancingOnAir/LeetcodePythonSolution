@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/String/0696_count_binary_substrings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DP/2976_minimum_cost_to_convert_string_i.py" beforeDir="false" afterPath="$PROJECT_DIR$/DP/2976_minimum_cost_to_convert_string_i.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DP/2977_minimum_cost_to_convert_string_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/DP/2977_minimum_cost_to_convert_string_ii.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +46,8 @@
       <recent name="$PROJECT_DIR$/UnionFind" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.2977_minimum_cost_to_convert_string_ii">
-    <configuration name="0752_open_the_lock" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.0696_count_binary_substrings">
+    <configuration name="0696_count_binary_substrings" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -60,7 +59,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/0752_open_the_lock.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/0696_count_binary_substrings.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,19 +175,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.0752_open_the_lock" />
       <item itemvalue="Python.2981_find_longest_special_substring_that_occurs_thrice_i" />
       <item itemvalue="Python.2982_find_longest_special_substring_that_occurs_thrice_ii" />
       <item itemvalue="Python.2976_minimum_cost_to_convert_string_i" />
       <item itemvalue="Python.2977_minimum_cost_to_convert_string_ii" />
+      <item itemvalue="Python.0696_count_binary_substrings" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.0696_count_binary_substrings" />
         <item itemvalue="Python.2977_minimum_cost_to_convert_string_ii" />
         <item itemvalue="Python.2976_minimum_cost_to_convert_string_i" />
         <item itemvalue="Python.2982_find_longest_special_substring_that_occurs_thrice_ii" />
         <item itemvalue="Python.2981_find_longest_special_substring_that_occurs_thrice_i" />
-        <item itemvalue="Python.0752_open_the_lock" />
       </list>
     </recent_temporary>
   </component>
