@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/String/0696_count_binary_substrings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/0686_repeated_string_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/String/KMP/0686_repeated_string_match.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +40,7 @@
       <recent name="$PROJECT_DIR$/../TDL/NLP/DeepLearningFromScratch/dataset" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/String/KMP" />
       <recent name="$PROJECT_DIR$/DP" />
       <recent name="$PROJECT_DIR$/../TDL/NLP/DeepLearningFromScratch/nerual_network" />
       <recent name="$PROJECT_DIR$/../TDL/NLP/Hanlp/algorithm" />
@@ -174,12 +175,12 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.0696_count_binary_substrings" />
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2981_find_longest_special_substring_that_occurs_thrice_i" />
-      <item itemvalue="Python.2982_find_longest_special_substring_that_occurs_thrice_ii" />
       <item itemvalue="Python.2976_minimum_cost_to_convert_string_i" />
       <item itemvalue="Python.2977_minimum_cost_to_convert_string_ii" />
-      <item itemvalue="Python.0696_count_binary_substrings" />
+      <item itemvalue="Python.2981_find_longest_special_substring_that_occurs_thrice_i" />
+      <item itemvalue="Python.2982_find_longest_special_substring_that_occurs_thrice_ii" />
     </list>
     <recent_temporary>
       <list>
@@ -280,6 +281,11 @@
           <url>file://$PROJECT_DIR$/DP/2976_minimum_cost_to_convert_string_i.py</url>
           <line>33</line>
           <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/String/0696_count_binary_substrings.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
