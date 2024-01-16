@@ -1,5 +1,18 @@
 class Solution:
+    # nxt前缀表不减1的实现
     def longestPrefix(self, s: str) -> str:
+        j = 0
+        nxt = [0] * len(s)
+
+        for i in range(1, len(s)):
+            while j > 0 and s[i] != s[j]:
+                j = nxt[j - 1]
+            if s[i] == s[j]:
+                j += 1
+            nxt[i] = j
+        return s[:nxt[-1]]
+
+    def longestPrefix1(self, s: str) -> str:
         s += ' '
         n = len(s)
         nxt = [-1] * n
