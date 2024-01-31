@@ -2,8 +2,29 @@ from typing import List
 
 
 class Solution:
-    # sliding window
+    # trie
     def countDistinct(self, nums: List[int], k: int, p: int) -> int:
+        trie = {}
+        n = len(nums)
+        res = 0
+        for i in range(n):
+            cnt = 0
+            root = trie
+            for j in range(i, n):
+                x = nums[j]
+                if x % p == 0:
+                    cnt += 1
+                if cnt > k:
+                    break
+
+                if x not in root:
+                    root[x] = {}
+                    res += 1
+                root = root[x]
+        return res
+
+    # sliding window
+    def countDistinct1(self, nums: List[int], k: int, p: int) -> int:
         cnt = 0
         left = 0
         res = set()
