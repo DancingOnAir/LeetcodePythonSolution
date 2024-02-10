@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/String/3029_minimum_time_to_revert_word_to_initial_state_ii.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/String/2663_lexicographically_smallest_beautiful_string.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +48,7 @@
       <recent name="$PROJECT_DIR$/UnionFind" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3029_minimum_time_to_revert_word_to_initial_state_ii">
+  <component name="RunManager" selected="Python.2663_lexicographically_smallest_beautiful_string">
     <configuration name="1803_count_pairs_with_xor_in_a_range" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -91,7 +91,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2261_k_divisible_elements_subarrays" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="2663_lexicographically_smallest_beautiful_string" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -99,11 +99,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Trie" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Trie/2261_k_divisible_elements_subarrays.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/2663_lexicographically_smallest_beautiful_string.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -154,7 +154,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3029_minimum_time_to_revert_word_to_initial_state_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3031_minimum_time_to_revert_word_to_initial_state_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -166,7 +166,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/3029_minimum_time_to_revert_word_to_initial_state_ii.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/3031_minimum_time_to_revert_word_to_initial_state_ii.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,19 +177,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2261_k_divisible_elements_subarrays" />
       <item itemvalue="Python.1803_count_pairs_with_xor_in_a_range" />
       <item itemvalue="Python.2932_maximum_strong_pair_xor_i" />
       <item itemvalue="Python.3029_minimum_time_to_revert_word_to_initial_state_i" />
-      <item itemvalue="Python.3029_minimum_time_to_revert_word_to_initial_state_ii" />
+      <item itemvalue="Python.3031_minimum_time_to_revert_word_to_initial_state_ii" />
+      <item itemvalue="Python.2663_lexicographically_smallest_beautiful_string" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.3029_minimum_time_to_revert_word_to_initial_state_ii" />
+        <item itemvalue="Python.2663_lexicographically_smallest_beautiful_string" />
+        <item itemvalue="Python.3031_minimum_time_to_revert_word_to_initial_state_ii" />
         <item itemvalue="Python.3029_minimum_time_to_revert_word_to_initial_state_i" />
         <item itemvalue="Python.2932_maximum_strong_pair_xor_i" />
         <item itemvalue="Python.1803_count_pairs_with_xor_in_a_range" />
-        <item itemvalue="Python.2261_k_divisible_elements_subarrays" />
       </list>
     </recent_temporary>
   </component>
@@ -317,6 +317,16 @@
           <url>file://$PROJECT_DIR$/Trie/2261_k_divisible_elements_subarrays.py</url>
           <line>39</line>
           <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/String/2663_lexicographically_smallest_beautiful_string.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/String/2663_lexicographically_smallest_beautiful_string.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="77" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
