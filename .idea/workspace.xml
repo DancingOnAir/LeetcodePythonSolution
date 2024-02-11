@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/String/0657_robot_return_to_origin.py" beforeDir="false" afterPath="$PROJECT_DIR$/String/0657_robot_return_to_origin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/String/0649_dota2_senate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +48,28 @@
       <recent name="$PROJECT_DIR$/UnionFind" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.0657_robot_return_to_origin">
+  <component name="RunManager" selected="Python.0649_dota2_senate">
+    <configuration name="0649_dota2_senate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/0649_dota2_senate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="0657_robot_return_to_origin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -111,27 +133,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2932_maximum_strong_pair_xor_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Trie" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Trie/2932_maximum_strong_pair_xor_i.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="3029_minimum_time_to_revert_word_to_initial_state_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -176,19 +177,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2932_maximum_strong_pair_xor_i" />
       <item itemvalue="Python.3029_minimum_time_to_revert_word_to_initial_state_i" />
       <item itemvalue="Python.3031_minimum_time_to_revert_word_to_initial_state_ii" />
       <item itemvalue="Python.2663_lexicographically_smallest_beautiful_string" />
       <item itemvalue="Python.0657_robot_return_to_origin" />
+      <item itemvalue="Python.0649_dota2_senate" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.0649_dota2_senate" />
         <item itemvalue="Python.0657_robot_return_to_origin" />
         <item itemvalue="Python.2663_lexicographically_smallest_beautiful_string" />
         <item itemvalue="Python.3031_minimum_time_to_revert_word_to_initial_state_ii" />
         <item itemvalue="Python.3029_minimum_time_to_revert_word_to_initial_state_i" />
-        <item itemvalue="Python.2932_maximum_strong_pair_xor_i" />
       </list>
     </recent_temporary>
   </component>
