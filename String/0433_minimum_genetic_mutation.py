@@ -3,6 +3,18 @@ from typing import List
 
 class Solution:
     def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
+        bank, seen, q = set(bank), {startGene}, [(startGene, 0)]
+        for g, step in q:
+            for s in (g[:i] + cc + g[i+1:] for i, c in enumerate(g) for cc in "ACGT"):
+                if s in bank and s not in seen:
+                    if s == endGene:
+                        return step + 1
+
+                    seen.add(s)
+                    q.append((s, step + 1))
+        return -1
+
+    def minMutation1(self, startGene: str, endGene: str, bank: List[str]) -> int:
         res = len(startGene) * 3
         bank = set(bank)
         seen = set()
@@ -20,7 +32,6 @@ class Solution:
                         if cur in bank and cur not in seen:
                             seen.add(cur)
                             bfs(cur, step + 1)
-                            seen.remove(cur)
 
         bfs(startGene, 0)
         return res
