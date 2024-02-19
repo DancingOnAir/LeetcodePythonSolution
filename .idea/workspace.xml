@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/String/0539_minimum_time_difference.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/String/3035_maximum_palindromes_after_operations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +48,7 @@
       <recent name="$PROJECT_DIR$/UnionFind" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.0539_minimum_time_difference">
+  <component name="RunManager" selected="Python.3035_maximum_palindromes_after_operations">
     <configuration name="0433_minimum_genetic_mutation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -112,27 +112,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="0831_masking_personal_information" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/0831_masking_personal_information.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="0842_split_array_into_fibonacci_sequence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,21 +154,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="3035_maximum_palindromes_after_operations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/3035_maximum_palindromes_after_operations.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.0831_masking_personal_information" />
       <item itemvalue="Python.0557_reverse_words_in_a_string_iii" />
       <item itemvalue="Python.0842_split_array_into_fibonacci_sequence" />
       <item itemvalue="Python.0433_minimum_genetic_mutation" />
       <item itemvalue="Python.0539_minimum_time_difference" />
+      <item itemvalue="Python.3035_maximum_palindromes_after_operations" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3035_maximum_palindromes_after_operations" />
         <item itemvalue="Python.0539_minimum_time_difference" />
         <item itemvalue="Python.0433_minimum_genetic_mutation" />
         <item itemvalue="Python.0842_split_array_into_fibonacci_sequence" />
         <item itemvalue="Python.0557_reverse_words_in_a_string_iii" />
-        <item itemvalue="Python.0831_masking_personal_information" />
       </list>
     </recent_temporary>
   </component>
