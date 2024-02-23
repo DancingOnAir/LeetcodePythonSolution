@@ -8,9 +8,11 @@ class Solution:
         for ch in order:
             if ch in freq:
                 res.append(ch * freq[ch])
+                freq[ch] = 0
 
         for ch in s:
-            if ch not in order:
+            # if ch not in order:
+            if freq[ch] > 0:
                 res.append(ch)
         return ''.join(res)
 
