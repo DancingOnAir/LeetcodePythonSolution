@@ -2,7 +2,16 @@ from collections import Counter
 
 
 class Solution:
+    # sort
     def customSortString(self, order: str, s: str) -> str:
+        c = Counter()
+        for i, ch in enumerate(order):
+            c[ch] = i + 1
+
+        return ''.join(sorted(s, key=lambda x: c[x]))
+
+    # Counter method
+    def customSortString1(self, order: str, s: str) -> str:
         res = []
         freq = Counter(s)
         for ch in order:
