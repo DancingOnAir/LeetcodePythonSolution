@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/String/KMP/3042_count_prefix_and_suffix_pairs_i.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/String/KMP/3045_count_prefix_and_suffix_pairs_ii.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +48,7 @@
       <recent name="$PROJECT_DIR$/UnionFind" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3042_count_prefix_and_suffix_pairs_i">
+  <component name="RunManager" selected="Python.3045_count_prefix_and_suffix_pairs_ii">
     <configuration name="0791_custom_sort_string" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -83,27 +83,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/0819_most_common_word.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="0821_shortest_distance_to_a_character" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/0821_shortest_distance_to_a_character.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,21 +154,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="3045_count_prefix_and_suffix_pairs_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String/KMP" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/KMP/3045_count_prefix_and_suffix_pairs_ii.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.0821_shortest_distance_to_a_character" />
       <item itemvalue="Python.0899_orderly_queue" />
       <item itemvalue="Python.0791_custom_sort_string" />
       <item itemvalue="Python.0819_most_common_word" />
       <item itemvalue="Python.3042_count_prefix_and_suffix_pairs_i" />
+      <item itemvalue="Python.3045_count_prefix_and_suffix_pairs_ii" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3045_count_prefix_and_suffix_pairs_ii" />
         <item itemvalue="Python.3042_count_prefix_and_suffix_pairs_i" />
         <item itemvalue="Python.0819_most_common_word" />
         <item itemvalue="Python.0791_custom_sort_string" />
         <item itemvalue="Python.0899_orderly_queue" />
-        <item itemvalue="Python.0821_shortest_distance_to_a_character" />
       </list>
     </recent_temporary>
   </component>
@@ -289,16 +289,6 @@
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/String/KMP/0028_find_the_index_of_the_first_occurrence_in_a_string.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/String/KMP/0214_shortest_palindrome.py</url>
-          <line>22</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/String/0748_shortest_completing_word.py</url>
           <line>8</line>
           <option name="timeStamp" value="70" />
@@ -327,11 +317,6 @@
           <url>file://$PROJECT_DIR$/Backtracking/0842_split_array_into_fibonacci_sequence.py</url>
           <line>27</line>
           <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/String/KMP/3042_count_prefix_and_suffix_pairs_i.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="85" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
