@@ -9,9 +9,42 @@ class Node:
 
 
 class Solution:
+    # z algorithm
+    def countPrefixSuffixPairs(self, words: List[str]) -> int:
+        # z[i]的定义是后缀s[i:]与s的最长公共前缀长度
+        # 如果z[i] = n - i说明前缀，后缀相等
+        def cal_z(s):
+            n = len(s)
+            z = [0] * n
+            l, r = 0, 0
+            for i in range(1, n):
+                if i <= r:
+                    z[i] = max(min(z[i - l], r - i + 1), 0)
+
+                while i + z[i] < n and s[z[i]] == s[i + z[i]]:
+                    l, r = i, z[i] + i
+                    z[i] += 1
+
+            z[0] = n
+            return z
+
+        res = 0
+        root = Node()
+        for w in words:
+            z = cal_z(w)
+            cur = root
+            for i, c in enumerate(w):
+                if c not in cur.son:
+                    cur.son[c] = Node()
+                cur = cur.son[c]
+                # s[-i - i:] == s[: i + 1]
+                if z[-1 - i] == i + 1:
+                    res += cur.cnt
+            cur.cnt += 1
+        return res
 
     # dict tree
-    def countPrefixSuffixPairs(self, words: List[str]) -> int:
+    def countPrefixSuffixPairs2(self, words: List[str]) -> int:
         res = 0
         root = Node()
         for w in words:
