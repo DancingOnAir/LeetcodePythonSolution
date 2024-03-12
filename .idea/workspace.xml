@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3072_distribute_elements_into_two_arrays_ii.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SegmentTree/3072_distribute_elements_into_two_arrays_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/SegmentTree/BinaryIndexTree/3072_distribute_elements_into_two_arrays_ii.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +19,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,11 +50,11 @@
       <recent name="$PROJECT_DIR$/../TDL/NLP/DeepLearningFromScratch/dataset" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/SegmentTree/BinaryIndexTree" />
+      <recent name="$PROJECT_DIR$/SegmentTree" />
       <recent name="$PROJECT_DIR$/Trie" />
       <recent name="$PROJECT_DIR$/String/KMP/Z" />
       <recent name="$PROJECT_DIR$/String/KMP" />
-      <recent name="$PROJECT_DIR$/DP" />
-      <recent name="$PROJECT_DIR$/../TDL/NLP/DeepLearningFromScratch/nerual_network" />
     </key>
   </component>
   <component name="RunManager" selected="Python.3072_distribute_elements_into_two_arrays_ii">
@@ -167,7 +175,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3072_distribute_elements_into_two_arrays_ii.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SegmentTree/BinaryIndexTree/3072_distribute_elements_into_two_arrays_ii.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
