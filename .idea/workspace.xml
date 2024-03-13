@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SegmentTree/2940_find_building_where_alice_and_bob_can_meet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SegmentTree/3072_distribute_elements_into_two_arrays_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/SegmentTree/BinaryIndexTree/3072_distribute_elements_into_two_arrays_ii.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +50,8 @@
       <recent name="$PROJECT_DIR$/../TDL/NLP/DeepLearningFromScratch/dataset" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/SegmentTree/BinaryIndexTree" />
       <recent name="$PROJECT_DIR$/SegmentTree" />
+      <recent name="$PROJECT_DIR$/SegmentTree/BinaryIndexTree" />
       <recent name="$PROJECT_DIR$/Trie" />
       <recent name="$PROJECT_DIR$/String/KMP/Z" />
       <recent name="$PROJECT_DIR$/String/KMP" />
