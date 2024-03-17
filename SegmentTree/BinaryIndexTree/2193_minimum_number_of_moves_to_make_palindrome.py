@@ -1,5 +1,10 @@
 class Solution:
+    # Binary Indexed Tree
     def minMovesToMakePalindrome(self, s: str) -> int:
+        pass
+
+    # greedy
+    def minMovesToMakePalindrome1(self, s: str) -> int:
         s = list(s)
         res = 0
         while s:
