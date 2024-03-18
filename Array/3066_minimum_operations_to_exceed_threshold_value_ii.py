@@ -6,6 +6,14 @@ class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
         heapify(nums)
         res = 0
+        while nums[0] < k:
+            heappush(nums, heappop(nums) * 2 + heappop(nums))
+            res += 1
+        return res
+
+    def minOperations1(self, nums: List[int], k: int) -> int:
+        heapify(nums)
+        res = 0
         while len(nums) > 1:
             a = heappop(nums)
             if a >= k:
