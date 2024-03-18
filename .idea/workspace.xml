@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3065_minimum_operations_to_exceed_threshold_value_i.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/3066_minimum_operations_to_exceed_threshold_value_ii.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SegmentTree/BinaryIndexTree/2193_minimum_number_of_moves_to_make_palindrome.py" beforeDir="false" afterPath="$PROJECT_DIR$/SegmentTree/BinaryIndexTree/2193_minimum_number_of_moves_to_make_palindrome.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
