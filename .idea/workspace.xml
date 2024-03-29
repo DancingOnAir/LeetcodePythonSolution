@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3038_maximum_number_of_operations_with_the_same_score_i.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/3040_maximum_number_of_operations_with_the_same_score_ii.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Array/3038_maximum_number_of_operations_with_the_same_score_i.py" beforeDir="false" afterPath="$PROJECT_DIR$/Array/3038_maximum_number_of_operations_with_the_same_score_i.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +58,7 @@
       <recent name="$PROJECT_DIR$/String/KMP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3038_maximum_number_of_operations_with_the_same_score_i">
+  <component name="RunManager" selected="Python.3040_maximum_number_of_operations_with_the_same_score_ii">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -121,6 +122,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="3040_maximum_number_of_operations_with_the_same_score_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3040_maximum_number_of_operations_with_the_same_score_ii.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="3046_split_the_array" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,42 +185,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3067_count_pairs_of_connectable_servers_in_a_weighted_tree_network" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3067_count_pairs_of_connectable_servers_in_a_weighted_tree_network.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3067_count_pairs_of_connectable_servers_in_a_weighted_tree_network" />
       <item itemvalue="Python.3046_split_the_array" />
       <item itemvalue="Python.3047_find_the_largest_area_of_square_inside_two_rectangles" />
       <item itemvalue="Python.3024_type_of_triangle" />
       <item itemvalue="Python.3038_maximum_number_of_operations_with_the_same_score_i" />
+      <item itemvalue="Python.3040_maximum_number_of_operations_with_the_same_score_ii" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3040_maximum_number_of_operations_with_the_same_score_ii" />
         <item itemvalue="Python.3038_maximum_number_of_operations_with_the_same_score_i" />
         <item itemvalue="Python.3024_type_of_triangle" />
         <item itemvalue="Python.3047_find_the_largest_area_of_square_inside_two_rectangles" />
         <item itemvalue="Python.3046_split_the_array" />
-        <item itemvalue="Python.3067_count_pairs_of_connectable_servers_in_a_weighted_tree_network" />
       </list>
     </recent_temporary>
   </component>

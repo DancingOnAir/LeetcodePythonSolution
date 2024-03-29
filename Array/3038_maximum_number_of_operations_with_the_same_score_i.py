@@ -12,6 +12,7 @@ class Solution:
 
         return res
 
+
 def test_max_operations():
     solution = Solution()
     assert solution.maxOperations([3, 2, 1, 4, 5]) == 2, ' wrong result'
