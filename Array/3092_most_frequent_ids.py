@@ -4,6 +4,7 @@ from collections import Counter
 
 
 class Solution:
+    # heap + lazy counter
     def mostFrequentIDs(self, nums: List[int], freq: List[int]) -> List[int]:
         res, hp = [], []
         count = Counter()
