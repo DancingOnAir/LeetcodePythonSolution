@@ -3,6 +3,13 @@ from typing import List
 
 class Solution:
     def countAlternatingSubarrays(self, nums: List[int]) -> int:
+        res, sz = 1, 1
+        for i in range(1, len(nums)):
+            sz = 1 if nums[i] == nums[i - 1] else sz + 1
+            res += sz
+        return res
+
+    def countAlternatingSubarrays1(self, nums: List[int]) -> int:
         res, left = 0, 0
         for right in range(1, len(nums)):
             if nums[right - 1] != nums[right]:
