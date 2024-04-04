@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Array/3101_count_alternating_subarrays.py" beforeDir="false" afterPath="$PROJECT_DIR$/Array/3101_count_alternating_subarrays.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/3095_shortest_subarray_with_or_at_least_k_i.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +57,7 @@
       <recent name="$PROJECT_DIR$/String/KMP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3101_count_alternating_subarrays">
+  <component name="RunManager" selected="Python.3095_shortest_subarray_with_or_at_least_k_i">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,7 +142,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3092_most_frequent_ids" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3095_shortest_subarray_with_or_at_least_k_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -153,7 +154,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3092_most_frequent_ids.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3095_shortest_subarray_with_or_at_least_k_i.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -185,19 +186,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3092_most_frequent_ids" />
       <item itemvalue="Python.3039_apply_operations_to_make_string_empty" />
       <item itemvalue="Python.3044_most_frequent_prime" />
       <item itemvalue="Python.3028_ant_on_the_boundary" />
       <item itemvalue="Python.3101_count_alternating_subarrays" />
+      <item itemvalue="Python.3095_shortest_subarray_with_or_at_least_k_i" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3095_shortest_subarray_with_or_at_least_k_i" />
         <item itemvalue="Python.3101_count_alternating_subarrays" />
         <item itemvalue="Python.3028_ant_on_the_boundary" />
         <item itemvalue="Python.3044_most_frequent_prime" />
         <item itemvalue="Python.3039_apply_operations_to_make_string_empty" />
-        <item itemvalue="Python.3092_most_frequent_ids" />
       </list>
     </recent_temporary>
   </component>
@@ -332,9 +333,9 @@
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Array/3101_count_alternating_subarrays.py</url>
-          <line>14</line>
-          <option name="timeStamp" value="99" />
+          <url>file://$PROJECT_DIR$/Array/3095_shortest_subarray_with_or_at_least_k_i.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
