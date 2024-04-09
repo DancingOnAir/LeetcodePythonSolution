@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # O(nlogn)
     def largestPerimeter(self, nums: List[int]) -> int:
         res, total = -1, sum(nums)
         for x in sorted(nums, reverse=True):
