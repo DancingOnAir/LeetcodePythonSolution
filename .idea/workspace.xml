@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3105_longest_strictly_increasing_or_strictly_decreasing_subarray.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Array/3105_longest_strictly_increasing_or_strictly_decreasing_subarray.py" beforeDir="false" afterPath="$PROJECT_DIR$/MonotoneStack/3105_longest_strictly_increasing_or_strictly_decreasing_subarray.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,11 +50,11 @@
       <recent name="$PROJECT_DIR$/../TDL/NLP/DeepLearningFromScratch/dataset" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/MonotoneStack" />
       <recent name="$PROJECT_DIR$/Trie" />
       <recent name="$PROJECT_DIR$/SegmentTree/BinaryIndexTree" />
       <recent name="$PROJECT_DIR$/SegmentTree" />
       <recent name="$PROJECT_DIR$/String/KMP/Z" />
-      <recent name="$PROJECT_DIR$/String/KMP" />
     </key>
   </component>
   <component name="RunManager" selected="Python.3105_longest_strictly_increasing_or_strictly_decreasing_subarray">
@@ -154,7 +154,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3105_longest_strictly_increasing_or_strictly_decreasing_subarray.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MonotoneStack/3105_longest_strictly_increasing_or_strictly_decreasing_subarray.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />

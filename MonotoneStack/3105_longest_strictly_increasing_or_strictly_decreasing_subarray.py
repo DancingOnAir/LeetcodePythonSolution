@@ -3,6 +3,21 @@ from typing import List
 
 class Solution:
     def longestMonotonicSubarray(self, nums: List[int]) -> int:
+        increase, decrease = 0, 0
+        res, pre = 0, 0
+        for x in nums:
+            if pre and x <= pre:
+                increase = 0
+            increase += 1
+
+            if pre and x >= pre:
+                decrease = 0
+            decrease += 1
+
+            res = max(res, increase, decrease)
+            pre = x
+        return res
+
     # monoton stack
     def longestMonotonicSubarray1(self, nums: List[int]) -> int:
         increase = []
