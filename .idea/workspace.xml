@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3107_minimum_operations_to_make_median_of_array_equal_to_k.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/3105_longest_strictly_increasing_or_strictly_decreasing_subarray.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +57,7 @@
       <recent name="$PROJECT_DIR$/String/KMP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3107_minimum_operations_to_make_median_of_array_equal_to_k">
+  <component name="RunManager" selected="Python.3105_longest_strictly_increasing_or_strictly_decreasing_subarray">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -121,27 +121,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3011_find_if_array_can_be_sorted" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3011_find_if_array_can_be_sorted.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="3034_number_of_subarrays_that_match_a_pattern_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -155,6 +134,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/KMP/3034_number_of_subarrays_that_match_a_pattern_i.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="3105_longest_strictly_increasing_or_strictly_decreasing_subarray" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3105_longest_strictly_increasing_or_strictly_decreasing_subarray.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -186,19 +186,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3011_find_if_array_can_be_sorted" />
       <item itemvalue="Python.2971_find_polygon_with_the_largest_perimeter" />
       <item itemvalue="Python.2997_minimum_number_of_operations_to_make_array_xor_equal_to_k" />
       <item itemvalue="Python.3034_number_of_subarrays_that_match_a_pattern_i" />
       <item itemvalue="Python.3107_minimum_operations_to_make_median_of_array_equal_to_k" />
+      <item itemvalue="Python.3105_longest_strictly_increasing_or_strictly_decreasing_subarray" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3105_longest_strictly_increasing_or_strictly_decreasing_subarray" />
         <item itemvalue="Python.3107_minimum_operations_to_make_median_of_array_equal_to_k" />
         <item itemvalue="Python.3034_number_of_subarrays_that_match_a_pattern_i" />
         <item itemvalue="Python.2997_minimum_number_of_operations_to_make_array_xor_equal_to_k" />
         <item itemvalue="Python.2971_find_polygon_with_the_largest_perimeter" />
-        <item itemvalue="Python.3011_find_if_array_can_be_sorted" />
       </list>
     </recent_temporary>
   </component>
@@ -331,11 +331,6 @@
           <url>file://$PROJECT_DIR$/Array/3070_count_submatrices_with_top-left_element_and_sum_less_than_k.py</url>
           <line>16</line>
           <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Array/3107_minimum_operations_to_make_median_of_array_equal_to_k.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="108" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
