@@ -26,7 +26,8 @@ class Solution:
 
 def test_minimum_time():
     solution = Solution()
-    assert solution.minimumTime(3, [[2,0,9],[1,0,5],[2,2,4],[0,1,10],[1,1,10],[1,1,10],[2,2,10],[1,1,10]], [4,13,19]) == [0,5,9], 'wrong result'
+    assert solution.minimumTime(3, [[2, 0, 9], [1, 0, 5], [2, 2, 4], [0, 1, 10], [1, 1, 10], [1, 1, 10], [2, 2, 10],
+                                    [1, 1, 10]], [4, 13, 19]) == [0, 5, 9], 'wrong result'
     assert solution.minimumTime(3, [[0, 1, 2], [1, 2, 1], [0, 2, 4]], [1, 1, 5]) == [0, -1, 4], 'wrong result'
     assert solution.minimumTime(3, [[0, 1, 2], [1, 2, 1], [0, 2, 4]], [1, 3, 5]) == [0, 2, 3], 'wrong result'
     assert solution.minimumTime(2, [[0, 1, 1]], [1, 1]) == [0, -1], 'wrong result'
