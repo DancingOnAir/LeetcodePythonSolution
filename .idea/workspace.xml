@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3127_make_a_square_with_the_same_color.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/2996_smallest_missing_integer_greater_than_sequential_prefix_sum.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/Trie" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3127_make_a_square_with_the_same_color">
+  <component name="RunManager" selected="Python.2996_smallest_missing_integer_greater_than_sequential_prefix_sum">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,7 +80,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3005_count_elements_with_maximum_frequency" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="2996_smallest_missing_integer_greater_than_sequential_prefix_sum" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -92,7 +92,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3005_count_elements_with_maximum_frequency.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2996_smallest_missing_integer_greater_than_sequential_prefix_sum.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3005_count_elements_with_maximum_frequency" />
       <item itemvalue="Python.3128_right_triangles" />
       <item itemvalue="Python.3131_find_the_integer_added_to_array_i" />
       <item itemvalue="Python.3132_find_the_integer_added_to_array_ii" />
       <item itemvalue="Python.3127_make_a_square_with_the_same_color" />
+      <item itemvalue="Python.2996_smallest_missing_integer_greater_than_sequential_prefix_sum" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.2996_smallest_missing_integer_greater_than_sequential_prefix_sum" />
         <item itemvalue="Python.3127_make_a_square_with_the_same_color" />
         <item itemvalue="Python.3132_find_the_integer_added_to_array_ii" />
         <item itemvalue="Python.3131_find_the_integer_added_to_array_i" />
         <item itemvalue="Python.3128_right_triangles" />
-        <item itemvalue="Python.3005_count_elements_with_maximum_frequency" />
       </list>
     </recent_temporary>
   </component>
