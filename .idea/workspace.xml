@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BitManipulation/2859_sum_of_values_at_indices_with_k_set_bits.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/3143_maximum_points_inside_the_square.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/MonotoneStack" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.2859_sum_of_values_at_indices_with_k_set_bits">
+  <component name="RunManager" selected="Python.3143_maximum_points_inside_the_square">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,27 +143,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2944_minimum_number_of_coins_for_fruits" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DP/Knapsack" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/Knapsack/2944_minimum_number_of_coins_for_fruits.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="2974_minimum_number_game" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,21 +164,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="3143_maximum_points_inside_the_square" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3143_maximum_points_inside_the_square.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2944_minimum_number_of_coins_for_fruits" />
       <item itemvalue="Python.2974_minimum_number_game" />
       <item itemvalue="Python.2768_number_of_black_blocks" />
       <item itemvalue="Python.2870_minimum_number_of_operations_to_make_array_empty" />
       <item itemvalue="Python.2859_sum_of_values_at_indices_with_k_set_bits" />
+      <item itemvalue="Python.3143_maximum_points_inside_the_square" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3143_maximum_points_inside_the_square" />
         <item itemvalue="Python.2859_sum_of_values_at_indices_with_k_set_bits" />
         <item itemvalue="Python.2870_minimum_number_of_operations_to_make_array_empty" />
         <item itemvalue="Python.2768_number_of_black_blocks" />
         <item itemvalue="Python.2974_minimum_number_game" />
-        <item itemvalue="Python.2944_minimum_number_of_coins_for_fruits" />
       </list>
     </recent_temporary>
   </component>
