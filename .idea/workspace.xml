@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/2951_find_the_peaks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/2967_minimum_cost_to_make_array_equalindromic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Array/3048_earliest_second_to_mark_ndices_i.py" beforeDir="false" afterPath="$PROJECT_DIR$/BinarySearch/3048_earliest_second_to_mark_ndices_i.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Array/3049_earliest_second_to_mark_indices_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/BinarySearch/3049_earliest_second_to_mark_indices_ii.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,7 @@
       <recent name="$PROJECT_DIR$/Math" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.2951_find_the_peaks">
+  <component name="RunManager" selected="Python.2967_minimum_cost_to_make_array_equalindromic">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -95,6 +93,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2951_find_the_peaks.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="2967_minimum_cost_to_make_array_equalindromic" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2967_minimum_cost_to_make_array_equalindromic.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -166,42 +185,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="multiply_dialog" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="llm" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../PyWorkspace/llm/kimi" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../PyWorkspace/llm/kimi/multiply_dialog.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.multiply_dialog" />
       <item itemvalue="Python.3147_taking_maximum_energy_from_the_mystic_dungeon" />
       <item itemvalue="Python.3048_earliest_second_to_mark_ndices_i" />
       <item itemvalue="Python.3049_earliest_second_to_mark_indices_ii" />
       <item itemvalue="Python.2951_find_the_peaks" />
+      <item itemvalue="Python.2967_minimum_cost_to_make_array_equalindromic" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.2967_minimum_cost_to_make_array_equalindromic" />
         <item itemvalue="Python.2951_find_the_peaks" />
         <item itemvalue="Python.3049_earliest_second_to_mark_indices_ii" />
         <item itemvalue="Python.3048_earliest_second_to_mark_ndices_i" />
         <item itemvalue="Python.3147_taking_maximum_energy_from_the_mystic_dungeon" />
-        <item itemvalue="Python.multiply_dialog" />
       </list>
     </recent_temporary>
   </component>
