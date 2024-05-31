@@ -2,10 +2,11 @@ from typing import List
 
 
 class Solution:
-    # 101
-    # 011
+    # 100
+    # 001
     # 010
-    # 110
+    # 010
+    # 100
     def minOrAfterOperations(self, nums: List[int], k: int) -> int:
         res, mask = 0, 0
         n = max(nums).bit_length()
@@ -28,6 +29,7 @@ class Solution:
 
 def test_min_or_after_operations():
     solution = Solution()
+    assert solution.minOrAfterOperations([4, 1, 2, 2, 4], 2) == 2, 'wrong result'
     assert solution.minOrAfterOperations([3, 5, 3, 2, 7], 2) == 3, 'wrong result'
     assert solution.minOrAfterOperations([7, 3, 15, 14, 2, 8], 4) == 2, 'wrong result'
     assert solution.minOrAfterOperations([10, 7, 10, 3, 9, 14, 9, 4], 1) == 15, 'wrong result'
