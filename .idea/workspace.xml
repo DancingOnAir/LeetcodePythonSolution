@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DP/3176_find_the_maximum_length_of_a_good_subsequence_i.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DP/3177_find_the_maximum_length_of_a_good_subsequence_ii.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,13 +52,13 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/DP" />
+      <recent name="$PROJECT_DIR$/DP/DP" />
       <recent name="$PROJECT_DIR$/BinarySearch" />
       <recent name="$PROJECT_DIR$/TwoPointers/SlidingWindow" />
       <recent name="$PROJECT_DIR$/Array" />
-      <recent name="$PROJECT_DIR$/Math" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3176_find_the_maximum_length_of_a_good_subsequence_i">
+  <component name="RunManager" selected="Python.3177_find_the_maximum_length_of_a_good_subsequence_ii">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,27 +122,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2895_minimum_processing_time" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2895_minimum_processing_time.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="3145_find_products_of_elements_of_big_array" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,21 +164,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="3177_find_the_maximum_length_of_a_good_subsequence_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DP" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/3177_find_the_maximum_length_of_a_good_subsequence_ii.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2895_minimum_processing_time" />
       <item itemvalue="Python.3145_find_products_of_elements_of_big_array" />
       <item itemvalue="Python.2257_count_unguarded_cells_in_the_grid" />
       <item itemvalue="Python.2256_minimum_average_difference" />
       <item itemvalue="Python.3176_find_the_maximum_length_of_a_good_subsequence_i" />
+      <item itemvalue="Python.3177_find_the_maximum_length_of_a_good_subsequence_ii" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3177_find_the_maximum_length_of_a_good_subsequence_ii" />
         <item itemvalue="Python.3176_find_the_maximum_length_of_a_good_subsequence_i" />
         <item itemvalue="Python.2256_minimum_average_difference" />
         <item itemvalue="Python.2257_count_unguarded_cells_in_the_grid" />
         <item itemvalue="Python.3145_find_products_of_elements_of_big_array" />
-        <item itemvalue="Python.2895_minimum_processing_time" />
       </list>
     </recent_temporary>
   </component>
