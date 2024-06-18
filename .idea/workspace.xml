@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3175_find_the_first_player_to_win_k_games_in_a_row.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/3184_count_pairs_that_form_a_complete_day_i.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/TwoPointers/SlidingWindow" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3175_find_the_first_player_to_win_k_games_in_a_row">
+  <component name="RunManager" selected="Python.3184_count_pairs_that_form_a_complete_day_i">
     <configuration name="1981_minimize_the_difference_between_target_and_chosen_elements" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,27 +143,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3180_maximum_total_reward_using_operations_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DP" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/Knapsack/3180_maximum_total_reward_using_operations_i.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="3181_maximum_total_reward_using_operations_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,21 +164,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="3184_count_pairs_that_form_a_complete_day_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3184_count_pairs_that_form_a_complete_day_i.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3180_maximum_total_reward_using_operations_i" />
       <item itemvalue="Python.3181_maximum_total_reward_using_operations_ii" />
       <item itemvalue="Python.1981_minimize_the_difference_between_target_and_chosen_elements" />
       <item itemvalue="Python.3179_find_the_n-th_value_after_k_seconds" />
       <item itemvalue="Python.3175_find_the_first_player_to_win_k_games_in_a_row" />
+      <item itemvalue="Python.3184_count_pairs_that_form_a_complete_day_i" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3184_count_pairs_that_form_a_complete_day_i" />
         <item itemvalue="Python.3175_find_the_first_player_to_win_k_games_in_a_row" />
         <item itemvalue="Python.3179_find_the_n-th_value_after_k_seconds" />
         <item itemvalue="Python.1981_minimize_the_difference_between_target_and_chosen_elements" />
         <item itemvalue="Python.3181_maximum_total_reward_using_operations_ii" />
-        <item itemvalue="Python.3180_maximum_total_reward_using_operations_i" />
       </list>
     </recent_temporary>
   </component>
@@ -357,6 +357,11 @@
           <url>file://$PROJECT_DIR$/Array/3169_count_days_without_meetings.py</url>
           <line>6</line>
           <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Array/3184_count_pairs_that_form_a_complete_day_i.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="139" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
