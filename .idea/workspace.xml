@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3196_maximize_total_cost_of_alternating_subarrays.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/3191_minimum_operations_to_make_binary_array_elements_equal_to_one_i.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Array/3197_find_the_minimum_area_to_cover_all_ones_ii.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DP/3196_maximize_total_cost_of_alternating_subarrays.py" beforeDir="false" afterPath="$PROJECT_DIR$/DP/3196_maximize_total_cost_of_alternating_subarrays.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,7 @@
       <recent name="$PROJECT_DIR$/TwoPointers/SlidingWindow" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3196_maximize_total_cost_of_alternating_subarrays">
+  <component name="RunManager" selected="Python.3191_minimum_operations_to_make_binary_array_elements_equal_to_one_i">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -81,7 +81,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2960_count_tested_devices_after_test_operations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3191_minimum_operations_to_make_binary_array_elements_equal_to_one_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -93,7 +93,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2960_count_tested_devices_after_test_operations.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3191_minimum_operations_to_make_binary_array_elements_equal_to_one_i.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,7 +156,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3196_maximize_total_cost_of_alternating_subarrays.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/3196_maximize_total_cost_of_alternating_subarrays.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -188,19 +188,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2960_count_tested_devices_after_test_operations" />
       <item itemvalue="Python.3195_find_the_minimum_area_to_cover_all_ones_i" />
       <item itemvalue="Python.3194_minimum_average_of_smallest_and_largest_elements" />
       <item itemvalue="Python.3197_find_the_minimum_area_to_cover_all_ones_ii" />
       <item itemvalue="Python.3196_maximize_total_cost_of_alternating_subarrays" />
+      <item itemvalue="Python.3191_minimum_operations_to_make_binary_array_elements_equal_to_one_i" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3191_minimum_operations_to_make_binary_array_elements_equal_to_one_i" />
         <item itemvalue="Python.3196_maximize_total_cost_of_alternating_subarrays" />
         <item itemvalue="Python.3197_find_the_minimum_area_to_cover_all_ones_ii" />
         <item itemvalue="Python.3194_minimum_average_of_smallest_and_largest_elements" />
         <item itemvalue="Python.3195_find_the_minimum_area_to_cover_all_ones_i" />
-        <item itemvalue="Python.2960_count_tested_devices_after_test_operations" />
       </list>
     </recent_temporary>
   </component>
