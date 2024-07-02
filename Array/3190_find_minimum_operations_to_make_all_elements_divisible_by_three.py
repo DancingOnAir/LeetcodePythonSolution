@@ -8,8 +8,8 @@ class Solution:
 
 def test_minimum_operations():
     solution = Solution()
-    assert solution.minimumOperations([1,2,3,4]) == 3, 'wrong result'
-    assert solution.minimumOperations([3,6,9]) == 0, 'wrong result'
+    assert solution.minimumOperations([1, 2, 3, 4]) == 3, 'wrong result'
+    assert solution.minimumOperations([3, 6, 9]) == 0, 'wrong result'
 
 
 if __name__ == '__main__':
