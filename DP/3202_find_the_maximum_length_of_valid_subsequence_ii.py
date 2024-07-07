@@ -3,8 +3,17 @@ from collections import defaultdict, Counter
 
 
 class Solution:
-    # dp[a][b] means the length of subsequence ending with ...,a,b
     def maximumLength(self, nums: List[int], k: int) -> int:
+        res = 0
+        for v in range(k):
+            dp = [0] * k
+            for x in nums:
+                dp[x % k] = dp[(v - x) % k] + 1
+            res = max(res, max(dp))
+        return res
+
+    # dp[a][b] means the length of subsequence ending with ...,a,b
+    def maximumLength1(self, nums: List[int], k: int) -> int:
         dp = defaultdict(Counter)
         for x in nums:
             for y in range(k):

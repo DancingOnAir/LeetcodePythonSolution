@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3202_find_the_maximum_length_of_valid_subsequence_ii.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Array/3201_find_the_maximum_length_of_valid_subsequence_i.py" beforeDir="false" afterPath="$PROJECT_DIR$/DP/3201_find_the_maximum_length_of_valid_subsequence_i.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Array/3202_find_the_maximum_length_of_valid_subsequence_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/DP/3202_find_the_maximum_length_of_valid_subsequence_ii.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +52,8 @@
       <recent name="$PROJECT_DIR$/../TDL/NLP/DeepLearningFromScratch/dataset" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/MonotoneStack" />
       <recent name="$PROJECT_DIR$/DP" />
+      <recent name="$PROJECT_DIR$/MonotoneStack" />
       <recent name="$PROJECT_DIR$/DP/Knapsack" />
       <recent name="$PROJECT_DIR$/DP/DP" />
       <recent name="$PROJECT_DIR$/BinarySearch" />
@@ -155,7 +156,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3201_find_the_maximum_length_of_valid_subsequence_i.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/3201_find_the_maximum_length_of_valid_subsequence_i.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,7 +177,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3202_find_the_maximum_length_of_valid_subsequence_ii.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/3202_find_the_maximum_length_of_valid_subsequence_ii.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -374,7 +375,7 @@
           <option name="timeStamp" value="156" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Array/3201_find_the_maximum_length_of_valid_subsequence_i.py</url>
+          <url>file://$PROJECT_DIR$/DP/3201_find_the_maximum_length_of_valid_subsequence_i.py</url>
           <line>34</line>
           <option name="timeStamp" value="159" />
         </line-breakpoint>
