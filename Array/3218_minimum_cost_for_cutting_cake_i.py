@@ -22,6 +22,21 @@ class Solution:
     #         res += verticalCut.pop() * r
     #         c += 1
     def minimumCost(self, m: int, n: int, horizontalCut: List[int], verticalCut: List[int]) -> int:
+        horizontalCut.sort()
+        verticalCut.sort()
+        sum_h = sum(horizontalCut)
+        sum_v = sum(verticalCut)
+        res = 0
+        while horizontalCut and verticalCut:
+            if horizontalCut[-1] > verticalCut[-1]:
+                res += horizontalCut[-1] + sum_v
+                sum_h -= horizontalCut.pop()
+            else:
+                res += verticalCut[-1] + sum_h
+                sum_v -= verticalCut.pop()
+        return sum_h + sum_v + res
+
+    def minimumCost1(self, m: int, n: int, horizontalCut: List[int], verticalCut: List[int]) -> int:
         @lru_cache(None)
         def dfs(r, c):
             if r < m and c < n:
