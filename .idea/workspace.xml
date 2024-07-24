@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3224_minimum_array_changes_to_make_differences_equal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/2956_find_common_elements_between_two_arrays.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/BinarySearch" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3224_minimum_array_changes_to_make_differences_equal">
+  <component name="RunManager" selected="Python.2956_find_common_elements_between_two_arrays">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,7 +122,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2919_minimum_increment_operations_to_make_array_beautiful" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="2956_find_common_elements_between_two_arrays" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -134,7 +134,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2919_minimum_increment_operations_to_make_array_beautiful.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2956_find_common_elements_between_two_arrays.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2919_minimum_increment_operations_to_make_array_beautiful" />
       <item itemvalue="Python.2830_Maximize_the_profit_as_the_salesman" />
       <item itemvalue="Python.2817_minimum_absolute_difference_between_elements_with_constraint" />
       <item itemvalue="Python.3207_maximum_points_after_enemy_battles" />
       <item itemvalue="Python.3224_minimum_array_changes_to_make_differences_equal" />
+      <item itemvalue="Python.2956_find_common_elements_between_two_arrays" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.2956_find_common_elements_between_two_arrays" />
         <item itemvalue="Python.3224_minimum_array_changes_to_make_differences_equal" />
         <item itemvalue="Python.3207_maximum_points_after_enemy_battles" />
         <item itemvalue="Python.2817_minimum_absolute_difference_between_elements_with_constraint" />
         <item itemvalue="Python.2830_Maximize_the_profit_as_the_salesman" />
-        <item itemvalue="Python.2919_minimum_increment_operations_to_make_array_beautiful" />
       </list>
     </recent_temporary>
   </component>
