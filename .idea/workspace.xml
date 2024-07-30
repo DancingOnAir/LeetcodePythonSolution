@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Array/3233_find_the_count_of_numbers_which_are_not_special.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Array/2850_minimum_moves_to_spread_stones_over_grid.py" beforeDir="false" afterPath="$PROJECT_DIR$/Array/2850_minimum_moves_to_spread_stones_over_grid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Array/2850_minimum_moves_to_spread_stones_over_grid.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backtracking/2850_minimum_moves_to_spread_stones_over_grid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,14 +52,14 @@
       <recent name="$PROJECT_DIR$/../TDL/NLP/DeepLearningFromScratch/dataset" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Backtracking" />
       <recent name="$PROJECT_DIR$/DP" />
       <recent name="$PROJECT_DIR$/MonotoneStack" />
       <recent name="$PROJECT_DIR$/DP/Knapsack" />
       <recent name="$PROJECT_DIR$/DP/DP" />
-      <recent name="$PROJECT_DIR$/BinarySearch" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.2850_minimum_moves_to_spread_stones_over_grid">
+  <component name="RunManager" selected="Python.3233_find_the_count_of_numbers_which_are_not_special">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -92,7 +93,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2850_minimum_moves_to_spread_stones_over_grid.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Backtracking/2850_minimum_moves_to_spread_stones_over_grid.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,27 +144,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2875_minimum_size_subarray_in_infinite_array" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2875_minimum_size_subarray_in_infinite_array.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="2915_length_of_the_longest_subsequence_that_sums_to_target" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,21 +165,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="3233_find_the_count_of_numbers_which_are_not_special" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3233_find_the_count_of_numbers_which_are_not_special.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2875_minimum_size_subarray_in_infinite_array" />
       <item itemvalue="Python.2915_length_of_the_longest_subsequence_that_sums_to_target" />
       <item itemvalue="Python.2860_happy_students" />
       <item itemvalue="Python.2861_maximum_number_of_alloys" />
       <item itemvalue="Python.2850_minimum_moves_to_spread_stones_over_grid" />
+      <item itemvalue="Python.3233_find_the_count_of_numbers_which_are_not_special" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3233_find_the_count_of_numbers_which_are_not_special" />
         <item itemvalue="Python.2850_minimum_moves_to_spread_stones_over_grid" />
         <item itemvalue="Python.2861_maximum_number_of_alloys" />
         <item itemvalue="Python.2860_happy_students" />
         <item itemvalue="Python.2915_length_of_the_longest_subsequence_that_sums_to_target" />
-        <item itemvalue="Python.2875_minimum_size_subarray_in_infinite_array" />
       </list>
     </recent_temporary>
   </component>
@@ -392,6 +393,11 @@
           <url>file://$PROJECT_DIR$/BinarySearch/2861_maximum_number_of_alloys.py</url>
           <line>40</line>
           <option name="timeStamp" value="176" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Array/3233_find_the_count_of_numbers_which_are_not_special.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="182" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
