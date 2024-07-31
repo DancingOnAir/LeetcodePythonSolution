@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3233_find_the_count_of_numbers_which_are_not_special.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/3232_find_if_digit_game_can_be_won.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Array/2850_minimum_moves_to_spread_stones_over_grid.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backtracking/2850_minimum_moves_to_spread_stones_over_grid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +58,7 @@
       <recent name="$PROJECT_DIR$/DP/DP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3233_find_the_count_of_numbers_which_are_not_special">
+  <component name="RunManager" selected="Python.3232_find_if_digit_game_can_be_won">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,7 +143,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2915_length_of_the_longest_subsequence_that_sums_to_target" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3232_find_if_digit_game_can_be_won" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -156,7 +155,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/2915_length_of_the_longest_subsequence_that_sums_to_target.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3232_find_if_digit_game_can_be_won.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -188,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2915_length_of_the_longest_subsequence_that_sums_to_target" />
       <item itemvalue="Python.2860_happy_students" />
       <item itemvalue="Python.2861_maximum_number_of_alloys" />
       <item itemvalue="Python.2850_minimum_moves_to_spread_stones_over_grid" />
       <item itemvalue="Python.3233_find_the_count_of_numbers_which_are_not_special" />
+      <item itemvalue="Python.3232_find_if_digit_game_can_be_won" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3232_find_if_digit_game_can_be_won" />
         <item itemvalue="Python.3233_find_the_count_of_numbers_which_are_not_special" />
         <item itemvalue="Python.2850_minimum_moves_to_spread_stones_over_grid" />
         <item itemvalue="Python.2861_maximum_number_of_alloys" />
         <item itemvalue="Python.2860_happy_students" />
-        <item itemvalue="Python.2915_length_of_the_longest_subsequence_that_sums_to_target" />
       </list>
     </recent_temporary>
   </component>
