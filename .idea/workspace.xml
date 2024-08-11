@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TwoPointers/3240_minimum_number_of_flips_to_make_binary_grid_palindromic_ii.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TwoPointers/2799_count_complete_subarrays_in_an_array.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/DP/DP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3239_minimum_number_of_flips_to_make_binary_grid_palindromic_i">
+  <component name="RunManager" selected="Python.2799_count_complete_subarrays_in_an_array">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -72,6 +72,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/2138_divide_a_string_into_groups_of_size_k.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="2799_count_complete_subarrays_in_an_array" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TwoPointers" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TwoPointers/2799_count_complete_subarrays_in_an_array.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -114,27 +135,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/2826_sorting_three_groups.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="2856_minimum_array_length_after_pair_removals" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2856_minimum_array_length_after_pair_removals.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2856_minimum_array_length_after_pair_removals" />
       <item itemvalue="Python.2812_find_the_safest_path_in_a_grid" />
       <item itemvalue="Python.2826_sorting_three_groups" />
       <item itemvalue="Python.3243_shortest_distance_after_road_addition_queries_i" />
       <item itemvalue="Python.3239_minimum_number_of_flips_to_make_binary_grid_palindromic_i" />
+      <item itemvalue="Python.2799_count_complete_subarrays_in_an_array" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.2799_count_complete_subarrays_in_an_array" />
         <item itemvalue="Python.3239_minimum_number_of_flips_to_make_binary_grid_palindromic_i" />
         <item itemvalue="Python.3243_shortest_distance_after_road_addition_queries_i" />
         <item itemvalue="Python.2826_sorting_three_groups" />
         <item itemvalue="Python.2812_find_the_safest_path_in_a_grid" />
-        <item itemvalue="Python.2856_minimum_array_length_after_pair_removals" />
       </list>
     </recent_temporary>
   </component>
@@ -402,6 +402,11 @@
           <url>file://$PROJECT_DIR$/Array/2856_minimum_array_length_after_pair_removals.py</url>
           <line>25</line>
           <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TwoPointers/2799_count_complete_subarrays_in_an_array.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="193" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
