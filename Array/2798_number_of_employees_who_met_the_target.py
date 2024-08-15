@@ -8,8 +8,8 @@ class Solution:
 
 def test_number_of_employees_who_net_target():
     solution = Solution()
-    assert solution.numberOfEmployeesWhoMetTarget([0,1,2,3,4], 2) == 3, 'wrong result'
-    assert solution.numberOfEmployeesWhoMetTarget([5,1,4,2,2], 6) == 0, 'wrong result'
+    assert solution.numberOfEmployeesWhoMetTarget([0, 1, 2, 3, 4], 2) == 3, 'wrong result'
+    assert solution.numberOfEmployeesWhoMetTarget([5, 1, 4, 2, 2], 6) == 0, 'wrong result'
 
 
 if __name__ == '__main__':
