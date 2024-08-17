@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/2784_check_if_array_is_good.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/diff_array/2772_apply_operations_to_make_all_array_elements_equal_to_zero.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Array/2798_number_of_employees_who_met_the_target.py" beforeDir="false" afterPath="$PROJECT_DIR$/Array/2798_number_of_employees_who_met_the_target.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
