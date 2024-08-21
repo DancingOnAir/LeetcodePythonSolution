@@ -1,9 +1,18 @@
 from typing import List
+from itertools import accumulate
 
 
 class Solution:
-    # 差分数组
     def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
+        diff = [0] * (len(s) + 1)
+        for start, end, d in shifts:
+            diff[start] += 2 * d - 1
+            diff[end + 1] -= 2 * d - 1
+
+        return ''.join(chr((ord(ch) - 97 + shift) % 26 + 97) for ch, shift in zip(s, accumulate(diff)))
+
+    # 差分数组
+    def shiftingLetters1(self, s: str, shifts: List[List[int]]) -> str:
         def shift(ch, step):
             return chr((ord(ch) - 97 + step) % 26 + 97)
 
