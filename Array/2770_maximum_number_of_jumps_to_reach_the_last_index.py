@@ -3,7 +3,7 @@ from functools import lru_cache
 
 
 class Solution:
-    def maximumJumps(self, nums: List[int], target: int) -> int:
+    def maximumJumps1(self, nums: List[int], target: int) -> int:
         n = len(nums)
         dp = [float('-inf')] * n
         dp[0] = 0
@@ -13,18 +13,20 @@ class Solution:
                     dp[i] = max(dp[i], dp[j] + 1)
         return -1 if dp[-1] < 0 else dp[-1]
 
-    def maximumJumps1(self, nums: List[int], target: int) -> int:
+    def maximumJumps(self, nums: List[int], target: int) -> int:
+        n = len(nums)
+
         @lru_cache(None)
         def dfs(i):
-            if i == 0:
+            if i == n - 1:
                 return 0
             res = float('-inf')
-            for j in range(i):
+            for j in range(i + 1, n):
                 if abs(nums[j] - nums[i]) <= target:
                     res = max(res, dfs(j) + 1)
             return res
 
-        ans = dfs(len(nums) - 1)
+        ans = dfs(0)
         return ans if ans >= 0 else -1
 
 
