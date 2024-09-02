@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/2905_find_indices_with_index_and_value_difference_ii.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Array/2903_find_indices_with_index_and_value_difference_i.py" beforeDir="false" afterPath="$PROJECT_DIR$/TwoPointers/SlidingWindow/2903_find_indices_with_index_and_value_difference_i.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Array/2905_find_indices_with_index_and_value_difference_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/TwoPointers/SlidingWindow/2905_find_indices_with_index_and_value_difference_ii.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +51,11 @@
       <recent name="$PROJECT_DIR$/../TDL/NLP/DeepLearningFromScratch/dataset" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Array/diff_array" />
       <recent name="$PROJECT_DIR$/TwoPointers/SlidingWindow" />
+      <recent name="$PROJECT_DIR$/TwoPointers" />
+      <recent name="$PROJECT_DIR$/SlidingWindow" />
+      <recent name="$PROJECT_DIR$/Array/diff_array" />
       <recent name="$PROJECT_DIR$/DP" />
-      <recent name="$PROJECT_DIR$/Backtracking" />
-      <recent name="$PROJECT_DIR$/MonotoneStack" />
     </key>
   </component>
   <component name="RunManager" selected="Python.2905_find_indices_with_index_and_value_difference_ii">
@@ -92,7 +92,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2903_find_indices_with_index_and_value_difference_i.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SlidingWindow/2903_find_indices_with_index_and_value_difference_i.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -113,7 +113,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2905_find_indices_with_index_and_value_difference_ii.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SlidingWindow/2905_find_indices_with_index_and_value_difference_ii.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
