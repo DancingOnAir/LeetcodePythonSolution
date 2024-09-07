@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DP/1774_closest_dessert_cost.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Array/3242_design_neighbor_sum_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/DP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.1774_closest_dessert_cost">
+  <component name="RunManager" selected="Python.3242_design_neighbor_sum_service">
     <configuration name="1774_closest_dessert_cost" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,27 +101,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2903_find_indices_with_index_and_value_difference_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SlidingWindow/2903_find_indices_with_index_and_value_difference_i.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="2905_find_indices_with_index_and_value_difference_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -135,6 +114,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SlidingWindow/2905_find_indices_with_index_and_value_difference_ii.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="3242_design_neighbor_sum_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3242_design_neighbor_sum_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2903_find_indices_with_index_and_value_difference_i" />
       <item itemvalue="Python.2905_find_indices_with_index_and_value_difference_ii" />
       <item itemvalue="Python.3256_maximum_value_sum_by_placing_three_rooks_i" />
       <item itemvalue="Python.3257_maximum_value_sum_by_placing_three_rooks_ii" />
       <item itemvalue="Python.1774_closest_dessert_cost" />
+      <item itemvalue="Python.3242_design_neighbor_sum_service" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3242_design_neighbor_sum_service" />
         <item itemvalue="Python.1774_closest_dessert_cost" />
         <item itemvalue="Python.3257_maximum_value_sum_by_placing_three_rooks_ii" />
         <item itemvalue="Python.3256_maximum_value_sum_by_placing_three_rooks_i" />
         <item itemvalue="Python.2905_find_indices_with_index_and_value_difference_ii" />
-        <item itemvalue="Python.2903_find_indices_with_index_and_value_difference_i" />
       </list>
     </recent_temporary>
   </component>
