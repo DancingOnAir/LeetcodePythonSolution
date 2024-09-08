@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DP/3259_maximum_energy_boost_from_two_drinks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Array/3267_count_almost_equal_pairs_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/Array/3267_count_almost_equal_pairs_ii.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/DP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3267_count_almost_equal_pairs_ii">
+  <component name="RunManager" selected="Python.3259_maximum_energy_boost_from_two_drinks">
     <configuration name="1774_closest_dessert_cost" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,27 +122,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3256_maximum_value_sum_by_placing_three_rooks_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DP" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/3256_maximum_value_sum_by_placing_three_rooks_i.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="3257_maximum_value_sum_by_placing_three_rooks_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -156,6 +135,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/3257_maximum_value_sum_by_placing_three_rooks_ii.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="3259_maximum_energy_boost_from_two_drinks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DP" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/3259_maximum_energy_boost_from_two_drinks.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3256_maximum_value_sum_by_placing_three_rooks_i" />
       <item itemvalue="Python.3257_maximum_value_sum_by_placing_three_rooks_ii" />
       <item itemvalue="Python.1774_closest_dessert_cost" />
       <item itemvalue="Python.3242_design_neighbor_sum_service" />
       <item itemvalue="Python.3267_count_almost_equal_pairs_ii" />
+      <item itemvalue="Python.3259_maximum_energy_boost_from_two_drinks" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3259_maximum_energy_boost_from_two_drinks" />
         <item itemvalue="Python.3267_count_almost_equal_pairs_ii" />
         <item itemvalue="Python.3242_design_neighbor_sum_service" />
         <item itemvalue="Python.1774_closest_dessert_cost" />
         <item itemvalue="Python.3257_maximum_value_sum_by_placing_three_rooks_ii" />
-        <item itemvalue="Python.3256_maximum_value_sum_by_placing_three_rooks_i" />
       </list>
     </recent_temporary>
   </component>
