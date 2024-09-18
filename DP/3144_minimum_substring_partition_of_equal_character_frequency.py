@@ -8,7 +8,7 @@ class Solution:
 
         @lru_cache(None)
         def dfs(i):
-            if i >= n:
+            if i == n:
                 return 0
 
             res = float('inf')
