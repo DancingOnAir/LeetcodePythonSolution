@@ -2,7 +2,31 @@ from collections import defaultdict
 
 
 class Solution:
+    # 状态机
+    # 大写字母的ord二进制第6位始终为0
+    # 小写字母的ord二进制第6位始终为1
+    # 同样1个字母的大小写ord二进制前5位一致
+    # 把字母的ord二进制转为1-26, e.g. ord('a') & 31 == 0
     def numberOfSpecialChars(self, word: str) -> int:
+        res = 0
+        state = [0] * 27
+        for ch in map(ord, word):
+            idx = ch & 31
+            if ch & 32:
+                if state[idx] == 0:
+                    state[idx] = 1
+                elif state[idx] == 2:
+                    state[idx] = -1
+                    res -= 1
+            else:
+                if state[idx] == 1:
+                    state[idx] = 2
+                    res += 1
+                elif state[idx] == 0:
+                    state[idx] = -1
+        return res
+
+    def numberOfSpecialChars1(self, word: str) -> int:
         if len(word) < 2:
             return 0
 
