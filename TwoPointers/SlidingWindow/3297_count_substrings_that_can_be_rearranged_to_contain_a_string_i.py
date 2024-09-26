@@ -4,6 +4,20 @@ from collections import Counter
 class Solution:
     def validSubstringCount(self, word1: str, word2: str) -> int:
         target = Counter(word2)
+        match, left, res = len(target), 0, 0
+        for right, ch in enumerate(word1):
+            target[ch] -= 1
+            match -= (target[ch] == 0)
+            while match == 0:
+                match += (target[word1[left]] == 0)
+                target[word1[left]] += 1
+                left += 1
+            res += left
+
+        return res
+
+    def validSubstringCount1(self, word1: str, word2: str) -> int:
+        target = Counter(word2)
         source = Counter()
         left = res = 0
         n = len(word1)
