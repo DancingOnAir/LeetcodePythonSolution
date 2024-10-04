@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/String/3302_find_the_lexicographically_smallest_valid_sequence.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TwoPointers/SlidingWindow/3305_count_of_substrings_containing_every_vowel_and_k_consonants_i.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/DP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3302_find_the_lexicographically_smallest_valid_sequence">
+  <component name="RunManager" selected="Python.3305_count_of_substrings_containing_every_vowel_and_k_consonants_i">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,27 +143,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3291_minimum_number_of_valid_strings_to_form_target_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Trie" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Trie/3291_minimum_number_of_valid_strings_to_form_target_i.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="3302_find_the_lexicographically_smallest_valid_sequence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,21 +164,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="3305_count_of_substrings_containing_every_vowel_and_k_consonants_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TwoPointers/SlidingWindow" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TwoPointers/SlidingWindow/3305_count_of_substrings_containing_every_vowel_and_k_consonants_i.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3291_minimum_number_of_valid_strings_to_form_target_i" />
       <item itemvalue="Python.3280_convert_date_to_binary" />
       <item itemvalue="Python.3258_count_substrings_that_satisfy_k-constraint_i" />
       <item itemvalue="Python.3261_count_substrings_that_satisfy_k-constraint_ii" />
       <item itemvalue="Python.3302_find_the_lexicographically_smallest_valid_sequence" />
+      <item itemvalue="Python.3305_count_of_substrings_containing_every_vowel_and_k_consonants_i" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3305_count_of_substrings_containing_every_vowel_and_k_consonants_i" />
         <item itemvalue="Python.3302_find_the_lexicographically_smallest_valid_sequence" />
         <item itemvalue="Python.3261_count_substrings_that_satisfy_k-constraint_ii" />
         <item itemvalue="Python.3258_count_substrings_that_satisfy_k-constraint_i" />
         <item itemvalue="Python.3280_convert_date_to_binary" />
-        <item itemvalue="Python.3291_minimum_number_of_valid_strings_to_form_target_i" />
       </list>
     </recent_temporary>
   </component>
@@ -422,11 +422,6 @@
           <url>file://$PROJECT_DIR$/HashTable/3085_minimum_deletions_to_make_string_k-special.py</url>
           <line>15</line>
           <option name="timeStamp" value="236" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/String/3302_find_the_lexicographically_smallest_valid_sequence.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="242" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
