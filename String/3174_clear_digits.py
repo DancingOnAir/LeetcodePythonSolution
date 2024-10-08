@@ -1,7 +1,29 @@
+from string import digits
+
+
 class Solution:
     def clearDigits(self, s: str) -> str:
+        stk = []
+        for c in s:
+            if c.isnumeric():
+                if stk:
+                    stk.pop()
+            else:
+                stk.append(c)
+        return ''.join(stk)
 
-        pass
+    def clearDigits1(self, s: str) -> str:
+        stk = []
+        for c in s:
+            if c.isalpha():
+                stk.append(c)
+            else:
+                if stk and stk[-1].isalpha():
+                    stk.pop()
+                else:
+                    stk.append(c)
+
+        return ''.join(stk)
 
 
 def test_clear_digits():
