@@ -1,5 +1,9 @@
 class Solution:
     def isSubstringPresent(self, s: str) -> bool:
+        x, y = set(s[i] + s[i+1] for i in range(len(s) - 1)), set(s[i] + s[i-1] for i in range(len(s) - 1, 0, -1))
+        return x & y
+
+    def isSubstringPresent1(self, s: str) -> bool:
         m = set()
         for i in range(len(s) - 1):
             if s[i] == s[i + 1]:
