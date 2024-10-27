@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Array/3300_minimum_element_after_replacement_with_digit_sum.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Array/3309_maximum_possible_number_by_binary_concatenation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Array/3309_maximum_possible_number_by_binary_concatenation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/DP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3300_minimum_element_after_replacement_with_digit_sum">
+  <component name="RunManager" selected="Python.3309_maximum_possible_number_by_binary_concatenation">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -72,27 +72,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/2138_divide_a_string_into_groups_of_size_k.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="3114_latest_time_you_can_obtain_after_replacing_characters" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/3114_latest_time_you_can_obtain_after_replacing_characters.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,7 +101,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3320_count_the_number_of_winning_sequences" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3301_maximize_the_total_height_of_unique_towers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -130,11 +109,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DP" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/3320_count_the_number_of_winning_sequences.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3301_maximize_the_total_height_of_unique_towers.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="3309_maximum_possible_number_by_binary_concatenation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3309_maximum_possible_number_by_binary_concatenation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3320_count_the_number_of_winning_sequences" />
-      <item itemvalue="Python.3114_latest_time_you_can_obtain_after_replacing_characters" />
       <item itemvalue="Python.3324_find_the_sequence_of_strings_appeared_on_the_screen" />
       <item itemvalue="Python.3325_count_substrings_with_k-frequency_characters_i" />
       <item itemvalue="Python.3300_minimum_element_after_replacement_with_digit_sum" />
+      <item itemvalue="Python.3301_maximize_the_total_height_of_unique_towers" />
+      <item itemvalue="Python.3309_maximum_possible_number_by_binary_concatenation" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3309_maximum_possible_number_by_binary_concatenation" />
+        <item itemvalue="Python.3301_maximize_the_total_height_of_unique_towers" />
         <item itemvalue="Python.3300_minimum_element_after_replacement_with_digit_sum" />
         <item itemvalue="Python.3325_count_substrings_with_k-frequency_characters_i" />
         <item itemvalue="Python.3324_find_the_sequence_of_strings_appeared_on_the_screen" />
-        <item itemvalue="Python.3114_latest_time_you_can_obtain_after_replacing_characters" />
-        <item itemvalue="Python.3320_count_the_number_of_winning_sequences" />
       </list>
     </recent_temporary>
   </component>
