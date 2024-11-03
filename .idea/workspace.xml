@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/MonotoneStack/3275_k-th_nearest_obstacle_queries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwoPointers/SlidingWindow/3013_divide_an_array_into_subarrays_with_minimum_cost_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/TwoPointers/SlidingWindow/3013_divide_an_array_into_subarrays_with_minimum_cost_ii.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Array/3285_find_indices_of_stable_mountains.py" beforeDir="false" afterPath="$PROJECT_DIR$/Array/3285_find_indices_of_stable_mountains.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
       <recent name="$PROJECT_DIR$/Array/diff_array" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3013_divide_an_array_into_subarrays_with_minimum_cost_ii">
+  <component name="RunManager" selected="Python.3275_k-th_nearest_obstacle_queries">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,7 +102,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3314_construct_the_minimum_bitwise_array_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3275_k-th_nearest_obstacle_queries" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MonotoneStack" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MonotoneStack/3275_k-th_nearest_obstacle_queries.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="3285_find_indices_of_stable_mountains" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -113,28 +135,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BitManipulation/3314_construct_the_minimum_bitwise_array_i.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="3315_construct_the_minimum_bitwise_array_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BitManipulation" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BitManipulation/3315_construct_the_minimum_bitwise_array_ii.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3285_find_indices_of_stable_mountains.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +188,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3314_construct_the_minimum_bitwise_array_i" />
-      <item itemvalue="Python.3315_construct_the_minimum_bitwise_array_ii" />
       <item itemvalue="Python.3318_find_x-sum_of_all_k-long_subarrays_i" />
       <item itemvalue="Python.3321_find_x-sum_of_all_k-long_subarrays_ii" />
       <item itemvalue="Python.3013_divide_an_array_into_subarrays_with_minimum_cost_ii" />
+      <item itemvalue="Python.3285_find_indices_of_stable_mountains" />
+      <item itemvalue="Python.3275_k-th_nearest_obstacle_queries" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3275_k-th_nearest_obstacle_queries" />
+        <item itemvalue="Python.3285_find_indices_of_stable_mountains" />
         <item itemvalue="Python.3013_divide_an_array_into_subarrays_with_minimum_cost_ii" />
         <item itemvalue="Python.3321_find_x-sum_of_all_k-long_subarrays_ii" />
         <item itemvalue="Python.3318_find_x-sum_of_all_k-long_subarrays_i" />
-        <item itemvalue="Python.3315_construct_the_minimum_bitwise_array_ii" />
-        <item itemvalue="Python.3314_construct_the_minimum_bitwise_array_i" />
       </list>
     </recent_temporary>
   </component>
@@ -427,6 +428,11 @@
           <url>file://$PROJECT_DIR$/String/3083_existence_of_a_substring_in_a_string_and_its_reverse.py</url>
           <line>3</line>
           <option name="timeStamp" value="243" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/MonotoneStack/3275_k-th_nearest_obstacle_queries.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="249" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
