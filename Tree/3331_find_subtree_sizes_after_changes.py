@@ -1,27 +1,39 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def findSubtreeSizes(self, parent: List[int], s: str) -> List[int]:
         n = len(parent)
-        new_parent = parent[:]
-        cnt = [1] * n
+        g = [[] for _ in range(n)]
 
         for i in range(1, n):
-            p = parent[i]
-            while p != -1:
-                if s[p] != s[i]:
-                    p = parent[p]
-                else:
-                    new_parent[i] = p
-                    break
+            g[parent[i]].append(i)
 
-        for i in range(1, n):
-            p = new_parent[i]
-            while p != -1:
-                cnt[p] += 1
-                p = new_parent[p]
-        return cnt
+        ancestor = defaultdict(lambda: -1)
+
+        def rebuild(x):
+            old = ancestor[s[x]]
+            ancestor[s[x]] = x
+            for i in range(len(g[x])):
+                y = g[x][i]
+                cur = ancestor[s[y]]
+                if cur != -1:
+                    g[cur].append(y)
+                    g[x][i] = -1
+                rebuild(y)
+            ancestor[s[x]] = old
+        rebuild(0)
+
+        res = [1] * n
+
+        def dfs(x):
+            for y in g[x]:
+                if y != -1:
+                    dfs(y)
+                    res[x] += res[y]
+        dfs(0)
+        return res
 
 
 def test_find_subtree_sizes():
