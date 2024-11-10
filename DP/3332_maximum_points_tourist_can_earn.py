@@ -4,6 +4,14 @@ from functools import lru_cache
 
 class Solution:
     def maxScore(self, n: int, k: int, stayScore: List[List[int]], travelScore: List[List[int]]) -> int:
+        dp = [[0] * n for _ in range(k + 1)]
+        for i in range(k - 1, -1, -1):
+            for j, x in enumerate(stayScore[i]):
+                dp[i][j] = max(dp[i + 1][j] + x, max(d + s for d, s in zip(dp[i + 1], travelScore[j])))
+        return max(dp[0])
+
+    # dfs
+    def maxScore1(self, n: int, k: int, stayScore: List[List[int]], travelScore: List[List[int]]) -> int:
         @lru_cache(None)
         def dfs(i, cur):
             if i == k:
