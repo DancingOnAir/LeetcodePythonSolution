@@ -11,7 +11,7 @@ class Solution:
         hp = [(0, 0, 0)]
         while True:
             d, i, j = heappop(hp)
-            if i == n - 1 and j == m - 1:
+            if i == m - 1 and j == n - 1:
                 return d
             if d > dist[i][j]:
                 continue
