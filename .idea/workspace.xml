@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Math/3326_minimum_division_operations_to_make_array_non_decreasing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DP/Knapsack/3282_reach_end_of_array_with_max_score.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/TwoPointers/SlidingWindow" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3326_minimum_division_operations_to_make_array_non_decreasing">
+  <component name="RunManager" selected="Python.3282_reach_end_of_array_with_max_score">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -93,6 +93,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/2855_minimum_right_shifts_to_sort_the_array.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="3282_reach_end_of_array_with_max_score" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DP/Knapsack" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DP/Knapsack/3282_reach_end_of_array_with_max_score.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -164,42 +185,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3340_check_balanced_string" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/3340_check_balanced_string.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3340_check_balanced_string" />
       <item itemvalue="Python.3330_find_the_original_typed_string_i" />
       <item itemvalue="Python.3333_find_the_original_typed_string_ii" />
       <item itemvalue="Python.2855_minimum_right_shifts_to_sort_the_array" />
       <item itemvalue="Python.3326_minimum_division_operations_to_make_array_non_decreasing" />
+      <item itemvalue="Python.3282_reach_end_of_array_with_max_score" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3282_reach_end_of_array_with_max_score" />
         <item itemvalue="Python.3326_minimum_division_operations_to_make_array_non_decreasing" />
         <item itemvalue="Python.2855_minimum_right_shifts_to_sort_the_array" />
         <item itemvalue="Python.3333_find_the_original_typed_string_ii" />
         <item itemvalue="Python.3330_find_the_original_typed_string_i" />
-        <item itemvalue="Python.3340_check_balanced_string" />
       </list>
     </recent_temporary>
   </component>
@@ -434,9 +434,9 @@
           <option name="timeStamp" value="249" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Math/3326_minimum_division_operations_to_make_array_non_decreasing.py</url>
-          <line>17</line>
-          <option name="timeStamp" value="254" />
+          <url>file://$PROJECT_DIR$/DP/Knapsack/3282_reach_end_of_array_with_max_score.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="255" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
