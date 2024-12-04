@@ -1,10 +1,19 @@
+from math import ceil, sqrt
+
+
 class Solution:
+    # math
     def canAliceWin(self, n: int) -> bool:
-        cnt = 10
-        while cnt <= n:
-            n -= cnt
-            cnt -= 1
-        return (cnt - 1) % 2 == 0
+        x = (21 - ceil(sqrt(441 - n * 8))) // 2
+        return x % 2 > 0
+
+    # simulation
+    def canAliceWin1(self, n: int) -> bool:
+        pick = 10
+        while pick <= n:
+            n -= pick
+            pick -= 1
+        return (pick - 1) % 2 == 0
 
 
 def test_can_alice_win():
