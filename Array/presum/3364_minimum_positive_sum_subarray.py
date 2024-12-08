@@ -4,6 +4,16 @@ from typing import List
 
 class Solution:
     def minimumSumSubarray(self, nums: List[int], l: int, r: int) -> int:
+        ps = list(accumulate(nums, initial=0))
+        res = float('inf')
+        for k in range(l, r+1):
+            for i in range(k, len(nums)+1):
+                cur = ps[i] - ps[i - k]
+                if 0 < cur < res:
+                    res = cur
+        return res if res < float('inf') else -1
+
+    def minimumSumSubarray1(self, nums: List[int], l: int, r: int) -> int:
         res = float('inf')
         n = len(nums)
         ps = list(accumulate(nums, initial=0))
