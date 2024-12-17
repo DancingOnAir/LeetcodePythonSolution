@@ -5,6 +5,15 @@ from itertools import combinations
 
 class Solution:
     def unequalTriplets(self, nums: List[int]) -> int:
+        res, a, c = 0, 0, len(nums)
+        cnt = Counter(nums)
+        for b in cnt.values():
+            c -= b
+            res += a * b * c
+            a += b
+        return res
+
+    def unequalTriplets1(self, nums: List[int]) -> int:
         res = 0
         cnt = Counter(nums)
         if len(cnt) < 3:
