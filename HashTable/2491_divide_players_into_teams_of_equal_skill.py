@@ -9,6 +9,21 @@ class Solution:
         if r != 0:
             return -1
 
+        res = 0
+        cnt = Counter(skill)
+        for k, v in cnt.items():
+            if (q - k) in cnt and v == cnt[q - k]:
+                res += k * (q - k) * v
+            else:
+                return -1
+        return res // 2
+
+    def dividePlayers1(self, skill: List[int]) -> int:
+        total, n = sum(skill), len(skill)
+        q, r = divmod(total, n // 2)
+        if r != 0:
+            return -1
+
         skill.sort()
         left, right = 0, n - 1
         res = 0
