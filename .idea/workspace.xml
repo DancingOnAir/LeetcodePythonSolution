@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/HashTable/2780_minimum_index_of_a_valid_split.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HashTable/2718_sum_of_matrix_after_queries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/2780_minimum_index_of_a_valid_split.py" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/2780_minimum_index_of_a_valid_split.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
       <recent name="$PROJECT_DIR$/SegmentTree" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.2780_minimum_index_of_a_valid_split">
+  <component name="RunManager" selected="Python.2718_sum_of_matrix_after_queries">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -72,6 +73,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/2138_divide_a_string_into_groups_of_size_k.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="2718_sum_of_matrix_after_queries" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HashTable" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HashTable/2718_sum_of_matrix_after_queries.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -114,27 +136,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TwoPointers/SlidingWindow/2831_find_the_longest_equal_subarray.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="2841_maximum_sum_of_almost_unique_subarray" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TwoPointers/SlidingWindow" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TwoPointers/SlidingWindow/2841_maximum_sum_of_almost_unique_subarray.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +188,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2841_maximum_sum_of_almost_unique_subarray" />
       <item itemvalue="Python.2845_count_of_interesting_subarrays" />
       <item itemvalue="Python.2857_count_pairs_of_points_with_distance_k" />
       <item itemvalue="Python.2831_find_the_longest_equal_subarray" />
       <item itemvalue="Python.2780_minimum_index_of_a_valid_split" />
+      <item itemvalue="Python.2718_sum_of_matrix_after_queries" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.2718_sum_of_matrix_after_queries" />
         <item itemvalue="Python.2780_minimum_index_of_a_valid_split" />
         <item itemvalue="Python.2831_find_the_longest_equal_subarray" />
         <item itemvalue="Python.2857_count_pairs_of_points_with_distance_k" />
         <item itemvalue="Python.2845_count_of_interesting_subarrays" />
-        <item itemvalue="Python.2841_maximum_sum_of_almost_unique_subarray" />
       </list>
     </recent_temporary>
   </component>

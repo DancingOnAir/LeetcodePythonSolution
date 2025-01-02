@@ -20,8 +20,8 @@ class Solution:
 
 def test_minimum_index():
     solution = Solution()
-    # assert solution.minimumIndex([1, 2, 2, 2]) == 2, 'wrong result'
-    # assert solution.minimumIndex([2, 1, 3, 1, 1, 1, 7, 1, 2, 1]) == 4, 'wrong result'
+    assert solution.minimumIndex([1, 2, 2, 2]) == 2, 'wrong result'
+    assert solution.minimumIndex([2, 1, 3, 1, 1, 1, 7, 1, 2, 1]) == 4, 'wrong result'
     assert solution.minimumIndex([3, 3, 3, 3, 7, 2, 2]) == -1, 'wrong result'
 
 
