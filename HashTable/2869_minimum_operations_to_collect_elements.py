@@ -4,6 +4,15 @@ from collections import Counter
 
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
+        seen = set()
+        i = len(nums) - 1
+        while len(seen) < k:
+            if nums[i] <= k:
+                seen.add(nums[i])
+            i -= 1
+        return len(nums) - i - 1
+
+    def minOperations1(self, nums: List[int], k: int) -> int:
         res = cnt = 0
         seen = set()
         for x in nums[::-1]:
