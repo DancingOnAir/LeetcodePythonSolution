@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Graph/3387_maximize_amount_after_two_days_of_conversions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3433_count_mentions_per_user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/SegmentTree" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3387_maximize_amount_after_two_days_of_conversions">
+  <component name="RunManager" selected="Python.3433_count_mentions_per_user">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,27 +143,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3423_maximum_difference_between_adjacent_elements_in_a_circular_array" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3423_maximum_difference_between_adjacent_elements_in_a_circular_array.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="3428_maximum_and_minimum_sums_of_at_most_size_k_subsequences" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,21 +164,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="3433_count_mentions_per_user" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Math" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/3433_count_mentions_per_user.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3423_maximum_difference_between_adjacent_elements_in_a_circular_array" />
       <item itemvalue="Python.3428_maximum_and_minimum_sums_of_at_most_size_k_subsequences" />
       <item itemvalue="Python.3409_longest_subsequence_with_decreasing_adjacent_difference" />
       <item itemvalue="Python.3381_maximum_subarray_sum_with_length_divisible_by_k" />
       <item itemvalue="Python.3387_maximize_amount_after_two_days_of_conversions" />
+      <item itemvalue="Python.3433_count_mentions_per_user" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3433_count_mentions_per_user" />
         <item itemvalue="Python.3387_maximize_amount_after_two_days_of_conversions" />
         <item itemvalue="Python.3381_maximum_subarray_sum_with_length_divisible_by_k" />
         <item itemvalue="Python.3409_longest_subsequence_with_decreasing_adjacent_difference" />
         <item itemvalue="Python.3428_maximum_and_minimum_sums_of_at_most_size_k_subsequences" />
-        <item itemvalue="Python.3423_maximum_difference_between_adjacent_elements_in_a_circular_array" />
       </list>
     </recent_temporary>
   </component>
