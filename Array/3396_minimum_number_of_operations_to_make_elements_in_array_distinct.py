@@ -4,6 +4,15 @@ from math import ceil
 
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
+        seen = set()
+        for i in range(len(nums) - 1, -1, -1):
+            x = nums[i]
+            if x in seen:
+                return i // 3 + 1
+            seen.add(x)
+        return 0
+
+    def minimumOperations1(self, nums: List[int]) -> int:
         m = set()
         for i, x in enumerate(nums[::-1]):
             if x in m:
