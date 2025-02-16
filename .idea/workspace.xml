@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Math/2249_count_lattice_points_inside_a_circle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HashTable/2260_minimum_consecutive_cards_to_pick_up.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +58,7 @@
       <recent name="$PROJECT_DIR$/SegmentTree" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.2249_count_lattice_points_inside_a_circle">
+  <component name="RunManager" selected="Python.2260_minimum_consecutive_cards_to_pick_up">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,7 +101,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3396_minimum_number_of_operations_to_make_elements_in_array_distinct" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="2260_minimum_consecutive_cards_to_pick_up" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -109,11 +109,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TwoPointers/SlidingWindow" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3396_minimum_number_of_operations_to_make_elements_in_array_distinct.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HashTable/2260_minimum_consecutive_cards_to_pick_up.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3396_minimum_number_of_operations_to_make_elements_in_array_distinct" />
       <item itemvalue="Python.3446_sort_matrix_by_diagonals" />
       <item itemvalue="Python.3402_minimum_operations_to_make_columns_strictly_increasing" />
       <item itemvalue="Python.3447_assign_elements_to_groups_with_constraints" />
       <item itemvalue="Python.2249_count_lattice_points_inside_a_circle" />
+      <item itemvalue="Python.2260_minimum_consecutive_cards_to_pick_up" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.2260_minimum_consecutive_cards_to_pick_up" />
         <item itemvalue="Python.2249_count_lattice_points_inside_a_circle" />
         <item itemvalue="Python.3447_assign_elements_to_groups_with_constraints" />
         <item itemvalue="Python.3402_minimum_operations_to_make_columns_strictly_increasing" />
         <item itemvalue="Python.3446_sort_matrix_by_diagonals" />
-        <item itemvalue="Python.3396_minimum_number_of_operations_to_make_elements_in_array_distinct" />
       </list>
     </recent_temporary>
   </component>
@@ -447,6 +447,11 @@
           <url>file://$PROJECT_DIR$/String/3407_substring_matching_pattern.py</url>
           <line>3</line>
           <option name="timeStamp" value="266" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/HashTable/2260_minimum_consecutive_cards_to_pick_up.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="269" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
