@@ -4,6 +4,15 @@ from heapq import heappop, heappush
 
 class Solution:
     def maxSum(self, grid: List[List[int]], limits: List[int], k: int) -> int:
+        if not k:
+            return 0
+        res = []
+        for i in range(len(grid)):
+            grid[i].sort(reverse=True)
+            res.extend(grid[i][:limits[i]])
+        return sum(sorted(res)[-k:])
+
+    def maxSum1(self, grid: List[List[int]], limits: List[int], k: int) -> int:
         hp = []
         for i, r in enumerate(grid):
             r.sort(reverse=True)
