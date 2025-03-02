@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Math/3461_check_if_digits_are_equal_in_string_after_operations_i.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/3463_check_if_digits_are_equal_in_string_after_operations_ii.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/String/3456_find_special_substring_of_length_k.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +59,7 @@
       <recent name="$PROJECT_DIR$/Graph" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3461_check_if_digits_are_equal_in_string_after_operations_i">
+  <component name="RunManager" selected="Python.3463_check_if_digits_are_equal_in_string_after_operations_ii">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,7 +102,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3452_sum_of_good_numbers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3456_find_special_substring_of_length_k" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -109,11 +110,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/String" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3452_sum_of_good_numbers.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/String/3456_find_special_substring_of_length_k.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -164,7 +165,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3462_maximum_sum_with_at_most_k_elements" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3463_check_if_digits_are_equal_in_string_after_operations_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -172,11 +173,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Array" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Math" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Array/3462_maximum_sum_with_at_most_k_elements.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/3463_check_if_digits_are_equal_in_string_after_operations_ii.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +188,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.3452_sum_of_good_numbers" />
-      <item itemvalue="Python.3462_maximum_sum_with_at_most_k_elements" />
       <item itemvalue="Python.3457_eat_pizzas" />
       <item itemvalue="Python.3411_maximum_subarray_with_equal_products" />
       <item itemvalue="Python.3461_check_if_digits_are_equal_in_string_after_operations_i" />
+      <item itemvalue="Python.3456_find_special_substring_of_length_k" />
+      <item itemvalue="Python.3463_check_if_digits_are_equal_in_string_after_operations_ii" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3463_check_if_digits_are_equal_in_string_after_operations_ii" />
+        <item itemvalue="Python.3456_find_special_substring_of_length_k" />
         <item itemvalue="Python.3461_check_if_digits_are_equal_in_string_after_operations_i" />
         <item itemvalue="Python.3411_maximum_subarray_with_equal_products" />
         <item itemvalue="Python.3457_eat_pizzas" />
-        <item itemvalue="Python.3462_maximum_sum_with_at_most_k_elements" />
-        <item itemvalue="Python.3452_sum_of_good_numbers" />
       </list>
     </recent_temporary>
   </component>
@@ -452,11 +453,6 @@
           <url>file://$PROJECT_DIR$/HashTable/2260_minimum_consecutive_cards_to_pick_up.py</url>
           <line>10</line>
           <option name="timeStamp" value="269" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Math/3461_check_if_digits_are_equal_in_string_after_operations_i.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="271" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
