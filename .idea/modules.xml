@@ -7,8 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/../TDL/.idea/TDL.iml" filepath="$PROJECT_DIR$/../TDL/.idea/TDL.iml" />
       <module fileurl="file://$PROJECT_DIR$/../dialogflowmigration/.idea/dialogflowmigration.iml" filepath="$PROJECT_DIR$/../dialogflowmigration/.idea/dialogflowmigration.iml" />
       <module fileurl="file://$PROJECT_DIR$/../houndifysdkvariants/.idea/houndifysdkvariants.iml" filepath="$PROJECT_DIR$/../houndifysdkvariants/.idea/houndifysdkvariants.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../GitlabWorkspace/jira-utils/.idea/jira-utils.iml" filepath="$PROJECT_DIR$/../../GitlabWorkspace/jira-utils/.idea/jira-utils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../PyWorkspace/llm/.idea/llm.iml" filepath="$PROJECT_DIR$/../../PyWorkspace/llm/.idea/llm.iml" />
     </modules>
   </component>
 </project>
