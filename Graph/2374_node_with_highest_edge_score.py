@@ -6,7 +6,8 @@ class Solution:
         g = [0] * len(edges)
         for i, x in enumerate(edges):
             g[x] += i
-        return sorted((-x, i) for i, x in enumerate(g))[0][1]
+        # return sorted((-x, i) for i, x in enumerate(g))[0][1]
+        return g.index((max(g)))
 
 
 def test_edge_score():
