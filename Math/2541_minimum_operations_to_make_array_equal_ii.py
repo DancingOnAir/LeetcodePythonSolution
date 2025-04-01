@@ -3,18 +3,18 @@ from typing import List
 
 class Solution:
     def minOperations(self, nums1: List[int], nums2: List[int], k: int) -> int:
-        if k == 0:
-            return 0 if nums1 == nums2 else -1
-
-        n = len(nums1)
         res = tot = 0
-        for i in range(n):
-            diff = nums1[i] - nums2[i]
-            if diff % k != 0:
+        for x, y in zip(nums1, nums2):
+            x -= y
+            if k:
+                if x % k:
+                    return -1
+                if x > 0:
+                    res += x // k
+                tot += x
+            elif x:
                 return -1
-            if diff > 0:
-                res += diff // k
-            tot += diff
+
         return -1 if tot else res
 
 
