@@ -2,7 +2,7 @@ class Solution:
     # concise
     def smallestNumber(self, num: int) -> int:
         s = sorted(str(abs(num)))
-        if num < 0:
+        if num <= 0:
             return -int(''.join(s[::-1]))
         i = next(i for i, c in enumerate(s) if c != '0')
         s[0], s[i] = s[i], s[0]

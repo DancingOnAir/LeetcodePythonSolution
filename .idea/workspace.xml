@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Math/2165_smallest_value_of_the_rearranged_number.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/2217_find_palindrome_with_fixed_length.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/2165_smallest_value_of_the_rearranged_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/Math/2165_smallest_value_of_the_rearranged_number.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,28 +59,7 @@
       <recent name="$PROJECT_DIR$/Array/presum" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.2165_smallest_value_of_the_rearranged_number">
-    <configuration name="1884_egg_drop_with_2_eggs_and_n_floors" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Math" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/1884_egg_drop_with_2_eggs_and_n_floors.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.2217_find_palindrome_with_fixed_length">
     <configuration name="1954_minimum_garden_perimeter_to_collect_enough_apples" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,21 +165,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="2217_find_palindrome_with_fixed_length" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Math" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/2217_find_palindrome_with_fixed_length.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.1884_egg_drop_with_2_eggs_and_n_floors" />
       <item itemvalue="Python.1954_minimum_garden_perimeter_to_collect_enough_apples" />
       <item itemvalue="Python.2110_number_of_smooth_descent_periods_of_a_stock" />
       <item itemvalue="Python.2139_minimum_moves_to_reach_target_score" />
       <item itemvalue="Python.2165_smallest_value_of_the_rearranged_number" />
+      <item itemvalue="Python.2217_find_palindrome_with_fixed_length" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.2217_find_palindrome_with_fixed_length" />
         <item itemvalue="Python.2165_smallest_value_of_the_rearranged_number" />
         <item itemvalue="Python.2139_minimum_moves_to_reach_target_score" />
         <item itemvalue="Python.2110_number_of_smooth_descent_periods_of_a_stock" />
         <item itemvalue="Python.1954_minimum_garden_perimeter_to_collect_enough_apples" />
-        <item itemvalue="Python.1884_egg_drop_with_2_eggs_and_n_floors" />
       </list>
     </recent_temporary>
   </component>
