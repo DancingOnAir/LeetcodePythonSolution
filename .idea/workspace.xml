@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Math/2240_number_of_ways_to_buy_pens_and_pencils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/2396_strictly_palindromic_number.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -457,11 +457,6 @@
           <url>file://$PROJECT_DIR$/Math/1860_incremental_memory_leak.py</url>
           <line>14</line>
           <option name="timeStamp" value="275" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Math/2240_number_of_ways_to_buy_pens_and_pencils.py</url>
-          <line>4</line>
-          <option name="timeStamp" value="276" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
