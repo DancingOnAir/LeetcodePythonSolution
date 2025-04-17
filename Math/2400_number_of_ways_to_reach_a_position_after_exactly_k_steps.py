@@ -1,8 +1,14 @@
 from functools import lru_cache
+from math import comb
 
 
 class Solution:
     def numberOfWays(self, startPos: int, endPos: int, k: int) -> int:
+        if endPos - startPos > k or (k - endPos + startPos) % 2:
+            return 0
+        return comb(k, (endPos - startPos + k) // 2) % (10 ** 9 + 7)
+
+    def numberOfWays1(self, startPos: int, endPos: int, k: int) -> int:
         mod = 10 ** 9 + 7
 
         # 表示当前在x，还剩left步时，走到终点的方案数
