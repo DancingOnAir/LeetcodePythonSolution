@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Math/2457_minimum_addition_to_make_integer_beautiful.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/2195_append_k_integers_with_minimal_sum.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/2310_sum_of_numbers_with_units_digit_k.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +59,7 @@
       <recent name="$PROJECT_DIR$/Array/presum" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.2457_minimum_addition_to_make_integer_beautiful">
+  <component name="RunManager" selected="Python.2195_append_k_integers_with_minimal_sum">
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,7 +81,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="2165_smallest_value_of_the_rearranged_number" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="2195_append_k_integers_with_minimal_sum" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -92,28 +93,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/2165_smallest_value_of_the_rearranged_number.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="2217_find_palindrome_with_fixed_length" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Math" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/2217_find_palindrome_with_fixed_length.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/2195_append_k_integers_with_minimal_sum.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -135,6 +115,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/2240_number_of_ways_to_buy_pens_and_pencils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="2310_sum_of_numbers_with_units_digit_k" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Math" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/2310_sum_of_numbers_with_units_digit_k.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +188,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.2165_smallest_value_of_the_rearranged_number" />
-      <item itemvalue="Python.2217_find_palindrome_with_fixed_length" />
       <item itemvalue="Python.2240_number_of_ways_to_buy_pens_and_pencils" />
       <item itemvalue="Python.2400_number_of_ways_to_reach_a_position_after_exactly_k_steps" />
       <item itemvalue="Python.2457_minimum_addition_to_make_integer_beautiful" />
+      <item itemvalue="Python.2310_sum_of_numbers_with_units_digit_k" />
+      <item itemvalue="Python.2195_append_k_integers_with_minimal_sum" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.2195_append_k_integers_with_minimal_sum" />
+        <item itemvalue="Python.2310_sum_of_numbers_with_units_digit_k" />
         <item itemvalue="Python.2457_minimum_addition_to_make_integer_beautiful" />
         <item itemvalue="Python.2400_number_of_ways_to_reach_a_position_after_exactly_k_steps" />
         <item itemvalue="Python.2240_number_of_ways_to_buy_pens_and_pencils" />
-        <item itemvalue="Python.2217_find_palindrome_with_fixed_length" />
-        <item itemvalue="Python.2165_smallest_value_of_the_rearranged_number" />
       </list>
     </recent_temporary>
   </component>
@@ -457,6 +458,11 @@
           <url>file://$PROJECT_DIR$/Math/1860_incremental_memory_leak.py</url>
           <line>14</line>
           <option name="timeStamp" value="275" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Math/2195_append_k_integers_with_minimal_sum.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="277" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
