@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Math/2195_append_k_integers_with_minimal_sum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Math/2310_sum_of_numbers_with_units_digit_k.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Math/2195_append_k_integers_with_minimal_sum.py" beforeDir="false" afterPath="$PROJECT_DIR$/Math/2195_append_k_integers_with_minimal_sum.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -458,11 +457,6 @@
           <url>file://$PROJECT_DIR$/Math/1860_incremental_memory_leak.py</url>
           <line>14</line>
           <option name="timeStamp" value="275" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Math/2195_append_k_integers_with_minimal_sum.py</url>
-          <line>10</line>
-          <option name="timeStamp" value="277" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -2,7 +2,22 @@ from typing import List
 
 
 class Solution:
+    # binary search
     def minimalKSum(self, nums: List[int], k: int) -> int:
+        nums = sorted(set(nums))
+        left = 0
+        right = len(nums)
+        while left < right:
+            mid = (left + right) // 2
+            if nums[mid] - mid - 1 < k:
+                left = mid + 1
+            else:
+                right = mid
+        s = left + k
+        return s * (s + 1) // 2 - sum(nums[:left])
+
+    # math
+    def minimalKSum1(self, nums: List[int], k: int) -> int:
         nums.sort()
         res = 0
         pre = 0
