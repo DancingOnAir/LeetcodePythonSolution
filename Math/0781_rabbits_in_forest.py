@@ -1,10 +1,13 @@
 from typing import List
 from collections import Counter
-from math import ceil
 
 
 class Solution:
     def numRabbits(self, answers: List[int]) -> int:
+        cnt = Counter(answers)
+        return sum(((v + k) // (k + 1) * (k + 1)) for k, v in cnt.items())
+
+    def numRabbits1(self, answers: List[int]) -> int:
         cnt = Counter(answers)
         res = 0
         for k, v in cnt.items():
