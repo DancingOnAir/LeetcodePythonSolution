@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Math/1017_convert_to_base_-2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/0504_base_7.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +58,8 @@
       <recent name="$PROJECT_DIR$/Array/presum" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.1017_convert_to_base_-2">
-    <configuration name="0970_powerful_integers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.0504_base_7">
+    <configuration name="0504_base_7" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -71,7 +71,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/0970_powerful_integers.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/0504_base_7.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.0970_powerful_integers" />
       <item itemvalue="Python.0973_k_closest_points_to_origin" />
       <item itemvalue="Python.0991_broken_calculator" />
       <item itemvalue="Python.1006_clumsy_factorial" />
       <item itemvalue="Python.1017_convert_to_base_-2" />
+      <item itemvalue="Python.0504_base_7" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.0504_base_7" />
         <item itemvalue="Python.1017_convert_to_base_-2" />
         <item itemvalue="Python.1006_clumsy_factorial" />
         <item itemvalue="Python.0991_broken_calculator" />
         <item itemvalue="Python.0973_k_closest_points_to_origin" />
-        <item itemvalue="Python.0970_powerful_integers" />
       </list>
     </recent_temporary>
   </component>
@@ -464,9 +464,9 @@
           <option name="timeStamp" value="284" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Math/1017_convert_to_base_-2.py</url>
-          <line>13</line>
-          <option name="timeStamp" value="288" />
+          <url>file://$PROJECT_DIR$/Math/0504_base_7.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="285" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
