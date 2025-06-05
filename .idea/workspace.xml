@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Math/1780_check_if_number_is_a_sum_of_powers_of_three.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Math/1806_minimum_number_of_operations_to_reinitialize_a_permutation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,28 +58,7 @@
       <recent name="$PROJECT_DIR$/Array/presum" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.1780_check_if_number_is_a_sum_of_powers_of_three">
-    <configuration name="1577_number_of_ways_where_square_of_number_is_equal_to_product_of_two_numbers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GitWorkspace" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Math" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/1577_number_of_ways_where_square_of_number_is_equal_to_product_of_two_numbers.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.1806_minimum_number_of_operations_to_reinitialize_a_permutation">
     <configuration name="1641_count_sorted_vowel_strings" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GitWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -164,6 +143,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="1806_minimum_number_of_operations_to_reinitialize_a_permutation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GitWorkspace" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Math" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Math/1806_minimum_number_of_operations_to_reinitialize_a_permutation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="2138_divide_a_string_into_groups_of_size_k" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyWorkspace" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -187,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
-      <item itemvalue="Python.1577_number_of_ways_where_square_of_number_is_equal_to_product_of_two_numbers" />
       <item itemvalue="Python.1641_count_sorted_vowel_strings" />
       <item itemvalue="Python.1685_sum_of_absolute_differences_in_a_sorted_array" />
       <item itemvalue="Python.1753_maximum_score_from_removing_stones" />
       <item itemvalue="Python.1780_check_if_number_is_a_sum_of_powers_of_three" />
+      <item itemvalue="Python.1806_minimum_number_of_operations_to_reinitialize_a_permutation" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.1806_minimum_number_of_operations_to_reinitialize_a_permutation" />
         <item itemvalue="Python.1780_check_if_number_is_a_sum_of_powers_of_three" />
         <item itemvalue="Python.1753_maximum_score_from_removing_stones" />
         <item itemvalue="Python.1685_sum_of_absolute_differences_in_a_sorted_array" />
         <item itemvalue="Python.1641_count_sorted_vowel_strings" />
-        <item itemvalue="Python.1577_number_of_ways_where_square_of_number_is_equal_to_product_of_two_numbers" />
       </list>
     </recent_temporary>
   </component>
