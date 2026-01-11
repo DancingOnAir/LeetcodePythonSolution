@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="219db708-c1dd-4fe1-b371-ab34e339ba41" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Array/3576_transform_array_to_all_equal_elements.py" beforeDir="false" afterPath="$PROJECT_DIR$/Array/3576_transform_array_to_all_equal_elements.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +26,18 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Array/3583_count_special_triplets.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnionFind/0886_possible_bipartition.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Array/3577_count_the_number_of_computer_unlocking_permutations.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Array/3576_transform_array_to_all_equal_elements.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Math/3044_most_frequent_prime.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Math/3524_find_x_value_of_array_i.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Array/3578_count_partitions_with_max-min_difference_at_most_k.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnionFind/0130_surrounded_regions.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/opt/anaconda3/envs/py39/lib/python3.9/collections/__init__.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/UnionFind/1254_number_of_closed_islands.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -188,10 +199,10 @@
     <list>
       <item itemvalue="Python.2138_divide_a_string_into_groups_of_size_k" />
       <item itemvalue="Python.3524_find_x_value_of_array_i" />
+      <item itemvalue="Python.3576_transform_array_to_all_equal_elements" />
+      <item itemvalue="Python.3577_count_the_number_of_computer_unlocking_permutations" />
       <item itemvalue="Python.3578_count_partitions_with_max-min_difference_at_most_k" />
       <item itemvalue="Python.3583_count_special_triplets" />
-      <item itemvalue="Python.3577_count_the_number_of_computer_unlocking_permutations" />
-      <item itemvalue="Python.3576_transform_array_to_all_equal_elements" />
     </list>
     <recent_temporary>
       <list>
