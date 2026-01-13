@@ -3,7 +3,20 @@ from typing import List
 
 class Solution:
     def maxBalancedSubarray(self, nums: List[int]) -> int:
-        return 0
+        n = len(nums)
+        acc = 0
+        balance = 0
+        m = {(0, 0): -1}
+        res = 0
+        for i, x in enumerate(nums):
+            acc ^= x
+            balance += 1 if x & 1 else -1
+            k = (acc, balance)
+            if k in m:
+                res = max(res, i - m[k])
+            else:
+                m[k] = i
+        return res
 
 
 def test_max_balanced_subarray():
