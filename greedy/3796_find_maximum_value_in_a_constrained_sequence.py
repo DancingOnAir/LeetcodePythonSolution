@@ -11,7 +11,8 @@ class Solution:
         res = [0] * n
         for i, d in enumerate(diff):
             res[i + 1] = min(res[i] + d, max_val[i + 1])
-        for i in range(n - 2, -1, -1):
+        # res[0] = 0 no need to update
+        for i in range(n - 2, 0, -1):
             res[i] = min(res[i], res[i + 1] + diff[i])
 
         return max(res)
