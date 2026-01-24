@@ -1,9 +1,21 @@
 from typing import List
 from collections import defaultdict, Counter
+from functools import cache
 
 
 class Solution:
     def countPairs(self, words: List[str]) -> int:
+        @cache
+        def norm(word: str):
+            c1 = ord(word[0])
+            if c1 == 0x61:
+                return word.encode('ascii')
+            return bytes((c - c1 + 26) % 26 + 0x61 for c in word.encode('ascii'))
+
+        cnt = Counter(norm(w) for w in words)
+        return sum(v * (v - 1) for v in cnt.values()) >> 1
+
+    def countPairs1(self, words: List[str]) -> int:
         m = defaultdict(int)
         for w in words:
             diff = ""
