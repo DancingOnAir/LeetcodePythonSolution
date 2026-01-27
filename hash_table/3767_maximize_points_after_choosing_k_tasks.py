@@ -3,6 +3,23 @@ from typing import List
 
 class Solution:
     def maxPoints(self, technique1: List[int], technique2: List[int], k: int) -> int:
+        res = 0
+        cnt = 0
+        diffs = []
+        for a, b in zip(technique1, technique2):
+            if a >= b:
+                res += a
+                cnt += 1
+            else:
+                res += b
+                diffs.append(b - a)
+
+        if cnt < k:
+            diffs.sort()
+            res -= sum(diffs[:k - cnt])
+        return res
+
+    def maxPoints1(self, technique1: List[int], technique2: List[int], k: int) -> int:
         n = len(technique1)
         diffs = []
         for i in range(n):
