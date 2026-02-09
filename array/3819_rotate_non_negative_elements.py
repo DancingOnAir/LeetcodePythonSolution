@@ -3,6 +3,24 @@ from typing import List
 
 class Solution:
     def rotateElements(self, nums: List[int], k: int) -> List[int]:
+        positive_ids = []
+        positive_nums = []
+        for i, x in enumerate(nums):
+            if x < 0:
+                continue
+            positive_ids.append(i)
+            positive_nums.append(x)
+
+        n = len(positive_nums)
+        if n < 2 or k % n == 0:
+            return nums
+        k %= n
+        rotate_nums = positive_nums[k:] + positive_nums[:k]
+        for i, x in zip(positive_ids, rotate_nums):
+            nums[i] = x
+        return nums
+
+    def rotateElements1(self, nums: List[int], k: int) -> List[int]:
         n = len(nums)
         res = [float('inf')] * n
         non_neg = []
