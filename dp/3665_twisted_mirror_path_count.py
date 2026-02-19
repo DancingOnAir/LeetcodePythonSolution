@@ -3,8 +3,26 @@ from functools import cache
 
 
 class Solution:
-    # dfs
     def uniquePaths(self, grid: List[List[int]]) -> int:
+        MOD = 1_000_000_007
+        m, n = len(grid), len(grid[0])
+        # dp[0][j] == dp[i][0] == 0，等价于 dfs(-1, j) == dfs(i, -1) == 0
+        dp = [[[0, 0] for _ in range(n + 1)] for _ in range(m + 1)]
+        # dp[1][1] == 1, 等价于 dfs(0, 0) == 1
+        dp[0][1] = [1, 1]
+        for i, r in enumerate(grid):
+            for j, x in enumerate(r):
+                if x == 0:
+                    dp[i + 1][j + 1][0] = (dp[i + 1][j][0] + dp[i][j + 1][1]) % MOD
+                    dp[i + 1][j + 1][1] = dp[i + 1][j + 1][0]
+                else:
+                    dp[i + 1][j + 1][0] = dp[i][j + 1][1]
+                    dp[i + 1][j + 1][1] = dp[i + 1][j][0]
+
+        return dp[m][n][0]
+
+    # dfs
+    def uniquePaths1(self, grid: List[List[int]]) -> int:
         m = len(grid)
         n = len(grid[0])
         MOD = 1_000_000_007
