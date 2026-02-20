@@ -1,0 +1,27 @@
+from typing import List
+
+
+class Solution:
+    def minRemoval(self, nums: List[int], k: int) -> int:
+        if len(nums) < 2:
+            return 0
+
+        nums.sort()
+        l = res = 0
+        for r, x in enumerate(nums):
+            while nums[r] > nums[l] * k:
+                l += 1
+            res = max(res, r - l + 1)
+        return len(nums) - res
+
+
+def test_min_removal():
+    solution = Solution()
+    assert solution.minRemoval([20,5,11], k=2) == 1, 'wrong result'
+    assert solution.minRemoval([2, 1, 5], k=2) == 1, 'wrong result'
+    assert solution.minRemoval([1, 6, 2, 9], k=3) == 2, 'wrong result'
+    assert solution.minRemoval([4, 6], k=2) == 0, 'wrong result'
+
+
+if __name__ == '__main__':
+    test_min_removal()
