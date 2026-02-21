@@ -7,11 +7,11 @@ class Solution:
             return 0
 
         nums.sort()
-        l = res = 0
-        for r, x in enumerate(nums):
-            while nums[r] > nums[l] * k:
-                l += 1
-            res = max(res, r - l + 1)
+        left = res = 0
+        for right, x in enumerate(nums):
+            while nums[right] > nums[left] * k:
+                left += 1
+            res = max(res, right - left + 1)
         return len(nums) - res
 
 
