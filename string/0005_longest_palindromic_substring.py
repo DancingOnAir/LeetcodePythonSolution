@@ -1,5 +1,19 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
+        n = len(s)
+
+        res_left = res_right = 0
+        for i in range(2 * n - 1):
+            # 同时进行字符串奇偶长度的验证
+            l, r = i // 2, (i + 1) // 2
+            while l >= 0 and r < n and s[l] == s[r]:
+                l -= 1
+                r += 1
+            if r - l - 1 > res_right - res_left:
+                res_left, res_right = l + 1, r
+        return s[res_left: res_right]
+
+    def longestPalindrome1(self, s: str) -> str:
         def helper(l, r):
             while l >= 0 and r < len(s) and s[l] == s[r]:
                 l -= 1
