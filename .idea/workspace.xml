@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36ab6cbd-b0ff-4123-9bf8-28a59ada5a37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/greedy/3628_maximum_number_of_subsequences_after_one_inserting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/greedy/3720_lexicographically_smallest_permutation_greater_than_target.py" beforeDir="false" afterPath="$PROJECT_DIR$/greedy/3720_lexicographically_smallest_permutation_greater_than_target.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hash_table/3853_merge_close_characters.py" beforeDir="false" afterPath="$PROJECT_DIR$/hash_table/3853_merge_close_characters.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
