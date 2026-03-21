@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="36ab6cbd-b0ff-4123-9bf8-28a59ada5a37" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dp/0115_distinct_subsequences.py" beforeDir="false" afterPath="$PROJECT_DIR$/dp/0115_distinct_subsequences.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/greedy/3628_maximum_number_of_subsequences_after_one_inserting.py" beforeDir="false" afterPath="$PROJECT_DIR$/greedy/3628_maximum_number_of_subsequences_after_one_inserting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
