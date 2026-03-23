@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36ab6cbd-b0ff-4123-9bf8-28a59ada5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/String/3863_minimum_operations_to_sort_a_string.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hash_table/3664_two_letter_card_game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/two_pointers/3823_reverse_letters_then_special_characters_in_a_string.py" beforeDir="false" afterPath="$PROJECT_DIR$/two_pointers/3823_reverse_letters_then_special_characters_in_a_string.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +36,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.3863_minimum_operations_to_sort_a_string">
-    <configuration name="0115_distinct_subsequences" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.3664_two_letter_card_game">
+    <configuration name="3499_maximize_active_section_with_trade_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -44,11 +45,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dp" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/string" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dp/0115_distinct_subsequences.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/string/3499_maximize_active_section_with_trade_i.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -78,7 +79,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3720_lexicographically_smallest_permutation_greater_than_target" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3664_two_letter_card_game" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -86,11 +87,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/greedy" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hash_table" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/greedy/3720_lexicographically_smallest_permutation_greater_than_target.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hash_table/3664_two_letter_card_game.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,7 +100,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3838_weighted_word_mapping" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3823_reverse_letters_then_special_characters_in_a_string" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -107,11 +108,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/string" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/two_pointers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/string/3838_weighted_word_mapping.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/two_pointers/3823_reverse_letters_then_special_characters_in_a_string.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3664_two_letter_card_game" />
+        <item itemvalue="Python.3823_reverse_letters_then_special_characters_in_a_string" />
+        <item itemvalue="Python.3499_maximize_active_section_with_trade_i" />
         <item itemvalue="Python.3863_minimum_operations_to_sort_a_string" />
         <item itemvalue="Python.3628_maximum_number_of_subsequences_after_one_inserting" />
-        <item itemvalue="Python.0115_distinct_subsequences" />
-        <item itemvalue="Python.3720_lexicographically_smallest_permutation_greater_than_target" />
-        <item itemvalue="Python.3838_weighted_word_mapping" />
       </list>
     </recent_temporary>
   </component>
