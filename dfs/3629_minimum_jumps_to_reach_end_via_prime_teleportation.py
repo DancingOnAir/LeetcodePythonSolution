@@ -2,6 +2,15 @@ from typing import List
 from collections import defaultdict
 
 
+MX = 1_000_001
+prime_factors = [[] for _ in range(MX)]
+for i in range(2, MX):
+    # i是质数
+    if not prime_factors[i]:
+        for j in range(i, MX, i):
+            prime_factors[j].append(i)
+
+
 class Solution:
     def isPrime(self, x):
         if x < 2:
@@ -16,6 +25,33 @@ class Solution:
         return True
 
     def minJumps(self, nums: List[int]) -> int:
+        m = defaultdict(list)
+        for i, x in enumerate(nums):
+            for p in prime_factors[x]:
+                m[p].append(i)
+        n = len(nums)
+        res = 0
+        seen = [False] * n
+        seen[0] = True
+        q = [0]
+        while True:
+            tmp = q
+            q = []
+            for i in tmp:
+                if i == n - 1:
+                    return res
+                idx = m[nums[i]]
+                idx.append(i + 1)
+                if i > 0:
+                    idx.append(i - 1)
+                for j in idx:
+                    if not seen[j]:
+                        seen[j] = True
+                        q.append(j)
+                idx.clear()
+            res += 1
+
+    def minJumps1(self, nums: List[int]) -> int:
         m = defaultdict(list)
         for i, x in enumerate(nums):
             if self.isPrime(x):
