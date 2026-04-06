@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36ab6cbd-b0ff-4123-9bf8-28a59ada5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hash_table/1726_tuple_with_same_product.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dp/LIS/0334_increasing_triplet_subsequence.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geometry/3588_find_maximum_area_of_a_triangle.py" beforeDir="false" afterPath="$PROJECT_DIR$/geometry/3588_find_maximum_area_of_a_triangle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hash_table/3852_smallest_pair_with_different_frequencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/hash_table/3852_smallest_pair_with_different_frequencies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hash_table/0454_4sum_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/hash_table/0454_4sum_ii.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/two_pointers/1995_count_special_quadruplets.py" beforeDir="false" afterPath="$PROJECT_DIR$/two_pointers/1995_count_special_quadruplets.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +37,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.3588_find_maximum_area_of_a_triangle">
-    <configuration name="3588_find_maximum_area_of_a_triangle" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dp/LIS" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.0300_longest_increasing_subsequence">
+    <configuration name="0300_longest_increasing_subsequence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -46,11 +51,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/geometry" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dp/LIS" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/geometry/3588_find_maximum_area_of_a_triangle.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dp/LIS/0300_longest_increasing_subsequence.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -59,7 +64,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3629_minimum_jumps_to_reach_end_via_prime_teleportation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="0334_increasing_triplet_subsequence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -67,11 +72,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dfs" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/greedy" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dfs/3629_minimum_jumps_to_reach_end_via_prime_teleportation.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dp/LIS/0334_increasing_triplet_subsequence.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -80,7 +85,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3852_smallest_pair_with_different_frequencies" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="0454_4sum_ii" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -92,7 +97,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hash_table/3852_smallest_pair_with_different_frequencies.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hash_table/0454_4sum_ii.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -101,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3866_first_unique_even_element" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="0923_3sum_with_multiplicity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -109,11 +114,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hash_table" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/two_pointers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hash_table/3866_first_unique_even_element.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/two_pointers/0923_3sum_with_multiplicity.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,7 +127,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3868_minimum_cost_to_equalize_arrays_using_swaps" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="1995_count_special_quadruplets" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -130,11 +135,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hash_table" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/two_pointers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hash_table/3868_minimum_cost_to_equalize_arrays_using_swaps.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/two_pointers/1995_count_special_quadruplets.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -145,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.3588_find_maximum_area_of_a_triangle" />
-        <item itemvalue="Python.3629_minimum_jumps_to_reach_end_via_prime_teleportation" />
-        <item itemvalue="Python.3866_first_unique_even_element" />
-        <item itemvalue="Python.3868_minimum_cost_to_equalize_arrays_using_swaps" />
-        <item itemvalue="Python.3852_smallest_pair_with_different_frequencies" />
+        <item itemvalue="Python.0300_longest_increasing_subsequence" />
+        <item itemvalue="Python.0334_increasing_triplet_subsequence" />
+        <item itemvalue="Python.0454_4sum_ii" />
+        <item itemvalue="Python.1995_count_special_quadruplets" />
+        <item itemvalue="Python.0923_3sum_with_multiplicity" />
       </list>
     </recent_temporary>
   </component>
