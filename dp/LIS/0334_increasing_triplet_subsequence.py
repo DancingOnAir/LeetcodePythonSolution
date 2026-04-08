@@ -2,6 +2,7 @@ from bisect import bisect_left
 
 
 class Solution:
+    # similar question of 0300
     def increasingTriplet(self, nums: list[int]) -> bool:
         g = []
         for x in nums:
