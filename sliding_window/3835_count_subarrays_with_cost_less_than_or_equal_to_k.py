@@ -2,6 +2,7 @@ from collections import deque
 
 
 class Solution:
+    # sliding window
     def countSubarrays(self, nums: list[int], k: int) -> int:
         left, res = 0, (len(nums) + 1) * len(nums) // 2
         min_q = deque()
@@ -28,11 +29,10 @@ class Solution:
 
 def test_count_subarrays():
     solution = Solution()
-    assert solution.countSubarrays([1,3,2], k = 4) == 5, 'wrong result'
-    assert solution.countSubarrays([5,5,5,5], k = 0) == 10, 'wrong result'
-    assert solution.countSubarrays([1,2,3], k = 0) == 3, 'wrong result'
+    assert solution.countSubarrays([1, 3, 2], k=4) == 5, 'wrong result'
+    assert solution.countSubarrays([5, 5, 5, 5], k=0) == 10, 'wrong result'
+    assert solution.countSubarrays([1, 2, 3], k=0) == 3, 'wrong result'
 
 
 if __name__ == '__main__':
     test_count_subarrays()
-
