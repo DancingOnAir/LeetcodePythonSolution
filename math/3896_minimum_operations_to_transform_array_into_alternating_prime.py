@@ -1,6 +1,22 @@
+from math import isqrt
+
+
+MX = 100004
+primes = [0, 0] + [1] * (MX - 1)
+for i in range(2, isqrt(MX) + 1):
+    if primes[i]:
+        for j in range(i * i, MX, i):
+            primes[j] = 0
+
+
 class Solution:
     def minOperations(self, nums: list[int]) -> int:
-        return 0
+        res = 0
+        for i, x in enumerate(nums):
+            while primes[x] == i % 2:
+                res += 1
+                x += 1
+        return res
 
 
 def test_min_operations():
