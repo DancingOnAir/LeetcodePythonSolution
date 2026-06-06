@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36ab6cbd-b0ff-4123-9bf8-28a59ada5a37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/math/3945_digit_frequency_score.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/math/3751_total_waviness_of_numbers_in_range_i.py" beforeDir="false" afterPath="$PROJECT_DIR$/math/3751_total_waviness_of_numbers_in_range_i.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,7 @@
       <recent name="$PROJECT_DIR$/dp/LIS" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3751_total_waviness_of_numbers_in_range_i">
+  <component name="RunManager" selected="Python.3945_digit_frequency_score">
     <configuration name="2126_destroying_asteroids" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -139,7 +139,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3942_minimum_operations_to_sort_a_permutation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="3945_digit_frequency_score" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -147,11 +147,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/array/circular_array" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/math" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/array/circular_array/3942_minimum_operations_to_sort_a_permutation.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/math/3945_digit_frequency_score.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -162,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3945_digit_frequency_score" />
         <item itemvalue="Python.3751_total_waviness_of_numbers_in_range_i" />
         <item itemvalue="Python.3896_minimum_operations_to_transform_array_into_alternating_prime" />
         <item itemvalue="Python.2144_minimum_cost_of_buying_candies_with_discount" />
         <item itemvalue="Python.2126_destroying_asteroids" />
-        <item itemvalue="Python.3942_minimum_operations_to_sort_a_permutation" />
       </list>
     </recent_temporary>
   </component>
