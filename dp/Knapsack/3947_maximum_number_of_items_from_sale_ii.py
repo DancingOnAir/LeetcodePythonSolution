@@ -21,7 +21,7 @@ class Solution:
                     cnt_multi[factor] += cnt_factor[i]
             cnt = cnt_multi[factor] - 1
             if cnt > 0:
-                sum_cnt[price] = cnt
+                sum_cnt[price] += cnt
 
         res = 0
         for price in sorted(sum_cnt):
