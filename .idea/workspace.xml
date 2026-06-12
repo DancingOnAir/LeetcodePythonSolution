@@ -2,8 +2,123 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36ab6cbd-b0ff-4123-9bf8-28a59ada5a37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/tree/3558_number_of_ways_to_assign_edge_weights_i.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/greedy/3951_minimum_energy_to_maintain_brightness.py" beforeDir="false" afterPath="$PROJECT_DIR$/greedy/3951_minimum_energy_to_maintain_brightness.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0427_construct_quad_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0427_construct_quad_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0429_nary_tree_level_order_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0429_nary_tree_level_order_traversal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0543_diameter_of_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0543_diameter_of_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0558_logical_or_of_two_binary_grids_represented_as_quad-trees.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0558_logical_or_of_two_binary_grids_represented_as_quad-trees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0559_maximum_depth_of_n-ary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0559_maximum_depth_of_n-ary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0589_n-ary_tree_preorder_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0589_n-ary_tree_preorder_traversal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0590_n-ary_tree_postorder_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0590_n-ary_tree_postorder_traversal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0623_add_one_row_to_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0623_add_one_row_to_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0637_average_of_levels_in_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0637_average_of_levels_in_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0652_find_duplicate_subtrees.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0652_find_duplicate_subtrees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0653_two_sum_iv_Input_is_a_bst.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0653_two_sum_iv_Input_is_a_bst.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0654_maximum_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0654_maximum_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0655_print_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0655_print_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0662_maximum_width_of_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0662_maximum_width_of_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0669_trim_a_binary_search_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0669_trim_a_binary_search_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0671_second_minimum_node_in_bainary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0671_second_minimum_node_in_bainary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0687_longest_univalue_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0687_longest_univalue_path.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0700_search_in_a_binary_search_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0700_search_in_a_binary_search_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0701_insert_into_a_binary_search_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0701_insert_into_a_binary_search_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0703_kth_largest_element_in_a_stream.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0703_kth_largest_element_in_a_stream.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0783_minimum_distance_between_bst_nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0783_minimum_distance_between_bst_nodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0814_binary_tree_pruning.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0814_binary_tree_pruning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0834_sum_of_distances_in_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0834_sum_of_distances_in_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0863_all_nodes_distance_k_in_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0863_all_nodes_distance_k_in_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0865_smallest_subtree_with_all_the_deepest_nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0865_smallest_subtree_with_all_the_deepest_nodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0872_leaf-similar_trees.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0872_leaf-similar_trees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0889_construct_binary_tree_from_preorder_and_postorder_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0889_construct_binary_tree_from_preorder_and_postorder_traversal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0894_all_possible_full_binary_trees.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0894_all_possible_full_binary_trees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0897_increasing_order_search_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0897_increasing_order_search_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0919_complete_binary_tree_inserter.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0919_complete_binary_tree_inserter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0938_range_sum_of_bst.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0938_range_sum_of_bst.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0951_flip_equivalent_binary_trees.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0951_flip_equivalent_binary_trees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0958_check_completeness_of_a_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0958_check_completeness_of_a_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0965_univalued_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0965_univalued_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0968_binary_tree_cameras.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0968_binary_tree_cameras.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0971_flip_binary_tree_to_match_preorder_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0971_flip_binary_tree_to_match_preorder_traversal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0979_distribute_coins_in_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0979_distribute_coins_in_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0987_vertical_order_traversal_of_a_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0987_vertical_order_traversal_of_a_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0988_smallest_string_starting_from_leaf.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0988_smallest_string_starting_from_leaf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0993_cousins_in_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0993_cousins_in_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/0998_maximum_binary_tree_II.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/0998_maximum_binary_tree_II.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1008_construct_binary_search_tree_from_preorder_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1008_construct_binary_search_tree_from_preorder_traversal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1022_sum_of_root_to_leaf_binary_numbers.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1022_sum_of_root_to_leaf_binary_numbers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1026_maximum_difference_between_node_and_ancestor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1026_maximum_difference_between_node_and_ancestor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1028_recover_a_tree_from_preorder_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1028_recover_a_tree_from_preorder_traversal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1038_binary_search_tree_to_greater_sum_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1038_binary_search_tree_to_greater_sum_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1080_insufficient_nodes_in_root_to_leaf_paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1080_insufficient_nodes_in_root_to_leaf_paths.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1104_path_in_zigzag_labelled_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1104_path_in_zigzag_labelled_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1110_delete_nodes_and_return_forest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1110_delete_nodes_and_return_forest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1123_lowest_common_ancestor_of_deepest_leaves.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1123_lowest_common_ancestor_of_deepest_leaves.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1145_binary_tree_coloring_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1145_binary_tree_coloring_game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1161_maximum_level_sum_of_a_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1161_maximum_level_sum_of_a_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1261_find_elements_in_a_contaminated_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1261_find_elements_in_a_contaminated_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1302_deepest_leaves_sum.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1302_deepest_leaves_sum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1305_all_elements_in_two_binary_search_trees.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1305_all_elements_in_two_binary_search_trees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1315_sum_of_nodes_with_even-valued_grandparent.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1315_sum_of_nodes_with_even-valued_grandparent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1325_delete_leaves_with_a_given_value.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1325_delete_leaves_with_a_given_value.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1339_maximum_product_of_splitted_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1339_maximum_product_of_splitted_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1367_linked_list_in_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1367_linked_list_in_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1372_longest_zigzag_path_in_a_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1372_longest_zigzag_path_in_a_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1373_maximum_sum_bst_in_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1373_maximum_sum_bst_in_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1376_time_needed_to_inform_all_employees.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1376_time_needed_to_inform_all_employees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1377_frog_position_after_t_seconds.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1377_frog_position_after_t_seconds.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1379_find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1379_find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1382_balance_a_binary_search_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1382_balance_a_binary_search_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1443_minimum_time_to_collect_all_apples_in_a_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1443_minimum_time_to_collect_all_apples_in_a_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1448_count_good_nodes_in_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1448_count_good_nodes_in_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1457_pseudo-palindromic_paths_in_a_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1457_pseudo-palindromic_paths_in_a_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1483_kth_ancestor_of_a_tree_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1483_kth_ancestor_of_a_tree_node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1519_number_of_nodes_in_the_sub-tree_with_the_same_label.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1519_number_of_nodes_in_the_sub-tree_with_the_same_label.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1530_number_of_good_leaf_nodes_pairs.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1530_number_of_good_leaf_nodes_pairs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1600_throne_inheritance.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1600_throne_inheritance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1609_even_odd_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1609_even_odd_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1719_number_of_ways_to_reconstruct_a_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1719_number_of_ways_to_reconstruct_a_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1766_tree_of_coprimes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1766_tree_of_coprimes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1916_count_ways_to_build_rooms_in_an_ant_colony.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1916_count_ways_to_build_rooms_in_an_ant_colony.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/1932_merge_bsts_to_create_single_bst.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/1932_merge_bsts_to_create_single_bst.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/2003_smallest_missing_genetic_value_in_each_subtree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/2003_smallest_missing_genetic_value_in_each_subtree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/2049_count_nodes_with_the_highest_score.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/2049_count_nodes_with_the_highest_score.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/2196_create_binary_tree_from_descriptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/2196_create_binary_tree_from_descriptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/2236_root_equals_sum_of_children.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/2236_root_equals_sum_of_children.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/2246_longest_path_with_different_adjacent_characters.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/2246_longest_path_with_different_adjacent_characters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/2265_count_nodes_equal_to_average_of_subtree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/2265_count_nodes_equal_to_average_of_subtree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/2322_minimum_score_after_removals_on_a_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/2322_minimum_score_after_removals_on_a_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/2331_evaluate_boolean_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/2331_evaluate_boolean_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/2641_cousins_in_binary_tree_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/2641_cousins_in_binary_tree_ii.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/3331_find_subtree_sizes_after_changes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/3331_find_subtree_sizes_after_changes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/BST/0098_validate_binary_search_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/BST/0098_validate_binary_search_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/BST/0230_kth_smallest_element_in_a_BST.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/BST/0230_kth_smallest_element_in_a_BST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/BST/0501_find_mode_in_binary_search_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/BST/0501_find_mode_in_binary_search_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/BST/0530_minimum_absolute_difference_in_bst.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/BST/0530_minimum_absolute_difference_in_bst.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/BST/0700_search_in_a_binary_search_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/BST/0700_search_in_a_binary_search_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/BST/1373_maximum_sum_bst_in_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/BST/1373_maximum_sum_bst_in_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Depth/0104_maximum_depth_of_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Depth/0104_maximum_depth_of_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Depth/0111_minimum_depth_of_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Depth/0111_minimum_depth_of_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Depth/0112_path_sum.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Depth/0112_path_sum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Depth/0113_path_sum_ii.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Depth/0113_path_sum_ii.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Depth/0129_sum_root_to_leaf_numbers.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Depth/0129_sum_root_to_leaf_numbers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Depth/0257_binary_tree_paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Depth/0257_binary_tree_paths.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/LCA/0235_lowest_common_ancestor_of_a_binary_search_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/LCA/0235_lowest_common_ancestor_of_a_binary_search_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/LCA/0236_lowest_common_ancestor_of_a_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/LCA/0236_lowest_common_ancestor_of_a_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/LevelOrder/0102_binary_tree_level_order_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/LevelOrder/0102_binary_tree_level_order_traversal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/LevelOrder/0103_binary_tree_zigzag_level_order_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/LevelOrder/0103_binary_tree_zigzag_level_order_traversal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/LevelOrder/0199_binary_tree_right_side_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/LevelOrder/0199_binary_tree_right_side_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/LevelOrder/0513_find_bottom_left_tree_value.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/LevelOrder/0513_find_bottom_left_tree_value.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Similarity/0100_same_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Similarity/0100_same_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Similarity/0101_symmetric_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Similarity/0101_symmetric_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Similarity/0110_balanced_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Similarity/0110_balanced_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Similarity/0199_binary_tree_right_side_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Similarity/0199_binary_tree_right_side_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Similarity/0226_invert_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Similarity/0226_invert_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Similarity/1026_maximum_difference_between_node_and_ancestor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Similarity/1026_maximum_difference_between_node_and_ancestor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Similarity/1080_insufficient_nodes_in_root_to_leaf_paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Similarity/1080_insufficient_nodes_in_root_to_leaf_paths.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Similarity/1110_delete_nodes_and_return_forest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Similarity/1110_delete_nodes_and_return_forest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Similarity/1372_longest_zigZag_path_in_a_binary_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/Similarity/1372_longest_zigZag_path_in_a_binary_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/binary_tree_traverse_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/tree/binary_tree_traverse_template.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +169,8 @@
       <recent name="$PROJECT_DIR$/dp/LIS" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3954_sum_of_compatible_numbers_in_range_i">
-    <configuration name="3946_maximum_number_of_items_from_sale_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.3558_number_of_ways_to_assign_edge_weights_i">
+    <configuration name="3558_number_of_ways_to_assign_edge_weights_i" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetcodePythonSolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -63,11 +178,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dp/Knapsack" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tree" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dp/Knapsack/3946_maximum_number_of_items_from_sale_i.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tree/3558_number_of_ways_to_assign_edge_weights_i.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -162,11 +277,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3558_number_of_ways_to_assign_edge_weights_i" />
         <item itemvalue="Python.3954_sum_of_compatible_numbers_in_range_i" />
         <item itemvalue="Python.3951_minimum_energy_to_maintain_brightness" />
         <item itemvalue="Python.3950_exactly_one_consecutive_set_bits_pair" />
         <item itemvalue="Python.3947_maximum_number_of_items_from_sale_ii" />
-        <item itemvalue="Python.3946_maximum_number_of_items_from_sale_i" />
       </list>
     </recent_temporary>
   </component>
