@@ -1,12 +1,18 @@
+from bisect import bisect_right
+
+
 class Solution:
     def countIntersectingIntervals(self, intervals: list[list[int]]) -> int:
         n = len(intervals)
-        res = 0
-        for i in range(n - 1):
-            for j in range(i + 1, n):
-                if max(intervals[i][0], intervals[j][0]) <= min(intervals[i][1], intervals[j][1]):
-                    res += 1
-        return res
+        if n < 2:
+            return 0
+        intervals.sort(key=lambda x: x[0])
+        starts = [x[0] for x in intervals]
+        non_intersecting = 0
+        for _, end in intervals:
+            i = bisect_right(starts, end)
+            non_intersecting += n - i
+        return n * (n - 1) // 2 - non_intersecting
 
 
 def test_count_intersecting_intervals():
