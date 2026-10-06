@@ -2,6 +2,26 @@ from typing import List
 
 
 class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        res = []
+        path = [""] * (2 * n)
+
+        def dfs(left: int, right: int) -> None:
+            if right == n:
+                res.append(''.join(path))
+                return
+
+            if left < n:
+                path[left + right] = '('
+                dfs(left + 1, right)
+
+            if left > right:
+                path[left + right] = ')'
+                dfs(left, right + 1)
+
+        dfs(0, 0)
+        return res
+
     # mode1 choose or node choose
     def generateParenthesis1(self, n: int) -> List[str]:
         res = list()
@@ -26,7 +46,7 @@ class Solution:
         return res
 
     # mode 2
-    def generateParenthesis(self, n: int) -> List[str]:
+    def generateParenthesis2(self, n: int) -> List[str]:
         res = []
         path = []
 
