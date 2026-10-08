@@ -1,21 +1,24 @@
 class Solution:
     # https://leetcode.com/problems/valid-parenthesis-string/solutions/107570/java-c-python-one-pass-count-the-open-parenthesis/
     def checkValidString(self, s: str) -> bool:
-        cmin, cmax = 0, 0
+        # 未匹配的左括号的个数最小值和最大值
+        mn = mx = 0
         for ch in s:
             if ch == '(':
-                cmin += 1
-                cmax += 1
+                mn += 1
+                mx += 1
             elif ch == ')':
-                cmin = max(cmin - 1, 0)
-                cmax -= 1
+                mn -= 1
+                mx -= 1
+                if mx < 0:
+                    return False
             else:
-                cmin = max(cmin - 1, 0)
-                cmax += 1
-
-            if cmax < 0:
-                return False
-        return cmin == 0
+                # ‘*’改为右括号
+                mn -= 1
+                # ‘*’改为左括号
+                mx += 1
+            mn = max(mn, 0)
+        return mn == 0
 
     # TLE
     def checkValidString1(self, s: str) -> bool:
