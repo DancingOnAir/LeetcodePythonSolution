@@ -3,7 +3,7 @@ from itertools import accumulate
 
 
 class Solution:
-    # oddCount + oddCount * (arr.length - oddCount)
+    # oddCount * (arr.length - oddCount + 1)
     def numOfSubarrays(self, arr: List[int]) -> int:
         odd = total = 0
         for a in arr:
