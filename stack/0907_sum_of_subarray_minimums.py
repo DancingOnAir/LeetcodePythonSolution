@@ -8,7 +8,7 @@ class Solution:
                 i = stk.pop()
                 res += arr[i] * (i - stk[-1]) * (r - i)
             stk.append(r)
-        return res
+        return res % (10 ** 9 + 7)
 
 
 def test_sum_subarray_mins():
